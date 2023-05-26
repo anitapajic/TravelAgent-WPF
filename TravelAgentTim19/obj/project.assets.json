@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anita\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
+      "projectUniqueName": "C:\\Users\\anita\\Desktop\\HCI-TravelAgent\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
       "projectName": "TravelAgentTim19",
-      "projectPath": "C:\\Users\\anita\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
+      "projectPath": "C:\\Users\\anita\\Desktop\\HCI-TravelAgent\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
       "packagesPath": "C:\\Users\\anita\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anita\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\obj\\",
+      "outputPath": "C:\\Users\\anita\\Desktop\\HCI-TravelAgent\\TravelAgentTim19\\TravelAgentTim19\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\anita\\AppData\\Roaming\\NuGet\\NuGet.Config",
