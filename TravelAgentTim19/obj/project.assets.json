@@ -5,10 +5,14 @@
       "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Newtonsoft.Json.dll": {}
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/net6.0/Newtonsoft.Json.dll": {}
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
         }
       }
     }
@@ -51,19 +55,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\anita\\.nuget\\packages\\": {}
+    "C:\\Users\\tamar\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\anita\\Desktop\\HCI-TravelAgent\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
+      "projectUniqueName": "C:\\Users\\tamar\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
       "projectName": "TravelAgentTim19",
-      "projectPath": "C:\\Users\\anita\\Desktop\\HCI-TravelAgent\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
-      "packagesPath": "C:\\Users\\anita\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\anita\\Desktop\\HCI-TravelAgent\\TravelAgentTim19\\TravelAgentTim19\\obj\\",
+      "projectPath": "C:\\Users\\tamar\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
+      "packagesPath": "C:\\Users\\tamar\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tamar\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\anita\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tamar\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

@@ -10,6 +10,23 @@ public class User
     public string FirstName{ get; set; }
     public string LastName{ get; set; }
     public Role Role{ get; set; }
-    
+
+    public User()
+    {
+        
+    }
+    public User(int id, string email, string password, string firstName, string lastName, Role role)
+    {
+        Id = id;
+        Email = email;
+        Password = password;
+        FirstName = firstName;
+        LastName = lastName;
+        Role = role;
+    }
+    public override string ToString()
+    {
+        return Id + "\t" + FirstName + "\t" + LastName + "\t" + Email + "\t" + Role;
+    }
     
 }

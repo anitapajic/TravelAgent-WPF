@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
+using TravelAgentTim19.Service;
 
 namespace TravelAgentTim19.View
 {
@@ -23,9 +24,11 @@ namespace TravelAgentTim19.View
     public partial class MainWindow : Window
     {
         public MainRepository MainRepository;
+        public UserService UserService;
         public MainWindow()
         {
             MainRepository = new MainRepository();
+            UserService = new UserService(MainRepository);
             InitializeComponent();
         }
         private void Border_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -56,6 +59,7 @@ namespace TravelAgentTim19.View
 
         private void SignInFormButton_Click(object sender, RoutedEventArgs e)
         {
+            
             if (!string.IsNullOrEmpty(TxtEmail.Text) && !string.IsNullOrEmpty(PasswordBox.Password))
             {
                 bool found = false;
@@ -80,10 +84,9 @@ namespace TravelAgentTim19.View
         
         private void SignUpFormButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(SignUpEmailBox.Text) && !string.IsNullOrEmpty(SignUpPasswordBox.Password))
-            {
-                MessageBox.Show("Successfully Signed Up");
-            }
+            bool registered = UserService.Register(SignUpFNameBox.Text, SignUpLNameBox.Text, SignUpEmailBox.Text,
+                SignUpPasswordBox.Password, SignUpPassword2Box.Password);
+            MessageBox.Show(registered ? "Successfully Signed Up" : "Unsuccessfully Signed Up");
         }
 
         private void emailBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
