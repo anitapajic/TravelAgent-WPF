@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TravelAgentTim19.Model;
+using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
 using TravelAgentTim19.Service;
 
@@ -68,6 +69,11 @@ namespace TravelAgentTim19.View
                     if (TxtEmail.Text.Equals(user.Email) && PasswordBox.Password.Equals(user.Password))
                     {
                         MessageBox.Show("Successfully Signed In");
+                        if (user.Role == Role.Agent)
+                        {
+                            AgentMainWindow agentMainWindow = new AgentMainWindow();
+                            agentMainWindow.Show();
+                        }
                         found = true;
                     }
                 }
@@ -86,6 +92,14 @@ namespace TravelAgentTim19.View
         {
             bool registered = UserService.Register(SignUpFNameBox.Text, SignUpLNameBox.Text, SignUpEmailBox.Text,
                 SignUpPasswordBox.Password, SignUpPassword2Box.Password);
+            if (registered)
+            {
+                SignUpFNameBox.Text = null;
+                SignUpLNameBox.Text = null;
+                SignUpEmailBox.Text = null;
+                SignUpPasswordBox.Password = null;
+                SignUpPassword2Box.Password = null;
+            }
             MessageBox.Show(registered ? "Successfully Signed Up" : "Unsuccessfully Signed Up");
         }
 
