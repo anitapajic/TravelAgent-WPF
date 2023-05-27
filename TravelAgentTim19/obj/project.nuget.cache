@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "QX34+x7Hb89cDmKTnSCynYbZd2BvgLppB4m1hDju2k5SqmS/2tJBiP8a/PrDi02F2R/H9hEp2M2EU5U/BG6VqQ==",
+  "dgSpecHash": "+v3td2Yh/fAGMP1AaRLcBoz5+oyriR1RrpGpE09hXiMd90/k5MrbbHjuae8AfH8EzNQUBFngvPuYDcgxER3C6Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\anita\\Desktop\\HCI-TravelAgent\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\tamar\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\tamar\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
