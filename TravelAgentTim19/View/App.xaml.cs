@@ -7,5 +7,6 @@ namespace TravelAgentTim19.View
     /// </summary>
     public partial class App : Application
     {
+        
     }
 }
