@@ -36,7 +36,7 @@
                     <Button Content="Sign Up" Style="{StaticResource Button}" Click="SignUpButton_Click" />
                 </StackPanel>
 
-                <StackPanel x:Name="SignUpFormPanel" VerticalAlignment="Center" Visibility="Hidden">
+                <StackPanel x:Name="SignUpFormPanel" VerticalAlignment="Center"  Visibility="Hidden">
                     <TextBlock Text="Sign Up Form" Foreground="#3AB19B" Style="{StaticResource TitleText}" />
                     
                     <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5">
@@ -46,7 +46,30 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Image Source="Images/Email.png" Height="20" />
+                            <TextBlock x:Name="TextSignUpFName" MouseDown="textSignUpFName_MouseDown" Text="First name" Style="{StaticResource TextHint}" />
+                            <TextBox Name="SignUpFNameBox" TextChanged="signUpFNameBox_TextChanged" Style="{StaticResource TextBox}" />
+                        </Grid>
+                    </Border>
+                    
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="TextSignUpLName" MouseDown="textSignUpLName_MouseDown" Text="Last name" Style="{StaticResource TextHint}" />
+                            <TextBox Name="SignUpLNameBox" TextChanged="signUpLNameBox_TextChanged" Style="{StaticResource TextBox}" />
+                        </Grid>
+                    </Border>
+                    
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
                             <TextBlock x:Name="TextSignUpEmail" MouseDown="textSignUpEmail_MouseDown" Text="Email" Style="{StaticResource TextHint}" />
                             <TextBox Name="SignUpEmailBox" TextChanged="signUpEmailBox_TextChanged" Style="{StaticResource TextBox}" />
                         </Grid>
@@ -59,9 +82,20 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Image Source="Images/Lock.png" Height="20" />
                             <TextBlock x:Name="TextSignUpPassword" MouseDown="textSignUpPassword_MouseDown" Text="Password" Style="{StaticResource TextHint}" />
                             <PasswordBox x:Name="SignUpPasswordBox" PasswordChanged="signUpPasswordBox_PasswordChanged" Style="{StaticResource TextBox}" />
+                        </Grid>
+                    </Border>
+                    
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock x:Name="TextSignUpPassword2" MouseDown="textSignUpPassword2_MouseDown" Text="Confirm password" Style="{StaticResource TextHint}" />
+                            <PasswordBox x:Name="SignUpPassword2Box" PasswordChanged="signUpPassword2Box_PasswordChanged" Style="{StaticResource TextBox}" />
                         </Grid>
                     </Border>
 

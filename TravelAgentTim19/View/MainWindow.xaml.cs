@@ -42,21 +42,12 @@ namespace TravelAgentTim19.View
             else
                 TextPassword.Visibility = Visibility.Visible;
         }
-        private void signUpPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(SignUpPasswordBox.Password) && SignUpPasswordBox.Password.Length > 0)
-                TextSignUpPassword.Visibility = Visibility.Collapsed;
-            else
-                TextSignUpPassword.Visibility = Visibility.Visible;
-        }
+        
         private void textPassword_MouseDown(object sender, MouseButtonEventArgs e)
         {
             PasswordBox.Focus();
         }
-        private void textSignUpPassword_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            SignUpPasswordBox.Focus();
-        }
+
 
         private void SignInFormButton_Click(object sender, RoutedEventArgs e)
         {
@@ -82,22 +73,12 @@ namespace TravelAgentTim19.View
                 TextEmail.Visibility = Visibility.Visible;
         }
         
-        private void signUpEmailBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(SignUpEmailBox.Text) && SignUpEmailBox.Text.Length > 0)
-                TextSignUpEmail.Visibility = Visibility.Collapsed;
-            else
-                TextSignUpEmail.Visibility = Visibility.Visible;
-        }
 
         private void textEmail_MouseDown(object sender, MouseButtonEventArgs e)
         {
             TxtEmail.Focus();
         }
-        private void textSignUpEmail_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            SignUpEmailBox.Focus();
-        }
+
         
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
         {
@@ -155,6 +136,67 @@ namespace TravelAgentTim19.View
             MyGrid.ColumnDefinitions.Add(new ColumnDefinition() { Width = new GridLength(1.5, GridUnitType.Star) });
         }
 
+
+
+
+        private void textSignUpFName_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            SignUpFNameBox.Focus();
+        }
+
+        private void signUpFNameBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SignUpFNameBox.Text) && SignUpFNameBox.Text.Length > 0)
+                TextSignUpFName.Visibility = Visibility.Collapsed;
+            else
+                TextSignUpFName.Visibility = Visibility.Visible;         }
         
+        private void textSignUpLName_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            SignUpLNameBox.Focus();
+        }
+
+        private void signUpLNameBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SignUpLNameBox.Text) && SignUpLNameBox.Text.Length > 0)
+                TextSignUpLName.Visibility = Visibility.Collapsed;
+            else
+                TextSignUpLName.Visibility = Visibility.Visible;        
+        }
+        private void textSignUpEmail_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            SignUpEmailBox.Focus();
+        }
+        private void signUpEmailBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SignUpEmailBox.Text) && SignUpEmailBox.Text.Length > 0)
+                TextSignUpEmail.Visibility = Visibility.Collapsed;
+            else
+                TextSignUpEmail.Visibility = Visibility.Visible;
+        }
+ 
+        private void textSignUpPassword_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            SignUpPasswordBox.Focus();
+        }
+        private void signUpPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SignUpPasswordBox.Password) && SignUpPasswordBox.Password.Length > 0)
+                TextSignUpPassword.Visibility = Visibility.Collapsed;
+            else
+                TextSignUpPassword.Visibility = Visibility.Visible;
+        }
+        
+        private void textSignUpPassword2_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            SignUpPassword2Box.Focus();
+        }
+        private void signUpPassword2Box_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(SignUpPassword2Box.Password) && SignUpPassword2Box.Password.Length > 0)
+                TextSignUpPassword2.Visibility = Visibility.Collapsed;
+            else
+                TextSignUpPassword2.Visibility = Visibility.Visible;
+        }
     }
 }
