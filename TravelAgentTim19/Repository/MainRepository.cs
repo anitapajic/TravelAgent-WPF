@@ -8,4 +8,9 @@ public class MainRepository
     {
         UserRepository = new UserRepository();
     }
+
+    public void Save()
+    {
+        UserRepository.Save();
+    }
 }

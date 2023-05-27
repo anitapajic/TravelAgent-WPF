@@ -20,6 +20,12 @@ public class UserRepository
     {
         return this.Users;
     }
+
+    public void AddUser(User user)
+    {
+        this.Users.Add(user);
+    }
+    
     public User GetUserByEmail(string email)
     {
         foreach (User user in Users)
@@ -45,7 +51,7 @@ public class UserRepository
     
     public void Save()
     {
-        File.WriteAllText(@"..\Data\Users.json", 
+        File.WriteAllText(@"..\..\..\Data\Users.json", 
             JsonConvert.SerializeObject(Users));
     }
 }

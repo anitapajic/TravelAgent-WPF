@@ -36,6 +36,7 @@ namespace TravelAgentTim19.View
 
         private void Image_MouseUp(object sender, MouseButtonEventArgs e)
         {
+            MainRepository.Save();
             Application.Current.Shutdown();
         }
 
