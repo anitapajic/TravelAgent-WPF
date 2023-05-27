@@ -15,24 +15,30 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Update="View\Images\close.png">
+      <None Remove="View\Images\close.png" />
+      <Resource Include="View\Images\close.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="View\Images\Email.png">
+      </Resource>
+      <None Remove="View\Images\Email.png" />
+      <Resource Include="View\Images\Email.png">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      </None>
-      <None Update="View\Images\facebook.png">
+      </Resource>
+      <None Remove="View\Images\facebook.png" />
+      <Resource Include="View\Images\facebook.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="View\Images\google.png">
+      </Resource>
+      <None Remove="View\Images\google.png" />
+      <Resource Include="View\Images\google.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="View\Images\Lock.png">
+      </Resource>
+      <None Remove="View\Images\linkedin.png" />
+      <Resource Include="View\Images\linkedin.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
-      <None Update="View\Images\linkedin.png">
+      </Resource>
+      <None Remove="View\Images\Lock.png" />
+      <Resource Include="View\Images\Lock.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
+      </Resource>
     </ItemGroup>
 
 </Project>

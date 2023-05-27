@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace TravelAgentTim19
+namespace TravelAgentTim19.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -37,21 +37,21 @@ namespace TravelAgentTim19
 
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(passwordBox.Password) && passwordBox.Password.Length > 0)
-                textPassword.Visibility = Visibility.Collapsed;
+            if (!string.IsNullOrEmpty(PasswordBox.Password) && PasswordBox.Password.Length > 0)
+                TextPassword.Visibility = Visibility.Collapsed;
             else
-                textPassword.Visibility = Visibility.Visible;
+                TextPassword.Visibility = Visibility.Visible;
         }
         private void signUpPasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(SignUpPasswordBox.Password) && SignUpPasswordBox.Password.Length > 0)
-                textSignUpPassword.Visibility = Visibility.Collapsed;
+                TextSignUpPassword.Visibility = Visibility.Collapsed;
             else
-                textSignUpPassword.Visibility = Visibility.Visible;
+                TextSignUpPassword.Visibility = Visibility.Visible;
         }
         private void textPassword_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            passwordBox.Focus();
+            PasswordBox.Focus();
         }
         private void textSignUpPassword_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -60,7 +60,7 @@ namespace TravelAgentTim19
 
         private void SignInFormButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtEmail.Text) && !string.IsNullOrEmpty(passwordBox.Password))
+            if (!string.IsNullOrEmpty(TxtEmail.Text) && !string.IsNullOrEmpty(PasswordBox.Password))
             {
                 MessageBox.Show("Successfully Signed In");
             }
@@ -68,7 +68,7 @@ namespace TravelAgentTim19
         
         private void SignUpFormButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(signUpEmailBox.Text) && !string.IsNullOrEmpty(SignUpPasswordBox.Password))
+            if (!string.IsNullOrEmpty(SignUpEmailBox.Text) && !string.IsNullOrEmpty(SignUpPasswordBox.Password))
             {
                 MessageBox.Show("Successfully Signed Up");
             }
@@ -76,27 +76,27 @@ namespace TravelAgentTim19
 
         private void emailBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtEmail.Text) && txtEmail.Text.Length > 0)
-                textEmail.Visibility = Visibility.Collapsed;
+            if (!string.IsNullOrEmpty(TxtEmail.Text) && TxtEmail.Text.Length > 0)
+                TextEmail.Visibility = Visibility.Collapsed;
             else
-                textEmail.Visibility = Visibility.Visible;
+                TextEmail.Visibility = Visibility.Visible;
         }
         
         private void signUpEmailBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(signUpEmailBox.Text) && signUpEmailBox.Text.Length > 0)
-                textSignUpEmail.Visibility = Visibility.Collapsed;
+            if (!string.IsNullOrEmpty(SignUpEmailBox.Text) && SignUpEmailBox.Text.Length > 0)
+                TextSignUpEmail.Visibility = Visibility.Collapsed;
             else
-                textSignUpEmail.Visibility = Visibility.Visible;
+                TextSignUpEmail.Visibility = Visibility.Visible;
         }
 
         private void textEmail_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            txtEmail.Focus();
+            TxtEmail.Focus();
         }
         private void textSignUpEmail_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            signUpEmailBox.Focus();
+            SignUpEmailBox.Focus();
         }
         
         private void SignUpButton_Click(object sender, RoutedEventArgs e)
