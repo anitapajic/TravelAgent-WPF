@@ -12,7 +12,7 @@
         </Grid.ColumnDefinitions>
         
 
-        <Image Source="Images/close.png" Grid.Column="1" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource ImgClose}"/>
+        <Image Source="../Images/close.png" Grid.Column="1" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource ImgClose}"/>
 
         <Border CornerRadius="10 0 0 10" x:Name="SignUpBorder" MouseDown="Border_MouseDown">
             <Border.Background>
@@ -123,13 +123,13 @@
                     <TextBlock Text="Sign in to App" Foreground="#3AB19B" Style="{StaticResource TitleText}" />
                     <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center">
                         <Button Style="{StaticResource ButtonCircle}">
-                            <Image Source="Images/google.png" Width="20" Height="20" />
+                            <Image Source="../Images/google.png" Width="20" Height="20" />
                         </Button>
                         <Button Style="{StaticResource ButtonCircle}">
-                            <Image Source="Images/facebook.png" Width="20" Height="20" />
+                            <Image Source="../Images/facebook.png" Width="20" Height="20" />
                         </Button>
                         <Button Style="{StaticResource ButtonCircle}">
-                            <Image Source="Images/linkedin.png" Width="20" Height="20" />
+                            <Image Source="../Images/linkedin.png" Width="20" Height="20" />
                         </Button>
                     </StackPanel>
 
@@ -142,7 +142,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Image Source="Images/Email.png" Height="20" />
+                            <Image Source="../Images/Email.png" Height="20" />
                             <TextBlock x:Name="TextEmail" MouseDown="textEmail_MouseDown" Text="Email" Style="{StaticResource TextHint}" />
                             <TextBox Name="TxtEmail" TextChanged="emailBox_TextChanged" Style="{StaticResource TextBox}" />
                         </Grid>
@@ -155,7 +155,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <Image Source="Images/Lock.png" Height="20" />
+                            <Image Source="../Images/Lock.png" Height="20" />
                             <TextBlock x:Name="TextPassword" MouseDown="textPassword_MouseDown" Text="Password" Style="{StaticResource TextHint}" />
                             <PasswordBox x:Name="PasswordBox" PasswordChanged="passwordBox_PasswordChanged" Style="{StaticResource TextBox}" />
                         </Grid>
