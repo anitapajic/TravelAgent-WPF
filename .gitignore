@@ -12,3 +12,6 @@
 /dataSources/
 /dataSources.local.xml
 *.info
+*.dll
+*.dll
+*.pdb

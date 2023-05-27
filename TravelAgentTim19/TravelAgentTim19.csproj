@@ -39,9 +39,7 @@
       </Resource>
       <None Remove="Images\close.png" />
       <None Remove="Data\Users.json" />
-      <Content Include="Data\Users.json">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
+      <Content Include="Data\Users.json" />
       <None Remove="Images\Email.png" />
       <None Remove="Images\facebook.png" />
       <None Remove="Images\google.png" />

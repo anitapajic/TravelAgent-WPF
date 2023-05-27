@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using TravelAgentTim19.Model;
 using Newtonsoft.Json;
@@ -11,9 +12,9 @@ public class UserRepository
     
     public UserRepository()
     {
-        // string json = File.ReadAllText(@"..\Data\Users.json");
-        // List<User> users = JsonConvert.DeserializeObject<List<User>>(json);
-        // Users = users;
+        string json = File.ReadAllText(@"..\..\..\Data\Users.json");
+        List<User> users = JsonConvert.DeserializeObject<List<User>>(json);
+        Users = users;
     }
     public List<User> GetUsers()
     {
