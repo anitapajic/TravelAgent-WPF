@@ -12,16 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TravelAgentTim19.Model;
+using TravelAgentTim19.Repository;
 
-namespace TravelAgentTim19
+namespace TravelAgentTim19.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainRepository MainRepository;
         public MainWindow()
         {
+            MainRepository = new MainRepository();
             InitializeComponent();
         }
         private void Border_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
@@ -52,7 +56,23 @@ namespace TravelAgentTim19
         {
             if (!string.IsNullOrEmpty(txtEmail.Text) && !string.IsNullOrEmpty(passwordBox.Password))
             {
-                MessageBox.Show("Successfully Signed In");
+                bool found = false;
+                foreach (User user in MainRepository.UserRepository.GetUsers())
+                {
+                    if (txtEmail.Text.Equals(user.Email) && passwordBox.Password.Equals(user.Password))
+                    {
+                        found = true;
+                        MessageBox.Show("Successfully Signed In");
+                    }
+                }
+                if (found == false)
+                {
+                    MessageBox.Show("User does not exist!");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Invalid data!");
             }
         }
 

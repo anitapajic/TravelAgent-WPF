@@ -14,4 +14,39 @@
       </ApplicationDefinition>
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Images\close.png" />
+      <Resource Include="Images\close.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Data\Users.json" />
+      <Content Include="Data\Users.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
+      <None Remove="Images\Email.png" />
+      <Resource Include="Images\Email.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\facebook.png" />
+      <Resource Include="Images\facebook.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\google.png" />
+      <Resource Include="Images\google.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\linkedin.png" />
+      <Resource Include="Images\linkedin.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Lock.png" />
+      <Resource Include="Images\Lock.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+    </ItemGroup>
+
 </Project>

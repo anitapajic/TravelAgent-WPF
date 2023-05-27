@@ -4,9 +4,12 @@ namespace TravelAgentTim19.Model;
 
 public class User
 {
-    private string Email{ get; set; }
-    private string Password{ get; set; }
-    private string FirstName{ get; set; }
-    private string LastName{ get; set; }
-    private Role Role{ get; set; }
+    public int Id { get; set; }
+    public string Email{ get; set; }
+    public string Password{ get; set; }
+    public string FirstName{ get; set; }
+    public string LastName{ get; set; }
+    public Role Role{ get; set; }
+    
+    
 }

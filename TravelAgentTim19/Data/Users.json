@@ -1,0 +1,34 @@
+[
+  {
+    "Id" : 1,
+    "Email" : "anita@gmail.com",
+    "Password" : "123",
+    "FirstName" : "Anita",
+    "LastName" : "Pajic",
+    "Role" : 1
+  },
+  {
+    "Id" : 2,
+    "Email" : "tamara@gmail.com",
+    "Password" : "123",
+    "FirstName" : "Tamara",
+    "LastName" : "Dzambic",
+    "Role" : 0
+  },
+  {
+    "Id" : 3,
+    "Email" : "aleksandra@gmail.com",
+    "Password" : "123",
+    "FirstName" : "Aleksandra",
+    "LastName" : "Filipic",
+    "Role" : 1
+  },
+  {
+    "Id" : 4,
+    "Email" : "anja@gmail.com",
+    "Password" : "123",
+    "FirstName" : "Anja",
+    "LastName" : "Petkovic",
+    "Role" : 0
+  }
+]

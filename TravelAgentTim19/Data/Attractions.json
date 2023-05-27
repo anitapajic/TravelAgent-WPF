@@ -1,0 +1,123 @@
+[
+  {
+    "Id" : 1,
+    "Name": "Beogradska tvrđava",
+    "Location": {
+      "City": "Beograd",
+      "Address": "Kalemegdan bb",
+      "Latitude": 44.822,
+      "Longitude": 20.447
+    },
+    "Price": 300,
+    "Description": "Beogradska tvrđava je istorijski spomenik koji se nalazi na ušću reka Save i Dunava. Izgrađena je u 2. veku i pruža prelep pogled na grad."
+  },
+  {
+    "Id" : 2,
+    "Name": "Manastir Studenica",
+    "Location": {
+      "City": "Kraljevo",
+      "Address": "12345",
+      "Latitude": 43.466,
+      "Longitude": 20.715
+    },
+    "Price": 200,
+    "Description": "Manastir Studenica je jedan od najpoznatijih srpskih pravoslavnih manastira. Nalazi se u blizini Kraljeva i jedan je od najvažnijih spomenika srednjovekovne srpske kulture."
+  },
+  {
+    "Id" : 3,
+    "Name": "Đavolja varoš",
+    "Location": {
+      "City": "Kuršumlija",
+      "Address": "12345",
+      "Latitude": 43.021,
+      "Longitude": 21.761
+    },
+    "Price": 150,
+    "Description": "Đavolja varoš je prirodna atrakcija koja se sastoji od neobičnih stena u obliku kula. Nalazi se u blizini Kuršumlije i privlači veliki broj posetilaca zbog svoje jedinstvene prirodne lepote."
+  },
+  {
+    "Id" : 4,
+    "Name": "Niška tvrđava",
+    "Location": {
+      "City": "Niš",
+      "Address": "Tvrdjava bb",
+      "Latitude": 43.317,
+      "Longitude": 21.903
+    },
+    "Price": 100,
+    "Description": "Niška tvrđava je istorijski spomenik koji se nalazi u centru grada Niša. Izgrađena je u turskom periodu i predstavlja važan deo kulturne baštine regiona."
+  },
+  {
+    "Id" : 5,
+    "Name": "Drvengrad",
+    "Location": {
+      "City": "Mokra Gora",
+      "Address": "12345",
+      "Latitude": 43.775,
+      "Longitude": 19.502
+    },
+    "Price": 250,
+    "Description": "Drvengrad, poznat i kao Mećavnik, je jedinstveno etno selo koje je izgradio filmski reditelj Emir Kusturica. Nalazi se na planini Mokra Gora i privlači posetioce svojom autentičnom arhitekturom i atmosferom."
+  },
+  {
+    "Id" : 6,
+    "Name": "Golubac",
+    "Location": {
+      "City": "Golubac",
+      "Address": "12345",
+      "Latitude": 44.654,
+      "Longitude": 21.636
+    },
+    "Price": 50,
+    "Description": "Golubac je srednjovekovna tvrđava smeštena na obali Dunava. Predstavlja jednu od najlepših tvrđava u Srbiji i popularna je destinacija za turiste koji dolaze da uživaju u prelepom pogledu na Dunav i okolne pejzaže."
+  },
+  {
+    "Id" : 7,
+    "Name": "Petrovaradinska tvrđava",
+    "Location": {
+      "City": "Novi Sad",
+      "Address": "Tvrdjava bb",
+      "Latitude": 45.254,
+      "Longitude": 19.867
+    },
+    "Price": 200,
+    "Description": "Petrovaradinska tvrđava se nalazi iznad Novog Sada i pruža panoramski pogled na grad i reku Dunav. Tvrđava je poznata po svom festivalu muzike EXIT"
+  },
+  {
+    "Id" : 8,
+    "Name": "Oplenac",
+    "Location": {
+      "City": "Topola",
+      "Address": "12345",
+      "Latitude": 44.254,
+      "Longitude": 20.682
+    },
+    "Price": 100,
+    "Description": "Oplenac je kompleks koji se nalazi u Topoli i predstavlja mauzolej srpske kraljevske porodice Karađorđević. Ovde se nalazi crkva Svetog Đorđa sa prelepim mozaicima i grobnica kraljevske porodice."
+  },
+  {
+    "Id" : 9,
+    "Name": "Kopaonik",
+    "Location": {
+      "City": "Raška",
+      "Address": "12345",
+      "Latitude": 43.278,
+      "Longitude": 20.808
+    },
+    "Price": 500,
+    "Description": "Kopaonik je najveći planinski centar u Srbiji. Poznat je po svojim skijaškim stazama i prelepim pejzažima. Posetioci mogu uživati u skijanju zimi i planinarenju i biciklizmu tokom leta."
+  },
+  {
+    "Id" : 10,
+    "Name": "Viminacijum",
+    "Location": {
+      "City": "Kostolac",
+      "Address": "12345",
+      "Latitude": 44.723,
+      "Longitude": 21.188
+    },
+    "Price": 150,
+    "Description": "Viminacijum je arheološki lokalitet koji se nalazi blizu Kostolca. Bio je jedan od najznačajnijih rimskih gradova i vojnih logora na teritoriji današnje Srbije. Posetioci mogu videti ostatke rimskih zgrada i amfiteatra."
+  }
+
+]

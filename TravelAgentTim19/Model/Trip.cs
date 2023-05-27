@@ -5,6 +5,7 @@ namespace TravelAgentTim19.Model;
 
 public class Trip
 {
+    private int Id { get; set; }
     private string Name { get; set; }
     private double Price{ get; set; }
     private List<Accomodation> Accomodations{ get; set; }
