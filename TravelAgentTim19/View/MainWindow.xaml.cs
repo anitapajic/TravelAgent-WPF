@@ -60,7 +60,7 @@ namespace TravelAgentTim19.View
                 bool found = false;
                 foreach (User user in MainRepository.UserRepository.GetUsers())
                 {
-                    if (txtEmail.Text.Equals(user.Email) && passwordBox.Password.Equals(user.Password))
+                    if (TextEmail.Text.Equals(user.Email) && PasswordBox.Password.Equals(user.Password))
                     {
                         found = true;
                         MessageBox.Show("Successfully Signed In");
