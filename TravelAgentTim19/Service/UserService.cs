@@ -2,6 +2,7 @@
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
+using TravelAgentTim19.View;
 
 namespace TravelAgentTim19.Service;
 
@@ -23,6 +24,22 @@ public class UserService
             User user = new User(id, email, password, firstName, lastName, Role.Client);
             MainRepository.UserRepository.AddUser(user);
             return true;
+        }
+        return false;
+    }
+
+    public bool Login(string email, string password)
+    {
+        if (!string.IsNullOrEmpty(email) && !string.IsNullOrEmpty(password))
+        {
+            foreach (User user in MainRepository.UserRepository.GetUsers())
+            {
+                if (email.Equals(user.Email) && password.Equals(user.Password))
+                {
+                    return true;
+                }
+            }
+         
         }
         return false;
     }
