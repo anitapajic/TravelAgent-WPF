@@ -60,26 +60,14 @@ namespace TravelAgentTim19.View
 
         private void SignInFormButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (!string.IsNullOrEmpty(TxtEmail.Text) && !string.IsNullOrEmpty(PasswordBox.Password))
+            bool login = UserService.Login(TxtEmail.Text, PasswordBox.Password);
+            if (login)
             {
-                bool found = false;
-                foreach (User user in MainRepository.UserRepository.GetUsers())
+                User loggedIn = MainRepository.UserRepository.GetUserByEmail(TxtEmail.Text);
+                if (loggedIn.Role == Role.Agent)
                 {
-                    if (TxtEmail.Text.Equals(user.Email) && PasswordBox.Password.Equals(user.Password))
-                    {
-                        MessageBox.Show("Successfully Signed In");
-                        if (user.Role == Role.Agent)
-                        {
-                            AgentMainWindow agentMainWindow = new AgentMainWindow();
-                            agentMainWindow.Show();
-                        }
-                        found = true;
-                    }
-                }
-                if (found == false)
-                {
-                    MessageBox.Show("User does not exist!");
+                    AgentMainWindow agentMainWindow = new AgentMainWindow();
+                    agentMainWindow.Show();
                 }
             }
             else

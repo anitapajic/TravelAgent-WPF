@@ -2,9 +2,24 @@
 
 public class Restaurant
 {
-    private int Id { get; set; }
-    private double Price{ get; set; }
-    private Location Location{ get; set; }
-    private string Name{ get; set; }
-    private double Rating{ get; set; }
+    public int Id { get; set; }
+    public Location Location{ get; set; }
+    public string Name{ get; set; }
+    public double Rating{ get; set; }
+
+    public Restaurant()
+    {
+    }
+
+    public Restaurant(int id, Location location, string name, double rating)
+    {
+        Id = id;
+        Location = location;
+        Name = name;
+        Rating = rating;
+    }
+    public override string ToString()
+    {
+        return Id + "\t" + Location + "\t" + Name + "\t" + Rating;
+    }
 }
