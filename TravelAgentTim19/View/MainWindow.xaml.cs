@@ -72,15 +72,15 @@ namespace TravelAgentTim19.View
             bool login = UserService.Login(TxtEmail.Text, PasswordBox.Password);
             if (login)
             {
-                User loggedIn = MainRepository.UserRepository.GetUserByEmail(TxtEmail.Text);
-                if (loggedIn.Role == Role.Agent)
+                bool found = false;
+                User user = MainRepository.UserRepository.GetUserByEmail(TxtEmail.Text);
+                if (user.Role == Role.Agent)
                 {
                     if (TxtEmail.Text.Equals(user.Email) && PasswordBox.Password.Equals(user.Password))
                     {
-                        MessageBox.Show("Successfully Signed In");
                         if (user.Role == Role.Agent)
                         {
-                            AgentMainWindow agentMainWindow = new AgentMainWindow();
+                            AgentMainWindow agentMainWindow = new AgentMainWindow(MainRepository);
                             agentMainWindow.Show();
                             Close();
                         }

@@ -53,3 +53,6 @@ C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-window
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\NodaTime.dll
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\AgentMainWindow.g.cs
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\AgentMainWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\UserMainWindow.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\NodaTime.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\UserMainWindow.baml
