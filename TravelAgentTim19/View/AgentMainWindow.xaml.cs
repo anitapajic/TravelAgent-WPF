@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
+using TravelAgentTim19.View.Edit;
 
 namespace TravelAgentTim19.View;
 
@@ -91,4 +93,27 @@ public partial class AgentMainWindow : Window
         AddNewTripWindow addNewTripWindow = new AddNewTripWindow();
         addNewTripWindow.Show();
     }
+
+    private void EditTripBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int tripId = (int)editButton.Tag;
+        Trip trip = MainRepository.TripRepository.GetTripById(tripId);
+
+        EditTripWindow editTripWindow = new EditTripWindow(trip);
+        editTripWindow.Show();
+    }
+    
+    private void DeleteTripBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int tripId = (int)editButton.Tag;
+        Trip trip = MainRepository.TripRepository.GetTripById(tripId);
+        //Potvrdi da li zelis da obrises
+        MainRepository.TripRepository.Delete(trip);
+        tripItemsControl.Items.Refresh();
+
+    }
+    
+    
 }

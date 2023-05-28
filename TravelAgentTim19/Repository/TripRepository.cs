@@ -36,6 +36,10 @@ public class TripRepository
         }
         return null;
     }
+    public bool Delete(Trip trip)
+    {
+        return trips.Remove(trip);
+    }
     
     public void Save()
     {
