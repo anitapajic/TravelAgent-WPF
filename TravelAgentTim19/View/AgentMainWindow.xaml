@@ -26,8 +26,8 @@
             </Menu.Background>
             <MenuItem Header="TravelAgentTim19" IsEnabled="False"></MenuItem>
             <Separator></Separator>
-            <MenuItem Header="Putovanja" Click="TripItem_Click">
-                <MenuItem Header="CRUD" Command="service:RoutedCommands.Putovanja"></MenuItem>
+            <MenuItem Header="Putovanja">
+                <MenuItem Header="CRUD" Click="TripItem_Click" Command="service:RoutedCommands.Putovanja"></MenuItem>
                 <MenuItem Header="Mapa"></MenuItem>
                 <MenuItem Header="Rezervacije"></MenuItem>
                 <MenuItem Header="Kupovina"></MenuItem>

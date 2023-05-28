@@ -18,10 +18,10 @@ public partial class AgentMainWindow : Window
     public AgentMainWindow(MainRepository mainRepository)
     {
         MainRepository = mainRepository;
-        Trips = mainRepository.TripRepository.GetTrips();
-        Attractions = mainRepository.AttractionRepository.GetAttractions();
-        Accomodations = mainRepository.AccomodationRepository.GetAccomodations();
-        Restaurants = mainRepository.RestaurantsRepository.GetRestaurants();
+        Trips = MainRepository.TripRepository.GetTrips();
+        Attractions = MainRepository.AttractionRepository.GetAttractions();
+        Accomodations = MainRepository.AccomodationRepository.GetAccomodations();
+        Restaurants = MainRepository.RestaurantsRepository.GetRestaurants();
         InitializeComponent();
         DataContext = this; 
     }
