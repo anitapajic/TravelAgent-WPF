@@ -43,7 +43,16 @@ namespace TravelAgentTim19.View
             MainRepository.Save();
             Application.Current.Shutdown();
         }
-
+       
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.Normal;
+            }
+        }
+        
+        
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(PasswordBox.Password) && PasswordBox.Password.Length > 0)
@@ -73,6 +82,14 @@ namespace TravelAgentTim19.View
                         {
                             AgentMainWindow agentMainWindow = new AgentMainWindow();
                             agentMainWindow.Show();
+                            Close();
+                        }
+                        else
+                        {
+                            UserMainWindow userMainWindow = new UserMainWindow();
+                            userMainWindow.Show();
+                            Close();
+
                         }
                         found = true;
                     }
