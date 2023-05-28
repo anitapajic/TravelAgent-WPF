@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
@@ -74,25 +64,21 @@ namespace TravelAgentTim19.View
             {
                 bool found = false;
                 User user = MainRepository.UserRepository.GetUserByEmail(TxtEmail.Text);
-                if (user.Role == Role.Agent)
+                if (TxtEmail.Text.Equals(user.Email) && PasswordBox.Password.Equals(user.Password))
                 {
-                    if (TxtEmail.Text.Equals(user.Email) && PasswordBox.Password.Equals(user.Password))
+                    if (user.Role == Role.Agent)
                     {
-                        if (user.Role == Role.Agent)
-                        {
-                            AgentMainWindow agentMainWindow = new AgentMainWindow(MainRepository);
-                            agentMainWindow.Show();
-                            Close();
-                        }
-                        else
-                        {
-                            UserMainWindow userMainWindow = new UserMainWindow();
-                            userMainWindow.Show();
-                            Close();
-
-                        }
-                        found = true;
+                        AgentMainWindow agentMainWindow = new AgentMainWindow(MainRepository);
+                        agentMainWindow.Show();
+                        Close();
                     }
+                    else if(user.Role == Role.Client)
+                    {
+                        UserMainWindow userMainWindow = new UserMainWindow();
+                        userMainWindow.Show(); 
+                        Close();
+                    }
+                    found = true;
                 }
                 if (found == false)
                 {
