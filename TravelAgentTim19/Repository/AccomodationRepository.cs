@@ -42,6 +42,17 @@ public class AccomodationRepository
         accomodations.Remove(accomodation);
     }
     
+    public void UpdateAccomodation(Accomodation accomodation)
+    {
+        Accomodation toBeDeleted = GetAccomodationById(accomodation.Id);
+        Delete(toBeDeleted);
+        AddAccomodation(accomodation);
+    }
+
+    public bool Delete(Accomodation accomodation)
+    {
+        return accomodations.Remove(accomodation);
+    }
     public void Save()
     {
         File.WriteAllText(@"..\..\..\Data\Accomodations.json", 

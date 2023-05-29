@@ -88,20 +88,20 @@ public partial class AddNewRestaurantWindow : Window
         // Validate inputs
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(location.Address) || Images == null || Images.Count == 0)
         {
-            MessageBox.Show("Please ensure all fields are filled and at least one image is added.");
+            MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar jednu sliku.");
             return;
         }
-
-        Restaurant restaurant = new Restaurant();
-        restaurant.Location = location;
-        restaurant.Name = name;
-        restaurant.Rating = rating;
-        //dodati slike
+        
 
         MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da dodate ovaj restoran?", "Potvrda",
             MessageBoxButton.YesNo);
         if (result == MessageBoxResult.Yes)
         {
+            Restaurant restaurant = new Restaurant();
+            restaurant.Location = location;
+            restaurant.Name = name;
+            restaurant.Rating = rating;
+            //dodati slike
             MainRepository.RestaurantsRepository.AddRestaurant(restaurant);
             Close();
         }
