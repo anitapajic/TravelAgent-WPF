@@ -36,6 +36,18 @@ public class AttractionRepository
         }
         return null;
     }
+
+    public void DeleteAttraction(Attraction attraction)
+    {
+        this.attractions.Remove(attraction);
+    }
+
+    public void UpdateAttraction(Attraction attraction)
+    {
+        Attraction toBeDeleted = GetAttractionById(attraction.Id);
+        DeleteAttraction(toBeDeleted);
+        AddAttraction(attraction);
+    }
     
     public void Save()
     {

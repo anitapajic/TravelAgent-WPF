@@ -4,9 +4,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:TravelAgentTim19.View"
-        mc:Ignorable="d"
-        Title="AddNewAttractionWindow" Height="450" Width="800">
-    <Grid>
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
+        Title="Dodaj novu atrakciju" Height="500" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         
+      
+        <TextBlock Text="Dodaj novu atrakciju" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch"  />
+
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
+            <Grid Margin="7 9">
+                <TextBlock x:Name="TextName" MouseDown="textName_MouseDown" Text="Ime" Style="{StaticResource TextHint}" />
+                <TextBox Name="TxtName" TextChanged="nameBox_TextChanged" Style="{StaticResource TextBox}" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
+            <Grid Margin="7 9">
+                <TextBlock x:Name="TextCity" MouseDown="textCity_MouseDown" Text="Grad" Style="{StaticResource TextHint}" />
+                <TextBox Name="TxtCity" TextChanged="cityBox_TextChanged" Style="{StaticResource TextBox}" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
+            <Grid Margin="7 9">
+                <TextBlock x:Name="TextAddress" MouseDown="textAddress_MouseDown" Text="Adresa" Style="{StaticResource TextHint}" />
+                <TextBox Name="TxtAddress" TextChanged="addressBox_TextChanged" Style="{StaticResource TextBox}" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="4" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
+            <Grid Margin="7 9">
+                <TextBlock x:Name="TextPrice" MouseDown="textPrice_MouseDown" Text="Cena" Style="{StaticResource TextHint}" />
+                <TextBox Name="TxtPrice" TextChanged="priceBox_TextChanged"  Style="{StaticResource TextBox}" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="5" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
+            <Grid Margin="7 9">
+                <TextBlock x:Name="TextDescription" MouseDown="textDesc_MouseDown" Text="Opis" Style="{StaticResource TextHint}" Height="Auto"/>
+                <TextBox Name="TxtDescription" TextChanged="descBox_TextChanged" Style="{StaticResource TextBox}" />
+            </Grid>
+        </Border>
+        
+        <Button x:Name="SaveButton" Background="#3AA9AD" Foreground="White" FontWeight="Bold" Content="Dodaj" Grid.Row="6" Grid.ColumnSpan="2"  Click="SaveButton_OnClick" Style="{StaticResource MainButton}" Margin="40"/>
     </Grid>
 </Window>

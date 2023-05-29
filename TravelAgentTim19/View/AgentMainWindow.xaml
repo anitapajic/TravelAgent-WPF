@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:service="clr-namespace:TravelAgentTim19.Service"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip" 
-        Title="AgentMainWindow" Height="450" Width="800"
+        Title="Glavni prozor" Height="450" Width="800"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
     
    
@@ -29,8 +29,8 @@
             <MenuItem Header="Putovanja">
                 <MenuItem Header="CRUD" Click="TripItem_Click" Command="service:RoutedCommands.Putovanja"></MenuItem>
                 <MenuItem Header="Mapa"></MenuItem>
-                <MenuItem Header="Rezervacije"></MenuItem>
-                <MenuItem Header="Kupovina"></MenuItem>
+                <MenuItem Header="Rezervacije" Click="BookedTripItem_Click"></MenuItem>
+                <MenuItem Header="Kupovina" Click="PurchasedTripItem_Click"></MenuItem>
                 <MenuItem Header="Izvestaji"></MenuItem>
             </MenuItem>
             <MenuItem Header="Turisticke atrakcije" Click="AttractionItem_Click"></MenuItem>
@@ -101,7 +101,7 @@
                      <Grid>
                          <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                      <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ItemsControl ItemsSource="{Binding Attractions}">
+                    <ItemsControl x:Name="attractionItemsControl" ItemsSource="{Binding Attractions}">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
@@ -117,8 +117,16 @@
                                         <TextBlock Text="{Binding Name}" Margin="5,10,5,5" FontWeight="Bold"/>
                                         <TextBlock Text="{Binding Price}" Margin="5"/>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Edit" Margin="5"/>
-                                            <Button Content="View" Margin="5"/>
+                                            <Button Click="DeleteAttractionBtn_Clicked" Content="Edit" Margin="5">
+                                                <Button.Tag>
+                                                    <Binding Path="Id"/>
+                                                </Button.Tag>
+                                            </Button>
+                                            <Button Content="View" Margin="5">
+                                                <Button.Tag>
+                                                    <Binding Path="Id"/>
+                                                </Button.Tag>
+                                            </Button>
                                         </StackPanel>
                                     </StackPanel>
                                 </Border>
@@ -247,7 +255,113 @@
                     </ToggleButton.Template>
                 </ToggleButton>
             </Grid>
-           
+            <Grid Name="BookedTripGrid" Visibility="Hidden">
+                     <Grid>
+                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl x:Name="bookedTripItemsControl" ItemsSource="{Binding BookedTrips}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
+                                        Width="200" Height="200" VerticalAlignment="Top">
+                                    <!-- Card content -->
+                                    <StackPanel>
+                                        <!-- <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> -->
+                                        <TextBlock Text="{Binding TripName}" Margin="5,10,5,5" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding DatePeriod.StartDate}" Margin="5"/>
+                                        <TextBlock Text="{Binding DatePeriod.EndDate}" Margin="5"/>
+                                        <TextBlock Text="{Binding Price}" Margin="5"/>
+                                        <TextBlock Text="{Binding Accomodation.Name}" Margin="5"/>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                            <Button Content="View" Margin="5">
+                                                <Button.Tag>
+                                                    <Binding Path="Id"/>
+                                                </Button.Tag>
+                                            </Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+                             </ScrollViewer>
+                         </Grid>
+                <ToggleButton x:Name="ToggleButtonBookedTrip" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="30">
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <Grid x:Name="ButtonGrid">
+                                <Ellipse x:Name="Circle" Fill="#3AA9AD"/>
+                                <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="White"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="Circle" Property="Fill" Value="#2D8487"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                </ToggleButton>
+            </Grid>
+            <Grid Name="PurchasedTripGrid" Visibility="Hidden">
+                     <Grid>
+                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl x:Name="purchasedTripItemsControl" ItemsSource="{Binding PurchasedTrips}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
+                                        Width="200" Height="200" VerticalAlignment="Top">
+                                    <!-- Card content -->
+                                    <StackPanel>
+                                        <!-- <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> -->
+                                        <TextBlock Text="{Binding TripName}" Margin="5,10,5,5" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding DatePeriod.StartDate}" Margin="5"/>
+                                        <TextBlock Text="{Binding DatePeriod.EndDate}" Margin="5"/>
+                                        <TextBlock Text="{Binding Price}" Margin="5"/>
+                                        <TextBlock Text="{Binding Accomodation.Name}" Margin="5"/>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                            <Button Content="View" Margin="5">
+                                                <Button.Tag>
+                                                    <Binding Path="Id"/>
+                                                </Button.Tag>
+                                            </Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+                             </ScrollViewer>
+                         </Grid>
+                <ToggleButton x:Name="ToggleButtonPurchasedTrip" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="30">
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <Grid x:Name="ButtonGrid">
+                                <Ellipse x:Name="Circle" Fill="#3AA9AD"/>
+                                <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="White"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="Circle" Property="Fill" Value="#2D8487"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                </ToggleButton>
+            </Grid>
+            
         </Grid>
     </DockPanel>
     
