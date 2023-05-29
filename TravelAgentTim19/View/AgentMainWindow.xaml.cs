@@ -250,4 +250,57 @@ public partial class AgentMainWindow : Window
         RestaurantsGrid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Visible;
     }
+
+    private void EditAttractionBtn_Click(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int attId = (int)editButton.Tag;
+        Attraction attraction = MainRepository.AttractionRepository.GetAttractionById(attId);
+
+        EditAttractionWindow editAttractionWindow = new EditAttractionWindow(attraction, MainRepository);
+        editAttractionWindow.Show();
+    }
+
+    private void EditAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int attId = (int)editButton.Tag;
+        Accomodation accomodation = MainRepository.AccomodationRepository.GetAccomodationById(attId);
+
+        EditAccomodationWindow editAccomodationWindow = new EditAccomodationWindow(accomodation, MainRepository);
+        editAccomodationWindow.Show();
+    }
+
+    private void DeleteAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int attId = (int)editButton.Tag;
+        Accomodation att = MainRepository.AccomodationRepository.GetAccomodationById(attId);
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da obrisete ovaj smestaj?", "Potvrda", MessageBoxButton.YesNo);
+        if (result == MessageBoxResult.Yes)
+        {
+            MainRepository.AccomodationRepository.DeleteAccomodation(att);
+            attractionItemsControl.Items.Refresh();
+        }
+    }
+
+    private void EditBookedTripBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int attId = (int)editButton.Tag;
+        BookedTrip bookedTrip = MainRepository.BookedTripRepository.GetBookedTripById(attId);
+
+        EditBookedTripWindow editBookedTripWindow = new EditBookedTripWindow(bookedTrip, MainRepository);
+        editBookedTripWindow.Show();
+    }
+
+    private void EditPurchasedTripBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int attId = (int)editButton.Tag;
+        BookedTrip bookedTrip = MainRepository.BookedTripRepository.GetBookedTripById(attId);
+
+        EditPurchasedTripWindow editPurchasedTripWindow = new EditPurchasedTripWindow(bookedTrip, MainRepository);
+        editPurchasedTripWindow.Show();
+    }
 }

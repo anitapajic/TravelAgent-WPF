@@ -6,6 +6,8 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
+﻿using System.Windows;
+using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
 
 namespace TravelAgentTim19.View.Edit;
@@ -13,12 +15,11 @@ namespace TravelAgentTim19.View.Edit;
 public partial class EditAccomodationWindow : Window
 {
     public Accomodation Accomodation { get; set; }
-    private MainRepository MainRepository;
-    
+    public MainRepository MainRepository { get; set; }
     public EditAccomodationWindow(Accomodation accomodation, MainRepository mainRepository)
     {
-        MainRepository = mainRepository;
         Accomodation = accomodation;
+        MainRepository = mainRepository;
         InitializeComponent();
     }
      private void EditAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
