@@ -117,8 +117,14 @@ public partial class AgentMainWindow : Window
     }
     private void ToggleButtonAccomodation_Click(object sender, RoutedEventArgs e)
     {
-        AddNewAccomodationWindow addNewAccomodationWindow = new AddNewAccomodationWindow();
+        AddNewAccomodationWindow addNewAccomodationWindow = new AddNewAccomodationWindow(MainRepository);
         addNewAccomodationWindow.Show();
+        addNewAccomodationWindow.Closed += NewAccomodationWindow_Closed;
+
+    }
+    private void NewAccomodationWindow_Closed(object sender, EventArgs e)
+    {
+        AccomodationItemsControl.Items.Refresh();
     }
     private void ToggleButtonAttraction_Click(object sender, RoutedEventArgs e)
     {
@@ -181,6 +187,31 @@ public partial class AgentMainWindow : Window
         {
             MainRepository.RestaurantsRepository.Delete(restaurant);
             restaurantItemsControl.Items.Refresh();
+        }
+        
+    }
+    
+    private void EditAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int accomodationId = (int)editButton.Tag;
+        Accomodation accomodation = MainRepository.AccomodationRepository.GetAccomodationById(accomodationId);
+
+        EditAccomodationWindow editAccomodationWindow= new EditAccomodationWindow(accomodation, MainRepository);
+        editAccomodationWindow.Show();
+    }
+    
+    private void DeleteAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int accomodationId = (int)editButton.Tag;
+        Accomodation accomodation = MainRepository.AccomodationRepository.GetAccomodationById(accomodationId);
+        //Potvrdi da li zelis da obrises
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da obrisete ovaj smestaj?", "Potvrda", MessageBoxButton.YesNo);
+        if (result == MessageBoxResult.Yes)
+        {
+            MainRepository.AccomodationRepository.Delete(accomodation);
+            AccomodationItemsControl.Items.Refresh();
         }
         
     }

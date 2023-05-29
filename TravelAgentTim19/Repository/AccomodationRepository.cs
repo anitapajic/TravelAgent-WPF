@@ -36,7 +36,11 @@ public class AccomodationRepository
         }
         return null;
     }
-    
+
+    public bool Delete(Accomodation accomodation)
+    {
+        return accomodations.Remove(accomodation);
+    }
     public void Save()
     {
         File.WriteAllText(@"..\..\..\Data\Accomodations.json", 

@@ -1,11 +1,108 @@
-﻿using System.Windows;
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using TravelAgentTim19.Model;
+using TravelAgentTim19.Model.Enum;
+using TravelAgentTim19.Repository;
 
 namespace TravelAgentTim19.View;
 
 public partial class AddNewAccomodationWindow : Window
 {
-    public AddNewAccomodationWindow()
+    private MainRepository MainRepository;
+    public AddNewAccomodationWindow(MainRepository mainRepository)
     {
+        MainRepository = mainRepository;
+
         InitializeComponent();
     }
+    
+    private void Border_DragEnter(object sender, DragEventArgs e)
+    {
+        if (e.Data.GetDataPresent(DataFormats.FileDrop))
+        {
+            e.Effects = DragDropEffects.Copy;
+        }
+        else
+        {
+            e.Effects = DragDropEffects.None;
+        }
+        e.Handled = true;
+    }
+
+    private void Border_Drop(object sender, DragEventArgs e)
+    {
+        if (e.Data.GetDataPresent(DataFormats.FileDrop))
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            foreach (string file in files)
+            {
+                if (IsImageFile(file))
+                {
+                    AddImage(file);
+                }
+            }
+        }
+    }
+
+    private bool IsImageFile(string filePath)
+    {
+        string extension = Path.GetExtension(filePath);
+
+        if (extension != null)
+        {
+            string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
+            return imageExtensions.Contains(extension.ToLower());
+        }
+
+        return false;
+    }
+
+    private void AddImage(string filePath)
+    {
+        Image image = new Image
+        {
+            Source = new BitmapImage(new Uri(filePath)),
+            Width = 60,
+            Height = 60
+        };
+        ImageList.Items.Add(image);
+    }
+    
+    private void CreateAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        string name = NameBox.Text;
+        Location location = new Location();
+        location.Address = LocationBox.Text;
+        ItemCollection Images = ImageList.Items;
+        AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
+        // double rating = RatingSlider.Value;
+        double rating = slider.Value;
+
+        // Validate inputs
+        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(location.Address) || Images == null || Images.Count == 0)
+        {
+            MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar jednu sliku.");
+            return;
+        }
+        
+
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da dodate ovaj smestaj?", "Potvrda",
+            MessageBoxButton.YesNo);
+        if (result == MessageBoxResult.Yes)
+        {
+            Accomodation accomodation = new Accomodation();
+            accomodation.Location = location;
+            accomodation.Name = name;
+            accomodation.Rating = rating;
+            accomodation.AccomodationType = type;
+            //dodati slike
+            MainRepository.AccomodationRepository.AddAccomodation(accomodation);
+            Close();
+        }
+    }
+
 }
