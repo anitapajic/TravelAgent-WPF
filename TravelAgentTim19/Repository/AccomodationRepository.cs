@@ -36,6 +36,13 @@ public class AccomodationRepository
         }
         return null;
     }
+    
+    public void UpdateAccomodation(Accomodation accomodation)
+    {
+        Accomodation toBeDeleted = GetAccomodationById(accomodation.Id);
+        Delete(toBeDeleted);
+        AddAccomodation(accomodation);
+    }
 
     public bool Delete(Accomodation accomodation)
     {

@@ -41,8 +41,7 @@ public partial class EditRestaurantWindow : Window
         string address = LocationBox.Text;
         ItemCollection Images = ImageList.Items;
 
-        // double rating = RatingSlider.Value;
-        double rating = 3;
+        double rating = slider.Value;
 
         // Validate inputs
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || Images == null || Images.Count == 0)
@@ -63,7 +62,7 @@ public partial class EditRestaurantWindow : Window
             //dodati slike
             
             MainRepository.RestaurantsRepository.UpdateRestaurant(Restaurant);
-            Close();
+            InfoRestaurantBtn_Clicked(sender, e);
         }
     }
     
