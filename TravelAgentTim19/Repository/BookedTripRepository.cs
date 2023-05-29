@@ -24,6 +24,17 @@ public class BookedTripRepository
     {
         this.bookedTrips.Add(trip);
     }
+    public void UpdateBookedTrip(BookedTrip bookedTrip)
+    {
+        BookedTrip toBeDeleted = GetBookedTripById(bookedTrip.Id);
+        DeleteBookedTrip(toBeDeleted);
+        AddBookedTrip(bookedTrip);
+    }
+
+    public void DeleteBookedTrip(BookedTrip bookedTrip)
+    {
+        bookedTrips.Remove(bookedTrip);
+    }
 
     public BookedTrip GetBookedTripById(int id)
     {
