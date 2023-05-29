@@ -93,7 +93,8 @@
             <!-- Image -->
             <TextBlock Grid.Row="5" Text="Drag and drop slike ovde:" Margin="10"/>
             <ListView BorderBrush="Gray" BorderThickness="2" Grid.Row="5"  Height="80" Width="200"
-                      AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop">
+                      AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
+                      MouseDown="ListView_MouseClick">
                 <ItemsControl Margin="10" x:Name="ImageList">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate >
