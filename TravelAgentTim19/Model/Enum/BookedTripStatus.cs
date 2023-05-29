@@ -2,7 +2,6 @@
 
 public enum BookedTripStatus
 {
-    RESERVED,
-    ACTIVE,
-    FINISHED
+    Reserved,
+    Purchased
 }

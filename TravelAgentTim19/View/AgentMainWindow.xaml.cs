@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using TravelAgentTim19.Model;
+using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
 using TravelAgentTim19.View.Edit;
 
@@ -18,6 +19,8 @@ public partial class AgentMainWindow : Window
     public List<Attraction> Attractions { get; set; }
     public List<Accomodation> Accomodations { get; set; }
     public List<Restaurant> Restaurants { get; set; }
+    public List<BookedTrip> BookedTrips { get; set; }
+    public List<BookedTrip> PurchasedTrips { get; set; }
 
     public AgentMainWindow(MainRepository mainRepository)
     {
@@ -26,8 +29,32 @@ public partial class AgentMainWindow : Window
         Attractions = MainRepository.AttractionRepository.GetAttractions();
         Accomodations = MainRepository.AccomodationRepository.GetAccomodations();
         Restaurants = MainRepository.RestaurantsRepository.GetRestaurants();
+        BookedTrips = new List<BookedTrip>();
+        PurchasedTrips = new List<BookedTrip>();
+        GetBookedTrips();
         InitializeComponent();
         DataContext = this; 
+    }
+
+    public Trip GetTripByTripId(int tripId)
+    {
+        Trip trip = MainRepository.TripRepository.GetTripById(tripId);
+        return trip;
+    }
+
+    public void GetBookedTrips()
+    {
+        foreach (BookedTrip booked in MainRepository.BookedTripRepository.GetBookedTrips())
+        {
+            if (booked.Status.Equals(BookedTripStatus.Reserved))
+            {
+                BookedTrips.Add(booked);
+            }
+            else
+            {
+                PurchasedTrips.Add(booked);
+            }
+        }
     }
 
     private void PutovanjaCRUD_CanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -41,6 +68,8 @@ public partial class AgentMainWindow : Window
     }
     private void TripItem_Click(object sender, RoutedEventArgs e)
     {
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -48,6 +77,8 @@ public partial class AgentMainWindow : Window
     }
     private void AttractionItem_Click(object sender, RoutedEventArgs e)
     {
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
@@ -55,6 +86,8 @@ public partial class AgentMainWindow : Window
     }
     private void AccomodationItem_Click(object sender, RoutedEventArgs e)
     {
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -62,6 +95,8 @@ public partial class AgentMainWindow : Window
     }
     private void RestaurantItem_Click(object sender, RoutedEventArgs e)
     {
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
@@ -139,7 +174,25 @@ public partial class AgentMainWindow : Window
         }
 
     }
-    
-    
-    
+
+
+    private void BookedTripItem_Click(object sender, RoutedEventArgs e)
+    {
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        TripsGrid.Visibility = Visibility.Hidden;
+        AttractionGrid.Visibility = Visibility.Hidden;
+        AccomodationGrid.Visibility = Visibility.Hidden;
+        RestaurantsGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Visible;
+    }
+
+    private void PurchasedTripItem_Click(object sender, RoutedEventArgs e)
+    {
+        BookedTripGrid.Visibility = Visibility.Hidden;
+        TripsGrid.Visibility = Visibility.Hidden;
+        AttractionGrid.Visibility = Visibility.Hidden;
+        AccomodationGrid.Visibility = Visibility.Hidden;
+        RestaurantsGrid.Visibility = Visibility.Hidden;
+        PurchasedTripGrid.Visibility = Visibility.Visible;
+    }
 }

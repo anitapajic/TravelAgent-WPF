@@ -24,7 +24,7 @@ public class BookedTripRepository
     {
         this.bookedTrips.Add(trip);
     }
-    
+
     public BookedTrip GetBookedTripById(int id)
     {
         foreach (BookedTrip trip in bookedTrips)
