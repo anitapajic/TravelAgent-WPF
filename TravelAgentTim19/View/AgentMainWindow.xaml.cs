@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -77,6 +78,12 @@ public partial class AgentMainWindow : Window
     {
         AddNewRestaurantWindow addNewRestaurantWindow = new AddNewRestaurantWindow(MainRepository);
         addNewRestaurantWindow.Show();
+        addNewRestaurantWindow.Closed += NewRestaurantWindow_Closed;
+        
+    }
+    private void NewRestaurantWindow_Closed(object sender, EventArgs e)
+    {
+        restaurantItemsControl.Items.Refresh();
     }
     private void ToggleButtonAccomodation_Click(object sender, RoutedEventArgs e)
     {
