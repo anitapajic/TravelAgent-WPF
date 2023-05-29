@@ -4,9 +4,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:TravelAgentTim19.View"
-        mc:Ignorable="d"
-        Title="AddNewAttractionWindow" Height="450" Width="800">
-    <Grid>
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        Title="Dodaj novu atrakciju" Height="500" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+      
+        <TextBlock Text="Dodaj novu atrakciju" Grid.Row="0" Grid.ColumnSpan="2" FontWeight="Bold" FontSize="20" Margin="20" HorizontalAlignment="Stretch" TextAlignment="Center" />
+
+        <Label Content="Ime:" Grid.Row="1" Grid.Column="0"/>
+        <TextBox x:Name="NameTextBox" Grid.Row="1" Grid.Column="1"/>
+        
+        <Label Content="Grad:" Grid.Row="2" Grid.Column="0"/>
+        <TextBox x:Name="CityTextBox" Grid.Row="2" Grid.Column="1"/>
+
+        <Label Content="Adresa:" Grid.Row="3" Grid.Column="0"/>
+        <TextBox x:Name="AddressTextBox" Grid.Row="3" Grid.Column="1"/>
+
+        <Label Content="Cena:" Grid.Row="4" Grid.Column="0"/>
+        <TextBox x:Name="PriceTextBox" Grid.Row="4" Grid.Column="1"/>
+
+        <Label Content="Opis:" Grid.Row="5" Grid.Column="0"/>
+        <TextBox x:Name="DescriptionTextBox" Grid.Row="5" Grid.Column="1"/>
+
+        <Button x:Name="SaveButton" Background="#3AA9AD" Foreground="White" FontWeight="Bold" FontSize="14" Content="Dodaj" Grid.Row="6" Grid.ColumnSpan="2" Margin="50" Width="160" Height="35" Click="SaveButton_OnClick"/>
     </Grid>
 </Window>

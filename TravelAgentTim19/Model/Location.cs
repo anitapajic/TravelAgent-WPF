@@ -15,6 +15,11 @@ public class Location
         Longitude = longitude;
     }
 
+    public Location(string city, string address)
+    {
+        City = city;
+        Address = address;
+    }
     public Location()
     {
     }

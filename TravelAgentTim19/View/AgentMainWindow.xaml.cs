@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -85,8 +87,14 @@ public partial class AgentMainWindow : Window
     }
     private void ToggleButtonAttraction_Click(object sender, RoutedEventArgs e)
     {
-        AddNewAttractionWindow addNewAttractionWindow = new AddNewAttractionWindow();
+        AddNewAttractionWindow addNewAttractionWindow = new AddNewAttractionWindow(MainRepository);
         addNewAttractionWindow.Show();
+        addNewAttractionWindow.Closed += NewAttractionWindow_Closed;
+        
+    }
+    private void NewAttractionWindow_Closed(object sender, EventArgs e)
+    {
+        attractionItemsControl.Items.Refresh();
     }
     private void ToggleButtonTrip_Click(object sender, RoutedEventArgs e)
     {
@@ -109,11 +117,29 @@ public partial class AgentMainWindow : Window
         Button editButton = (Button)sender;
         int tripId = (int)editButton.Tag;
         Trip trip = MainRepository.TripRepository.GetTripById(tripId);
-        //Potvrdi da li zelis da obrises
-        MainRepository.TripRepository.Delete(trip);
-        tripItemsControl.Items.Refresh();
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da obrisete ovo putovanje?", "Potvrda", MessageBoxButton.YesNo);
+        if (result == MessageBoxResult.Yes)
+        {
+            MainRepository.TripRepository.Delete(trip);
+            tripItemsControl.Items.Refresh();
+        }
 
     }
+    
+    private void DeleteAttractionBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int attId = (int)editButton.Tag;
+        Attraction att = MainRepository.AttractionRepository.GetAttractionById(attId);
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da obrisete ovu atrakciju?", "Potvrda", MessageBoxButton.YesNo);
+        if (result == MessageBoxResult.Yes)
+        {
+            MainRepository.AttractionRepository.DeleteAttraction(att);
+            attractionItemsControl.Items.Refresh();
+        }
+
+    }
+    
     
     
 }
