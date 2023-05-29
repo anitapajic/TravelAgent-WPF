@@ -36,6 +36,11 @@ public class AccomodationRepository
         }
         return null;
     }
+
+    public void DeleteAccomodation(Accomodation accomodation)
+    {
+        accomodations.Remove(accomodation);
+    }
     
     public void Save()
     {

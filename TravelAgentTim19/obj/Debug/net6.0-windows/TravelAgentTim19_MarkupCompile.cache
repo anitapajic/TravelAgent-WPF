@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\View\App.xaml
-11510069207
+13-533222544
 11997472999
-34446777620
+362139543531
 196-1604204614
-View\Add\AddNewAccomodationWindow.xaml;View\Add\AddNewAttractionWindow.xaml;View\Add\AddNewRestaurantWindow.xaml;View\Add\AddNewTripWindow.xaml;View\AgentMainWindow.xaml;View\Edit\EditAccomodationWindow.xaml;View\Edit\EditAttractionWindow.xaml;View\Edit\EditRestaurantWindow.xaml;View\Edit\EditTripWindow.xaml;View\MainWindow.xaml;View\UserMainWindow.xaml;
+View\Add\AddNewAccomodationWindow.xaml;View\Add\AddNewAttractionWindow.xaml;View\Add\AddNewRestaurantWindow.xaml;View\Add\AddNewTripWindow.xaml;View\AgentMainWindow.xaml;View\Edit\EditAccomodationWindow.xaml;View\Edit\EditAttractionWindow.xaml;View\Edit\EditBookedTripWindow.xaml;View\Edit\EditPurchasedTripWindow.xaml;View\Edit\EditRestaurantWindow.xaml;View\Edit\EditTripWindow.xaml;View\MainWindow.xaml;View\UserMainWindow.xaml;
 
 False
 
