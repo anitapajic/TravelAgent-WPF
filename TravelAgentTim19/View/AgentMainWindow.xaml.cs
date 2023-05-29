@@ -75,7 +75,7 @@ public partial class AgentMainWindow : Window
 
     private void ToggleButtonRestaurant_Click(object sender, RoutedEventArgs e)
     {
-        AddNewRestaurantWindow addNewRestaurantWindow = new AddNewRestaurantWindow();
+        AddNewRestaurantWindow addNewRestaurantWindow = new AddNewRestaurantWindow(MainRepository);
         addNewRestaurantWindow.Show();
     }
     private void ToggleButtonAccomodation_Click(object sender, RoutedEventArgs e)
@@ -113,6 +113,30 @@ public partial class AgentMainWindow : Window
         MainRepository.TripRepository.Delete(trip);
         tripItemsControl.Items.Refresh();
 
+    }
+    private void EditRestaurantBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int restaurantId = (int)editButton.Tag;
+        Restaurant restaurant = MainRepository.RestaurantsRepository.GetRestaurantByid(restaurantId);
+
+        EditRestaurantWindow editRestaurantWindow = new EditRestaurantWindow(restaurant, MainRepository);
+        editRestaurantWindow.Show();
+    }
+    
+    private void DeleteRestaurantBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int restaurantId = (int)editButton.Tag;
+        Restaurant restaurant = MainRepository.RestaurantsRepository.GetRestaurantByid(restaurantId);
+        //Potvrdi da li zelis da obrises
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da obrisete ovaj restoran?", "Potvrda", MessageBoxButton.YesNo);
+        if (result == MessageBoxResult.Yes)
+        {
+            MainRepository.RestaurantsRepository.Delete(restaurant);
+            restaurantItemsControl.Items.Refresh();
+        }
+        
     }
     
     

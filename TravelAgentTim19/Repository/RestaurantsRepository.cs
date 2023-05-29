@@ -24,6 +24,13 @@ public class RestaurantsRepository
     {
         this.restaurants.Add(restaurant);
     }
+
+    public void UpdateRestaurant(Restaurant restaurant)
+    {
+        Restaurant toBeDeleted = GetRestaurantByid(restaurant.Id);
+        Delete(toBeDeleted);
+        AddRestaurant(restaurant);
+    }
     
     public Restaurant GetRestaurantByid(int id)
     {
@@ -35,6 +42,11 @@ public class RestaurantsRepository
             }
         }
         return null;
+    }
+
+    public bool Delete(Restaurant restaurant)
+    {
+        return restaurants.Remove(restaurant);
     }
     
     public void Save()
