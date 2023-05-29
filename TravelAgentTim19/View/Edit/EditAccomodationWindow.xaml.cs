@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -7,6 +8,8 @@ using System.Windows.Media.Imaging;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 ﻿using System.Windows;
+using System.Windows.Input;
+using Microsoft.Win32;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
 
@@ -120,5 +123,32 @@ public partial class EditAccomodationWindow : Window
             Height = 60
         };
         ImageList.Items.Add(image);
+    }
+
+    private void ListView_MouseClick(object sender, MouseButtonEventArgs e)
+    {
+        OpenFileDialog openFileDialog = new OpenFileDialog();
+        openFileDialog.Multiselect = true; // Allow multiple file selection
+        openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"; // Filter image files
+
+        if (openFileDialog.ShowDialog() == true)
+        {
+
+            foreach (string filename in openFileDialog.FileNames)
+            {
+                BitmapImage bitmapImage = new BitmapImage();
+                bitmapImage.BeginInit();
+                bitmapImage.UriSource = new Uri(filename);
+                bitmapImage.EndInit();
+
+                Image image = new Image();
+                image.Source = bitmapImage;
+                image.Width = 50;
+                image.MaxHeight = 50;
+
+                ImageList.Items.Add(image);
+            }
+            
+        }
     }
 }
