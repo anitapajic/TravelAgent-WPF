@@ -21,6 +21,9 @@ public partial class AgentMainWindow : Window
     public List<Restaurant> Restaurants { get; set; }
     public List<BookedTrip> BookedTrips { get; set; }
     public List<BookedTrip> PurchasedTrips { get; set; }
+    public List<Trip> SoldTrips { get; set; }
+    public List<BookedTrip> SoldBookedTrips { get; set; }
+    public List<string> TripsNameList { get; set; }
 
     public AgentMainWindow(MainRepository mainRepository)
     {
@@ -30,9 +33,14 @@ public partial class AgentMainWindow : Window
         Accomodations = MainRepository.AccomodationRepository.GetAccomodations();
         Restaurants = MainRepository.RestaurantsRepository.GetRestaurants();
         BookedTrips = new List<BookedTrip>();
-        PurchasedTrips = new List<BookedTrip>();
+        PurchasedTrips = new List<BookedTrip>(); 
+        SoldTrips = new List<Trip>();
+        SoldBookedTrips = new List<BookedTrip>();
+        TripsNameList = new List<string>();
         GetBookedTrips();
+        GetTripNameList();
         InitializeComponent();
+        tripComboBox.ItemsSource = TripsNameList;
         DataContext = this; 
     }
 
@@ -50,6 +58,48 @@ public partial class AgentMainWindow : Window
             }
         }
     }
+    
+    public List<Trip> GetNumOfMonthlySoldTrips(int month)
+    {
+        List<BookedTrip> bookedTripsDate = new List<BookedTrip>();
+        foreach (BookedTrip bookedTrip in PurchasedTrips)
+        {
+            if (bookedTrip.DatePeriod.StartDate.Month == month)
+            {
+                bookedTripsDate.Add(bookedTrip);
+            }
+        }
+
+        foreach (BookedTrip bt in bookedTripsDate)
+        {
+            SoldTrips.Add(MainRepository.TripRepository.GetTripById(bt.TripId));
+        }
+
+        return SoldTrips;
+    }
+
+    public void GetTripNameList()
+    {
+        foreach (Trip trip in MainRepository.TripRepository.GetTrips())
+        {
+            TripsNameList.Add(trip.Name);
+        }
+
+        
+    }
+
+    public List<BookedTrip> GetSoldBookedTrips(string tripName)
+    {
+        foreach (BookedTrip bookedTrip in PurchasedTrips)
+        {
+            if (bookedTrip.TripName.Equals(tripName))
+            {
+                SoldBookedTrips.Add(bookedTrip);
+            }
+        }
+
+        return SoldBookedTrips;
+    }
 
     private void PutovanjaCRUD_CanExecute(object sender, CanExecuteRoutedEventArgs e)
     {
@@ -62,6 +112,10 @@ public partial class AgentMainWindow : Window
     }
     private void TripItem_Click(object sender, RoutedEventArgs e)
     {
+        Report2Grid.Visibility = Visibility.Hidden;
+        SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
+        Report1Grid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
@@ -71,6 +125,10 @@ public partial class AgentMainWindow : Window
     }
     private void AttractionItem_Click(object sender, RoutedEventArgs e)
     {
+        Report2Grid.Visibility = Visibility.Hidden;
+        SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
+        Report1Grid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
@@ -80,6 +138,10 @@ public partial class AgentMainWindow : Window
     }
     private void AccomodationItem_Click(object sender, RoutedEventArgs e)
     {
+        Report2Grid.Visibility = Visibility.Hidden;
+        SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
+        Report1Grid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
@@ -89,6 +151,10 @@ public partial class AgentMainWindow : Window
     }
     private void RestaurantItem_Click(object sender, RoutedEventArgs e)
     {
+        Report2Grid.Visibility = Visibility.Hidden;
+        SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
+        Report1Grid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
@@ -233,6 +299,10 @@ public partial class AgentMainWindow : Window
 
     private void BookedTripItem_Click(object sender, RoutedEventArgs e)
     {
+        Report2Grid.Visibility = Visibility.Hidden;
+        SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
+        Report1Grid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -243,6 +313,10 @@ public partial class AgentMainWindow : Window
 
     private void PurchasedTripItem_Click(object sender, RoutedEventArgs e)
     {
+        Report2Grid.Visibility = Visibility.Hidden;
+        SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
+        Report1Grid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -279,5 +353,86 @@ public partial class AgentMainWindow : Window
 
         EditPurchasedTripWindow editPurchasedTripWindow = new EditPurchasedTripWindow(bookedTrip, MainRepository);
         editPurchasedTripWindow.Show();
+    }
+
+    private void SoldTrips_Click(object sender, RoutedEventArgs e)
+    {
+        Report2Grid.Visibility = Visibility.Hidden;
+        SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
+        TripsGrid.Visibility = Visibility.Hidden;
+        AttractionGrid.Visibility = Visibility.Hidden;
+        AccomodationGrid.Visibility = Visibility.Hidden;
+        RestaurantsGrid.Visibility = Visibility.Hidden;
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        Report1Grid.Visibility = Visibility.Visible;
+    }
+
+    private void FindTripsReport1_Clicked(object sender, RoutedEventArgs e)
+    {
+        int selectedIndex = monthComboBox.SelectedIndex;
+        int month = selectedIndex + 1;
+        SoldTrips = GetNumOfMonthlySoldTrips(month);
+        if (SoldTrips.Count > 0)
+        {
+            soldTripItemsControl.Items.Refresh();
+            Report2Grid.Visibility = Visibility.Hidden;
+            SoldBookedTripGrid.Visibility = Visibility.Hidden;
+            BookedTripGrid.Visibility = Visibility.Hidden;
+            TripsGrid.Visibility = Visibility.Hidden;
+            AttractionGrid.Visibility = Visibility.Hidden;
+            AccomodationGrid.Visibility = Visibility.Hidden;
+            RestaurantsGrid.Visibility = Visibility.Hidden;
+            PurchasedTripGrid.Visibility = Visibility.Hidden;
+            Report1Grid.Visibility = Visibility.Hidden;
+            SoldTripGrid.Visibility = Visibility.Visible;
+        }
+        else
+        {
+            MessageBox.Show("Ne postoji nijedno prodato putovanje u ovom mesecu.");
+        }
+
+        SoldTrips = new List<Trip>();
+    }
+
+    private void FindBookedTripsReport1_Clicked(object sender, RoutedEventArgs e)
+    {
+        string selectedTrip = tripComboBox.SelectedItem.ToString();
+        SoldBookedTrips = GetSoldBookedTrips(selectedTrip);
+        if (SoldBookedTrips.Count > 0)
+        {
+            soldBookedTripItemsControl.Items.Refresh();
+            Report2Grid.Visibility = Visibility.Hidden;
+            BookedTripGrid.Visibility = Visibility.Hidden;
+            TripsGrid.Visibility = Visibility.Hidden;
+            AttractionGrid.Visibility = Visibility.Hidden;
+            AccomodationGrid.Visibility = Visibility.Hidden;
+            RestaurantsGrid.Visibility = Visibility.Hidden;
+            PurchasedTripGrid.Visibility = Visibility.Hidden;
+            Report1Grid.Visibility = Visibility.Hidden;
+            SoldTripGrid.Visibility = Visibility.Hidden;
+            SoldBookedTripGrid.Visibility = Visibility.Visible;
+        }
+        else
+        {
+            MessageBox.Show("Ne postoji nijedan prodati aranzman za ovo putovanje.");
+        }
+
+        SoldBookedTrips = new List<BookedTrip>();
+    }
+
+    private void SoldBookedTrips_Click(object sender, RoutedEventArgs e)
+    {
+        SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
+        TripsGrid.Visibility = Visibility.Hidden;
+        AttractionGrid.Visibility = Visibility.Hidden;
+        AccomodationGrid.Visibility = Visibility.Hidden;
+        RestaurantsGrid.Visibility = Visibility.Hidden;
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        Report1Grid.Visibility = Visibility.Hidden;
+        Report2Grid.Visibility = Visibility.Visible;
     }
 }
