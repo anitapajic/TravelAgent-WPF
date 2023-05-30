@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         xmlns:service="clr-namespace:TravelAgentTim19.Service"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip" 
         Title="Glavni prozor" Height="450" Width="800"
@@ -10,7 +11,6 @@
     
    
     <Window.CommandBindings>
-        <!-- <CommandBinding Command="service:RoutedCommands.Putovanja" CanExecute="PutovanjaCRUD_CanExecute" Executed="PutovanjaCRUD_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Enable" CanExecute="Enable_CanExecute" Executed="Enable_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Komanda" CanExecute="Komanda_CanExecute" Executed="Komanda_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Ugradjene" CanExecute="Ugradjene_CanExecute" Executed="Ugradjene_Executed"></CommandBinding> -->
@@ -27,11 +27,12 @@
             <MenuItem Header="TravelAgentTim19" IsEnabled="False"></MenuItem>
             <Separator></Separator>
             <MenuItem Header="Putovanja">
-                <MenuItem Header="Sva putovanja" Click="TripItem_Click" Command="service:RoutedCommands.Putovanja"></MenuItem>
+                <MenuItem Header="Sva putovanja" Click="TripItem_Click"></MenuItem>
                 <MenuItem Header="Mapa"></MenuItem>
                 <MenuItem Header="Rezervacije" Click="BookedTripItem_Click"></MenuItem>
-                <MenuItem Header="Kupljena putovanja" Click="PurchasedTripItem_Click"></MenuItem>
-                <MenuItem Header="Izvestaji"></MenuItem>
+                <MenuItem Header="Kupljena aranzmani" Click="PurchasedTripItem_Click"></MenuItem>
+                <MenuItem Header="Prodata putovanja mesecu" Click="SoldTrips_Click"></MenuItem>
+                <MenuItem Header="Prodati aranzmani jednog putovanja" Click="SoldBookedTrips_Click"></MenuItem>
             </MenuItem>
             <MenuItem Header="Turisticke atrakcije" Click="AttractionItem_Click"></MenuItem>
             <MenuItem Header="Smestaj" Click="AccomodationItem_Click"></MenuItem>
@@ -40,7 +41,71 @@
             <MenuItem Header="Logout" Click="Logout_Click"></MenuItem>
         </Menu>
         <Grid DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Name="grid1">
+            <Grid Name="RowsGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Name="MapGrid" Height="200" Visibility="Hidden" Grid.Row="0">
+                <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="30,5,30,10" />
             
+            </Grid>
+                <Grid Grid.Row="1" Name="AttractionGrid" Visibility="Hidden">
+                     <Grid>
+                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl x:Name="attractionItemsControl" ItemsSource="{Binding Attractions}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
+                                        Width="200" Height="200" VerticalAlignment="Top">
+                                    <!-- Card content -->
+                                    <StackPanel>
+                                        <!-- <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> -->
+                                        <TextBlock Text="{Binding Name}" Margin="5,10,5,5" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Price}" Margin="5"/>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                            <Button Content="Detaljnije" Click="EditAttractionBtn_Click" Margin="5">
+                                                <Button.Tag>
+                                                    <Binding Path="Id"/>
+                                                </Button.Tag>
+                                            </Button>
+                                            <Button Content="Obrisi" Click="DeleteAttractionBtn_Clicked" Margin="5">
+                                                <Button.Tag>
+                                                    <Binding Path="Id"/>
+                                                </Button.Tag>
+                                            </Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+                             </ScrollViewer>
+                         </Grid>
+                <ToggleButton x:Name="ToggleButtonAttraction" Click="ToggleButtonAttraction_Click" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="30">
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <Grid x:Name="ButtonGrid">
+                                <Ellipse x:Name="Circle" Fill="#3AA9AD"/>
+                                <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="White"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="Circle" Property="Fill" Value="#2D8487"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                </ToggleButton>
+            </Grid>
+            </Grid>
             <Grid Name="TripsGrid" Visibility="Visible">
                 <Grid>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
@@ -96,64 +161,8 @@
                     </ToggleButton.Template>
                 </ToggleButton>
             </Grid>
-                
-                 <Grid Name="AttractionGrid" Visibility="Hidden">
-                     <Grid>
-                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ItemsControl x:Name="attractionItemsControl" ItemsSource="{Binding Attractions}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                        Width="200" Height="200" VerticalAlignment="Top">
-                                    <!-- Card content -->
-                                    <StackPanel>
-                                        <!-- <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> -->
-                                        <TextBlock Text="{Binding Name}" Margin="5,10,5,5" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding Price}" Margin="5"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Detaljnije" Click="EditAttractionBtn_Click" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                            <Button Content="Obrisi" Click="DeleteAttractionBtn_Clicked" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-                             </ScrollViewer>
-                         </Grid>
-                <ToggleButton x:Name="ToggleButtonAttraction" Click="ToggleButtonAttraction_Click" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="30">
-                    <ToggleButton.Template>
-                        <ControlTemplate TargetType="ToggleButton">
-                            <Grid x:Name="ButtonGrid">
-                                <Ellipse x:Name="Circle" Fill="#3AA9AD"/>
-                                <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="White"/>
-                            </Grid>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="Circle" Property="Fill" Value="#2D8487"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </ToggleButton.Template>
-                </ToggleButton>
-            </Grid>
 
-            <Grid Name="AccomodationGrid" Visibility="Hidden">
+            <Grid  Name="AccomodationGrid" Visibility="Hidden">
                 <Grid>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                 <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -208,7 +217,7 @@
                     </ToggleButton.Template>
                 </ToggleButton>
             </Grid>
-            <Grid Name="RestaurantsGrid" Visibility="Hidden">
+            <Grid  Name="RestaurantsGrid" Visibility="Hidden">
                 <Grid>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -263,7 +272,7 @@
                     </ToggleButton.Template>
                 </ToggleButton>
             </Grid>
-            <Grid Name="BookedTripGrid" Visibility="Hidden">
+            <Grid  Name="BookedTripGrid" Visibility="Hidden">
                      <Grid>
                          <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                      <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -301,7 +310,7 @@
                              </ScrollViewer>
                          </Grid>
             </Grid>
-            <Grid Name="PurchasedTripGrid" Visibility="Hidden">
+            <Grid  Name="PurchasedTripGrid" Visibility="Hidden">
                      <Grid>
                          <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
                      <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -325,6 +334,118 @@
                                         <TextBlock Text="{Binding Accomodation.Name}" Margin="5"/>
                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
                                             <Button Content="Detaljnije" Click="EditPurchasedTripBtn_Clicked" Margin="5">
+                                                <Button.Tag>
+                                                    <Binding Path="Id"/>
+                                                </Button.Tag>
+                                            </Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+                             </ScrollViewer>
+                     </Grid>
+            </Grid>
+            <Grid  Name="Report1Grid" Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Izaberite mesec:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center"/>
+
+                <ComboBox x:Name="monthComboBox" Grid.Row="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center">
+                    <ComboBoxItem Content="Januar"/>
+                    <ComboBoxItem Content="Februar"/>
+                    <ComboBoxItem Content="Mart"/>
+                    <ComboBoxItem Content="April"/>
+                    <ComboBoxItem Content="Maj"/>
+                    <ComboBoxItem Content="Jun"/>
+                    <ComboBoxItem Content="Jul"/>
+                    <ComboBoxItem Content="Avgust"/>
+                    <ComboBoxItem Content="Septembar"/>
+                    <ComboBoxItem Content="Octobar"/>
+                    <ComboBoxItem Content="Novembar"/>
+                    <ComboBoxItem Content="Decembar"/>
+                </ComboBox>
+                <Button x:Name="FindByMonthBtn" Click="FindTripsReport1_Clicked" Grid.Row="2" Content="Find trips" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" ></Button>
+            </Grid>
+            <Grid  Name="SoldTripGrid" Visibility="Hidden">
+                     <Grid>
+                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl x:Name="soldTripItemsControl" ItemsSource="{Binding SoldTrips}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
+                                        Width="200" Height="200" VerticalAlignment="Top">
+                                    <!-- Card content -->
+                                    <StackPanel>
+                                        <!-- <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> -->
+                                        <TextBlock Text="{Binding Name}" Margin="5,10,5,5" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Price}" Margin="5"/>
+                                        <TextBlock TextWrapping="Wrap" Text="{Binding Description}" Margin="5"/>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                            <Button Content="Detaljnije" Margin="5">
+                                                <Button.Tag>
+                                                    <Binding Path="Id"/>
+                                                </Button.Tag>
+                                            </Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+                             </ScrollViewer>
+                         </Grid>
+            </Grid>
+            <Grid  Name="Report2Grid" Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Izaberite putovanje:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center"/>
+
+                <ComboBox x:Name="tripComboBox" Grid.Row="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center">
+                </ComboBox>
+                <Button x:Name="FindByTripBtn" Click="FindBookedTripsReport1_Clicked" Grid.Row="2" Content="Find trips" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" ></Button>
+            </Grid>
+             <Grid   Name="SoldBookedTripGrid" Visibility="Hidden">
+                     <Grid>
+                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl x:Name="soldBookedTripItemsControl" ItemsSource="{Binding SoldBookedTrips}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
+                                        Width="200" Height="200" VerticalAlignment="Top">
+                                    <!-- Card content -->
+                                    <StackPanel>
+                                        <!-- <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> -->
+                                        <TextBlock Text="{Binding TripName}" Margin="5,10,5,5" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding DatePeriod.StartDate}" Margin="5"/>
+                                        <TextBlock Text="{Binding DatePeriod.EndDate}" Margin="5"/>
+                                        <TextBlock Text="{Binding Price}" Margin="5"/>
+                                        <TextBlock Text="{Binding Accomodation.Name}" Margin="5"/>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                            <Button Content="Detaljnije" Margin="5">
                                                 <Button.Tag>
                                                     <Binding Path="Id"/>
                                                 </Button.Tag>

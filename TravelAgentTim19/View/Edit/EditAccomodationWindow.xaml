@@ -5,7 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
-        mc:Ignorable="d"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="Edit Accomodation" Height="600" Width="800">
         <Grid>
             <Grid x:Name="InfoGrid" Margin="50">

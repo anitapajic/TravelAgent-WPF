@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tamar\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj": {}
+    "C:\\Users\\anita\\Desktop\\HCI-TravelAgent\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tamar\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj": {
+    "C:\\Users\\anita\\Desktop\\HCI-TravelAgent\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tamar\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
+        "projectUniqueName": "C:\\Users\\anita\\Desktop\\HCI-TravelAgent\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
         "projectName": "TravelAgentTim19",
-        "projectPath": "C:\\Users\\tamar\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
-        "packagesPath": "C:\\Users\\tamar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tamar\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\obj\\",
+        "projectPath": "C:\\Users\\anita\\Desktop\\HCI-TravelAgent\\TravelAgentTim19\\TravelAgentTim19\\TravelAgentTim19.csproj",
+        "packagesPath": "C:\\Users\\anita\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\anita\\Desktop\\HCI-TravelAgent\\TravelAgentTim19\\TravelAgentTim19\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tamar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\anita\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,26 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "GMap.NET.WinPresentation": {
+              "target": "Package",
+              "version": "[2.1.7, )"
+            },
+            "GMap.Net": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "Geocoding.Core": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "IPGeolocation.Net": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "IpGeolocation.IpGeolocation": {
+              "target": "Package",
+              "version": "[1.0.10, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
