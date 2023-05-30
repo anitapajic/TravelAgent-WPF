@@ -24,7 +24,7 @@
                     <GradientStop Color="#3AADA1" Offset="1" />
                 </LinearGradientBrush>
             </Menu.Background>
-            <MenuItem Header="TravelAgentTim19" IsEnabled="False"></MenuItem>
+            <MenuItem Header="TuristickaAgencijaTim19" IsEnabled="False"></MenuItem>
             <Separator></Separator>
             <MenuItem Header="Putovanja">
                 <MenuItem Header="Pregled svih putovanja" Click="TripItem_Click"></MenuItem>

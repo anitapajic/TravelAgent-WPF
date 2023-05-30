@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" 
-        Background="Transparent" Title="Travel Agent Tim19" MinHeight="500" MinWidth="800" 
+        Background="Transparent" Title="Turisticka agencija Tim19" MinHeight="500" MinWidth="800" 
         MaxHeight="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Mode=OneWay}" 
         ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown">
         <Window.InputBindings>
@@ -37,13 +37,13 @@
                 </Canvas>
 
                 <StackPanel x:Name="SignUpPanel" VerticalAlignment="Center">
-                    <TextBlock Text="Sign Up" Style="{StaticResource TitleText}" />
-                    <TextBlock Text="Enter your personal info and create a new account to connect with us" Opacity="0.8" Margin="20 30 20 30" Style="{StaticResource NormalText}" />
-                    <Button Content="Sign Up" Style="{StaticResource Button}" Click="SignUpButton_Click" />
+                    <TextBlock Text="Registruj se" Style="{StaticResource TitleText}" />
+                    <TextBlock Text="Unesi svoje podatke i napravi svoj profil" Opacity="0.8" Margin="20 30 20 30" Style="{StaticResource NormalText}" />
+                    <Button Content="Registruj se" Style="{StaticResource Button}" Click="SignUpButton_Click" />
                 </StackPanel>
 
                 <StackPanel x:Name="SignUpFormPanel" VerticalAlignment="Center"  Visibility="Hidden">
-                    <TextBlock Text="Sign Up Form" Foreground="#3AB19B" Style="{StaticResource TitleText}" />
+                    <TextBlock Text="Registracija" Foreground="#3AB19B" Style="{StaticResource TitleText}" />
                     
                     <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5">
                         <Grid Margin="7 9">
@@ -52,7 +52,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock x:Name="TextSignUpFName" MouseDown="textSignUpFName_MouseDown" Text="First name" Style="{StaticResource TextHint}" />
+                            <TextBlock x:Name="TextSignUpFName" MouseDown="textSignUpFName_MouseDown" Text="Ime" Style="{StaticResource TextHint}" />
                             <TextBox Name="SignUpFNameBox" TextChanged="signUpFNameBox_TextChanged" Style="{StaticResource TextBox}" />
                         </Grid>
                     </Border>
@@ -64,7 +64,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock x:Name="TextSignUpLName" MouseDown="textSignUpLName_MouseDown" Text="Last name" Style="{StaticResource TextHint}" />
+                            <TextBlock x:Name="TextSignUpLName" MouseDown="textSignUpLName_MouseDown" Text="Prezime" Style="{StaticResource TextHint}" />
                             <TextBox Name="SignUpLNameBox" TextChanged="signUpLNameBox_TextChanged" Style="{StaticResource TextBox}" />
                         </Grid>
                     </Border>
@@ -88,7 +88,7 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock x:Name="TextSignUpPassword" MouseDown="textSignUpPassword_MouseDown" Text="Password" Style="{StaticResource TextHint}" />
+                            <TextBlock x:Name="TextSignUpPassword" MouseDown="textSignUpPassword_MouseDown" Text="Sifra" Style="{StaticResource TextHint}" />
                             <PasswordBox x:Name="SignUpPasswordBox" PasswordChanged="signUpPasswordBox_PasswordChanged" Style="{StaticResource TextBox}" />
                         </Grid>
                     </Border>
@@ -100,12 +100,12 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock x:Name="TextSignUpPassword2" MouseDown="textSignUpPassword2_MouseDown" Text="Confirm password" Style="{StaticResource TextHint}" />
+                            <TextBlock x:Name="TextSignUpPassword2" MouseDown="textSignUpPassword2_MouseDown" Text="Potvrdi sifru" Style="{StaticResource TextHint}" />
                             <PasswordBox x:Name="SignUpPassword2Box" PasswordChanged="signUpPassword2Box_PasswordChanged" Style="{StaticResource TextBox}" />
                         </Grid>
                     </Border>
 
-                    <Button x:Name="SignUpFormButton" Click="SignUpFormButton_Click" Content="Sign Up" Style="{StaticResource MainButton}" />
+                    <Button x:Name="SignUpFormButton" Click="SignUpFormButton_Click" Content="Registruj se" Style="{StaticResource MainButton}" />
                 </StackPanel>
             </Grid>
         </Border>
@@ -120,13 +120,13 @@
                 </Canvas>
                 
                 <StackPanel x:Name="SignInPanel" VerticalAlignment="Center" Visibility="Hidden">
-                    <TextBlock Text="Sign Up" Style="{StaticResource TitleText}" />
-                    <TextBlock Text="Enter your personal info and sign in" Opacity="0.8" Margin="20 30 20 30" Style="{StaticResource NormalText}" />
-                    <Button Content="Sign In" Style="{StaticResource Button}" Click="SignInButton_Click" />
+                    <TextBlock Text="Prijavi se" Style="{StaticResource TitleText}" />
+                    <TextBlock Text="Unesi svoje podatke i prijavi se" Opacity="0.8" Margin="20 30 20 30" Style="{StaticResource NormalText}" />
+                    <Button Content="Prijavi se" Style="{StaticResource Button}" Click="SignInButton_Click" />
                 </StackPanel>
                 
                 <StackPanel x:Name="SignInFormPanel" VerticalAlignment="Center">
-                    <TextBlock Text="Sign in to App" Foreground="#3AB19B" Style="{StaticResource TitleText}" />
+                    <TextBlock Text="Uloguj se u aplikaciju" Foreground="#3AB19B" Style="{StaticResource TitleText}" />
                     <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center">
                         <Button Style="{StaticResource ButtonCircle}">
                             <Image Source="../Images/google.png" Width="20" Height="20" />
@@ -139,7 +139,7 @@
                         </Button>
                     </StackPanel>
 
-                    <TextBlock Text="or use your email info :" Margin="0 10 0 15" Foreground="#878787" Style="{StaticResource NormalText}" />
+                    <TextBlock Text="uloguj se preko email-a :" Margin="0 10 0 15" Foreground="#878787" Style="{StaticResource NormalText}" />
 
                     <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5">
                         <Grid Margin="7 9">
@@ -162,12 +162,12 @@
                             </Grid.ColumnDefinitions>
 
                             <Image Source="../Images/Lock.png" Height="20" />
-                            <TextBlock x:Name="TextPassword" MouseDown="textPassword_MouseDown" Text="Password" Style="{StaticResource TextHint}" />
+                            <TextBlock x:Name="TextPassword" MouseDown="textPassword_MouseDown" Text="Sifra" Style="{StaticResource TextHint}" />
                             <PasswordBox x:Name="PasswordBox" PasswordChanged="passwordBox_PasswordChanged" Style="{StaticResource TextBox}" />
                         </Grid>
                     </Border>
 
-                    <Button Content="Sign In" Click="SignInFormButton_Click" Style="{StaticResource MainButton}" />
+                    <Button Content="Prijavi se" Click="SignInFormButton_Click" Style="{StaticResource MainButton}" />
                 </StackPanel>
             </Grid>
         </Border>
