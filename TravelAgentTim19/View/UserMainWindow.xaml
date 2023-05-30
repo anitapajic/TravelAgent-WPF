@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         xmlns:service="clr-namespace:TravelAgentTim19.Service"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip" 
         Title="AgentMainWindow" Height="450" Width="800"
@@ -27,7 +28,7 @@
             <Separator></Separator>
             <MenuItem Header="Putovanja">
                 <MenuItem Header="Pregled svih putovanja" Click="TripItem_Click"></MenuItem>
-                <MenuItem Header="Mapa"></MenuItem>
+                <MenuItem Header="Mapa" Click="MapItem_Click"></MenuItem>
                 <MenuItem Header="Moja putovanja"></MenuItem>
             </MenuItem>
             <MenuItem Header="Turisticke atrakcije"></MenuItem>
@@ -70,6 +71,9 @@
                 </Grid>
                         </ScrollViewer>
                     </Grid>
+            </Grid>
+            <Grid Name="MapGrid" Visibility="Hidden">
+                <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0,10,0,10" />
             </Grid>
            
         </Grid>

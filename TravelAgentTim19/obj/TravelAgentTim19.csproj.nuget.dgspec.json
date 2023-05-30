@@ -40,6 +40,26 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
+            "GMap.NET.WinPresentation": {
+              "target": "Package",
+              "version": "[2.1.7, )"
+            },
+            "GMap.Net": {
+              "target": "Package",
+              "version": "[1.0.1, )"
+            },
+            "Geocoding.Core": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "IPGeolocation.Net": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "IpGeolocation.IpGeolocation": {
+              "target": "Package",
+              "version": "[1.0.10, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
