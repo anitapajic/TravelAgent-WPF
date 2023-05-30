@@ -3,9 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        mc:Ignorable="d"
-        Title="EditTripWindow" Height="800" Width="800">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="EditTripWindow" Height="500" Width="800">
     <ScrollViewer>
         <Grid>
         <Grid x:Name="InfoGrid" HorizontalAlignment="Center" Margin="10">
@@ -15,15 +16,16 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="100" />
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="100" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
@@ -33,11 +35,11 @@
             </Grid.ColumnDefinitions>
             
 
-            <Border Grid.Row="3" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
-            <Border Grid.Row="5" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
-            <Border Grid.Row="7" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
-            <Border Grid.Row="9" Grid.RowSpan="3"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
-            <Border Grid.Row="12" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
+            <Border Grid.Row="4" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
+            <Border Grid.Row="6" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
+            <Border Grid.Row="8" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
+            <Border Grid.Row="10" Grid.RowSpan="3"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
+            <Border Grid.Row="13" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
 
             <!-- Title -->
             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="INFO PUTOVANJA" FontSize="20" FontWeight="Bold" Margin="10"/>
@@ -49,10 +51,14 @@
             <!-- Travel Description -->
             <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Trip.Description}" TextWrapping="Wrap" Margin="10"/>
 
+            <Grid Grid.Row="3" Name="MapGrid" Height="200" Visibility="Visible" Grid.ColumnSpan="2" >
+                <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="30,5,30,10" />
+            
+            </Grid>
             <!-- Attraction Selection -->
-            <TextBlock Grid.Row="3" Grid.Column="0" Text="Atrakcije"  Margin="10"/>
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Atrakcije"  Margin="10"/>
 
-            <ListBox ItemsSource="{Binding Trip.Attractions}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
+            <ListBox ItemsSource="{Binding Trip.Attractions}" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -64,9 +70,9 @@
             
             
             <!-- Accomodation Selection -->
-            <TextBlock Grid.Row="5" Grid.Column="0" Text="Smestaji"  Margin="10"/>
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="Smestaji"  Margin="10"/>
 
-            <ListBox  ItemsSource="{Binding Trip.Accomodations}" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
+            <ListBox  ItemsSource="{Binding Trip.Accomodations}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -80,9 +86,9 @@
             
             
             <!-- Restaurant Selection -->
-            <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Text="Restorani"  Margin="10"/>
+            <TextBlock Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Text="Restorani"  Margin="10"/>
 
-            <ListBox ItemsSource="{Binding Trip.Restaurants}" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
+            <ListBox ItemsSource="{Binding Trip.Restaurants}" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -94,9 +100,9 @@
             
 
             <!-- DateRange List and Form -->
-            <TextBlock Grid.Row="9" Grid.Column="0" Text="Periodi putovanja"  Margin="10"/>
+            <TextBlock Grid.Row="10" Grid.Column="0" Text="Periodi putovanja"  Margin="10"/>
 
-            <!-- <Grid Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="10"> -->
+            <!-- <Grid Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="11"> -->
             <!--     <Grid.ColumnDefinitions> -->
             <!--         <ColumnDefinition Width="*"/> -->
             <!--         <ColumnDefinition Width="*"/> -->
@@ -106,7 +112,7 @@
             <!--     <DatePicker  Grid.Column="1" Margin="10"/> -->
             <!--     <Button Grid.Column="2" Click="AddDateRange_Click" Content="Dodaj" Margin="10"/> -->
             <!-- </Grid> -->
-            <ListBox ItemsSource="{Binding Trip.DatePeriods}"  Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
+            <ListBox ItemsSource="{Binding Trip.DatePeriods}"  Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                             <TextBlock  Text="{Binding }"/>
@@ -115,8 +121,8 @@
             </ListBox>
             
             <!-- Image -->
-            <TextBlock Grid.Row="12" Grid.ColumnSpan="2" Text="SLIKE:" Margin="10"/>
-            <!-- <ListView  Grid.Row="13" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="2"   Height="80" Margin="10" -->
+            <TextBlock Grid.Row="13" Grid.ColumnSpan="2" Text="SLIKE:" Margin="10"/>
+            <!-- <ListView  Grid.Row="14" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="2"   Height="80" Margin="10" -->
             <!--            AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop" -->
             <!--            MouseDown="ListView_MouseClick"> -->
             <!--     <ItemsControl Margin="10" x:Name="ImageList"> -->
@@ -129,7 +135,7 @@
             <!-- </ListView> -->
             
             <!-- Submit button -->
-            <Button Grid.Row="14" Grid.ColumnSpan="2" Content="Edit" Click="EditTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>
+            <Button Grid.Row="15" Grid.ColumnSpan="2" Content="Edit" Click="EditTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>
         </Grid>
             
         <Grid x:Name="EditGrid" HorizontalAlignment="Center" Visibility="Hidden" Margin="10">
