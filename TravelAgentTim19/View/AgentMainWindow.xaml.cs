@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsPresentation;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
 using TravelAgentTim19.View.Edit;
+using Location = TravelAgentTim19.Model.Location;
 
 namespace TravelAgentTim19.View;
 
@@ -24,6 +30,7 @@ public partial class AgentMainWindow : Window
     public List<Trip> SoldTrips { get; set; }
     public List<BookedTrip> SoldBookedTrips { get; set; }
     public List<string> TripsNameList { get; set; }
+    public List<Location> AttractionsLocations { get; set; }
 
     public AgentMainWindow(MainRepository mainRepository)
     {
@@ -37,6 +44,8 @@ public partial class AgentMainWindow : Window
         SoldTrips = new List<Trip>();
         SoldBookedTrips = new List<BookedTrip>();
         TripsNameList = new List<string>();
+        AttractionsLocations = new List<Location>();
+        GetAttractionsLocation();
         GetBookedTrips();
         GetTripNameList();
         InitializeComponent();
@@ -112,6 +121,7 @@ public partial class AgentMainWindow : Window
     }
     private void TripItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         Report2Grid.Visibility = Visibility.Hidden;
         SoldBookedTripGrid.Visibility = Visibility.Hidden;
         SoldTripGrid.Visibility = Visibility.Hidden;
@@ -134,10 +144,12 @@ public partial class AgentMainWindow : Window
         TripsGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
+        MapGrid.Visibility = Visibility.Visible;
         AttractionGrid.Visibility = Visibility.Visible;
     }
     private void AccomodationItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         Report2Grid.Visibility = Visibility.Hidden;
         SoldBookedTripGrid.Visibility = Visibility.Hidden;
         SoldTripGrid.Visibility = Visibility.Hidden;
@@ -151,6 +163,7 @@ public partial class AgentMainWindow : Window
     }
     private void RestaurantItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         Report2Grid.Visibility = Visibility.Hidden;
         SoldBookedTripGrid.Visibility = Visibility.Hidden;
         SoldTripGrid.Visibility = Visibility.Hidden;
@@ -299,6 +312,7 @@ public partial class AgentMainWindow : Window
 
     private void BookedTripItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         Report2Grid.Visibility = Visibility.Hidden;
         SoldBookedTripGrid.Visibility = Visibility.Hidden;
         SoldTripGrid.Visibility = Visibility.Hidden;
@@ -313,6 +327,7 @@ public partial class AgentMainWindow : Window
 
     private void PurchasedTripItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         Report2Grid.Visibility = Visibility.Hidden;
         SoldBookedTripGrid.Visibility = Visibility.Hidden;
         SoldTripGrid.Visibility = Visibility.Hidden;
@@ -357,6 +372,7 @@ public partial class AgentMainWindow : Window
 
     private void SoldTrips_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         Report2Grid.Visibility = Visibility.Hidden;
         SoldBookedTripGrid.Visibility = Visibility.Hidden;
         SoldTripGrid.Visibility = Visibility.Hidden;
@@ -377,6 +393,7 @@ public partial class AgentMainWindow : Window
         if (SoldTrips.Count > 0)
         {
             soldTripItemsControl.Items.Refresh();
+            MapGrid.Visibility = Visibility.Hidden;
             Report2Grid.Visibility = Visibility.Hidden;
             SoldBookedTripGrid.Visibility = Visibility.Hidden;
             BookedTripGrid.Visibility = Visibility.Hidden;
@@ -403,6 +420,7 @@ public partial class AgentMainWindow : Window
         if (SoldBookedTrips.Count > 0)
         {
             soldBookedTripItemsControl.Items.Refresh();
+            MapGrid.Visibility = Visibility.Hidden;
             Report2Grid.Visibility = Visibility.Hidden;
             BookedTripGrid.Visibility = Visibility.Hidden;
             TripsGrid.Visibility = Visibility.Hidden;
@@ -424,6 +442,7 @@ public partial class AgentMainWindow : Window
 
     private void SoldBookedTrips_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         SoldBookedTripGrid.Visibility = Visibility.Hidden;
         SoldTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
@@ -434,5 +453,60 @@ public partial class AgentMainWindow : Window
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         Report1Grid.Visibility = Visibility.Hidden;
         Report2Grid.Visibility = Visibility.Visible;
+    }
+
+    private void map_load(object sender, RoutedEventArgs e)
+    {
+        gmap.Bearing = 0;
+        gmap.CanDragMap = true;
+        gmap.DragButton = MouseButton.Left;
+        gmap.MaxZoom = 18;
+        gmap.MinZoom = 2;
+        gmap.MouseWheelZoomType = MouseWheelZoomType.MousePositionWithoutCenter;
+    
+        gmap.ShowTileGridLines = false;
+        gmap.Zoom = 10;
+        gmap.ShowCenter = false;
+    
+        gmap.MapProvider = GMapProviders.GoogleMap;
+        GMaps.Instance.Mode = AccessMode.ServerOnly;
+        gmap.Position = new PointLatLng(45.2671, 19.8335);
+    
+        GMapProvider.WebProxy = WebRequest.GetSystemWebProxy();
+        GMapProvider.WebProxy.Credentials = CredentialCache.DefaultCredentials;
+    
+        foreach (Location l in AttractionsLocations)
+        {
+            GMapMarker marker = new GMapMarker(new PointLatLng(l.Latitude, l.Longitude));
+            BitmapImage bi = new BitmapImage();
+            bi.BeginInit();
+            bi.UriSource = new Uri("pack://application:,,,/Images/redPin.png");
+            bi.EndInit();
+            Image pinImage = new Image();
+            pinImage.Source = bi;
+            pinImage.Width = 50; // Adjust as needed
+            pinImage.Height = 50; // Adjust as needed
+            pinImage.ToolTip = l.Address + " " + l.City;
+    
+            ToolTipService.SetShowDuration(pinImage, Int32.MaxValue);
+            ToolTipService.SetInitialShowDelay(pinImage, 0);
+            marker.Shape = pinImage;
+            gmap.Markers.Add(marker);
+        }
+    }
+    
+    private void MapControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left)
+        {
+            gmap.Zoom = (gmap.Zoom < gmap.MaxZoom) ? gmap.Zoom + 1 : gmap.MaxZoom;
+        }
+    }
+    public void GetAttractionsLocation()
+    {
+        foreach (Attraction att in MainRepository.AttractionRepository.GetAttractions())
+        {
+            AttractionsLocations.Add(att.Location);
+        }
     }
 }
