@@ -11,7 +11,6 @@
     
    
     <Window.CommandBindings>
-        <CommandBinding Command="service:RoutedCommands.Putovanja" CanExecute="PutovanjaCRUD_CanExecute" Executed="PutovanjaCRUD_Executed"></CommandBinding>
         <!-- <CommandBinding Command="cmd:RoutedCommands.Enable" CanExecute="Enable_CanExecute" Executed="Enable_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Komanda" CanExecute="Komanda_CanExecute" Executed="Komanda_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Ugradjene" CanExecute="Ugradjene_CanExecute" Executed="Ugradjene_Executed"></CommandBinding> -->
@@ -28,7 +27,7 @@
             <MenuItem Header="TravelAgentTim19" IsEnabled="False"></MenuItem>
             <Separator></Separator>
             <MenuItem Header="Putovanja">
-                <MenuItem Header="Sva putovanja" Click="TripItem_Click" Command="service:RoutedCommands.Putovanja"></MenuItem>
+                <MenuItem Header="Sva putovanja" Click="TripItem_Click"></MenuItem>
                 <MenuItem Header="Mapa"></MenuItem>
                 <MenuItem Header="Rezervacije" Click="BookedTripItem_Click"></MenuItem>
                 <MenuItem Header="Kupljena aranzmani" Click="PurchasedTripItem_Click"></MenuItem>
