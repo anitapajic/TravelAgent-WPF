@@ -10,7 +10,7 @@
     
    
     <Window.CommandBindings>
-        <CommandBinding Command="service:RoutedCommands.Putovanja" CanExecute="PutovanjaCRUD_CanExecute" Executed="PutovanjaCRUD_Executed"></CommandBinding>
+        <!-- <CommandBinding Command="service:RoutedCommands.Putovanja" CanExecute="PutovanjaCRUD_CanExecute" Executed="PutovanjaCRUD_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Enable" CanExecute="Enable_CanExecute" Executed="Enable_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Komanda" CanExecute="Komanda_CanExecute" Executed="Komanda_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Ugradjene" CanExecute="Ugradjene_CanExecute" Executed="Ugradjene_Executed"></CommandBinding> -->

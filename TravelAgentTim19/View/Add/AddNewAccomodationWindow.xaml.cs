@@ -97,6 +97,8 @@ public partial class AddNewAccomodationWindow : Window
         if (result == MessageBoxResult.Yes)
         {
             Accomodation accomodation = new Accomodation();
+            Random rand = new Random();
+            accomodation.Id = rand.Next(10000);
             accomodation.Location = location;
             accomodation.Name = name;
             accomodation.Rating = rating;

@@ -100,6 +100,8 @@ public partial class AddNewRestaurantWindow : Window
         if (result == MessageBoxResult.Yes)
         {
             Restaurant restaurant = new Restaurant();
+            Random rand = new Random();
+            restaurant.Id = rand.Next(10000);
             restaurant.Location = location;
             restaurant.Name = name;
             restaurant.Rating = rating;

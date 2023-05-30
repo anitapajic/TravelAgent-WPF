@@ -51,15 +51,15 @@ public partial class AgentMainWindow : Window
         }
     }
 
-    private void PutovanjaCRUD_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-    {
-        e.CanExecute = true;
-    }
-
-    private void PutovanjaCRUD_Executed(object sender, ExecutedRoutedEventArgs e)
-    {
-        //TODO: prikazi sva putovanja
-    }
+    // private void PutovanjaCRUD_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+    // {
+    //     e.CanExecute = true;
+    // }
+    //
+    // private void PutovanjaCRUD_Executed(object sender, ExecutedRoutedEventArgs e)
+    // {
+    //     //TODO: prikazi sva putovanja
+    // }
     private void TripItem_Click(object sender, RoutedEventArgs e)
     {
         PurchasedTripGrid.Visibility = Visibility.Hidden;
@@ -139,8 +139,14 @@ public partial class AgentMainWindow : Window
     }
     private void ToggleButtonTrip_Click(object sender, RoutedEventArgs e)
     {
-        AddNewTripWindow addNewTripWindow = new AddNewTripWindow();
+        AddNewTripWindow addNewTripWindow = new AddNewTripWindow(MainRepository);
         addNewTripWindow.Show();
+        addNewTripWindow.Closed += NewTripWindow_Closed;
+    }
+    
+    private void NewTripWindow_Closed(object sender, EventArgs e)
+    {
+        tripItemsControl.Items.Refresh();
     }
 
     private void EditTripBtn_Clicked(object sender, RoutedEventArgs e)
