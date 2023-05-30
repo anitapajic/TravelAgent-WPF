@@ -3,13 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="Edit Accomodation" Height="600" Width="800">
+        Title="Edit Accomodation" Height="500" Width="800">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid>
             <Grid x:Name="InfoGrid" Margin="50">
+                    
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -45,16 +49,18 @@
                 <!-- Location -->
                 <TextBlock Text="Lokacija:" Grid.Row="5" Margin="10"/>
                 <TextBlock Text="{Binding Accomodation.Location.Address}" Grid.Row="5" Grid.Column="1" Margin="10" Width="200"/>
-                
+                <Grid Grid.Row="6" Name="MapGrid" Height="200" Visibility="Visible" Grid.ColumnSpan="2" >
+                    <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="30,5,30,10" />
+                </Grid>
                 <!-- Image -->
-                <TextBlock Grid.Row="6" Text="SLIKE:" Margin="10"/>
+                <TextBlock Grid.Row="7" Text="SLIKE:" Margin="10"/>
 
                 <!-- Submit button -->
-                <Button Content="Edit" Click="EditAccomodationBtn_Clicked" Grid.Row="8"  HorizontalAlignment="Center" Width="100" MaxHeight="40"/>
-
+                <Button Content="Edit" Click="EditAccomodationBtn_Clicked" Grid.Row="9"  HorizontalAlignment="Center" Width="100" Height="30" Margin="0,20,0,10"/>
+                
         </Grid>
         
-        <Grid x:Name="EditGrid" Visibility="Hidden"  Margin="50">
+            <Grid x:Name="EditGrid" Visibility="Hidden"  Margin="50">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -130,4 +136,5 @@
             <Button Content="Save changes" Click="SaveAccomodationBtn_Clicked" Grid.Row="8"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="0, 0,-200,0"/>
         </Grid>
     </Grid>
+        </ScrollViewer>
 </Window>
