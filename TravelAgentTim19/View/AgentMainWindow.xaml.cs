@@ -225,7 +225,7 @@ public partial class AgentMainWindow : Window
         int tripId = (int)editButton.Tag;
         Trip trip = MainRepository.TripRepository.GetTripById(tripId);
 
-        EditTripWindow editTripWindow = new EditTripWindow(trip);
+        EditTripWindow editTripWindow = new EditTripWindow(trip, MainRepository);
         editTripWindow.Show();
     }
     
