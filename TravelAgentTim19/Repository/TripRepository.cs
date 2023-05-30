@@ -41,6 +41,13 @@ public class TripRepository
         return trips.Remove(trip);
     }
     
+    public void UpdateTrip(Trip trip)
+    {
+        Trip toBeDeleted = GetTripById(trip.Id);
+        Delete(toBeDeleted);
+        AddTrip(trip);
+    }
+    
     public void Save()
     {
         File.WriteAllText(@"..\..\..\Data\Trips.json", 
