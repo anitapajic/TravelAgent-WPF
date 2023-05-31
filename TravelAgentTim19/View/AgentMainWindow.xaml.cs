@@ -49,7 +49,7 @@ public partial class AgentMainWindow : Window
         GetBookedTrips();
         GetTripNameList();
         InitializeComponent();
-        tripComboBox.ItemsSource = TripsNameList;
+        //tripComboBox.ItemsSource = TripsNameList;
         DataContext = this; 
     }
 
@@ -110,6 +110,7 @@ public partial class AgentMainWindow : Window
         return SoldBookedTrips;
     }
     
+    /*
     private void TripItem_Click(object sender, RoutedEventArgs e)
     {
         MapGrid.Visibility = Visibility.Hidden;
@@ -336,6 +337,7 @@ public partial class AgentMainWindow : Window
         RestaurantsGrid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Visible;
     }
+    */
 
     private void EditAttractionBtn_Click(object sender, RoutedEventArgs e)
     {
@@ -367,7 +369,7 @@ public partial class AgentMainWindow : Window
         editPurchasedTripWindow.Show();
     }
 
-    private void SoldTrips_Click(object sender, RoutedEventArgs e)
+    /*private void SoldTrips_Click(object sender, RoutedEventArgs e)
     {
         MapGrid.Visibility = Visibility.Hidden;
         Report2Grid.Visibility = Visibility.Hidden;
@@ -498,7 +500,7 @@ public partial class AgentMainWindow : Window
         {
             gmap.Zoom = (gmap.Zoom < gmap.MaxZoom) ? gmap.Zoom + 1 : gmap.MaxZoom;
         }
-    }
+    }*/
     public void GetAttractionsLocation()
     {
         foreach (Attraction att in MainRepository.AttractionRepository.GetAttractions())

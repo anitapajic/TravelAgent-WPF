@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="FontAwesome.WPF" Version="4.7.0.9" />
       <PackageReference Include="Geocoding.Core" Version="4.0.1" />
       <PackageReference Include="GMap.Net" Version="1.0.1" />
       <PackageReference Include="GMap.NET.WinPresentation" Version="2.1.7" />
