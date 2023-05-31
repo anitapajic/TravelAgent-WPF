@@ -6,7 +6,7 @@
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         xmlns:service="clr-namespace:TravelAgentTim19.Service"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip" 
-        Title="AgentMainWindow" Height="450" Width="800"
+        Title="UserMainWindow" Height="450" Width="800"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
     
     <!-- <Window.CommandBindings> -->

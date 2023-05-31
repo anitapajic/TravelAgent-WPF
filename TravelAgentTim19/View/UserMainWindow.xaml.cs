@@ -20,10 +20,12 @@ namespace TravelAgentTim19.View;
 public partial class UserMainWindow : Window
 {
     private MainRepository MainRepository { get; set; }
+    private User User { get; set; }
     public List<Trip> Trips { get; set; }
     public List<Location> attractionsLocations { get; set; }
-    public UserMainWindow(MainRepository mainRepository)
+    public UserMainWindow(MainRepository mainRepository, User user)
     {
+        User = user;
         MainRepository = mainRepository;
         Trips = MainRepository.TripRepository.GetTrips();
         attractionsLocations = new List<Location>();
@@ -92,6 +94,7 @@ public partial class UserMainWindow : Window
     {
         MainWindow mainWindow = new MainWindow();
         mainWindow.Show();
+        MainRepository.Save();
         Close();
     }
 
@@ -103,7 +106,12 @@ public partial class UserMainWindow : Window
 
     private void EditTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        Button editButton = (Button)sender;
+        int tripId = (int)editButton.Tag;
+        Trip trip = MainRepository.TripRepository.GetTripById(tripId);
+        
+        BookTripWindow bookTripWindow = new BookTripWindow(User, trip, MainRepository);
+        bookTripWindow.Show();
     }
 
     private void MapItem_Click(object sender, RoutedEventArgs e)
