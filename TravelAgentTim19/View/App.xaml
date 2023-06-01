@@ -238,8 +238,7 @@
         <Style x:Key="TopManuButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="Foreground" Value="#3AADA1"></Setter>
-            <Setter Property="Margin" Value="17 10 0 0"></Setter>
-            <Setter Property="Padding" Value="5 5 5 5"></Setter>
+            <Setter Property="Margin" Value="17 13 0 0"></Setter>
             <Setter Property="Height" Value="30"></Setter>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"></Setter> 
             <Setter Property="BorderThickness" Value="0"></Setter>
@@ -247,7 +246,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" CornerRadius="15">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" ></ContentPresenter>
                             
                         </Border>
                         
@@ -258,10 +257,39 @@
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="Foreground" Value="#EBEAE5" />
                     <Setter Property="Background" Value="#3AADA1" />
+                    <Setter Property="Padding" Value="15 15 15 15"></Setter>
                 </Trigger>
                 
             </Style.Triggers>
 
+        </Style>
+        
+        <Style x:Key="MoreButton" TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button" >
+                                <Grid>
+                                    <Ellipse x:Name="Ellipse" Fill="#67BCC0" />
+                                    <Grid>
+                                        <TextBlock x:Name="Text" Text="Više" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60 40 20 20" FontWeight="Medium" FontSize="20"/>
+                                    </Grid>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Ellipse" Property="Fill" Value="#67BCC0" />
+                                        <Setter Property="Foreground" Value="#FFFFFF" />
+                                        <Setter Property="Margin" Value="0 -140 -80 0"></Setter>
+                                        <Setter TargetName="Text" Property="Margin" Value="70 45 20 20"/>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="True">
+                                        <Setter TargetName="Ellipse" Property="Fill" Value="#67BCC0" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="Margin" Value="0 -130 -90 0"></Setter>
         </Style>
         
     </Application.Resources>

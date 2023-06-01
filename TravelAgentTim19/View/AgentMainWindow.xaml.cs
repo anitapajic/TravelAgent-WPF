@@ -67,7 +67,11 @@ public partial class AgentMainWindow : Window
             }
         }
     }
-    
+    private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+    {
+        MainRepository.Save();
+        Application.Current.Shutdown();
+    }
     public List<Trip> GetNumOfMonthlySoldTrips(int month)
     {
         List<BookedTrip> bookedTripsDate = new List<BookedTrip>();
@@ -338,7 +342,6 @@ public partial class AgentMainWindow : Window
         PurchasedTripGrid.Visibility = Visibility.Visible;
     }
     */
-
     private void EditAttractionBtn_Click(object sender, RoutedEventArgs e)
     {
         Button editButton = (Button)sender;

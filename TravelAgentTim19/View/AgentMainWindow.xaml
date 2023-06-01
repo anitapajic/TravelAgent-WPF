@@ -24,6 +24,7 @@
             <ColumnDefinition Width="270"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        <Image Source="../Images/close.png" Grid.Column="1" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource ImgClose}" />
 
         <!-- Left manu-->
         <Border CornerRadius="10 0 0 10">
@@ -88,9 +89,6 @@
                         <TextBlock Text="Izloguj se" Style="{StaticResource ManuButtonText}"></TextBlock>
                     </StackPanel>
                 </Button>
-                
-                
-                
             </StackPanel>
         </Border>
         
@@ -110,7 +108,7 @@
                </Grid.RowDefinitions>
                
                <!-- Top manu section-->
-               <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 30 20">
+               <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 10 30 20">
                    <Button Content="Sva putovanja" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
                    <Button Content="Mapa" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
                    <Button Content="Rezervacije" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
@@ -126,7 +124,28 @@
                        <ColumnDefinition Width="*"/>
                        <ColumnDefinition Width="*"/>
                    </Grid.ColumnDefinitions>
-                   
+                   <Border Margin="0 0 25 0">
+                       <Border.Background>
+                           <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                               <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
+                               <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                           </LinearGradientBrush>
+                       </Border.Background>
+                       <Border.Clip>
+                           <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 230 150"></RectangleGeometry>
+                       </Border.Clip>
+                       
+                       <Grid>
+                           <Button Style="{StaticResource MoreButton}" Width="230" Height="230"  HorizontalAlignment="Right">
+                           </Button>
+
+
+                           <StackPanel Margin="27 5 10 5" VerticalAlignment="Top">
+                               <TextBlock Text="Lokacija" Foreground="#EBEAE5" FontSize="14"></TextBlock>
+                               <TextBlock Text="Novi Sad" Foreground="#FFFFFF" FontSize="28" FontWeight="SemiBold"></TextBlock>
+                           </StackPanel>
+                       </Grid>
+                   </Border>
                </Grid>
            </Grid>
         </Border>
