@@ -7,13 +7,13 @@
         xmlns:service="clr-namespace:TravelAgentTim19.Service"
         xmlns:fa="http://schemas.fontawesome.com/wpf"
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip" 
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip"
         AllowsTransparency="True"
         Background="Transparent"
         Title="Glavni prozor" Height="600" Width="1100"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
-        
-   
+
+
     <Window.CommandBindings>
         <!-- <CommandBinding Command="cmd:RoutedCommands.Enable" CanExecute="Enable_CanExecute" Executed="Enable_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Komanda" CanExecute="Komanda_CanExecute" Executed="Komanda_Executed"></CommandBinding> -->
@@ -21,10 +21,11 @@
     </Window.CommandBindings>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="270"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="270" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Image Source="../Images/close.png" Grid.Column="1" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource ImgClose}" />
+        <Image Source="../Images/close.png" Grid.Column="1" Panel.ZIndex="1" MouseUp="Image_MouseUp"
+               Style="{StaticResource ImgClose}" />
 
         <!-- Left manu-->
         <Border CornerRadius="10 0 0 10">
@@ -34,7 +35,7 @@
                     <GradientStop Color="#3AADA1" Offset="1"></GradientStop>
                 </LinearGradientBrush>
             </Border.Background>
-            
+
             <StackPanel>
                 <!-- Username-->
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 35 0 0">
@@ -45,45 +46,47 @@
                                 <GradientStop Color="#515F98" Offset="1"></GradientStop>
                             </LinearGradientBrush>
                         </Border.Background>
-                        <TextBlock Text="A" Foreground="#FFFFFF" FontSize="22" FontWeight="SemiBold" TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2"></TextBlock>
+                        <TextBlock Text="A" Foreground="#FFFFFF" FontSize="22" FontWeight="SemiBold"
+                                   TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2">
+                        </TextBlock>
                     </Border>
-                    
+
                     <StackPanel Margin="10 0 0 0" VerticalAlignment="Center">
                         <TextBlock Text="Administrator" FontSize="15" Margin="0 0 0 5" Foreground="#FFFFFF"></TextBlock>
                     </StackPanel>
                 </StackPanel>
                 <Separator Height="0.8" Margin="20 30" Background="#FFFFFF"></Separator>
-                
+
                 <!-- Manu Buttons-->
-                <Button Style="{StaticResource ManuButton}">
+                <Button Style="{StaticResource ManuButton}" Click="TripItem_Click">
                     <StackPanel Orientation="Horizontal">
-                        <wpf:FontAwesome Icon="Car" Style="{StaticResource ManuButtonIcon}"/>
+                        <wpf:FontAwesome Icon="Car" Style="{StaticResource ManuButtonIcon}" />
                         <TextBlock Text="Putovanja" Style="{StaticResource ManuButtonText}"></TextBlock>
                     </StackPanel>
                 </Button>
-                
-                <Button Style="{StaticResource ManuButton}">
+
+                <Button Style="{StaticResource ManuButton}" Click="AttractionItem_Click">
                     <StackPanel Orientation="Horizontal">
-                        <wpf:FontAwesome Icon="Map" Style="{StaticResource ManuButtonIcon}"/>
+                        <wpf:FontAwesome Icon="Map" Style="{StaticResource ManuButtonIcon}" />
                         <TextBlock Text="Turisticke atrakcije" Style="{StaticResource ManuButtonText}"></TextBlock>
                     </StackPanel>
                 </Button>
-                
-                <Button Style="{StaticResource ManuButton}">
+
+                <Button Style="{StaticResource ManuButton}" Click="AccomodationItem_Click">
                     <StackPanel Orientation="Horizontal">
-                        <wpf:FontAwesome Icon="Hotel" Style="{StaticResource ManuButtonIcon}"/>
-                        <TextBlock Text="Smjestaj" Style="{StaticResource ManuButtonText}"></TextBlock>
+                        <wpf:FontAwesome Icon="Hotel" Style="{StaticResource ManuButtonIcon}" />
+                        <TextBlock Text="Smestaj" Style="{StaticResource ManuButtonText}"></TextBlock>
                     </StackPanel>
                 </Button>
-                
-                <Button Style="{StaticResource ManuButton}">
+
+                <Button Style="{StaticResource ManuButton}" Click="RestaurantItem_Click">
                     <StackPanel Orientation="Horizontal">
-                        <wpf:FontAwesome Icon="Cutlery" Style="{StaticResource ManuButtonIcon}"/>
+                        <wpf:FontAwesome Icon="Cutlery" Style="{StaticResource ManuButtonIcon}" />
                         <TextBlock Text="Restorani" Style="{StaticResource ManuButtonText}"></TextBlock>
                     </StackPanel>
                 </Button>
-                
-                <Button Style="{StaticResource ManuButton}" Margin="0 170 0 20">
+
+                <Button Style="{StaticResource ManuButton}" Margin="0 170 0 20" Click="Logout_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="PowerOff" Style="{StaticResource ManuButtonIcon}" />
                         <TextBlock Text="Izloguj se" Style="{StaticResource ManuButtonText}"></TextBlock>
@@ -91,7 +94,7 @@
                 </Button>
             </StackPanel>
         </Border>
-        
+
         <!-- Main section-->
         <Border Grid.Column="1" CornerRadius="0 10 10 0">
             <Border.Background>
@@ -100,31 +103,94 @@
                     <GradientStop Color="#FFFFFF" Offset="1"></GradientStop>
                 </LinearGradientBrush>
             </Border.Background>
-            
-           <Grid>
-               <Grid.RowDefinitions>
-                   <RowDefinition Height="Auto"></RowDefinition>
-                   <RowDefinition Height="*"></RowDefinition>
-               </Grid.RowDefinitions>
-               
-               <!-- Top manu section-->
-               <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 10 30 20">
-                   <Button Content="Sva putovanja" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
-                   <Button Content="Mapa" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
-                   <Button Content="Rezervacije" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
-                   <Button Content="Kupljeni aranzmani" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
-                   <Button Content="Prodata putovanja" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
-                   <Button Content="Prodati aranzmani" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
-               </StackPanel>
-               <TextBlock Text="Putovanja" FontSize="23" HorizontalAlignment="Left" Margin="50 35 0 20"></TextBlock>
-               
-               <Grid Grid.Row="1" Margin="50 20 15 40">
-                   <Grid.ColumnDefinitions>
-                       <ColumnDefinition Width="*"/>
-                       <ColumnDefinition Width="*"/>
-                       <ColumnDefinition Width="*"/>
-                   </Grid.ColumnDefinitions>
-                   <Border Margin="0 0 25 0">
+
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <!-- Top manu trips grid section-->
+                <StackPanel Grid.Row="0" Name="TripsGridTopManu" Visibility="Visible" Orientation="Horizontal"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Right" Margin="0 10 30 20">
+                    <Button Content="Sva putovanja" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
+                    <Button Content="Mapa" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
+                    <Button Content="Rezervacije" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
+                    <Button Content="Kupljeni aranzmani" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
+                    <Button Content="Prodata putovanja" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
+                    <Button Content="Prodati aranzmani" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
+                </StackPanel>
+                <!-- Top manu titles-->
+                <TextBlock Name="TripsGridTitle" Visibility="Visible" Text="Putovanja" FontSize="23"
+                           HorizontalAlignment="Left" Margin="50 35 0 20">
+                </TextBlock>
+                <TextBlock Name="AttractionGridTitle" Visibility="Hidden" Text="Turisticke atrakcije" FontSize="23"
+                           HorizontalAlignment="Left" Margin="50 35 0 20">
+                </TextBlock>
+                <TextBlock Name="AccomodationGridTitle" Visibility="Hidden" Text="Smestaj" FontSize="23"
+                           HorizontalAlignment="Left" Margin="50 35 0 20">
+                </TextBlock>
+                <TextBlock Name="RestourantGridTitle" Visibility="Hidden" Text="Restorani" FontSize="23"
+                           HorizontalAlignment="Left" Margin="50 35 0 20">
+                </TextBlock>
+
+
+                <Grid Grid.Row="1" Margin="50 20 15 40">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Trips grid-->
+                    <Grid Name="TripsGrid" Visibility="Visible">
+                        <Grid>
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                                <Grid>
+                                    <ItemsControl x:Name="tripItemsControl" ItemsSource="{Binding Trips}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Margin="0 0 25 0" Height="150" Width="230">
+                                                    <Border.Background>
+                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                            <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
+                                                            <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
+                                                    <Border.Clip>
+                                                        <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 230 150"></RectangleGeometry>
+                                                    </Border.Clip>
+
+                                                    <Grid>
+                                                        <Button Style="{StaticResource MoreButton}" Width="230"
+                                                                Height="230" HorizontalAlignment="Right">
+                                                        </Button>
+
+
+                                                        <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                            <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
+                                                                       FontSize="18" FontWeight="SemiBold">
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
+                                                                       FontSize="14">
+                                                            </TextBlock>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                        
+                                    </ItemsControl>
+                                </Grid>
+                            </ScrollViewer>
+                        </Grid>
+
+                        <!-- Cards-->
+                        <!--<Border  Margin="0 0 25 0">
                        <Border.Background>
                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                                <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
@@ -145,21 +211,230 @@
                                <TextBlock Text="Novi Sad" Foreground="#FFFFFF" FontSize="28" FontWeight="SemiBold"></TextBlock>
                            </StackPanel>
                        </Grid>
-                   </Border>
-               </Grid>
-           </Grid>
+                   </Border>-->
+                    </Grid>
+
+                    <!-- Attraction grid-->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Name="MapGrid" Height="200" Visibility="Hidden" Grid.Row="0">
+                            <gmap:GMapControl x:Name="gmap" Loaded="map_load"
+                                              MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0 10 10 25" />
+
+                        </Grid>
+                        <Grid Grid.Row="1" Name="AttractionGrid" Visibility="Hidden">
+                            <Grid>
+                                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                              HorizontalScrollBarVisibility="Disabled">
+                                    <Grid>
+                                        <ItemsControl x:Name="attractionItemsControl"
+                                                      ItemsSource="{Binding Attractions}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Margin="0 0 25 0" Height="150" Width="230">
+                                                        <Border.Background>
+                                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                                <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
+                                                                <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                                                            </LinearGradientBrush>
+                                                        </Border.Background>
+                                                        <Border.Clip>
+                                                            <RectangleGeometry RadiusX="15" RadiusY="15"
+                                                                               Rect="0 0 230 150">
+                                                            </RectangleGeometry>
+                                                        </Border.Clip>
+
+                                                        <Grid>
+                                                            <Button Style="{StaticResource MoreButton}" Width="230"
+                                                                    Height="230" HorizontalAlignment="Right">
+                                                            </Button>
+
+
+                                                            <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                                <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
+                                                                           FontSize="18" FontWeight="SemiBold">
+                                                                </TextBlock>
+                                                                <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
+                                                                           FontSize="14">
+                                                                </TextBlock>
+                                                            </StackPanel>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Grid>
+                                </ScrollViewer>
+                            </Grid>
+                            <ToggleButton x:Name="ToggleButtonAttraction" Click="ToggleButtonAttraction_Click"
+                                          Width="60"
+                                          Height="60" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                          Margin="30">
+                                <ToggleButton.Template>
+                                    <ControlTemplate TargetType="ToggleButton">
+                                        <Grid x:Name="ButtonGrid">
+                                            <Ellipse x:Name="Circle" Fill="#3AA9AD" />
+                                            <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                       FontSize="24" FontWeight="Bold" Foreground="White" />
+                                        </Grid>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter TargetName="Circle" Property="Fill" Value="#2D8487" />
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+                            </ToggleButton>
+                        </Grid>
+                    </Grid>
+
+                    <!-- Accomodation grid-->
+                    <Grid Name="AccomodationGrid" Visibility="Hidden">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                                <Grid>
+                                    <ItemsControl x:Name="AccomodationItemsControl"
+                                                  ItemsSource="{Binding Accomodations}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Margin="0 0 25 0" Height="150" Width="230">
+                                                    <Border.Background>
+                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                            <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
+                                                            <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
+                                                    <Border.Clip>
+                                                        <RectangleGeometry RadiusX="15" RadiusY="15"
+                                                                           Rect="0 0 230 150">
+                                                        </RectangleGeometry>
+                                                    </Border.Clip>
+
+                                                    <Grid>
+                                                        <Button Style="{StaticResource MoreButton}" Width="230"
+                                                                Height="230" HorizontalAlignment="Right">
+                                                        </Button>
+
+
+                                                        <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                            <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
+                                                                       FontSize="18" FontWeight="SemiBold">
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
+                                                                       FontSize="14">
+                                                            </TextBlock>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </Grid>
+                            </ScrollViewer>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <ToggleButton  x:Name="ToggleButtonAccomodation" Click="ToggleButtonAccomodation_Click"
+                                           Width="35" Height="35" HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                           Margin="10">
+                            <ToggleButton.Template>
+                                <ControlTemplate TargetType="ToggleButton">
+                                    <Grid x:Name="ButtonGrid">
+                                        <Ellipse x:Name="Circle" Fill="#3AA9AD" />
+                                        <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                   FontSize="24" FontWeight="Bold" Foreground="White" />
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter TargetName="Circle" Property="Fill" Value="#2D8487" />
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </ToggleButton.Template>
+                            </ToggleButton>
+                        </Grid>
+                    </Grid>
+
+                    <!-- Restaurant grid-->
+                    <Grid  Name="RestaurantsGrid" Visibility="Hidden">
+                <Grid>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl x:Name="restaurantItemsControl" ItemsSource="{Binding Restaurants}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
+                                        Width="200" Height="200" VerticalAlignment="Top">
+                                    
+                                    <StackPanel>
+                                        <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/>
+                                        <TextBlock Text="{Binding Name}" Margin="5,10,5,5" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding Location.Address}" Margin="5"/>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                            <Button Content="Detaljnije" Click="EditRestaurantBtn_Clicked" Margin="5">
+                                                <Button.Tag>
+                                                    <Binding Path="Id"/>
+                                                </Button.Tag>
+                                            </Button>
+                                            <Button Content="Obrisi" Click="DeleteRestaurantBtn_Clicked" Margin="5">
+                                                <Button.Tag>
+                                                    <Binding Path="Id"/>
+                                                </Button.Tag>
+                                            </Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+                    </ScrollViewer>
+                </Grid>
+                <ToggleButton x:Name="ToggleButtonRestaurant" Click="ToggleButtonRestaurant_Click" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="30">
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <Grid x:Name="ButtonGrid">
+                                <Ellipse x:Name="Circle" Fill="#3AA9AD"/>
+                                <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="White"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="Circle" Property="Fill" Value="#2D8487"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                </ToggleButton>
+            </Grid>
+
+                </Grid>
+
+            </Grid>
         </Border>
     </Grid>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
     <!--<DockPanel >
         <Menu DockPanel.Dock="Top">
             <Menu.Background>
@@ -231,8 +506,8 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </Grid>
-                             </ScrollViewer>
-                         </Grid>
+                </ScrollViewer>
+                </Grid>
                 <ToggleButton x:Name="ToggleButtonAttraction" Click="ToggleButtonAttraction_Click" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="30">
                     <ToggleButton.Template>
                         <ControlTemplate TargetType="ToggleButton">
@@ -607,6 +882,6 @@
             
         </Grid>
     </DockPanel>-->
-    
-    
+
+
 </Window>

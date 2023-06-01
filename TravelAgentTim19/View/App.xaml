@@ -278,7 +278,7 @@
                                     <Trigger Property="IsMouseOver" Value="True">
                                         <Setter TargetName="Ellipse" Property="Fill" Value="#67BCC0" />
                                         <Setter Property="Foreground" Value="#FFFFFF" />
-                                        <Setter Property="Margin" Value="0 -140 -80 0"></Setter>
+                                        <Setter Property="Margin" Value="0 0 -80 -140"></Setter>
                                         <Setter TargetName="Text" Property="Margin" Value="70 45 20 20"/>
                                     </Trigger>
                                     <Trigger Property="IsPressed" Value="True">
@@ -289,8 +289,10 @@
                         </Setter.Value>
                     </Setter>
                     <Setter Property="Foreground" Value="White" />
-                    <Setter Property="Margin" Value="0 -130 -90 0"></Setter>
+                    <Setter Property="Margin" Value="0 0 -90 -150"></Setter>
         </Style>
+        
+        
         
     </Application.Resources>
 </Application>
