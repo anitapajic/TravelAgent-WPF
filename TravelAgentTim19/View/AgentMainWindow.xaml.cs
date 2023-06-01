@@ -120,10 +120,10 @@ public partial class AgentMainWindow : Window
         MapGrid.Visibility = Visibility.Hidden;
         // Report2Grid.Visibility = Visibility.Hidden;
         // SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        // SoldTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
         // Report1Grid.Visibility = Visibility.Hidden;
-        // PurchasedTripGrid.Visibility = Visibility.Hidden;
-        // BookedTripGrid.Visibility = Visibility.Hidden;
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -142,10 +142,10 @@ public partial class AgentMainWindow : Window
     {
         // Report2Grid.Visibility = Visibility.Hidden;
         // SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        // SoldTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
         // Report1Grid.Visibility = Visibility.Hidden;
-        // PurchasedTripGrid.Visibility = Visibility.Hidden;
-        // BookedTripGrid.Visibility = Visibility.Hidden;
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
@@ -164,10 +164,10 @@ public partial class AgentMainWindow : Window
         MapGrid.Visibility = Visibility.Hidden;
         // Report2Grid.Visibility = Visibility.Hidden;
         // SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        // SoldTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
         // Report1Grid.Visibility = Visibility.Hidden;
-        // PurchasedTripGrid.Visibility = Visibility.Hidden;
-        // BookedTripGrid.Visibility = Visibility.Hidden;
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Visible;
@@ -184,10 +184,10 @@ public partial class AgentMainWindow : Window
          MapGrid.Visibility = Visibility.Hidden;
         // Report2Grid.Visibility = Visibility.Hidden;
         // SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        // SoldTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
         // Report1Grid.Visibility = Visibility.Hidden;
-        // PurchasedTripGrid.Visibility = Visibility.Hidden;
-        // BookedTripGrid.Visibility = Visibility.Hidden;
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Visible;
@@ -342,32 +342,32 @@ public partial class AgentMainWindow : Window
 
     private void BookedTripItem_Click(object sender, RoutedEventArgs e)
     {
-        // MapGrid.Visibility = Visibility.Hidden;
+        MapGrid.Visibility = Visibility.Hidden;
         // Report2Grid.Visibility = Visibility.Hidden;
         // SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        // SoldTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Hidden;
         // Report1Grid.Visibility = Visibility.Hidden;
-        // PurchasedTripGrid.Visibility = Visibility.Hidden;
-        // TripsGrid.Visibility = Visibility.Hidden;
-        // AttractionGrid.Visibility = Visibility.Hidden;
-        // AccomodationGrid.Visibility = Visibility.Hidden;
-        // RestaurantsGrid.Visibility = Visibility.Hidden;
-        // BookedTripGrid.Visibility = Visibility.Visible;
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        TripsGrid.Visibility = Visibility.Hidden;
+        AttractionGrid.Visibility = Visibility.Hidden;
+        AccomodationGrid.Visibility = Visibility.Hidden;
+        RestaurantsGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Visible;
     }
 
     private void PurchasedTripItem_Click(object sender, RoutedEventArgs e)
     {
-        /*MapGrid.Visibility = Visibility.Hidden;
-        Report2Grid.Visibility = Visibility.Hidden;
-        SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        MapGrid.Visibility = Visibility.Hidden;
+        // Report2Grid.Visibility = Visibility.Hidden;
+        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
         SoldTripGrid.Visibility = Visibility.Hidden;
-        Report1Grid.Visibility = Visibility.Hidden;
+        // Report1Grid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
-        PurchasedTripGrid.Visibility = Visibility.Visible;*/
+        PurchasedTripGrid.Visibility = Visibility.Visible;
     }
     
     private void EditAttractionBtn_Click(object sender, RoutedEventArgs e)
@@ -400,40 +400,40 @@ public partial class AgentMainWindow : Window
         editPurchasedTripWindow.Show();
     }
 
-    /*private void SoldTrips_Click(object sender, RoutedEventArgs e)
+    private void SoldTrips_Click(object sender, RoutedEventArgs e)
     {
         MapGrid.Visibility = Visibility.Hidden;
-        Report2Grid.Visibility = Visibility.Hidden;
-        SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        SoldTripGrid.Visibility = Visibility.Hidden;
+        // Report2Grid.Visibility = Visibility.Hidden;
+        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        SoldTripGrid.Visibility = Visibility.Visible;
         BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
-        Report1Grid.Visibility = Visibility.Visible;
+        // Report1Grid.Visibility = Visibility.Visible;
     }
 
     private void FindTripsReport1_Clicked(object sender, RoutedEventArgs e)
     {
-        int selectedIndex = monthComboBox.SelectedIndex;
-        int month = selectedIndex + 1;
-        SoldTrips = GetNumOfMonthlySoldTrips(month);
+        // int selectedIndex = monthComboBox.SelectedIndex;
+        // int month = selectedIndex + 1;
+        //SoldTrips = GetNumOfMonthlySoldTrips(month);
         if (SoldTrips.Count > 0)
         {
-            soldTripItemsControl.Items.Refresh();
+            //soldTripItemsControl.Items.Refresh();
             MapGrid.Visibility = Visibility.Hidden;
-            Report2Grid.Visibility = Visibility.Hidden;
-            SoldBookedTripGrid.Visibility = Visibility.Hidden;
-            BookedTripGrid.Visibility = Visibility.Hidden;
+            // Report2Grid.Visibility = Visibility.Hidden;
+            // SoldBookedTripGrid.Visibility = Visibility.Hidden;
+            // BookedTripGrid.Visibility = Visibility.Hidden;
             TripsGrid.Visibility = Visibility.Hidden;
             AttractionGrid.Visibility = Visibility.Hidden;
             AccomodationGrid.Visibility = Visibility.Hidden;
             RestaurantsGrid.Visibility = Visibility.Hidden;
-            PurchasedTripGrid.Visibility = Visibility.Hidden;
-            Report1Grid.Visibility = Visibility.Hidden;
-            SoldTripGrid.Visibility = Visibility.Visible;
+            // PurchasedTripGrid.Visibility = Visibility.Hidden;
+            // Report1Grid.Visibility = Visibility.Hidden;
+            // SoldTripGrid.Visibility = Visibility.Visible;
         }
         else
         {
@@ -445,22 +445,22 @@ public partial class AgentMainWindow : Window
 
     private void FindBookedTripsReport1_Clicked(object sender, RoutedEventArgs e)
     {
-        string selectedTrip = tripComboBox.SelectedItem.ToString();
-        SoldBookedTrips = GetSoldBookedTrips(selectedTrip);
+        //string selectedTrip = tripComboBox.SelectedItem.ToString();
+        //SoldBookedTrips = GetSoldBookedTrips(selectedTrip);
         if (SoldBookedTrips.Count > 0)
         {
-            soldBookedTripItemsControl.Items.Refresh();
+            //soldBookedTripItemsControl.Items.Refresh();
             MapGrid.Visibility = Visibility.Hidden;
-            Report2Grid.Visibility = Visibility.Hidden;
-            BookedTripGrid.Visibility = Visibility.Hidden;
+            // Report2Grid.Visibility = Visibility.Hidden;
+            // BookedTripGrid.Visibility = Visibility.Hidden;
             TripsGrid.Visibility = Visibility.Hidden;
             AttractionGrid.Visibility = Visibility.Hidden;
             AccomodationGrid.Visibility = Visibility.Hidden;
             RestaurantsGrid.Visibility = Visibility.Hidden;
-            PurchasedTripGrid.Visibility = Visibility.Hidden;
-            Report1Grid.Visibility = Visibility.Hidden;
-            SoldTripGrid.Visibility = Visibility.Hidden;
-            SoldBookedTripGrid.Visibility = Visibility.Visible;
+            // PurchasedTripGrid.Visibility = Visibility.Hidden;
+            // Report1Grid.Visibility = Visibility.Hidden;
+            // SoldTripGrid.Visibility = Visibility.Hidden;
+            // SoldBookedTripGrid.Visibility = Visibility.Visible;
         }
         else
         {
@@ -473,17 +473,17 @@ public partial class AgentMainWindow : Window
     private void SoldBookedTrips_Click(object sender, RoutedEventArgs e)
     {
         MapGrid.Visibility = Visibility.Hidden;
-        SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        SoldTripGrid.Visibility = Visibility.Hidden;
-        BookedTripGrid.Visibility = Visibility.Hidden;
+        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        // SoldTripGrid.Visibility = Visibility.Hidden;
+        // BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
-        PurchasedTripGrid.Visibility = Visibility.Hidden;
-        Report1Grid.Visibility = Visibility.Hidden;
-        Report2Grid.Visibility = Visibility.Visible;
-    }*/
+        // PurchasedTripGrid.Visibility = Visibility.Hidden;
+        // Report1Grid.Visibility = Visibility.Hidden;
+        // Report2Grid.Visibility = Visibility.Visible;
+    }
 
     private void map_load(object sender, RoutedEventArgs e)
     {
