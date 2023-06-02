@@ -245,11 +245,9 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="15" Padding="5">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" ></ContentPresenter>
-                            
                         </Border>
-                        
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -290,6 +288,36 @@
                     </Setter>
                     <Setter Property="Foreground" Value="White" />
                     <Setter Property="Margin" Value="0 0 -90 -150"></Setter>
+        </Style>
+        
+        <Style x:Key="DeleteButton" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"></Setter>
+            <Setter Property="Width" Value="30"></Setter>
+            <Setter Property="Height" Value="30"></Setter>
+            <Setter Property="Foreground" Value="#11172F"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="0" BorderBrush="Transparent">
+                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"></ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" BorderThickness=" 0" >
+                                    <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"></ContentPresenter>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Foreground" Value="#EBEAE5"></Setter>
+                </Trigger>
+            </Style.Triggers>
         </Style>
         
         

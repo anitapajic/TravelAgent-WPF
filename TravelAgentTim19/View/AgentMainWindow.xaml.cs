@@ -122,6 +122,10 @@ public partial class AgentMainWindow : Window
         // SoldBookedTripGrid.Visibility = Visibility.Hidden;
         SoldTripGrid.Visibility = Visibility.Hidden;
         // Report1Grid.Visibility = Visibility.Hidden;
+        ToggleButtonAttraction.Visibility = Visibility.Hidden;
+        ToggleButtonTrip.Visibility = Visibility.Visible;
+        ToggleButtonAccomodation.Visibility = Visibility.Hidden;
+        ToggleButtonRestourant.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
@@ -144,6 +148,10 @@ public partial class AgentMainWindow : Window
         // SoldBookedTripGrid.Visibility = Visibility.Hidden;
         SoldTripGrid.Visibility = Visibility.Hidden;
         // Report1Grid.Visibility = Visibility.Hidden;
+        ToggleButtonAttraction.Visibility = Visibility.Visible;
+        ToggleButtonTrip.Visibility = Visibility.Hidden;
+        ToggleButtonAccomodation.Visibility = Visibility.Hidden;
+        ToggleButtonRestourant.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
@@ -166,6 +174,10 @@ public partial class AgentMainWindow : Window
         // SoldBookedTripGrid.Visibility = Visibility.Hidden;
         SoldTripGrid.Visibility = Visibility.Hidden;
         // Report1Grid.Visibility = Visibility.Hidden;
+        ToggleButtonAttraction.Visibility = Visibility.Hidden;
+        ToggleButtonTrip.Visibility = Visibility.Hidden;
+        ToggleButtonAccomodation.Visibility = Visibility.Visible;
+        ToggleButtonRestourant.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
@@ -186,6 +198,10 @@ public partial class AgentMainWindow : Window
         // SoldBookedTripGrid.Visibility = Visibility.Hidden;
         SoldTripGrid.Visibility = Visibility.Hidden;
         // Report1Grid.Visibility = Visibility.Hidden;
+        ToggleButtonAttraction.Visibility = Visibility.Hidden;
+        ToggleButtonTrip.Visibility = Visibility.Hidden;
+        ToggleButtonAccomodation.Visibility = Visibility.Hidden;
+        ToggleButtonRestourant.Visibility = Visibility.Visible;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
