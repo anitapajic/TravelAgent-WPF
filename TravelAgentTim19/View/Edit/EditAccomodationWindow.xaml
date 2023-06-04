@@ -3,14 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="Edit Accomodation" Height="500" Width="800">
+        WindowStyle="None" ResizeMode="CanResize"
+        AllowsTransparency="True"
+        Background="#FFFFFF"
+        Title="Edit Accomodation" Height="600" Width="1100">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <Grid>
-            <Grid x:Name="InfoGrid" Margin="50">
+            <!--<Grid x:Name="InfoGrid" Margin="50">
                     
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -25,41 +29,114 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 
-                <!-- Title -->
+                ~1~ Title @1@
                 <TextBlock Text="INFO SMESTAJA" FontSize="20" FontWeight="Bold" Margin="-20, 10, 0,0"/>
                 
-                <!-- Name -->
+                ~1~ Name @1@
                 <TextBlock Text="Naziv:" Grid.Row="1" Margin="10"/>
                 <TextBlock  Text="{Binding Accomodation.Name}" Grid.Row="1" Grid.Column="1" Margin="10" Width="200"/>
                 
-                <!-- Price -->
+                ~1~ Price @1@
                 <TextBlock Text="Cena:" Grid.Row="2" Margin="10"/>
                 <TextBlock Text="{Binding Accomodation.Price}" Grid.Row="2" Grid.Column="1" Margin="10" Width="200"/>
 
-                <!-- Type -->
+                ~1~ Type @1@
                 <TextBlock Text="Tip:" Grid.Row="3" Margin="10"/>
                 <TextBlock Text="{Binding Accomodation.AccomodationType}" Grid.Row="3" Grid.Column="1" Margin="10" Width="200"/>
                 
                 
-                <!-- Rating -->
+                ~1~ Rating @1@
                 <TextBlock Text="Rejting:" Grid.Row="4" Margin="10"/>
                 <TextBlock Text="{Binding Accomodation.Rating}" Grid.Row="4" Grid.Column="1" Margin="10" Width="200"/>
 
                 
-                <!-- Location -->
+                ~1~ Location @1@
                 <TextBlock Text="Lokacija:" Grid.Row="5" Margin="10"/>
                 <TextBlock Text="{Binding Accomodation.Location.Address}" Grid.Row="5" Grid.Column="1" Margin="10" Width="200"/>
                 <Grid Grid.Row="6" Name="MapGrid" Height="200" Visibility="Visible" Grid.ColumnSpan="2" >
                     <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="30,5,30,10" />
                 </Grid>
-                <!-- Image -->
+                ~1~ Image @1@
                 <TextBlock Grid.Row="7" Text="SLIKE:" Margin="10"/>
 
-                <!-- Submit button -->
+                ~1~ Submit button @1@
                 <Button Content="Edit" Click="EditAccomodationBtn_Clicked" Grid.Row="9"  HorizontalAlignment="Center" Width="100" Height="30" Margin="0,20,0,10"/>
                 
-        </Grid>
-        
+        </Grid>-->
+             <Grid x:Name="InfoGrid" Margin="0">
+            <!-- Row and Column Definitions -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" 
+                   Style="{StaticResource ImgClose}" />
+            
+            <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="550" Margin="0 0 0 -20" Panel.ZIndex="999" Background="White">
+                <Grid>
+                    <Grid>
+                        <Border CornerRadius="15 15 45 45" Margin="20 20 20 120">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                    <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
+                                    <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <Grid>
+                                <Button Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}" Click="EditAccomodationBtn_Clicked"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 20 0 15">
+                                    <Viewbox Width="20" Height="20">
+                                        <wpf:FontAwesome Icon="Pencil" />
+                                    </Viewbox>
+                                </Button>
+                                <StackPanel Margin="100 60 10 5" VerticalAlignment="Top">
+                                    <TextBlock Text="{Binding Accomodation.Name}" Foreground="#FFFFFF"
+                                               FontSize="50" FontWeight="SemiBold">
+                                    </TextBlock>
+                                    <TextBlock Text="{Binding  Accomodation.Price}" Foreground="#EBEAE5"
+                                               FontSize="33" Margin="0 5 0 0">
+                                    </TextBlock>
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <Grid Margin="60 450 50 10">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Accomodation.AccomodationType}" Foreground="#11172F" FontSize="30" FontWeight="SemiBold"/>
+                                <wpf:FontAwesome Icon="Star" Margin="80,9,10,0" Foreground="#F2B312" FontSize="25"/>
+                                <TextBlock Margin="0 5 0 0" Text="{Binding Accomodation.Rating}" Foreground="#11172F" FontSize="23" FontWeight="DemiBold"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="3,10,0,0">
+                                <wpf:FontAwesome Icon="MapPin" Margin="0,0,8,0" Foreground="#11172F" FontSize="18" />
+                                <TextBlock Text="{Binding Accomodation.Location}" Foreground="Gray" FontSize="18"/>
+                            </StackPanel>
+                            
+                        </StackPanel>
+                        
+                    </Grid>
+                </Grid>
+               
+            </Border>
+            
+            <!-- Travel Description -->
+            
+            <Grid Grid.Row="3" Name="MapGrid" Height="450" Visibility="Visible" Grid.ColumnSpan="3" Margin="0 -70 0 0" >
+                <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0,5,0,10" />
+                
+            </Grid>
+       </Grid>
+            
             <Grid x:Name="EditGrid" Visibility="Hidden"  Margin="50">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
