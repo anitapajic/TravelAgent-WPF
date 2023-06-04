@@ -233,7 +233,7 @@
                     <!-- Trips grid-->
                     <Grid Name="TripsGrid" Visibility="Visible">
                         <Grid>
-                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                            <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" >
                                 <Grid HorizontalAlignment="Left">
                                     <ItemsControl x:Name="tripItemsControl" ItemsSource="{Binding Trips}">
                                         <ItemsControl.ItemsPanel>
@@ -326,7 +326,7 @@
                         </Grid>
                         <Grid Grid.Row="1" Name="AttractionGrid" Visibility="Hidden">
                             <Grid>
-                                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                <ScrollViewer VerticalScrollBarVisibility="Hidden"
                                               HorizontalScrollBarVisibility="Disabled">
                                     <Grid HorizontalAlignment="Left">
                                         <ItemsControl x:Name="attractionItemsControl"
@@ -391,7 +391,7 @@
                     <!-- Accomodation grid-->
                     <Grid Name="AccomodationGrid" Visibility="Hidden">
                         <Grid >
-                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                            <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
                                 <Grid HorizontalAlignment="Left">
                                     <ItemsControl x:Name="AccomodationItemsControl"
                                                   ItemsSource="{Binding Accomodations}">
@@ -455,7 +455,7 @@
                     <!-- Restaurant grid-->
                     <Grid Name="RestaurantsGrid" Visibility="Hidden">
                         <Grid>
-                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                            <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
                                 <Grid HorizontalAlignment="Left">
                                     <ItemsControl x:Name="restaurantItemsControl" ItemsSource="{Binding Restaurants}">
                                         <ItemsControl.ItemsPanel>
@@ -517,7 +517,7 @@
                     <!-- BookedTrip grid-->
                     <Grid Name="BookedTripGrid" Visibility="Hidden">
                         <Grid>
-                            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                            <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
                                 <Grid HorizontalAlignment="Left">
                                     <ItemsControl x:Name="bookedTripItemsControl" ItemsSource="{Binding BookedTrips}">
                                         <ItemsControl.ItemsPanel>
@@ -560,7 +560,7 @@
                     <!-- PurchasedTrip grid-->
                     <Grid  Name="PurchasedTripGrid" Visibility="Hidden">
                      <Grid>
-                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
                      <Grid >
                     <ItemsControl x:Name="purchasedTripItemsControl" ItemsSource="{Binding PurchasedTrips}">
                         <ItemsControl.ItemsPanel>
@@ -599,7 +599,7 @@
                     <!-- SoldTrip grid-->
                     <Grid  Name="SoldTripGrid" Visibility="Hidden">
                      <Grid>
-                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
                      <Grid  HorizontalAlignment="Left">
                     <ItemsControl x:Name="soldTripItemsControl" ItemsSource="{Binding SoldTrips}">
                         <ItemsControl.ItemsPanel>

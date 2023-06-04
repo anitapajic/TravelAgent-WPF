@@ -294,7 +294,7 @@
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="Width" Value="30"></Setter>
             <Setter Property="Height" Value="30"></Setter>
-            <Setter Property="Foreground" Value="#11172F"></Setter>
+            <Setter Property="Foreground" Value="#2A5B5C"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">

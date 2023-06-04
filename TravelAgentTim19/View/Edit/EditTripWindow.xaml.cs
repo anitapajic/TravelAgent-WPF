@@ -53,7 +53,7 @@ public partial class EditTripWindow : Window
     private void Image_MouseUp(object sender, MouseButtonEventArgs e)
     {
         MainRepository.Save();
-        Application.Current.Shutdown();
+        InfoGrid.Visibility = Visibility.Hidden;
     }
     private void MapControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
     {
