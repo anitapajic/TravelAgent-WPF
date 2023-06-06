@@ -103,6 +103,13 @@ public partial class AgentMainWindow : Window
         
     }
 
+    public void RefreshTripList()
+    {
+        Trips.Clear();
+        Trips = MainRepository.TripRepository.GetTrips();
+        tripItemsControl.Items.Refresh();
+    }
+
     public List<BookedTrip> GetSoldBookedTrips(string tripName)
     {
         foreach (BookedTrip bookedTrip in PurchasedTrips)
@@ -278,6 +285,12 @@ public partial class AgentMainWindow : Window
 
         EditTripWindow editTripWindow = new EditTripWindow(trip, MainRepository);
         editTripWindow.Show();
+        editTripWindow.Closed += EditTripWindow_Closed;
+    }
+
+    private void EditTripWindow_Closed(object sender, EventArgs e)
+    {
+        tripItemsControl.Items.Refresh();
     }
     
     private void DeleteTripBtn_Clicked(object sender, RoutedEventArgs e)

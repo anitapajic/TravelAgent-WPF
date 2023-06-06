@@ -441,7 +441,7 @@ public partial class EditTripWindow : Window
             return;
         }
 
-        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da dodate ovao putovanje?", "Potvrda",
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da dodate ovo putovanje?", "Potvrda",
             MessageBoxButton.YesNo);
         if (result == MessageBoxResult.Yes)
         {
@@ -459,6 +459,14 @@ public partial class EditTripWindow : Window
                 MainRepository.DatePeriodRepository.AddDatePeriod(dp);
             }
             MainRepository.TripRepository.UpdateTrip(Trip);
+            
+            TripNameTextBlock.Text = Trip.Name;
+            DescriptionTextBlock.Text = Trip.Description;
+            PriceTextBlock.Text = Trip.Price.ToString();
+            tripAttractionItems.ItemsSource = Trip.Attractions;
+            tripAccomodationsItems.ItemsSource = Trip.Accomodations;
+            tripRestaurantsItems.ItemsSource = Trip.Restaurants;
+            tripPeriodsItems.ItemsSource = Trip.DatePeriods;
 
             InfoTripBtn_Clicked(sender, e);
         }
