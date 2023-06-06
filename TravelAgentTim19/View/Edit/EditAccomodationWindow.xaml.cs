@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -8,22 +7,19 @@ using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
-﻿using System.Windows;
 using System.Windows.Input;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
 using Microsoft.Win32;
-using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
-using Location = TravelAgentTim19.Model.Location;
 
 namespace TravelAgentTim19.View.Edit;
 
-public partial class EditAccomodationWindow : Window
+public partial class EditAccomodationWindow 
 {
     public Accomodation Accomodation { get; set; }
-    public MainRepository MainRepository { get; set; }
+    private MainRepository MainRepository { get; set; }
     public EditAccomodationWindow(Accomodation accomodation, MainRepository mainRepository)
     {
         Accomodation = accomodation;
@@ -124,14 +120,7 @@ public partial class EditAccomodationWindow : Window
     
     private void Border_DragEnter(object sender, DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
-        {
-            e.Effects = DragDropEffects.Copy;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.None;
-        }
+        e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
         e.Handled = true;
     }
 

@@ -12,17 +12,17 @@ namespace TravelAgentTim19.View
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow 
     {
-        public MainRepository MainRepository;
-        public UserService UserService;
+        private MainRepository MainRepository;
+        private UserService UserService;
         public MainWindow()
         {
             MainRepository = new MainRepository();
             UserService = new UserService(MainRepository);
             InitializeComponent();
         }
-        private void Border_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
@@ -106,7 +106,7 @@ namespace TravelAgentTim19.View
             MessageBox.Show(registered ? "Successfully Signed Up" : "Unsuccessfully Signed Up");
         }
 
-        private void emailBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void emailBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(TxtEmail.Text) && TxtEmail.Text.Length > 0)
                 TextEmail.Visibility = Visibility.Collapsed;
@@ -208,7 +208,7 @@ namespace TravelAgentTim19.View
         {
             SignUpEmailBox.Focus();
         }
-        private void signUpEmailBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        private void signUpEmailBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (!string.IsNullOrEmpty(SignUpEmailBox.Text) && SignUpEmailBox.Text.Length > 0)
                 TextSignUpEmail.Visibility = Visibility.Collapsed;

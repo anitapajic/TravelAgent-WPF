@@ -18,12 +18,13 @@ using Location = TravelAgentTim19.Model.Location;
 
 namespace TravelAgentTim19.View.Edit;
 
-public partial class EditTripWindow : Window
+public partial class EditTripWindow 
 {
     public Trip Trip { get; set; }
+    private Trip editTrip { get; set; }
     
     private MainRepository MainRepository;
-    public List<Location> AttractionsLocations { get; set; }
+    private List<Location> AttractionsLocations { get; set; }
     public EditTripWindow(Trip trip, MainRepository mainRepository)
     {
         Trip = trip;
@@ -152,14 +153,7 @@ public partial class EditTripWindow : Window
     
     private void Border_DragEnter(object sender, DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
-        {
-            e.Effects = DragDropEffects.Copy;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.None;
-        }
+        e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
         e.Handled = true;
     }
 
@@ -258,14 +252,7 @@ public partial class EditTripWindow : Window
 
     private void DragOverAttraction_PreviewDragOver(object sender, DragEventArgs e)
     {
-        if (!e.Data.GetDataPresent(typeof(Attraction))) 
-        {
-            e.Effects = DragDropEffects.None;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.Move;
-        }
+        e.Effects = !e.Data.GetDataPresent(typeof(Attraction)) ? DragDropEffects.None : DragDropEffects.Move;
         e.Handled = true;
     }
 
@@ -298,14 +285,7 @@ public partial class EditTripWindow : Window
 
     private void DragOverAccomodation_PreviewDragOver(object sender, DragEventArgs e)
     {
-        if (!e.Data.GetDataPresent(typeof(Accomodation))) 
-        {
-            e.Effects = DragDropEffects.None;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.Move;
-        }
+        e.Effects = !e.Data.GetDataPresent(typeof(Accomodation)) ? DragDropEffects.None : DragDropEffects.Move;
         e.Handled = true;
     }
 
@@ -336,14 +316,7 @@ public partial class EditTripWindow : Window
 
     private void DragOverRestaurant_PreviewDragOver(object sender, DragEventArgs e)
     {
-        if (!e.Data.GetDataPresent(typeof(Restaurant))) 
-        {
-            e.Effects = DragDropEffects.None;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.Move;
-        }
+        e.Effects = !e.Data.GetDataPresent(typeof(Restaurant)) ? DragDropEffects.None : DragDropEffects.Move;
         e.Handled = true;
     }
 

@@ -15,7 +15,7 @@ using TravelAgentTim19.Repository;
 
 namespace TravelAgentTim19.View.Edit;
 
-public partial class EditRestaurantWindow : Window
+public partial class EditRestaurantWindow
 {
     public Restaurant Restaurant { get; set; }
     private MainRepository MainRepository;
@@ -118,14 +118,7 @@ public partial class EditRestaurantWindow : Window
     
     private void Border_DragEnter(object sender, DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
-        {
-            e.Effects = DragDropEffects.Copy;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.None;
-        }
+        e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
         e.Handled = true;
     }
 

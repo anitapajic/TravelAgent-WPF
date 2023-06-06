@@ -15,10 +15,10 @@ using TravelAgentTim19.Repository;
 
 namespace TravelAgentTim19.View.Edit;
 
-public partial class EditAttractionWindow : Window
+public partial class EditAttractionWindow 
 {
     public Attraction Attraction { get; set; }
-    public MainRepository MainRepository { get; set; }
+    private MainRepository MainRepository { get; set; }
     
     public EditAttractionWindow(Attraction attraction, MainRepository mainRepository)
     {

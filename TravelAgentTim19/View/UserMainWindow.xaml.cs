@@ -16,7 +16,7 @@ using Location = TravelAgentTim19.Model.Location;
 
 namespace TravelAgentTim19.View;
 
-public partial class UserMainWindow : Window
+public partial class UserMainWindow
 {
     private MainRepository MainRepository;
     public List<Trip> Trips { get; set; }
@@ -25,11 +25,11 @@ public partial class UserMainWindow : Window
     public List<Restaurant> Restaurants { get; set; }
     public List<BookedTrip> BookedTrips { get; set; }
     public List<BookedTrip> PurchasedTrips { get; set; }
-    public List<Trip> SoldTrips { get; set; }
-    public List<BookedTrip> SoldBookedTrips { get; set; }
-    public List<string> TripsNameList { get; set; }
-    public List<Location> AttractionsLocations { get; set; }
-    public User User { get; set; }
+    private List<Trip> SoldTrips { get; set; }
+    private List<BookedTrip> SoldBookedTrips { get; set; }
+    private List<string> TripsNameList { get; set; }
+    private List<Location> AttractionsLocations { get; set; }
+    private User User { get; set; }
     
     public UserMainWindow(MainRepository mainRepository, User user)
     {
@@ -133,9 +133,6 @@ public partial class UserMainWindow : Window
     private void TripItem_Click(object sender, RoutedEventArgs e)
     {
         MapGrid.Visibility = Visibility.Hidden;
-        // Report2Grid.Visibility = Visibility.Hidden;
-        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        // Report1Grid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         AccomodationGrid.Visibility = Visibility.Hidden;
@@ -154,9 +151,6 @@ public partial class UserMainWindow : Window
     
     private void AttractionItem_Click(object sender, RoutedEventArgs e)
     {
-        // Report2Grid.Visibility = Visibility.Hidden;
-        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        // Report1Grid.Visibility = Visibility.Hidden;
 
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
@@ -175,11 +169,6 @@ public partial class UserMainWindow : Window
     
     private void AccomodationItem_Click(object sender, RoutedEventArgs e)
     {
-        MapGrid.Visibility = Visibility.Hidden;
-        // Report2Grid.Visibility = Visibility.Hidden;
-        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        // Report1Grid.Visibility = Visibility.Hidden;
-
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
@@ -195,11 +184,6 @@ public partial class UserMainWindow : Window
     }
     private void RestaurantItem_Click(object sender, RoutedEventArgs e)
     {
-         MapGrid.Visibility = Visibility.Hidden;
-        // Report2Grid.Visibility = Visibility.Hidden;
-        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        // Report1Grid.Visibility = Visibility.Hidden;
-
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -215,10 +199,6 @@ public partial class UserMainWindow : Window
     
     private void BookedTripItem_Click(object sender, RoutedEventArgs e)
     {
-        MapGrid.Visibility = Visibility.Hidden;
-        // Report2Grid.Visibility = Visibility.Hidden;
-        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        // Report1Grid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -229,10 +209,6 @@ public partial class UserMainWindow : Window
 
     private void PurchasedTripItem_Click(object sender, RoutedEventArgs e)
     {
-        MapGrid.Visibility = Visibility.Hidden;
-        // Report2Grid.Visibility = Visibility.Hidden;
-        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
-        // Report1Grid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -241,29 +217,13 @@ public partial class UserMainWindow : Window
         PurchasedTripGrid.Visibility = Visibility.Visible;
     }
     
-    
-    
-    private void NewRestaurantWindow_Closed(object sender, EventArgs e)
-    {
-        restaurantItemsControl.Items.Refresh();
-    }
-
-    private void NewAccomodationWindow_Closed(object sender, EventArgs e)
-    {
-        AccomodationItemsControl.Items.Refresh();
-    }
-
-    private void NewAttractionWindow_Closed(object sender, EventArgs e)
-    {
-        attractionItemsControl.Items.Refresh();
-    }
-
-    
     private void BookTripWindow_Closed(object sender, EventArgs e)
     {
         BookedTrips.Clear();
+        PurchasedTrips.Clear();
         GetBookedTrips();
         bookedTripItemsControl.Items.Refresh();
+        purchasedTripItemsControl.Items.Refresh();
     }
 
     private void EditRestaurantBtn_Clicked(object sender, RoutedEventArgs e)
@@ -323,15 +283,16 @@ public partial class UserMainWindow : Window
         }
     }
 
-    private void EditPurchasedTripBtn_Clicked(object sender, RoutedEventArgs e)
-    {
-        Button editButton = (Button)sender;
-        int attId = (int)editButton.Tag;
-        BookedTrip bookedTrip = MainRepository.BookedTripRepository.GetBookedTripById(attId);
-
-        EditPurchasedTripWindow editPurchasedTripWindow = new EditPurchasedTripWindow(bookedTrip, MainRepository);
-        editPurchasedTripWindow.Show();
-    }
+    // private void EditPurchasedTripBtn_Clicked(object sender, RoutedEventArgs e)
+    // {
+    //     Button editButton = (Button)sender;
+    //     int attId = (int)editButton.Tag;
+    //     BookedTrip bookedTrip = MainRepository.BookedTripRepository.GetBookedTripById(attId);
+    //
+    //     EditPurchasedTripWindow editPurchasedTripWindow = new EditPurchasedTripWindow(bookedTrip, MainRepository);
+    //     editPurchasedTripWindow.Show();
+    // }
+    
     private void EditTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
         Button editButton = (Button)sender;
@@ -342,8 +303,6 @@ public partial class UserMainWindow : Window
         bookTripWindow.Show();
         bookTripWindow.Closed += BookTripWindow_Closed;
 
-        
-        
     }
 
     private void Logout_Click(object sender, RoutedEventArgs e)
@@ -354,12 +313,6 @@ public partial class UserMainWindow : Window
         Close();
     }
     
-    private void MapItem_Click(object sender, RoutedEventArgs e)
-    {
-        TripsGrid.Visibility = Visibility.Hidden;
-        MapGrid.Visibility = Visibility.Visible;
-    }
-
 
     private void Image_MouseUp(object sender, MouseButtonEventArgs e)
     {
