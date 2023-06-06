@@ -18,17 +18,16 @@ using Location = TravelAgentTim19.Model.Location;
 
 namespace TravelAgentTim19.View.Edit;
 
-public partial class EditTripWindow : Window
+public partial class EditTripWindow 
 {
     public Trip Trip { get; set; }
-    public Trip editTrip { get; set; }
+    private Trip editTrip { get; set; }
     
     private MainRepository MainRepository;
-    public List<Location> AttractionsLocations { get; set; }
+    private List<Location> AttractionsLocations { get; set; }
     public EditTripWindow(Trip trip, MainRepository mainRepository)
     {
         Trip = trip;
-        // editTrip = new Trip(trip);
         AttractionsLocations = new List<Location>();
         MainRepository = mainRepository;
         GetAttractionsLocation();
@@ -52,8 +51,7 @@ public partial class EditTripWindow : Window
     }
     private void Image_MouseUp(object sender, MouseButtonEventArgs e)
     {
-        MainRepository.Save();
-        InfoGrid.Visibility = Visibility.Hidden;
+        Close();
     }
     private void MapControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
     {
@@ -155,14 +153,7 @@ public partial class EditTripWindow : Window
     
     private void Border_DragEnter(object sender, DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
-        {
-            e.Effects = DragDropEffects.Copy;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.None;
-        }
+        e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
         e.Handled = true;
     }
 
@@ -261,14 +252,7 @@ public partial class EditTripWindow : Window
 
     private void DragOverAttraction_PreviewDragOver(object sender, DragEventArgs e)
     {
-        if (!e.Data.GetDataPresent(typeof(Attraction))) 
-        {
-            e.Effects = DragDropEffects.None;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.Move;
-        }
+        e.Effects = !e.Data.GetDataPresent(typeof(Attraction)) ? DragDropEffects.None : DragDropEffects.Move;
         e.Handled = true;
     }
 
@@ -301,14 +285,7 @@ public partial class EditTripWindow : Window
 
     private void DragOverAccomodation_PreviewDragOver(object sender, DragEventArgs e)
     {
-        if (!e.Data.GetDataPresent(typeof(Accomodation))) 
-        {
-            e.Effects = DragDropEffects.None;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.Move;
-        }
+        e.Effects = !e.Data.GetDataPresent(typeof(Accomodation)) ? DragDropEffects.None : DragDropEffects.Move;
         e.Handled = true;
     }
 
@@ -339,14 +316,7 @@ public partial class EditTripWindow : Window
 
     private void DragOverRestaurant_PreviewDragOver(object sender, DragEventArgs e)
     {
-        if (!e.Data.GetDataPresent(typeof(Restaurant))) 
-        {
-            e.Effects = DragDropEffects.None;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.Move;
-        }
+        e.Effects = !e.Data.GetDataPresent(typeof(Restaurant)) ? DragDropEffects.None : DragDropEffects.Move;
         e.Handled = true;
     }
 
@@ -403,7 +373,6 @@ public partial class EditTripWindow : Window
     
     private void InfoTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
-        editTrip = Trip;
         InfoGrid.Visibility = Visibility.Visible;
         EditGrid.Visibility = Visibility.Hidden;
     }
@@ -411,7 +380,7 @@ public partial class EditTripWindow : Window
     
     private void SaveTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
-     
+
         string name = NameBox.Text;
         string description = DescriptionBox.Text;
 
@@ -445,7 +414,7 @@ public partial class EditTripWindow : Window
             return;
         }
 
-        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da dodate ovao putovanje?", "Potvrda",
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da dodate ovo putovanje?", "Potvrda",
             MessageBoxButton.YesNo);
         if (result == MessageBoxResult.Yes)
         {
@@ -463,6 +432,15 @@ public partial class EditTripWindow : Window
                 MainRepository.DatePeriodRepository.AddDatePeriod(dp);
             }
             MainRepository.TripRepository.UpdateTrip(Trip);
+            
+            TripNameTextBlock.Text = Trip.Name;
+            DescriptionTextBlock.Text = Trip.Description;
+            PriceTextBlock.Text = Trip.Price.ToString();
+            tripAttractionItems.ItemsSource = Trip.Attractions;
+            tripAccomodationsItems.ItemsSource = Trip.Accomodations;
+            tripRestaurantsItems.ItemsSource = Trip.Restaurants;
+            tripPeriodsItems.ItemsSource = Trip.DatePeriods;
+
             InfoTripBtn_Clicked(sender, e);
         }
     }

@@ -12,7 +12,7 @@ using TravelAgentTim19.Repository;
 
 namespace TravelAgentTim19.View;
 
-public partial class AddNewAccomodationWindow : Window
+public partial class AddNewAccomodationWindow 
 {
     private MainRepository MainRepository;
     public AddNewAccomodationWindow(MainRepository mainRepository)
@@ -24,14 +24,7 @@ public partial class AddNewAccomodationWindow : Window
     
     private void Border_DragEnter(object sender, DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
-        {
-            e.Effects = DragDropEffects.Copy;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.None;
-        }
+        e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
         e.Handled = true;
     }
 

@@ -1,22 +1,15 @@
 ﻿using System;
-using System.IO;
-using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media.Imaging;
-using Microsoft.Win32;
-using NodaTime;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
 
 namespace TravelAgentTim19.View;
 
-public partial class BookTripWindow : Window
+public partial class BookTripWindow 
 {
     public Trip Trip { get; set; }
-    public BookedTrip BookedTrip { get; set; }
+    private BookedTrip BookedTrip { get; set; }
     private User LoggedUser { get; set; }
     
     

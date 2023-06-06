@@ -57,6 +57,10 @@
       <None Remove="Images\redPin.png" />
       <Resource Include="Images\redPin.png" />
       <None Remove="Images\beo.jfif" />
+      <None Remove="Images\beograd.jpg" />
+      <Resource Include="Images\beograd.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
     </ItemGroup>
 
     <ItemGroup>
