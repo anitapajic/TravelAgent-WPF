@@ -409,9 +409,17 @@
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                        FontSize="14">
                                                             </TextBlock>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="Od: " Foreground="#EBEAE5" FontSize="14" />
+                                                                <TextBlock Text="{Binding DatePeriod.StartDate}" Foreground="#EBEAE5" FontSize="14" />
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text=" Do: " Foreground="#EBEAE5" FontSize="14" />
+                                                                <TextBlock Text="{Binding DatePeriod.EndDate}" Foreground="#EBEAE5" FontSize="14" />
+                                                            </StackPanel>
                                                         </StackPanel>
                                                         
-                                                        <Button  Style="{StaticResource DeleteButton}" Click="PurchaseTripBtn_Clicked" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20 10 0 15">
+                                                        <Button Name="btnBuy" Style="{StaticResource DeleteButton}" Click="PurchaseTripBtn_Clicked" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20 10 0 15">
                                                             <Viewbox Width="20" Height="20">
                                                                 <wpf:FontAwesome Icon="CreditCard" />
                                                             </Viewbox>
@@ -471,6 +479,14 @@
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                        FontSize="14">
                                                             </TextBlock>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text="Od: " Foreground="#EBEAE5" FontSize="14" />
+                                                                <TextBlock Text="{Binding DatePeriod.StartDate}" Foreground="#EBEAE5" FontSize="14" />
+                                                            </StackPanel>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <TextBlock Text=" Do: " Foreground="#EBEAE5" FontSize="14" />
+                                                                <TextBlock Text="{Binding DatePeriod.EndDate}" Foreground="#EBEAE5" FontSize="14" />
+                                                            </StackPanel>
                                                         </StackPanel>
                                                     </Grid>
                                                 </Border>

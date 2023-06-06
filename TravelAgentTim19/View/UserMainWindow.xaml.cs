@@ -4,9 +4,7 @@ using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
@@ -14,7 +12,6 @@ using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
 using TravelAgentTim19.View.Edit;
-using Geometry = System.Windows.Media.Geometry;
 using Location = TravelAgentTim19.Model.Location;
 
 namespace TravelAgentTim19.View;
@@ -309,7 +306,21 @@ public partial class UserMainWindow : Window
     
     private void PurchaseTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
-        MessageBox.Show("Implementiraj kupovinu");
+        MessageBoxResult result = MessageBox.Show("Da li zelite da platite ovo putovanje?", "Potvrda", MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+        if (result == MessageBoxResult.Yes)
+        {
+            Button button = (Button)sender;
+            int id = (int)button.Tag;
+            BookedTrip bookedTrip = MainRepository.BookedTripRepository.GetBookedTripById(id);
+            MainRepository.BookedTripRepository.DeleteBookedTrip(bookedTrip);
+            bookedTrip.Status = BookedTripStatus.Purchased;
+            MainRepository.BookedTripRepository.AddBookedTrip(bookedTrip);
+            BookedTrips.Clear();
+            PurchasedTrips.Clear();
+            GetBookedTrips();
+            bookedTripItemsControl.Items.Refresh();
+        }
     }
 
     private void EditPurchasedTripBtn_Clicked(object sender, RoutedEventArgs e)
