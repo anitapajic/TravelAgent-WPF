@@ -18,6 +18,18 @@ public class  Trip
     {
     }
 
+    public Trip(Trip trip)
+    {
+        Id = trip.Id;
+        Name = trip.Name;
+        Price = trip.Price;
+        Accomodations = trip.Accomodations;
+        Attractions = trip.Attractions;
+        Restaurants = trip.Restaurants;
+        DatePeriods = trip.DatePeriods;
+        Description = trip.Description;
+        
+    }
     // public Trip(Trip trip)
     // {
     //    new Trip(trip.Id, trip.Name, trip.Price, trip.Accomodations, trip.Attractions, trip.Restaurants, trip.DatePeriods,

@@ -288,11 +288,11 @@
             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="IZMENA PUTOVANJA" FontSize="20" FontWeight="Bold" Margin="10"/>
 
             <!-- Travel Information -->
-            <TextBox x:Name="NameBox" Grid.Row="1" Grid.Column="0" Text="{Binding Trip.Name}" Margin="10"/>
-            <TextBox x:Name="PriceBox" Grid.Row="1" Grid.Column="1" Text="{Binding Trip.Price}" Margin="10"/>
+            <TextBox x:Name="NameBox" Grid.Row="1" Grid.Column="0" Text="{Binding Trip.Name, Mode=OneWay}" Margin="10"/>
+            <TextBox x:Name="PriceBox" Grid.Row="1" Grid.Column="1" Text="{Binding Trip.Price, Mode=OneWay}" Margin="10"/>
 
             <!-- Travel Description -->
-            <TextBox x:Name="DescriptionBox" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Trip.Description}" TextWrapping="Wrap" Margin="10"/>
+            <TextBox x:Name="DescriptionBox" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Trip.Description, Mode=OneWay}" TextWrapping="Wrap" Margin="10"/>
 
             <!-- Attraction Selection -->
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Sve atrakcije"  Margin="10"/>

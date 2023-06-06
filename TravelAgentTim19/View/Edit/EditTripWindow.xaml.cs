@@ -21,14 +21,12 @@ namespace TravelAgentTim19.View.Edit;
 public partial class EditTripWindow : Window
 {
     public Trip Trip { get; set; }
-    public Trip editTrip { get; set; }
     
     private MainRepository MainRepository;
     public List<Location> AttractionsLocations { get; set; }
     public EditTripWindow(Trip trip, MainRepository mainRepository)
     {
         Trip = trip;
-        // editTrip = new Trip(trip);
         AttractionsLocations = new List<Location>();
         MainRepository = mainRepository;
         GetAttractionsLocation();
@@ -52,8 +50,7 @@ public partial class EditTripWindow : Window
     }
     private void Image_MouseUp(object sender, MouseButtonEventArgs e)
     {
-        MainRepository.Save();
-        InfoGrid.Visibility = Visibility.Hidden;
+        Close();
     }
     private void MapControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
     {
@@ -403,7 +400,6 @@ public partial class EditTripWindow : Window
     
     private void InfoTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
-        editTrip = Trip;
         InfoGrid.Visibility = Visibility.Visible;
         EditGrid.Visibility = Visibility.Hidden;
     }
@@ -411,7 +407,7 @@ public partial class EditTripWindow : Window
     
     private void SaveTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
-     
+
         string name = NameBox.Text;
         string description = DescriptionBox.Text;
 
@@ -463,6 +459,7 @@ public partial class EditTripWindow : Window
                 MainRepository.DatePeriodRepository.AddDatePeriod(dp);
             }
             MainRepository.TripRepository.UpdateTrip(Trip);
+
             InfoTripBtn_Clicked(sender, e);
         }
     }
