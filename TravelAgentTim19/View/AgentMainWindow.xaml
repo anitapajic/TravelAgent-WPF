@@ -553,6 +553,12 @@
                                                             <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
                                                                        FontSize="18" FontWeight="SemiBold">
                                                             </TextBlock>
+                                                            <TextBlock Height="10"></TextBlock>
+                                                            <TextBlock Text="{Binding User}" Foreground="#FFFFFF"
+                                                                       FontSize="14" FontWeight="SemiBold" >
+                                                            </TextBlock>
+                                                            <TextBlock Height="20"></TextBlock>
+
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                        FontSize="14">
                                                             </TextBlock>
@@ -607,6 +613,11 @@
                                                             <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
                                                                        FontSize="18" FontWeight="SemiBold">
                                                             </TextBlock>
+                                                            <TextBlock Height="10"></TextBlock>
+                                                            <TextBlock Text="{Binding User}" Foreground="#FFFFFF"
+                                                                       FontSize="14" FontWeight="SemiBold">
+                                                            </TextBlock>
+                                                            <TextBlock Height="20"></TextBlock>
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                        FontSize="14">
                                                             </TextBlock>

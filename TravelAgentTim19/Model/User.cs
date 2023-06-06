@@ -26,7 +26,7 @@ public class User
     }
     public override string ToString()
     {
-        return Id + "\t" + FirstName + "\t" + LastName + "\t" + Email + "\t" + Role;
+        return FirstName + " " + LastName ;
     }
     
 }
