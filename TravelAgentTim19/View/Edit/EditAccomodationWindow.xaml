@@ -79,7 +79,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" 
+            <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                    Style="{StaticResource ImgClose}" />
             
             <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="550" Margin="0 0 0 -20" Panel.ZIndex="999" Background="White">
