@@ -26,16 +26,16 @@
         
             <!-- Name -->
             <TextBlock Text="Naziv:" Grid.Row="1" Margin="10"/>
-            <TextBlock Text="{Binding Restaurant.Name}" Grid.Row="1" Grid.Column="1" Margin="10" Width="200"/>
+            <TextBlock Name="nameTextBlock" Text="{Binding Restaurant.Name}" Grid.Row="1" Grid.Column="1" Margin="10" Width="200"/>
 
             
             <!-- Rating -->
-            <TextBlock Text="Rejting:" Grid.Row="2" Margin="10"/>
-            <TextBlock Text="{Binding Restaurant.Rating}" Grid.Row="2" Grid.Column="1" Margin="10" Width="200"/>
+            <TextBlock  Text="Rejting:" Grid.Row="2" Margin="10"/>
+            <TextBlock Name="ratingTextBlock" Text="{Binding Restaurant.Rating}" Grid.Row="2" Grid.Column="1" Margin="10" Width="200"/>
         
             <!-- Location -->
             <TextBlock Text="Lokacija:" Grid.Row="3" Margin="10"/>
-            <TextBlock Text="{Binding Restaurant.Location}" Grid.Row="3" Grid.Column="1" Margin="10" Width="200"/>
+            <TextBlock Name="addressTextBlock" Text="{Binding Restaurant.Location.Address}" Grid.Row="3" Grid.Column="1" Margin="10" Width="200"/>
             <Grid Grid.Row="4" Name="MapGrid" Height="200" Visibility="Visible" Grid.ColumnSpan="2" >
                 <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="30,5,30,10" />
             </Grid>

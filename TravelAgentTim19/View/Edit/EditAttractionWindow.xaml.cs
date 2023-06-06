@@ -165,6 +165,11 @@ public partial class EditAttractionWindow
             //dodati slike
             
             MainRepository.AttractionRepository.UpdateAttraction(Attraction);
+            nameTextBlock.Text = Attraction.Name;
+            addressTextBlock.Text = Attraction.Location.Address;
+            priceTextBlock.Text = Attraction.Price.ToString();
+            descTextBlock.Text = Attraction.Description;
+            
             Close();
         }
         

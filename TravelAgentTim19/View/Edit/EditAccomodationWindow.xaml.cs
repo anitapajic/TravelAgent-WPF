@@ -114,6 +114,11 @@ public partial class EditAccomodationWindow
             //dodati slike
             
             MainRepository.AccomodationRepository.UpdateAccomodation(Accomodation);
+            nameTextBlock.Text = Accomodation.Name;
+            priceTextBlock.Text = Accomodation.Price.ToString();
+            typeTextBlock.Text = Accomodation.AccomodationType.ToString();
+            addressTextBlock.Text = Accomodation.Location.Address;
+
             InfoAccomodationBtn_Clicked(sender,e);
         }
     }

@@ -112,6 +112,10 @@ public partial class EditRestaurantWindow
             //dodati slike
             
             MainRepository.RestaurantsRepository.UpdateRestaurant(Restaurant);
+            nameTextBlock.Text = Restaurant.Name;
+            ratingTextBlock.Text = Restaurant.Rating.ToString();
+            addressTextBlock.Text = Restaurant.Location.Address;
+            
             InfoRestaurantBtn_Clicked(sender, e);
         }
     }

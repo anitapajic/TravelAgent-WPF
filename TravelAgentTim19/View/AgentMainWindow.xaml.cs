@@ -283,6 +283,18 @@ public partial class AgentMainWindow
     {
         tripItemsControl.Items.Refresh();
     }
+    private void EditAccommodationpWindow_Closed(object sender, EventArgs e)
+    {
+        AccomodationItemsControl.Items.Refresh();
+    }
+    private void EditAttractionWindow_Closed(object sender, EventArgs e)
+    {
+        attractionItemsControl.Items.Refresh();
+    }
+    private void EditRestaurantWindow_Closed(object sender, EventArgs e)
+    {
+        restaurantItemsControl.Items.Refresh();
+    }
     
     private void DeleteTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
@@ -305,6 +317,7 @@ public partial class AgentMainWindow
 
         EditRestaurantWindow editRestaurantWindow = new EditRestaurantWindow(restaurant, MainRepository);
         editRestaurantWindow.Show();
+        editRestaurantWindow.Closed += EditRestaurantWindow_Closed;
     }
     
     private void DeleteRestaurantBtn_Clicked(object sender, RoutedEventArgs e)
@@ -329,6 +342,7 @@ public partial class AgentMainWindow
 
         EditAccomodationWindow editAccomodationWindow= new EditAccomodationWindow(accomodation, MainRepository);
         editAccomodationWindow.Show();
+        editAccomodationWindow.Closed += EditAccommodationpWindow_Closed;
     }
     
     private void DeleteAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
@@ -394,6 +408,7 @@ public partial class AgentMainWindow
 
         EditAttractionWindow editAttractionWindow = new EditAttractionWindow(attraction, MainRepository);
         editAttractionWindow.Show();
+        editAttractionWindow.Closed += EditAttractionWindow_Closed;
     }
     
     private void EditBookedTripBtn_Clicked(object sender, RoutedEventArgs e)
