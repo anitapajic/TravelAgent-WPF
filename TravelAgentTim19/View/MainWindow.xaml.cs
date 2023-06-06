@@ -74,7 +74,7 @@ namespace TravelAgentTim19.View
                     }
                     else if(user.Role == Role.Client)
                     {
-                        UserMainWindow userMainWindow = new UserMainWindow(MainRepository);
+                        UserMainWindow userMainWindow = new UserMainWindow(MainRepository, user);
                         userMainWindow.Show(); 
                         Close();
                     }
