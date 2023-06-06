@@ -11,6 +11,7 @@ using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
 using TravelAgentTim19.Model;
+using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
 using TravelAgentTim19.View.Edit;
 using Geometry = System.Windows.Media.Geometry;
@@ -31,11 +32,12 @@ public partial class UserMainWindow : Window
     public List<BookedTrip> SoldBookedTrips { get; set; }
     public List<string> TripsNameList { get; set; }
     public List<Location> AttractionsLocations { get; set; }
+    public User User { get; set; }
     
-    public UserMainWindow(MainRepository mainRepository)
+    public UserMainWindow(MainRepository mainRepository, User user)
     {
         MainRepository = mainRepository;
-
+        User = user;
         Trips = MainRepository.TripRepository.GetTrips();
         Attractions = MainRepository.AttractionRepository.GetAttractions();
         Accomodations = MainRepository.AccomodationRepository.GetAccomodations();
@@ -48,14 +50,29 @@ public partial class UserMainWindow : Window
         AttractionsLocations = new List<Location>();
         GetAttractionsLocation();
         
-        
-        //TODO: popuniti listu rezervisanih i kupljenih putovanja
-        // GetBookedTrips();
-        // GetPurchasedTrips();
-        InitializeComponent();
+         GetBookedTrips();
+         InitializeComponent();
 
         DataContext = this; 
         
+    }
+
+    public void GetBookedTrips()
+    {
+        foreach (BookedTrip booked in MainRepository.BookedTripRepository.GetBookedTrips())
+        {
+            if (User.Email.Equals(booked.User.Email))
+            {
+                if (booked.Status.Equals(BookedTripStatus.Reserved))
+                {
+                    BookedTrips.Add(booked);
+                }
+                else
+                {
+                    PurchasedTrips.Add(booked);
+                }
+            }
+        }
     }
 
     public void GetAttractionsLocation()

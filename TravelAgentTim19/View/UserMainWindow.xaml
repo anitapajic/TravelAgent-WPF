@@ -300,7 +300,7 @@
                                                     </Border.Clip>
 
                                                     <Grid>
-                                                        <Button Style="{StaticResource MoreButton}" Width="230"
+                                                        <Button Style="{StaticResource MoreButton}" Width="230" Click="EditAccomodationBtn_Clicked"
                                                                 Height="230" HorizontalAlignment="Right">
                                                             <Button.Tag>
                                                                 <Binding Path="Id" />
