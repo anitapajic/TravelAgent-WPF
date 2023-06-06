@@ -306,6 +306,11 @@ public partial class UserMainWindow : Window
         EditBookedTripWindow editBookedTripWindow = new EditBookedTripWindow(bookedTrip, MainRepository);
         editBookedTripWindow.Show();
     }
+    
+    private void PurchaseTripBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show("Implementiraj kupovinu");
+    }
 
     private void EditPurchasedTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
