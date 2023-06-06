@@ -169,6 +169,7 @@ public partial class UserMainWindow
     
     private void AccomodationItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
@@ -184,6 +185,7 @@ public partial class UserMainWindow
     }
     private void RestaurantItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -199,6 +201,7 @@ public partial class UserMainWindow
     
     private void BookedTripItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -209,6 +212,7 @@ public partial class UserMainWindow
 
     private void PurchasedTripItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -313,10 +317,22 @@ public partial class UserMainWindow
         Close();
     }
     
+    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
+        {
+            WindowState = WindowState.Normal;
+        }
+    }
 
     private void Image_MouseUp(object sender, MouseButtonEventArgs e)
     {
         MainRepository.Save();
         Application.Current.Shutdown();
+    }
+    private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left)
+            this.DragMove();
     }
 }
