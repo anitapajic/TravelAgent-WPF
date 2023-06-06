@@ -200,4 +200,9 @@ public partial class EditAccomodationWindow : Window
             
         }
     }
+
+    private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+    {
+        Close();
+    }
 }

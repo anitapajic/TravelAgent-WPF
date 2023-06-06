@@ -76,10 +76,10 @@
                         </Viewbox>
                     </Button>
                     <StackPanel Margin="100 60 10 5" VerticalAlignment="Top">
-                        <TextBlock Text="{Binding Trip.Name}" Foreground="#FFFFFF"
+                        <TextBlock Name="TripNameTextBlock" Text="{Binding Trip.Name}" Foreground="#FFFFFF"
                                    FontSize="50" FontWeight="SemiBold">
                         </TextBlock>
-                        <TextBlock Text="{Binding  Trip.Price}" Foreground="#EBEAE5"
+                        <TextBlock Name="PriceTextBlock" Text="{Binding  Trip.Price}" Foreground="#EBEAE5"
                                    FontSize="33" Margin="0 5 0 0">
                         </TextBlock>
                     </StackPanel>
@@ -101,7 +101,7 @@
                 </Border.Background>
                 <Grid Margin="40 40 40 35">
                     <TextBlock Text="Opis grada" FontSize="25" FontWeight="SemiBold" Foreground="#11172F" ></TextBlock>
-                    <TextBlock Text="{Binding Trip.Description}" TextWrapping="Wrap" Foreground="Gray" FontSize="15" Margin="0 45 0 0" />
+                    <TextBlock Name="DescriptionTextBlock" Text="{Binding Trip.Description}" TextWrapping="Wrap" Foreground="Gray" FontSize="15" Margin="0 45 0 0" />
                 </Grid>
             </Border>
             
@@ -122,7 +122,7 @@
                 </Border.Background>
                 <Grid Margin="30">
                     <TextBlock  Text="Atrakcije"  FontSize="28" FontWeight="SemiBold" Foreground="#FFFFFF" />
-                    <ListBox ItemsSource="{Binding Trip.Attractions}" Background="Transparent" Margin="0 60 0 0 " BorderBrush="Transparent">
+                    <ListBox Name="tripAttractionItems" ItemsSource="{Binding Trip.Attractions}" Background="Transparent" Margin="0 60 0 0 " BorderBrush="Transparent">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -153,7 +153,7 @@
                     <!-- Accomodation Selection -->
                     <TextBlock Text="Smestaji"  FontSize="28" FontWeight="SemiBold" Foreground="#FFFFFF"/>
 
-                    <ListBox  ItemsSource="{Binding Trip.Accomodations}" Background="Transparent" Margin="0 60 0 0 " BorderBrush="Transparent">
+                    <ListBox Name="tripAccomodationsItems" ItemsSource="{Binding Trip.Accomodations}" Background="Transparent" Margin="0 60 0 0 " BorderBrush="Transparent">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -185,7 +185,7 @@
                     <!-- Restaurant Selection -->
                     <TextBlock Text="Restorani"  FontSize="28" FontWeight="SemiBold" Foreground="#FFFFFF"/>
 
-                    <ListBox ItemsSource="{Binding Trip.Restaurants}" Background="Transparent" Margin="0 60 0 0 " BorderBrush="Transparent">
+                    <ListBox Name="tripRestaurantsItems" ItemsSource="{Binding Trip.Restaurants}" Background="Transparent" Margin="0 60 0 0 " BorderBrush="Transparent">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -208,7 +208,7 @@
                     <TextBlock Text="Dostupni termini" Margin="20"  FontSize="28" FontWeight="SemiBold" Foreground="#3AA9AD"></TextBlock>
                     <Border CornerRadius="20" Margin="30 100 30 30" Background="White">
                         <ScrollViewer VerticalScrollBarVisibility="Hidden">
-                            <ListBox ItemsSource="{Binding Trip.DatePeriods}" Background="Transparent"  BorderBrush="Transparent" Margin="10">
+                            <ListBox Name="tripPeriodsItems" ItemsSource="{Binding Trip.DatePeriods}" Background="Transparent"  BorderBrush="Transparent" Margin="10">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock  Text="{Binding  }" Margin="20 20 20 0" FontSize="18" Foreground="Gray"/>
@@ -288,11 +288,11 @@
             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="IZMENA PUTOVANJA" FontSize="20" FontWeight="Bold" Margin="10"/>
 
             <!-- Travel Information -->
-            <TextBox x:Name="NameBox" Grid.Row="1" Grid.Column="0" Text="{Binding Trip.Name}" Margin="10"/>
-            <TextBox x:Name="PriceBox" Grid.Row="1" Grid.Column="1" Text="{Binding Trip.Price}" Margin="10"/>
+            <TextBox x:Name="NameBox" Grid.Row="1" Grid.Column="0" Text="{Binding Trip.Name, Mode=OneWay}" Margin="10"/>
+            <TextBox x:Name="PriceBox" Grid.Row="1" Grid.Column="1" Text="{Binding Trip.Price, Mode=OneWay}" Margin="10"/>
 
             <!-- Travel Description -->
-            <TextBox x:Name="DescriptionBox" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Trip.Description}" TextWrapping="Wrap" Margin="10"/>
+            <TextBox x:Name="DescriptionBox" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Trip.Description, Mode=OneWay}" TextWrapping="Wrap" Margin="10"/>
 
             <!-- Attraction Selection -->
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Sve atrakcije"  Margin="10"/>

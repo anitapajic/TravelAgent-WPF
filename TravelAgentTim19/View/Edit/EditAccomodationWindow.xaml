@@ -79,7 +79,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" 
+            <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                    Style="{StaticResource ImgClose}" />
             
             <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="550" Margin="0 0 0 -20" Panel.ZIndex="999" Background="White">
@@ -155,17 +155,17 @@
         
               <!-- Name -->
         <TextBlock Text="Naziv:" Grid.Row="1" Margin="10"/>
-        <TextBox x:Name="NameBox" Text="{Binding Accomodation.Name}" Grid.Row="1" Grid.Column="1" Margin="10" Width="200"/>
+        <TextBox x:Name="NameBox" Text="{Binding Accomodation.Name, Mode=OneWay}" Grid.Row="1" Grid.Column="1" Margin="10" Width="200"/>
         
         <!-- Price -->
         <TextBlock Text="Cena:" Grid.Row="2" Margin="10"/>
-        <TextBox x:Name="PriceBox" Text="{Binding Accomodation.Price}" Grid.Row="2" Grid.Column="1" Margin="10" Width="200"/>
+        <TextBox x:Name="PriceBox" Text="{Binding Accomodation.Price, Mode=OneWay}" Grid.Row="2" Grid.Column="1" Margin="10" Width="200"/>
 
         <!-- Type -->
         <TextBlock Text="Tip:" Grid.Row="3" Margin="10"/>
 
         <Grid Grid.Row="3">
-            <ComboBox x:Name="accomodationComboBox" Grid.Column="2" Margin="10" Width="200" SelectedItem="{Binding Accomodation.AccomodationType}">
+            <ComboBox x:Name="accomodationComboBox" Grid.Column="2" Margin="10" Width="200" SelectedItem="{Binding Accomodation.AccomodationType, Mode=OneWay}">
                 <ComboBox.ItemsSource>
                     <x:Array Type="{x:Type enum:AccomodationType}">
                         <enum:AccomodationType>Hotel</enum:AccomodationType>
@@ -186,13 +186,13 @@
                 <ColumnDefinition Width="160"/>
                 <ColumnDefinition Width="40"/>
             </Grid.ColumnDefinitions>
-            <Slider x:Name="slider" Minimum="0" Maximum="5" TickFrequency="0.5" Value="{Binding Accomodation.Rating}" Grid.Column="0"  Margin="-10,10,10,10" Width="150"/>
+            <Slider x:Name="slider" Minimum="0" Maximum="5" TickFrequency="0.5" Value="{Binding Accomodation.Rating, Mode=OneWay}" Grid.Column="0"  Margin="-10,10,10,10" Width="150"/>
             <TextBox Text="{Binding ElementName=slider, Path=Value, Mode=TwoWay}" Grid.Column="1" Margin="10" Width="20"/>
         </Grid>
         
         <!-- Location -->
         <TextBlock Text="Lokacija:" Grid.Row="5" Margin="10"/>
-        <TextBox x:Name="LocationBox" Text="{Binding Accomodation.Location.Address}" Grid.Row="5" Grid.Column="1" Margin="10" Width="200"/>
+        <TextBox x:Name="LocationBox" Text="{Binding Accomodation.Location.Address, Mode=OneWay}" Grid.Row="5" Grid.Column="1" Margin="10" Width="200"/>
         
         <!-- Image -->
         <TextBlock Grid.Row="6" Text="Drag and drop slike ovde:" Margin="10"/>
