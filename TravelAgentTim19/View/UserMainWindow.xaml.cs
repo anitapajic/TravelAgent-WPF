@@ -262,9 +262,11 @@ public partial class UserMainWindow : Window
     }
 
     
-    private void NewTripWindow_Closed(object sender, EventArgs e)
+    private void BookTripWindow_Closed(object sender, EventArgs e)
     {
-        tripItemsControl.Items.Refresh();
+        BookedTrips.Clear();
+        GetBookedTrips();
+        bookedTripItemsControl.Items.Refresh();
     }
 
     private void EditRestaurantBtn_Clicked(object sender, RoutedEventArgs e)
@@ -320,8 +322,12 @@ public partial class UserMainWindow : Window
         int tripId = (int)editButton.Tag;
         Trip trip = MainRepository.TripRepository.GetTripById(tripId);
 
-        EditTripWindow editTripWindow = new EditTripWindow(trip, MainRepository);
-        editTripWindow.Show();
+        BookTripWindow bookTripWindow = new BookTripWindow(User, trip, MainRepository);
+        bookTripWindow.Show();
+        bookTripWindow.Closed += BookTripWindow_Closed;
+
+        
+        
     }
 
     private void Logout_Click(object sender, RoutedEventArgs e)

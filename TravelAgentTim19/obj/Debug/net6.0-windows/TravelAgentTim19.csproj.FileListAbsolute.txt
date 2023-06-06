@@ -217,3 +217,5 @@ C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-window
 C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\FontAwesome.WPF.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\BookTripWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\BookTripWindow.g.cs
