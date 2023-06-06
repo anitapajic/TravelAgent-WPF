@@ -7,18 +7,23 @@
         xmlns:service="clr-namespace:TravelAgentTim19.Service"
         xmlns:fa="http://schemas.fontawesome.com/wpf"
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
+        xmlns:l="clr-namespace:HelpSistem"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip"
+        l:HelpProvider.HelpKey="Forma"
         AllowsTransparency="True"
         Background="Transparent"
-        Title="Glavni prozor" Height="600" Width="1100"
+        Title="Glavni prozor" Height="600" Width="1100" 
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
 
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+
         <!-- <CommandBinding Command="cmd:RoutedCommands.Enable" CanExecute="Enable_CanExecute" Executed="Enable_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Komanda" CanExecute="Komanda_CanExecute" Executed="Komanda_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Ugradjene" CanExecute="Ugradjene_CanExecute" Executed="Ugradjene_Executed"></CommandBinding> -->
     </Window.CommandBindings>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="270" />
@@ -147,25 +152,6 @@
                 </TextBlock>
                 
                 <Grid Grid.Row="1">
-                    <ToggleButton x:Name="ToggleButtonTrip" Click="ToggleButtonTrip_Click"
-                                  Width="40"
-                                  Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
-                                  Margin="0 10 60 0">
-                        <ToggleButton.Template>
-                            <ControlTemplate TargetType="ToggleButton">
-                                <Grid x:Name="ButtonGrid">
-                                    <Ellipse x:Name="Circle" Fill="#3AA9AD" />
-                                    <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                               FontSize="24" FontWeight="Bold" Foreground="White" />
-                                </Grid>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="Circle" Property="Fill" Value="#2D8487" />
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </ToggleButton.Template>
-                    </ToggleButton>
                     <ToggleButton x:Name="ToggleButtonAttraction" Click="ToggleButtonAttraction_Click"
                                   Width="40"
                                   Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
@@ -205,6 +191,25 @@
                         </ToggleButton.Template>
                     </ToggleButton>
                     <ToggleButton x:Name="ToggleButtonRestourant" Click="ToggleButtonRestaurant_Click"
+                                  Width="40"
+                                  Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                  Margin="0 10 60 0">
+                        <ToggleButton.Template>
+                            <ControlTemplate TargetType="ToggleButton">
+                                <Grid x:Name="ButtonGrid">
+                                    <Ellipse x:Name="Circle" Fill="#3AA9AD" />
+                                    <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                               FontSize="24" FontWeight="Bold" Foreground="White" />
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter TargetName="Circle" Property="Fill" Value="#2D8487" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </ToggleButton.Template>
+                    </ToggleButton>
+                    <ToggleButton x:Name="ToggleButtonTrip" Click="ToggleButtonTrip_Click"
                                   Width="40"
                                   Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
                                   Margin="0 10 60 0">

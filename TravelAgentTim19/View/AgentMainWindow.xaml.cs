@@ -5,11 +5,13 @@ using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using HelpSistem;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
@@ -555,4 +557,18 @@ public partial class AgentMainWindow : Window
             AttractionsLocations.Add(att.Location);
         }
     }
+    
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
+      
+        if (focusedControl is DependencyObject)
+        {
+           
+            string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
+            HelpProvider.ShowHelp(str, this);
+        }
+    }
+    
+    
 }

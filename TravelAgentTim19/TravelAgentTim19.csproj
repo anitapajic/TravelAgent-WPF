@@ -59,4 +59,8 @@
       <None Remove="Images\beo.jfif" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Helper" />
+    </ItemGroup>
+
 </Project>
