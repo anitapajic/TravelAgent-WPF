@@ -674,6 +674,84 @@
                              </ScrollViewer>
                          </Grid>
             </Grid>
+                    <!-- Report 1 -->
+                    <Grid  Name="Report1Grid" Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Izaberite mesec:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center"/>
+
+                <ComboBox x:Name="monthComboBox" Grid.Row="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center">
+                    <ComboBoxItem Content="Januar"/>
+                    <ComboBoxItem Content="Februar"/>
+                    <ComboBoxItem Content="Mart"/>
+                    <ComboBoxItem Content="April"/>
+                    <ComboBoxItem Content="Maj"/>
+                    <ComboBoxItem Content="Jun"/>
+                    <ComboBoxItem Content="Jul"/>
+                    <ComboBoxItem Content="Avgust"/>
+                    <ComboBoxItem Content="Septembar"/>
+                    <ComboBoxItem Content="Octobar"/>
+                    <ComboBoxItem Content="Novembar"/>
+                    <ComboBoxItem Content="Decembar"/>
+                </ComboBox>
+                <Button x:Name="FindByMonthBtn" Click="FindTripsReport1_Clicked" Grid.Row="2" Content="Find trips" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" ></Button>
+            </Grid>
+                    <!-- Report 2-->
+                    <Grid  Name="Report2Grid" Visibility="Hidden">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Content="Izaberite putovanje:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center"/>
+
+                <ComboBox x:Name="tripComboBox" Grid.Row="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center">
+                </ComboBox>
+                <Button x:Name="FindByTripBtn" Click="FindBookedTripsReport1_Clicked" Grid.Row="2" Content="Find trips" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" ></Button>
+            </Grid>
+                    <!-- Report 2 Trips -->
+                    <Grid   Name="SoldBookedTripGrid" Visibility="Hidden">
+                     <Grid>
+                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <ItemsControl x:Name="soldBookedTripItemsControl" ItemsSource="{Binding SoldBookedTrips}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
+                                        Width="200" Height="200" VerticalAlignment="Top">
+                                    <StackPanel>
+                                        <!--<Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> @-->
+                                        <TextBlock Text="{Binding TripName}" Margin="5,10,5,5" FontWeight="Bold"/>
+                                        <TextBlock Text="{Binding DatePeriod.StartDate}" Margin="5"/>
+                                        <TextBlock Text="{Binding DatePeriod.EndDate}" Margin="5"/>
+                                        <TextBlock Text="{Binding Price}" Margin="5"/>
+                                        <TextBlock Text="{Binding Accomodation.Name}" Margin="5"/>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                                            <Button Content="Detaljnije" Margin="5">
+                                                <Button.Tag>
+                                                    <Binding Path="Id"/>
+                                                </Button.Tag>
+                                            </Button>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+                             </ScrollViewer>
+                         </Grid>
+            </Grid>
 
                 </Grid>
             </Grid>

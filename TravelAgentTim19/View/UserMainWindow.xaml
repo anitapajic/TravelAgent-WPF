@@ -110,7 +110,6 @@
                     <Button Content="Sva putovanja" Style="{StaticResource TopManuButton}" FontWeight="Medium"
                             Click="TripItem_Click">
                     </Button>
-                    <Button Content="Mapa" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
                     <Button Content="Moje rezervacije" Style="{StaticResource TopManuButton}" FontWeight="Medium"
                             Click="BookedTripItem_Click">
                     </Button>
