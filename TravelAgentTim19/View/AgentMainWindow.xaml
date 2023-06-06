@@ -13,7 +13,6 @@
         Background="Transparent"
         Title="Glavni prozor" Height="600" Width="1100" MinWidth="600" MinHeight="500" 
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}" 
-
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
 
@@ -130,7 +129,6 @@
                     <TextBlock Visibility="Hidden" Text="aaaaaaaaaaaaaaaaaaaaaaaaa"/>
                     <Button Content="Sva putovanja" Style="{StaticResource TopManuButton}" FontWeight="Medium"
                             Click="TripItem_Click" />
-                    <Button Content="Mapa" Style="{StaticResource TopManuButton}" FontWeight="Medium" />
                     <Button Content="Rezervacije" Style="{StaticResource TopManuButton}" FontWeight="Medium"
                             Click="BookedTripItem_Click" />
                     <Button Content="Kupljeni aranzmani" Style="{StaticResource TopManuButton}" FontWeight="Medium"

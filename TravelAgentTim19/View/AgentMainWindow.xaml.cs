@@ -36,6 +36,7 @@ public partial class AgentMainWindow : Window
 
     public AgentMainWindow(MainRepository mainRepository)
     {
+     
         MainRepository = mainRepository;
         Trips = MainRepository.TripRepository.GetTrips();
         Attractions = MainRepository.AttractionRepository.GetAttractions();
@@ -51,6 +52,10 @@ public partial class AgentMainWindow : Window
         GetBookedTrips();
         GetTripNameList();
         InitializeComponent();
+        ToggleButtonAttraction.Visibility = Visibility.Hidden;
+        ToggleButtonTrip.Visibility = Visibility.Visible;
+        ToggleButtonAccomodation.Visibility = Visibility.Hidden;
+        ToggleButtonRestourant.Visibility = Visibility.Hidden;
         tripComboBox.ItemsSource = TripsNameList;
         DataContext = this; 
     }
@@ -372,6 +377,7 @@ public partial class AgentMainWindow : Window
 
     private void BookedTripItem_Click(object sender, RoutedEventArgs e)
     {
+        ToggleButtonTrip.Visibility = Visibility.Hidden;
         MapGrid.Visibility = Visibility.Hidden;
         BookedTripGridForm.Visibility = Visibility.Hidden;
         SoldTripGridForm.Visibility = Visibility.Hidden;
@@ -384,7 +390,8 @@ public partial class AgentMainWindow : Window
     }
 
     private void PurchasedTripItem_Click(object sender, RoutedEventArgs e)
-    {
+    {        
+        ToggleButtonTrip.Visibility = Visibility.Hidden;
         MapGrid.Visibility = Visibility.Hidden; 
         BookedTripGridForm.Visibility = Visibility.Hidden;
         SoldTripGridForm.Visibility = Visibility.Hidden;
@@ -427,7 +434,8 @@ public partial class AgentMainWindow : Window
     // }
 
     private void SoldTrips_Click(object sender, RoutedEventArgs e)
-    {
+    {        
+        ToggleButtonTrip.Visibility = Visibility.Hidden;
         MapGrid.Visibility = Visibility.Hidden;
         BookedTripGridForm.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
@@ -488,7 +496,8 @@ public partial class AgentMainWindow : Window
     }
 
     private void SoldBookedTrips_Click(object sender, RoutedEventArgs e)
-    {
+    {        
+        ToggleButtonTrip.Visibility = Visibility.Hidden;
         MapGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
