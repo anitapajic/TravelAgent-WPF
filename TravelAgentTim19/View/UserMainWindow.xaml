@@ -414,7 +414,7 @@
                                                                 <TextBlock Text="{Binding DatePeriod.StartDate}" Foreground="#EBEAE5" FontSize="14" />
                                                             </StackPanel>
                                                             <StackPanel Orientation="Horizontal">
-                                                                <TextBlock Text=" Do: " Foreground="#EBEAE5" FontSize="14" />
+                                                                <TextBlock Text="Do: " Foreground="#EBEAE5" FontSize="14" />
                                                                 <TextBlock Text="{Binding DatePeriod.EndDate}" Foreground="#EBEAE5" FontSize="14" />
                                                             </StackPanel>
                                                         </StackPanel>
@@ -484,7 +484,7 @@
                                                                 <TextBlock Text="{Binding DatePeriod.StartDate}" Foreground="#EBEAE5" FontSize="14" />
                                                             </StackPanel>
                                                             <StackPanel Orientation="Horizontal">
-                                                                <TextBlock Text=" Do: " Foreground="#EBEAE5" FontSize="14" />
+                                                                <TextBlock Text="Do: " Foreground="#EBEAE5" FontSize="14" />
                                                                 <TextBlock Text="{Binding DatePeriod.EndDate}" Foreground="#EBEAE5" FontSize="14" />
                                                             </StackPanel>
                                                         </StackPanel>
