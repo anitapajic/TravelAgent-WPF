@@ -6,11 +6,14 @@
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:l="clr-namespace:HelpSistem"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
         l:HelpProvider.HelpKey="Forma"
         Background="Transparent"
-        Title="Glavni prozor" Height="600" Width="1100" MinWidth="600" MinHeight="500"
+        Title="Glavni prozor" Height="600" Width="1100" MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}" 
+
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
 
@@ -22,7 +25,7 @@
         <!-- <CommandBinding Command="cmd:RoutedCommands.Ugradjene" CanExecute="Ugradjene_CanExecute" Executed="Ugradjene_Executed"></CommandBinding> -->
     </Window.CommandBindings>
 
-    <Grid>
+    <Grid MouseDown="Grid_MouseDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="270" />
             <ColumnDefinition Width="*" />

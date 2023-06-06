@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" 
         Background="Transparent" Title="Turisticka agencija Tim19" MinHeight="500" MinWidth="800" 
-        MaxHeight="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Mode=OneWay}" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}" 
         ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown">
         <Window.InputBindings>
             <KeyBinding Key="Escape" Command="Close" />

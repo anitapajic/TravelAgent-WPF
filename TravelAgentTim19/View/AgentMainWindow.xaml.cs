@@ -566,6 +566,16 @@ public partial class AgentMainWindow : Window
             HelpProvider.ShowHelp(str, this);
         }
     }
-    
-    
+    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
+        {
+            WindowState = WindowState.Normal;
+        }
+    }
+    private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left)
+            this.DragMove();
+    }
 }
