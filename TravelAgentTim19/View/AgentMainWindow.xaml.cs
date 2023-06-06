@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using GMap.NET;
 using GMap.NET.MapProviders;
@@ -20,7 +17,7 @@ using Location = TravelAgentTim19.Model.Location;
 
 namespace TravelAgentTim19.View;
 
-public partial class AgentMainWindow : Window
+public partial class AgentMainWindow 
 {
     private MainRepository MainRepository;
     public List<Trip> Trips { get; set; }
@@ -31,8 +28,8 @@ public partial class AgentMainWindow : Window
     public List<BookedTrip> PurchasedTrips { get; set; }
     public List<Trip> SoldTrips { get; set; }
     public List<BookedTrip> SoldBookedTrips { get; set; }
-    public List<string> TripsNameList { get; set; }
-    public List<Location> AttractionsLocations { get; set; }
+    private List<string> TripsNameList { get; set; }
+    private List<Location> AttractionsLocations { get; set; }
 
     public AgentMainWindow(MainRepository mainRepository)
     {
@@ -60,7 +57,7 @@ public partial class AgentMainWindow : Window
         DataContext = this; 
     }
 
-    public void GetBookedTrips()
+    private void GetBookedTrips()
     {
         foreach (BookedTrip booked in MainRepository.BookedTripRepository.GetBookedTrips())
         {
@@ -80,7 +77,7 @@ public partial class AgentMainWindow : Window
         Application.Current.Shutdown();
     }
     
-    public List<Trip> GetNumOfMonthlySoldTrips(int month)
+    private List<Trip> GetNumOfMonthlySoldTrips(int month)
     {
         List<BookedTrip> bookedTripsDate = new List<BookedTrip>();
         HashSet<int> uniqueTripIds = new HashSet<int>();
@@ -107,7 +104,7 @@ public partial class AgentMainWindow : Window
         return SoldTrips;
     }
 
-    public void GetTripNameList()
+    private void GetTripNameList()
     {
         foreach (Trip trip in MainRepository.TripRepository.GetTrips())
         {
@@ -117,14 +114,7 @@ public partial class AgentMainWindow : Window
         
     }
 
-    public void RefreshTripList()
-    {
-        Trips.Clear();
-        Trips = MainRepository.TripRepository.GetTrips();
-        tripItemsControl.Items.Refresh();
-    }
-
-    public List<BookedTrip> GetSoldBookedTrips(string tripName)
+    private List<BookedTrip> GetSoldBookedTrips(string tripName)
     {
         foreach (BookedTrip bookedTrip in PurchasedTrips)
         {
@@ -298,6 +288,18 @@ public partial class AgentMainWindow : Window
     {
         tripItemsControl.Items.Refresh();
     }
+    private void EditAccommodationpWindow_Closed(object sender, EventArgs e)
+    {
+        AccomodationItemsControl.Items.Refresh();
+    }
+    private void EditAttractionWindow_Closed(object sender, EventArgs e)
+    {
+        attractionItemsControl.Items.Refresh();
+    }
+    private void EditRestaurantWindow_Closed(object sender, EventArgs e)
+    {
+        restaurantItemsControl.Items.Refresh();
+    }
     
     private void DeleteTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
@@ -320,6 +322,7 @@ public partial class AgentMainWindow : Window
 
         EditRestaurantWindow editRestaurantWindow = new EditRestaurantWindow(restaurant, MainRepository);
         editRestaurantWindow.Show();
+        editRestaurantWindow.Closed += EditRestaurantWindow_Closed;
     }
     
     private void DeleteRestaurantBtn_Clicked(object sender, RoutedEventArgs e)
@@ -344,6 +347,7 @@ public partial class AgentMainWindow : Window
 
         EditAccomodationWindow editAccomodationWindow= new EditAccomodationWindow(accomodation, MainRepository);
         editAccomodationWindow.Show();
+        editAccomodationWindow.Closed += EditAccommodationpWindow_Closed;
     }
     
     private void DeleteAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
@@ -411,6 +415,7 @@ public partial class AgentMainWindow : Window
 
         EditAttractionWindow editAttractionWindow = new EditAttractionWindow(attraction, MainRepository);
         editAttractionWindow.Show();
+        editAttractionWindow.Closed += EditAttractionWindow_Closed;
     }
     
     private void EditBookedTripBtn_Clicked(object sender, RoutedEventArgs e)
@@ -556,7 +561,7 @@ public partial class AgentMainWindow : Window
             gmap.Zoom = (gmap.Zoom < gmap.MaxZoom) ? gmap.Zoom + 1 : gmap.MaxZoom;
         }
     }
-    public void GetAttractionsLocation()
+    private void GetAttractionsLocation()
     {
         foreach (Attraction att in MainRepository.AttractionRepository.GetAttractions())
         {

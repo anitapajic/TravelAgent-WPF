@@ -119,7 +119,7 @@
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Name}" Margin="0,0,10,0" Foreground="#FFFFFF" FontSize="15"/>
+                                        <TextBlock  Text="{Binding Name}" Margin="0,0,10,0" Foreground="#FFFFFF" FontSize="15"/>
                                         <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> 
                                     </StackPanel>
                                 </DataTemplate>
@@ -150,21 +150,21 @@
                     <Grid>
                         <Grid Margin="40 40 40 35">
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding Attraction.Name}" FontWeight="SemiBold" Foreground="#11172F"
+                                <TextBlock Name="nameTextBlock" Text="{Binding Attraction.Name}" FontWeight="SemiBold" Foreground="#11172F"
                                            FontSize="35">
                                 </TextBlock>
                                 <StackPanel Orientation="Horizontal" Margin="3,15,0,0">
                                     <wpf:FontAwesome Icon="MapPin" Margin="0,0,8,0" Foreground="#11172F" FontSize="18" />
-                                    <TextBlock Text="{Binding Attraction.Location}" Foreground="Gray" FontSize="18" />
+                                    <TextBlock Name="addressTextBlock" Text="{Binding Attraction.Location.Address}" Foreground="Gray" FontSize="18" />
                                     <wpf:FontAwesome Icon="Star" Margin="80,0,10,0" Foreground="#F2B312" FontSize="25" />
-                                    <TextBlock Margin="0 0 0 0" Text="{Binding Attraction.Id}" Foreground="Gray"
+                                    <TextBlock Name="priceTextBlock" Margin="0 0 0 0" Text="{Binding Attraction.Price}" Foreground="Gray"
                                                FontSize="20" FontWeight="DemiBold" />
                                 </StackPanel>
                                 <StackPanel Margin="0 20 0 0">
                                     <TextBlock Text="Opis atrakcije" FontSize="25" FontWeight="SemiBold"
                                                Foreground="#11172F">
                                     </TextBlock>
-                                    <TextBlock MaxHeight="100" Text="{Binding Attraction.Description}" TextWrapping="Wrap"
+                                    <TextBlock Name="descTextBlock" MaxHeight="100" Text="{Binding Attraction.Description}" TextWrapping="Wrap"
                                                Foreground="Gray" FontSize="15" Margin="0 15 0 0" />
                                 </StackPanel>
                                 

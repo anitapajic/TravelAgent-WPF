@@ -16,7 +16,7 @@ using Location = TravelAgentTim19.Model.Location;
 
 namespace TravelAgentTim19.View;
 
-public partial class UserMainWindow : Window
+public partial class UserMainWindow
 {
     private MainRepository MainRepository;
     public List<Trip> Trips { get; set; }
@@ -25,11 +25,11 @@ public partial class UserMainWindow : Window
     public List<Restaurant> Restaurants { get; set; }
     public List<BookedTrip> BookedTrips { get; set; }
     public List<BookedTrip> PurchasedTrips { get; set; }
-    public List<Trip> SoldTrips { get; set; }
-    public List<BookedTrip> SoldBookedTrips { get; set; }
-    public List<string> TripsNameList { get; set; }
-    public List<Location> AttractionsLocations { get; set; }
-    public User User { get; set; }
+    private List<Trip> SoldTrips { get; set; }
+    private List<BookedTrip> SoldBookedTrips { get; set; }
+    private List<string> TripsNameList { get; set; }
+    private List<Location> AttractionsLocations { get; set; }
+    private User User { get; set; }
     
     public UserMainWindow(MainRepository mainRepository, User user)
     {
@@ -287,15 +287,15 @@ public partial class UserMainWindow : Window
         }
     }
 
-    private void EditPurchasedTripBtn_Clicked(object sender, RoutedEventArgs e)
-    {
-        Button editButton = (Button)sender;
-        int attId = (int)editButton.Tag;
-        BookedTrip bookedTrip = MainRepository.BookedTripRepository.GetBookedTripById(attId);
-
-        EditPurchasedTripWindow editPurchasedTripWindow = new EditPurchasedTripWindow(bookedTrip, MainRepository);
-        editPurchasedTripWindow.Show();
-    }
+    // private void EditPurchasedTripBtn_Clicked(object sender, RoutedEventArgs e)
+    // {
+    //     Button editButton = (Button)sender;
+    //     int attId = (int)editButton.Tag;
+    //     BookedTrip bookedTrip = MainRepository.BookedTripRepository.GetBookedTripById(attId);
+    //
+    //     EditPurchasedTripWindow editPurchasedTripWindow = new EditPurchasedTripWindow(bookedTrip, MainRepository);
+    //     editPurchasedTripWindow.Show();
+    // }
     
     private void EditTripBtn_Clicked(object sender, RoutedEventArgs e)
     {

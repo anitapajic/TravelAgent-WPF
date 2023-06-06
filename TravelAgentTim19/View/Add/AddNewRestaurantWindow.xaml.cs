@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows;
@@ -14,7 +13,7 @@ using TravelAgentTim19.Repository;
 
 namespace TravelAgentTim19.View;
 
-public partial class AddNewRestaurantWindow : Window
+public partial class AddNewRestaurantWindow
 {
     private MainRepository MainRepository;
 
@@ -27,14 +26,7 @@ public partial class AddNewRestaurantWindow : Window
 
     private void Border_DragEnter(object sender, DragEventArgs e)
     {
-        if (e.Data.GetDataPresent(DataFormats.FileDrop))
-        {
-            e.Effects = DragDropEffects.Copy;
-        }
-        else
-        {
-            e.Effects = DragDropEffects.None;
-        }
+        e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
         e.Handled = true;
     }
 

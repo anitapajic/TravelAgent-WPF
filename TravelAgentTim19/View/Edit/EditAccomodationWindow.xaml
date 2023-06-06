@@ -99,10 +99,10 @@
                                     </Viewbox>
                                 </Button>
                                 <StackPanel Margin="100 60 10 5" VerticalAlignment="Top">
-                                    <TextBlock Text="{Binding Accomodation.Name}" Foreground="#FFFFFF"
+                                    <TextBlock Name="nameTextBlock" Text="{Binding Accomodation.Name}" Foreground="#FFFFFF"
                                                FontSize="50" FontWeight="SemiBold">
                                     </TextBlock>
-                                    <TextBlock Text="{Binding  Accomodation.Price}" Foreground="#EBEAE5"
+                                    <TextBlock Name="priceTextBlock" Text="{Binding  Accomodation.Price}" Foreground="#EBEAE5"
                                                FontSize="33" Margin="0 5 0 0">
                                     </TextBlock>
                                 </StackPanel>
@@ -113,13 +113,13 @@
                     <Grid Margin="60 450 50 10">
                         <StackPanel Orientation="Vertical">
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Accomodation.AccomodationType}" Foreground="#11172F" FontSize="30" FontWeight="SemiBold"/>
+                                <TextBlock Name="typeTextBlock" Text="{Binding Accomodation.AccomodationType}" Foreground="#11172F" FontSize="30" FontWeight="SemiBold"/>
                                 <wpf:FontAwesome Icon="Star" Margin="80,9,10,0" Foreground="#F2B312" FontSize="25"/>
                                 <TextBlock Margin="0 5 0 0" Text="{Binding Accomodation.Rating}" Foreground="#11172F" FontSize="23" FontWeight="DemiBold"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="3,10,0,0">
                                 <wpf:FontAwesome Icon="MapPin" Margin="0,0,8,0" Foreground="#11172F" FontSize="18" />
-                                <TextBlock Text="{Binding Accomodation.Location}" Foreground="Gray" FontSize="18"/>
+                                <TextBlock Name="addressTextBlock" Text="{Binding Accomodation.Location.Address}" Foreground="Gray" FontSize="18"/>
                             </StackPanel>
                             
                         </StackPanel>
