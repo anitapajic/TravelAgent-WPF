@@ -527,27 +527,38 @@
                                         </ItemsControl.ItemsPanel>
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
-                                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                                        Width="200" Height="200" VerticalAlignment="Top">
-                                                    <StackPanel>
-                                                        <!-- <Image Source="{Binding ImagePath}" Width="150" Height="100" -->
-                                                        <!--        Stretch="UniformToFill" /> -->
-                                                        <TextBlock Text="{Binding TripName}" Margin="5,10,5,5"
-                                                                   FontWeight="Bold" />
-                                                        <TextBlock Text="{Binding DatePeriod.StartDate}" Margin="5" />
-                                                        <TextBlock Text="{Binding DatePeriod.EndDate}" Margin="5" />
-                                                        <TextBlock Text="{Binding Price}" Margin="5" />
-                                                        <TextBlock Text="{Binding Accomodation.Name}" Margin="5" />
-                                                        <StackPanel Orientation="Horizontal"
-                                                                    HorizontalAlignment="Center" Margin="5">
-                                                            <Button Content="Detaljnije"
-                                                                    Click="EditBookedTripBtn_Clicked" Margin="5">
-                                                                <Button.Tag>
-                                                                    <Binding Path="Id" />
-                                                                </Button.Tag>
-                                                            </Button>
+                                                <Border Margin="0 0 17 12" Height="150" Width="230">
+                                                    <Border.Background>
+                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                            <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
+                                                            <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
+                                                    <Border.Clip>
+                                                        <RectangleGeometry RadiusX="15" RadiusY="15"
+                                                                           Rect="0 0 230 150">
+                                                        </RectangleGeometry>
+                                                    </Border.Clip>
+
+                                                    <Grid>
+                                                        <Button Style="{StaticResource MoreButton}" Width="230"
+                                                                Height="230" HorizontalAlignment="Right" Click="EditBookedTripBtn_Clicked" >
+                                                            <Button.Tag>
+                                                                <Binding Path="Id" />
+                                                            </Button.Tag>
+                                                        </Button>
+
+
+                                                        <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                            <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
+                                                                       FontSize="18" FontWeight="SemiBold">
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
+                                                                       FontSize="14">
+                                                            </TextBlock>
                                                         </StackPanel>
-                                                    </StackPanel>
+                                                        
+                                                    </Grid>
                                                 </Border>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
@@ -570,24 +581,38 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                        Width="200" Height="200" VerticalAlignment="Top">
-                                    
-                                    <StackPanel>
-                                        <TextBlock Text="{Binding TripName}" Margin="5,10,5,5" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding DatePeriod.StartDate}" Margin="5"/>
-                                        <TextBlock Text="{Binding DatePeriod.EndDate}" Margin="5"/>
-                                        <TextBlock Text="{Binding Price}" Margin="5"/>
-                                        <TextBlock Text="{Binding Accomodation.Name}" Margin="5"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Detaljnije" Click="EditPurchasedTripBtn_Clicked" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
+                                <Border Margin="0 0 17 12" Height="150" Width="230">
+                                                    <Border.Background>
+                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                            <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
+                                                            <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                                                        </LinearGradientBrush>
+                                                    </Border.Background>
+                                                    <Border.Clip>
+                                                        <RectangleGeometry RadiusX="15" RadiusY="15"
+                                                                           Rect="0 0 230 150">
+                                                        </RectangleGeometry>
+                                                    </Border.Clip>
+
+                                                    <Grid>
+                                                        <Button Style="{StaticResource MoreButton}" Width="230"
+                                                                Height="230" HorizontalAlignment="Right" Click="EditBookedTripBtn_Clicked" >
+                                                            <Button.Tag>
+                                                                <Binding Path="Id" />
+                                                            </Button.Tag>
+                                                        </Button>
+
+
+                                                        <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                            <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
+                                                                       FontSize="18" FontWeight="SemiBold">
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
+                                                                       FontSize="14">
+                                                            </TextBlock>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </Border>
                             </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
