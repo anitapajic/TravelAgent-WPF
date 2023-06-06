@@ -4,26 +4,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
-        xmlns:service="clr-namespace:TravelAgentTim19.Service"
-        xmlns:fa="http://schemas.fontawesome.com/wpf"
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:l="clr-namespace:HelpSistem"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip"
         l:HelpProvider.HelpKey="Forma"
         AllowsTransparency="True"
         Background="Transparent"
-        Title="Glavni prozor" Height="600" Width="1100" 
+        Title="Glavni prozor" Height="600" Width="1100"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
 
     <Window.CommandBindings>
-        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed"/>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
 
         <!-- <CommandBinding Command="cmd:RoutedCommands.Enable" CanExecute="Enable_CanExecute" Executed="Enable_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Komanda" CanExecute="Komanda_CanExecute" Executed="Komanda_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Ugradjene" CanExecute="Ugradjene_CanExecute" Executed="Ugradjene_Executed"></CommandBinding> -->
     </Window.CommandBindings>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="270" />
@@ -36,8 +34,8 @@
         <Border CornerRadius="10 0 0 10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
-                    <GradientStop Color="#3AADA1" Offset="1"></GradientStop>
+                    <GradientStop Color="#3AA9AD" Offset="0" />
+                    <GradientStop Color="#3AADA1" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
 
@@ -47,54 +45,53 @@
                     <Border CornerRadius="250" Width="45" Height="45">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                <GradientStop Color="#11172F" Offset="0"></GradientStop>
-                                <GradientStop Color="#515F98" Offset="1"></GradientStop>
+                                <GradientStop Color="#11172F" Offset="0" />
+                                <GradientStop Color="#515F98" Offset="1" />
                             </LinearGradientBrush>
                         </Border.Background>
                         <TextBlock Text="A" Foreground="#FFFFFF" FontSize="22" FontWeight="SemiBold"
-                                   TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2">
-                        </TextBlock>
+                                   TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2" />
                     </Border>
 
                     <StackPanel Margin="10 0 0 0" VerticalAlignment="Center">
-                        <TextBlock Text="Administrator" FontSize="15" Margin="0 0 0 5" Foreground="#FFFFFF"></TextBlock>
+                        <TextBlock Text="Administrator" FontSize="15" Margin="0 0 0 5" Foreground="#FFFFFF" />
                     </StackPanel>
                 </StackPanel>
-                <Separator Height="0.8" Margin="20 30" Background="#FFFFFF"></Separator>
+                <Separator Height="0.8" Margin="20 30" Background="#FFFFFF" />
 
                 <!-- Manu Buttons-->
                 <Button Style="{StaticResource ManuButton}" Click="TripItem_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="Car" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Putovanja" Style="{StaticResource ManuButtonText}"></TextBlock>
+                        <TextBlock Text="Putovanja" Style="{StaticResource ManuButtonText}" />
                     </StackPanel>
                 </Button>
 
                 <Button Style="{StaticResource ManuButton}" Click="AttractionItem_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="Map" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Turisticke atrakcije" Style="{StaticResource ManuButtonText}"></TextBlock>
+                        <TextBlock Text="Turisticke atrakcije" Style="{StaticResource ManuButtonText}" />
                     </StackPanel>
                 </Button>
 
                 <Button Style="{StaticResource ManuButton}" Click="AccomodationItem_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="Hotel" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Smestaj" Style="{StaticResource ManuButtonText}"></TextBlock>
+                        <TextBlock Text="Smestaj" Style="{StaticResource ManuButtonText}" />
                     </StackPanel>
                 </Button>
 
                 <Button Style="{StaticResource ManuButton}" Click="RestaurantItem_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="Cutlery" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Restorani" Style="{StaticResource ManuButtonText}"></TextBlock>
+                        <TextBlock Text="Restorani" Style="{StaticResource ManuButtonText}" />
                     </StackPanel>
                 </Button>
 
                 <Button Style="{StaticResource ManuButton}" Margin="0 170 0 20" Click="Logout_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="PowerOff" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Izloguj se" Style="{StaticResource ManuButtonText}"></TextBlock>
+                        <TextBlock Text="Izloguj se" Style="{StaticResource ManuButtonText}" />
                     </StackPanel>
                 </Button>
             </StackPanel>
@@ -104,16 +101,16 @@
         <Border Grid.Column="1" CornerRadius="0 10 10 0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                    <GradientStop Color="#EBEAE5" Offset="0"></GradientStop>
-                    <GradientStop Color="#FFFFFF" Offset="1"></GradientStop>
+                    <GradientStop Color="#EBEAE5" Offset="0" />
+                    <GradientStop Color="#FFFFFF" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
 
             <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <!-- Top manu trips grid section-->
@@ -121,36 +118,27 @@
                             VerticalAlignment="Bottom"
                             HorizontalAlignment="Right" Margin="0 10 30 0">
                     <Button Content="Sva putovanja" Style="{StaticResource TopManuButton}" FontWeight="Medium"
-                            Click="TripItem_Click">
-                    </Button>
-                    <Button Content="Mapa" Style="{StaticResource TopManuButton}" FontWeight="Medium"></Button>
+                            Click="TripItem_Click" />
+                    <Button Content="Mapa" Style="{StaticResource TopManuButton}" FontWeight="Medium" />
                     <Button Content="Rezervacije" Style="{StaticResource TopManuButton}" FontWeight="Medium"
-                            Click="BookedTripItem_Click">
-                    </Button>
+                            Click="BookedTripItem_Click" />
                     <Button Content="Kupljeni aranzmani" Style="{StaticResource TopManuButton}" FontWeight="Medium"
-                            Click="PurchasedTripItem_Click">
-                    </Button>
+                            Click="PurchasedTripItem_Click" />
                     <Button Content="Prodata putovanja" Style="{StaticResource TopManuButton}" FontWeight="Medium"
-                            Click="SoldTrips_Click">
-                    </Button>
+                            Click="SoldTrips_Click" />
                     <Button Content="Prodati aranzmani" Style="{StaticResource TopManuButton}" FontWeight="Medium"
-                            Click="SoldBookedTrips_Click">
-                    </Button>
+                            Click="SoldBookedTrips_Click" />
                 </StackPanel>
                 <!-- Top manu titles-->
                 <TextBlock Name="TripsGridTitle" Visibility="Visible" Text="Putovanja" FontSize="23"
-                           HorizontalAlignment="Left" Margin="50 35 0 5">
-                </TextBlock>
+                           HorizontalAlignment="Left" Margin="50 35 0 5" />
                 <TextBlock Name="AttractionGridTitle" Visibility="Hidden" Text="Turisticke atrakcije" FontSize="23"
-                           HorizontalAlignment="Left" Margin="50 35 0 5">
-                </TextBlock>
+                           HorizontalAlignment="Left" Margin="50 35 0 5" />
                 <TextBlock Name="AccomodationGridTitle" Visibility="Hidden" Text="Smestaj" FontSize="23"
-                           HorizontalAlignment="Left" Margin="50 35 0 5">
-                </TextBlock>
+                           HorizontalAlignment="Left" Margin="50 35 0 5" />
                 <TextBlock Name="RestourantGridTitle" Visibility="Hidden" Text="Restorani" FontSize="23"
-                           HorizontalAlignment="Left" Margin="50 35 0 5">
-                </TextBlock>
-                
+                           HorizontalAlignment="Left" Margin="50 35 0 5" />
+
                 <Grid Grid.Row="1">
                     <ToggleButton x:Name="ToggleButtonAttraction" Click="ToggleButtonAttraction_Click"
                                   Width="40"
@@ -238,12 +226,12 @@
                     <!-- Trips grid-->
                     <Grid Name="TripsGrid" Visibility="Visible">
                         <Grid>
-                            <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" >
+                            <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
                                 <Grid HorizontalAlignment="Left">
                                     <ItemsControl x:Name="tripItemsControl" ItemsSource="{Binding Trips}">
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
-                                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"  MaxWidth="800"/>
+                                                <WrapPanel IsItemsHost="True" Orientation="Horizontal" MaxWidth="800" />
                                             </ItemsPanelTemplate>
                                         </ItemsControl.ItemsPanel>
                                         <ItemsControl.ItemTemplate>
@@ -251,38 +239,40 @@
                                                 <Border Margin="0 0 17 12" Height="150" Width="230">
                                                     <Border.Background>
                                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                                            <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
-                                                            <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                                                            <GradientStop Color="#3AA9AD" Offset="0" />
+                                                            <GradientStop Color="#3AB19B" Offset="1" />
                                                         </LinearGradientBrush>
                                                     </Border.Background>
                                                     <Border.Clip>
-                                                        <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 230 150"></RectangleGeometry>
+                                                        <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 230 150" />
                                                     </Border.Clip>
 
                                                     <Grid>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                Height="230" HorizontalAlignment="Right" Click="EditTripBtn_Clicked">
+                                                                Height="230" HorizontalAlignment="Right"
+                                                                Click="EditTripBtn_Clicked">
                                                             <Button.Tag>
                                                                 <Binding Path="Id" />
                                                             </Button.Tag>
                                                         </Button>
                                                         <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold">
-                                                            </TextBlock>
+                                                                       FontSize="18" FontWeight="SemiBold" />
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                       FontSize="14">
-                                                            </TextBlock>
+                                                                       FontSize="14" />
                                                         </StackPanel>
 
-                                                       <Button  Style="{StaticResource DeleteButton}" Click="DeleteTripBtn_Clicked" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20 10 0 15">
-                                                           <Viewbox Width="20" Height="20">
-                                                               <wpf:FontAwesome Icon="Trash" />
-                                                           </Viewbox>
-                                                           <Button.Tag>
-                                                               <Binding Path="Id" />
-                                                           </Button.Tag>
-                                                       </Button>
+                                                        <Button Style="{StaticResource DeleteButton}"
+                                                                Click="DeleteTripBtn_Clicked"
+                                                                HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                                                Margin="20 10 0 15">
+                                                            <Viewbox Width="20" Height="20">
+                                                                <wpf:FontAwesome Icon="Trash" />
+                                                            </Viewbox>
+                                                            <Button.Tag>
+                                                                <Binding Path="Id" />
+                                                            </Button.Tag>
+                                                        </Button>
                                                     </Grid>
                                                 </Border>
                                             </DataTemplate>
@@ -321,8 +311,8 @@
                     <!-- Attraction grid-->
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Grid Name="MapGrid" Height="230" Visibility="Hidden" Grid.Row="0">
                             <gmap:GMapControl x:Name="gmap" Loaded="map_load"
@@ -338,7 +328,8 @@
                                                       ItemsSource="{Binding Attractions}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
-                                                    <WrapPanel IsItemsHost="True" Orientation="Horizontal"  MaxWidth="800"/>
+                                                    <WrapPanel IsItemsHost="True" Orientation="Horizontal"
+                                                               MaxWidth="800" />
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
@@ -346,19 +337,19 @@
                                                     <Border Margin="0 0 17 12" Height="150" Width="230">
                                                         <Border.Background>
                                                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                                                <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
-                                                                <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                                                                <GradientStop Color="#3AA9AD" Offset="0" />
+                                                                <GradientStop Color="#3AB19B" Offset="1" />
                                                             </LinearGradientBrush>
                                                         </Border.Background>
                                                         <Border.Clip>
                                                             <RectangleGeometry RadiusX="15" RadiusY="15"
-                                                                               Rect="0 0 230 150">
-                                                            </RectangleGeometry>
+                                                                               Rect="0 0 230 150" />
                                                         </Border.Clip>
 
                                                         <Grid>
                                                             <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                    Height="230" HorizontalAlignment="Right" Click="EditAttractionBtn_Click">
+                                                                    Height="230" HorizontalAlignment="Right"
+                                                                    Click="EditAttractionBtn_Click">
                                                                 <Button.Tag>
                                                                     <Binding Path="Id" />
                                                                 </Button.Tag>
@@ -367,14 +358,15 @@
 
                                                             <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                                 <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                           FontSize="18" FontWeight="SemiBold">
-                                                                </TextBlock>
+                                                                           FontSize="18" FontWeight="SemiBold" />
                                                                 <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                           FontSize="14">
-                                                                </TextBlock>
+                                                                           FontSize="14" />
                                                             </StackPanel>
-                                                            
-                                                            <Button  Style="{StaticResource DeleteButton}" Click="DeleteAttractionBtn_Clicked" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20 10 0 15">
+
+                                                            <Button Style="{StaticResource DeleteButton}"
+                                                                    Click="DeleteAttractionBtn_Clicked"
+                                                                    HorizontalAlignment="Left"
+                                                                    VerticalAlignment="Bottom" Margin="20 10 0 15">
                                                                 <Viewbox Width="20" Height="20">
                                                                     <wpf:FontAwesome Icon="Trash" />
                                                                 </Viewbox>
@@ -395,14 +387,14 @@
 
                     <!-- Accomodation grid-->
                     <Grid Name="AccomodationGrid" Visibility="Hidden">
-                        <Grid >
+                        <Grid>
                             <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
                                 <Grid HorizontalAlignment="Left">
                                     <ItemsControl x:Name="AccomodationItemsControl"
                                                   ItemsSource="{Binding Accomodations}">
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
-                                                <WrapPanel IsItemsHost="True" Orientation="Horizontal" MaxWidth="800"/>
+                                                <WrapPanel IsItemsHost="True" Orientation="Horizontal" MaxWidth="800" />
                                             </ItemsPanelTemplate>
                                         </ItemsControl.ItemsPanel>
                                         <ItemsControl.ItemTemplate>
@@ -410,19 +402,19 @@
                                                 <Border Margin="0 0 17 12" Height="150" Width="230">
                                                     <Border.Background>
                                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                                            <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
-                                                            <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                                                            <GradientStop Color="#3AA9AD" Offset="0" />
+                                                            <GradientStop Color="#3AB19B" Offset="1" />
                                                         </LinearGradientBrush>
                                                     </Border.Background>
                                                     <Border.Clip>
                                                         <RectangleGeometry RadiusX="15" RadiusY="15"
-                                                                           Rect="0 0 230 150">
-                                                        </RectangleGeometry>
+                                                                           Rect="0 0 230 150" />
                                                     </Border.Clip>
 
                                                     <Grid>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                Height="230" HorizontalAlignment="Right" Click="EditAccomodationBtn_Clicked">
+                                                                Height="230" HorizontalAlignment="Right"
+                                                                Click="EditAccomodationBtn_Clicked">
                                                             <Button.Tag>
                                                                 <Binding Path="Id" />
                                                             </Button.Tag>
@@ -431,14 +423,15 @@
 
                                                         <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold">
-                                                            </TextBlock>
+                                                                       FontSize="18" FontWeight="SemiBold" />
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                       FontSize="14">
-                                                            </TextBlock>
+                                                                       FontSize="14" />
                                                         </StackPanel>
-                                                        
-                                                        <Button  Style="{StaticResource DeleteButton}" Click="DeleteAccomodationBtn_Clicked" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20 10 0 15">
+
+                                                        <Button Style="{StaticResource DeleteButton}"
+                                                                Click="DeleteAccomodationBtn_Clicked"
+                                                                HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                                                Margin="20 10 0 15">
                                                             <Viewbox Width="20" Height="20">
                                                                 <wpf:FontAwesome Icon="Trash" />
                                                             </Viewbox>
@@ -454,7 +447,7 @@
                                 </Grid>
                             </ScrollViewer>
                         </Grid>
-                       
+
                     </Grid>
 
                     <!-- Restaurant grid-->
@@ -473,19 +466,19 @@
                                                 <Border Margin="0 0 17 12" Height="150" Width="230">
                                                     <Border.Background>
                                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                                            <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
-                                                            <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                                                            <GradientStop Color="#3AA9AD" Offset="0" />
+                                                            <GradientStop Color="#3AB19B" Offset="1" />
                                                         </LinearGradientBrush>
                                                     </Border.Background>
                                                     <Border.Clip>
                                                         <RectangleGeometry RadiusX="15" RadiusY="15"
-                                                                           Rect="0 0 230 150">
-                                                        </RectangleGeometry>
+                                                                           Rect="0 0 230 150" />
                                                     </Border.Clip>
 
                                                     <Grid>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                Height="230" HorizontalAlignment="Right" Click="EditRestaurantBtn_Clicked">
+                                                                Height="230" HorizontalAlignment="Right"
+                                                                Click="EditRestaurantBtn_Clicked">
                                                             <Button.Tag>
                                                                 <Binding Path="Id" />
                                                             </Button.Tag>
@@ -494,14 +487,15 @@
 
                                                         <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold">
-                                                            </TextBlock>
+                                                                       FontSize="18" FontWeight="SemiBold" />
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                       FontSize="14">
-                                                            </TextBlock>
+                                                                       FontSize="14" />
                                                         </StackPanel>
-                                                        
-                                                        <Button  Style="{StaticResource DeleteButton}" Click="DeleteRestaurantBtn_Clicked" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20 10 0 15">
+
+                                                        <Button Style="{StaticResource DeleteButton}"
+                                                                Click="DeleteRestaurantBtn_Clicked"
+                                                                HorizontalAlignment="Left" VerticalAlignment="Bottom"
+                                                                Margin="20 10 0 15">
                                                             <Viewbox Width="20" Height="20">
                                                                 <wpf:FontAwesome Icon="Trash" />
                                                             </Viewbox>
@@ -535,19 +529,19 @@
                                                 <Border Margin="0 0 17 12" Height="150" Width="230">
                                                     <Border.Background>
                                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                                            <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
-                                                            <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                                                            <GradientStop Color="#3AA9AD" Offset="0" />
+                                                            <GradientStop Color="#3AB19B" Offset="1" />
                                                         </LinearGradientBrush>
                                                     </Border.Background>
                                                     <Border.Clip>
                                                         <RectangleGeometry RadiusX="15" RadiusY="15"
-                                                                           Rect="0 0 230 150">
-                                                        </RectangleGeometry>
+                                                                           Rect="0 0 230 150" />
                                                     </Border.Clip>
 
                                                     <Grid>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                Height="230" HorizontalAlignment="Right" Click="EditBookedTripBtn_Clicked" >
+                                                                Height="230" HorizontalAlignment="Right"
+                                                                Click="EditBookedTripBtn_Clicked">
                                                             <Button.Tag>
                                                                 <Binding Path="Id" />
                                                             </Button.Tag>
@@ -556,19 +550,16 @@
 
                                                         <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold">
-                                                            </TextBlock>
-                                                            <TextBlock Height="10"></TextBlock>
+                                                                       FontSize="18" FontWeight="SemiBold" />
+                                                            <TextBlock Height="10" />
                                                             <TextBlock Text="{Binding User}" Foreground="#FFFFFF"
-                                                                       FontSize="14" FontWeight="SemiBold" >
-                                                            </TextBlock>
-                                                            <TextBlock Height="20"></TextBlock>
+                                                                       FontSize="14" FontWeight="SemiBold" />
+                                                            <TextBlock Height="20" />
 
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                       FontSize="14">
-                                                            </TextBlock>
+                                                                       FontSize="14" />
                                                         </StackPanel>
-                                                        
+
                                                     </Grid>
                                                 </Border>
                                             </DataTemplate>
@@ -578,36 +569,37 @@
                             </ScrollViewer>
                         </Grid>
                     </Grid>
-                    
+
                     <!-- PurchasedTrip grid-->
-                    <Grid  Name="PurchasedTripGrid" Visibility="Hidden">
-                     <Grid>
-                         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
-                     <Grid >
-                    <ItemsControl x:Name="purchasedTripItemsControl" ItemsSource="{Binding PurchasedTrips}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border Margin="0 0 17 12" Height="150" Width="230">
+                    <Grid Name="PurchasedTripGrid" Visibility="Hidden">
+                        <Grid>
+                            <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
+                                <Grid>
+                                    <ItemsControl x:Name="purchasedTripItemsControl"
+                                                  ItemsSource="{Binding PurchasedTrips}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Margin="0 0 17 12" Height="150" Width="230">
                                                     <Border.Background>
                                                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                                            <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
-                                                            <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                                                            <GradientStop Color="#3AA9AD" Offset="0" />
+                                                            <GradientStop Color="#3AB19B" Offset="1" />
                                                         </LinearGradientBrush>
                                                     </Border.Background>
                                                     <Border.Clip>
                                                         <RectangleGeometry RadiusX="15" RadiusY="15"
-                                                                           Rect="0 0 230 150">
-                                                        </RectangleGeometry>
+                                                                           Rect="0 0 230 150" />
                                                     </Border.Clip>
 
                                                     <Grid>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                Height="230" HorizontalAlignment="Right" Click="EditBookedTripBtn_Clicked" >
+                                                                Height="230" HorizontalAlignment="Right"
+                                                                Click="EditBookedTripBtn_Clicked">
                                                             <Button.Tag>
                                                                 <Binding Path="Id" />
                                                             </Button.Tag>
@@ -616,143 +608,207 @@
 
                                                         <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold">
-                                                            </TextBlock>
-                                                            <TextBlock Height="10"></TextBlock>
+                                                                       FontSize="18" FontWeight="SemiBold" />
+                                                            <TextBlock Height="10" />
                                                             <TextBlock Text="{Binding User}" Foreground="#FFFFFF"
-                                                                       FontSize="14" FontWeight="SemiBold">
-                                                            </TextBlock>
-                                                            <TextBlock Height="20"></TextBlock>
+                                                                       FontSize="14" FontWeight="SemiBold" />
+                                                            <TextBlock Height="20" />
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                       FontSize="14">
-                                                            </TextBlock>
+                                                                       FontSize="14" />
                                                         </StackPanel>
                                                     </Grid>
                                                 </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-                         </ScrollViewer>
-                     </Grid>
-            </Grid>
-                    
-                    <!-- SoldTrip grid-->
-                    <Grid  Name="SoldTripGrid" Visibility="Hidden">
-                     <Grid>
-                         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled">
-                     <Grid  HorizontalAlignment="Left">
-                    <ItemsControl x:Name="soldTripItemsControl" ItemsSource="{Binding SoldTrips}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal" MaxWidth="800"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                        Width="200" Height="200" VerticalAlignment="Top">
-                                    
-                                    <StackPanel>
-                                        <!-- <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/>  -->
-                                        <TextBlock Text="{Binding Name}" Margin="5,10,5,5" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding Price}" Margin="5"/>
-                                        <TextBlock TextWrapping="Wrap" Text="{Binding Description}" Margin="5"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Detaljnije" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-                             </ScrollViewer>
-                         </Grid>
-            </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </Grid>
+                            </ScrollViewer>
+                        </Grid>
+                    </Grid>
+
+
                     <!-- Report 1 -->
-                    <Grid  Name="Report1Grid" Visibility="Hidden">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+                    <Grid Name="SoldTripGridForm" Visibility="Hidden">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
 
-                <Label Content="Izaberite mesec:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center"/>
+                            <Label Content="Izaberite mesec:" HorizontalAlignment="Left" Margin="10"
+                                   VerticalAlignment="Center" />
 
-                <ComboBox x:Name="monthComboBox" Grid.Row="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center">
-                    <ComboBoxItem Content="Januar"/>
-                    <ComboBoxItem Content="Februar"/>
-                    <ComboBoxItem Content="Mart"/>
-                    <ComboBoxItem Content="April"/>
-                    <ComboBoxItem Content="Maj"/>
-                    <ComboBoxItem Content="Jun"/>
-                    <ComboBoxItem Content="Jul"/>
-                    <ComboBoxItem Content="Avgust"/>
-                    <ComboBoxItem Content="Septembar"/>
-                    <ComboBoxItem Content="Octobar"/>
-                    <ComboBoxItem Content="Novembar"/>
-                    <ComboBoxItem Content="Decembar"/>
-                </ComboBox>
-                <Button x:Name="FindByMonthBtn" Click="FindTripsReport1_Clicked" Grid.Row="2" Content="Find trips" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" ></Button>
-            </Grid>
+                            <ComboBox x:Name="monthComboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="10"
+                                      VerticalAlignment="Center">
+                                <ComboBoxItem Content="Januar" />
+                                <ComboBoxItem Content="Februar" />
+                                <ComboBoxItem Content="Mart" />
+                                <ComboBoxItem Content="April" />
+                                <ComboBoxItem Content="Maj" />
+                                <ComboBoxItem Content="Jun" />
+                                <ComboBoxItem Content="Jul" />
+                                <ComboBoxItem Content="Avgust" />
+                                <ComboBoxItem Content="Septembar" />
+                                <ComboBoxItem Content="Octobar" />
+                                <ComboBoxItem Content="Novembar" />
+                                <ComboBoxItem Content="Decembar" />
+                            </ComboBox>
+                            <Button x:Name="FindByMonthBtn" Click="FindTripsReport1_Clicked" Grid.Column="2"
+                                    Content="Find trips" HorizontalAlignment="Left" Margin="10"
+                                    VerticalAlignment="Center" />
+                        </Grid>
+
+                        <!-- SoldTrip grid-->
+                        <Grid Name="SoldTripGrid" Grid.Row="1" Visibility="Visible">
+                            <Grid>
+                                <ScrollViewer VerticalScrollBarVisibility="Hidden"
+                                              HorizontalScrollBarVisibility="Disabled">
+                                    <Grid HorizontalAlignment="Left">
+                                        <ItemsControl x:Name="soldTripItemsControl" ItemsSource="{Binding SoldTrips}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel IsItemsHost="True" Orientation="Horizontal"
+                                                               MaxWidth="800" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Margin="0 0 17 12" Height="150" Width="230">
+                                                        <Border.Background>
+                                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                                <GradientStop Color="#3AA9AD" Offset="0" />
+                                                                <GradientStop Color="#3AB19B" Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Border.Background>
+                                                        <Border.Clip>
+                                                            <RectangleGeometry RadiusX="15" RadiusY="15"
+                                                                               Rect="0 0 230 150" />
+                                                        </Border.Clip>
+
+                                                        <Grid>
+                                                            <Button Style="{StaticResource MoreButton}" Width="230"
+                                                                    Height="230" HorizontalAlignment="Right">
+                                                                    <!-- Click="EditBookedTripBtn_Clicked" -->
+                                                                    
+                                                                <Button.Tag>
+                                                                    <Binding Path="Id" />
+                                                                </Button.Tag>
+                                                            </Button>
+
+
+                                                            <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                                <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
+                                                                           FontSize="18" FontWeight="SemiBold" />
+                                                                <TextBlock Height="20" />
+                                                                <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
+                                                                           FontSize="14" />
+                                                            </StackPanel>
+
+                                                        </Grid>
+                                                </Border>
+                               
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Grid>
+                                </ScrollViewer>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+
                     <!-- Report 2-->
-                    <Grid  Name="Report2Grid" Visibility="Hidden">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
+                    <Grid Name="BookedTripGridForm" Visibility="Hidden" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions> 
+                        
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Content="Izaberite putovanje:" HorizontalAlignment="Left" Margin="10"
+                                   VerticalAlignment="Center" />
 
-                <Label Content="Izaberite putovanje:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center"/>
+                            <ComboBox x:Name="tripComboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="10"
+                                      VerticalAlignment="Center" />
+                            <Button x:Name="FindByTripBtn" Click="FindTripsReport2_Clicked" Grid.Column="2"
+                                    Content="Find trips" HorizontalAlignment="Left" Margin="10"
+                                    VerticalAlignment="Center" />
+                        </Grid>
 
-                <ComboBox x:Name="tripComboBox" Grid.Row="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center">
-                </ComboBox>
-                <Button x:Name="FindByTripBtn" Click="FindBookedTripsReport1_Clicked" Grid.Row="2" Content="Find trips" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" ></Button>
-            </Grid>
-                    <!-- Report 2 Trips -->
-                    <Grid   Name="SoldBookedTripGrid" Visibility="Hidden">
-                     <Grid>
-                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ItemsControl x:Name="soldBookedTripItemsControl" ItemsSource="{Binding SoldBookedTrips}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                        Width="200" Height="200" VerticalAlignment="Top">
-                                    <StackPanel>
-                                        <!--<Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> @-->
-                                        <TextBlock Text="{Binding TripName}" Margin="5,10,5,5" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding DatePeriod.StartDate}" Margin="5"/>
-                                        <TextBlock Text="{Binding DatePeriod.EndDate}" Margin="5"/>
-                                        <TextBlock Text="{Binding Price}" Margin="5"/>
-                                        <TextBlock Text="{Binding Accomodation.Name}" Margin="5"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Detaljnije" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-                             </ScrollViewer>
-                         </Grid>
-            </Grid>
+                        <!-- Report 2 Trips -->
+                        <Grid Name="BookedTripsGrid" Visibility="Visible" Grid.Row="1">
+                            <Grid>
+                                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                                              HorizontalScrollBarVisibility="Disabled">
+                                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <ItemsControl x:Name="soldBookedTripItemsControl"
+                                                      ItemsSource="{Binding SoldBookedTrips}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                                                                    <Border Margin="0 0 17 12" Height="150" Width="230">
+                                                        <Border.Background>
+                                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                                                <GradientStop Color="#3AA9AD" Offset="0" />
+                                                                <GradientStop Color="#3AB19B" Offset="1" />
+                                                            </LinearGradientBrush>
+                                                        </Border.Background>
+                                                        <Border.Clip>
+                                                            <RectangleGeometry RadiusX="15" RadiusY="15"
+                                                                               Rect="0 0 230 150" />
+                                                        </Border.Clip>
 
+                                                        <Grid>
+                                                            <Button Style="{StaticResource MoreButton}" Width="230"
+                                                                    Height="230" HorizontalAlignment="Right">
+                                                                    <!-- Click="EditBookedTripBtn_Clicked" -->
+                                                                    
+                                                                <Button.Tag>
+                                                                    <Binding Path="Id" />
+                                                                </Button.Tag>
+                                                            </Button>
+
+
+                                                            <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                                <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
+                                                                           FontSize="18" FontWeight="SemiBold" />
+                                                                <TextBlock Height="10" />
+                                                                <TextBlock Text="{Binding User}" Foreground="#FFFFFF"
+                                                                           FontSize="14" />
+                                                                <TextBlock Text="{Binding DatePeriod.StartDate}" Foreground="#FFFFFF"
+                                                                           FontSize="14" />
+                                                                <TextBlock Text="{Binding DatePeriod.EndDate}" Foreground="#FFFFFF"
+                                                                           FontSize="14" />
+                                                                <TextBlock Height="20" />
+
+                                                                <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
+                                                                           FontSize="14" />
+                                                            </StackPanel>
+
+                                                        </Grid>
+                                                </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </Grid>
+                                </ScrollViewer>
+                            </Grid>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
         </Border>
