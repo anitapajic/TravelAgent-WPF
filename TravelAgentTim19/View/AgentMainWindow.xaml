@@ -367,6 +367,8 @@
                                                                            FontSize="18" FontWeight="SemiBold" />
                                                                 <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                            FontSize="14" />
+                                                                <TextBlock Text="{Binding Location.Address}" Foreground="#EBEAE5"
+                                                                           FontSize="14" />
                                                             </StackPanel>
 
                                                             <Button Style="{StaticResource DeleteButton}"
