@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\
 TravelAgentTim19
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\View\App.xaml
-2-649279272
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\View\App.xaml
+15191443929
 11997472999
-18-318542987
-195-843138385
-View\AgentMainWindow.xaml;View\MainWindow.xaml;
+401620980444
+2091632724460
+Helper\HelpViewer.xaml;View\Add\AddNewAccomodationWindow.xaml;View\Add\AddNewAttractionWindow.xaml;View\Add\AddNewRestaurantWindow.xaml;View\Add\AddNewTripWindow.xaml;View\Add\BookTripWindow.xaml;View\AgentMainWindow.xaml;View\Edit\EditAccomodationWindow.xaml;View\Edit\EditAttractionWindow.xaml;View\Edit\EditBookedTripWindow.xaml;View\Edit\EditPurchasedTripWindow.xaml;View\Edit\EditRestaurantWindow.xaml;View\Edit\EditTripWindow.xaml;View\MainWindow.xaml;View\UserMainWindow.xaml;
 
 False
 

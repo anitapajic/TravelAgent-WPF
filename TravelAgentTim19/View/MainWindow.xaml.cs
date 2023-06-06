@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
@@ -43,7 +33,16 @@ namespace TravelAgentTim19.View
             MainRepository.Save();
             Application.Current.Shutdown();
         }
-
+       
+        private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.Normal;
+            }
+        }
+        
+        
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrEmpty(PasswordBox.Password) && PasswordBox.Password.Length > 0)
@@ -60,22 +59,26 @@ namespace TravelAgentTim19.View
 
         private void SignInFormButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            if (!string.IsNullOrEmpty(TxtEmail.Text) && !string.IsNullOrEmpty(PasswordBox.Password))
+            bool login = UserService.Login(TxtEmail.Text, PasswordBox.Password);
+            if (login)
             {
                 bool found = false;
-                foreach (User user in MainRepository.UserRepository.GetUsers())
+                User user = MainRepository.UserRepository.GetUserByEmail(TxtEmail.Text);
+                if (TxtEmail.Text.Equals(user.Email) && PasswordBox.Password.Equals(user.Password))
                 {
-                    if (TxtEmail.Text.Equals(user.Email) && PasswordBox.Password.Equals(user.Password))
+                    if (user.Role == Role.Agent)
                     {
-                        MessageBox.Show("Successfully Signed In");
-                        if (user.Role == Role.Agent)
-                        {
-                            AgentMainWindow agentMainWindow = new AgentMainWindow();
-                            agentMainWindow.Show();
-                        }
-                        found = true;
+                        AgentMainWindow agentMainWindow = new AgentMainWindow(MainRepository);
+                        agentMainWindow.Show();
+                        Close();
                     }
+                    else if(user.Role == Role.Client)
+                    {
+                        UserMainWindow userMainWindow = new UserMainWindow(MainRepository, user);
+                        userMainWindow.Show(); 
+                        Close();
+                    }
+                    found = true;
                 }
                 if (found == false)
                 {

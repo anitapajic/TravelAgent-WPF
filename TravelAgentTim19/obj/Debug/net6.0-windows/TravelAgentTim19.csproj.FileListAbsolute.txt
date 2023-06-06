@@ -50,3 +50,176 @@ C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-window
 C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\ref\TravelAgentTim19.dll
 C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\AgentMainWindow.g.cs
 C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\AgentMainWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\NodaTime.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\AgentMainWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\AgentMainWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\UserMainWindow.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\NodaTime.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\UserMainWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\UserMainWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\UserMainWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAccomodationWindow.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAttractionWindow.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewRestaurantWindow.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewTripWindow.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAccomodationWindow.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAttractionWindow.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditRestaurantWindow.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditTripWindow.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAccomodationWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAttractionWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewRestaurantWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewTripWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAccomodationWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAttractionWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditRestaurantWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditTripWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAccomodationWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAttractionWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewRestaurantWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewTripWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAccomodationWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAttractionWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditRestaurantWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditTripWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAccomodationWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAttractionWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewRestaurantWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewTripWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAccomodationWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAttractionWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditRestaurantWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditTripWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditBookedTripWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditPurchasedTripWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditBookedTripWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditPurchasedTripWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditBookedTripWindow.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditPurchasedTripWindow.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditBookedTripWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditPurchasedTripWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\EntityFramework.SqlServer.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\EntityFramework.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\GMap.NET.Core.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\GMap.NET.WindowsPresentation.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\System.Data.SQLite.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\System.Data.SQLite.EF6.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\AjaxMin.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\Geocoding.Core.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\Gmap.net.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\IPGeolocation.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\IPGeolocation.Net.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.csproj.AssemblyReference.cache
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditRestaurantWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditTripWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\MainWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAccomodationWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAttractionWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewRestaurantWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewTripWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\AgentMainWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAccomodationWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAttractionWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditBookedTripWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditPurchasedTripWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditRestaurantWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditTripWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\MainWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\UserMainWindow.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\App.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19_Content.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19_MarkupCompile.cache
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19_MarkupCompile.lref
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\refint\TravelAgentTim19.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.pdb
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\TravelAgentTim19.exe
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\TravelAgentTim19.deps.json
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\TravelAgentTim19.runtimeconfig.json
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\TravelAgentTim19.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\TravelAgentTim19.pdb
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\AjaxMin.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\EntityFramework.SqlServer.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\EntityFramework.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\Geocoding.Core.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\Gmap.net.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\GMap.NET.Core.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\GMap.NET.WindowsPresentation.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\IPGeolocation.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\IPGeolocation.Net.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\NodaTime.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\System.Data.SQLite.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\System.Data.SQLite.EF6.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\App.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAccomodationWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAttractionWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewRestaurantWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewTripWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\AgentMainWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAccomodationWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAttractionWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditBookedTripWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditPurchasedTripWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\UserMainWindow.baml
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.g.resources
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.AssemblyInfoInputs.cache
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.AssemblyInfo.cs
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.csproj.CoreCompileInputs.cache
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.csproj.CopyComplete
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.genruntimeconfig.cache
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\ref\TravelAgentTim19.dll
+C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\FontAwesome.WPF.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\AjaxMin.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\EntityFramework.SqlServer.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\EntityFramework.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\FontAwesome.WPF.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\Geocoding.Core.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\Gmap.net.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\GMap.NET.Core.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\GMap.NET.WindowsPresentation.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\IPGeolocation.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\IPGeolocation.Net.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\System.Data.SQLite.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\System.Data.SQLite.EF6.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\FontAwesome.WPF.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\BookTripWindow.baml
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\BookTripWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\BookTripWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\BookTripWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\Helper\HelpViewer.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\Helper\HelpViewer.g.cs

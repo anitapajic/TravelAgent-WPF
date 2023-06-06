@@ -1,0 +1,85 @@
+﻿<Window x:Class="TravelAgentTim19.View.AddNewAccomodationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:TravelAgentTim19.View"
+        xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
+        mc:Ignorable="d"
+        Title="Add New Accomodation" Height="450" Width="800">
+    <Grid HorizontalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Title -->
+        <TextBlock Text="DODAVANJE NOVOG SMESTAJA" FontSize="20" FontWeight="Bold" Margin="-20, 10, 0,0"/>
+        
+        <!-- Name -->
+        <TextBlock Text="Naziv:" Grid.Row="1" Margin="10"/>
+        <TextBox x:Name="NameBox" Text="{Binding Name}" Grid.Row="1" Grid.Column="1" Margin="10" Width="200"/>
+        
+        <!-- Price -->
+        <TextBlock Text="Cena:" Grid.Row="2" Margin="10"/>
+        <TextBox x:Name="PriceBox" Text="{Binding Price}" Grid.Row="2" Grid.Column="1" Margin="10" Width="200"/>
+
+        <!-- Type -->
+        <TextBlock Text="Tip:" Grid.Row="3" Margin="10"/>
+
+        <Grid Grid.Row="3">
+            <ComboBox x:Name="accomodationComboBox" Grid.Column="2" Margin="10" Width="200" SelectedItem="{Binding SelectedAccomodationType}">
+                <ComboBox.ItemsSource>
+                    <x:Array Type="{x:Type enum:AccomodationType}">
+                        <enum:AccomodationType>Hotel</enum:AccomodationType>
+                        <enum:AccomodationType>Villa</enum:AccomodationType>
+                        <enum:AccomodationType>Motel</enum:AccomodationType>
+                        <enum:AccomodationType>Hostel</enum:AccomodationType>
+                        <enum:AccomodationType>Apartment</enum:AccomodationType>
+                    </x:Array>
+                </ComboBox.ItemsSource>
+                <ComboBox.SelectedIndex>0</ComboBox.SelectedIndex>
+            </ComboBox>
+        </Grid>
+        
+        <!-- Rating -->
+        <TextBlock Text="Rejting:" Grid.Row="4" Margin="10"/>
+        <Grid Grid.Row="4" Margin="50,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="40"/>
+            </Grid.ColumnDefinitions>
+            <Slider x:Name="slider" Minimum="0" Maximum="5" TickFrequency="0.5" Value="{Binding Rating}" Grid.Column="0" Margin="10" Width="160"/>
+            <TextBox Text="{Binding ElementName=slider, Path=Value, Mode=TwoWay}" Grid.Column="1" Margin="10" Width="20"/>
+        </Grid>
+        
+        <!-- Location -->
+        <TextBlock Text="Lokacija:" Grid.Row="5" Margin="10"/>
+        <TextBox x:Name="LocationBox" Text="{Binding Location}" Grid.Row="5" Grid.Column="1" Margin="10" Width="200"/>
+        
+        <!-- Image -->
+        <TextBlock Grid.Row="6" Text="Drag and drop slike ovde:" Margin="10"/>
+        <ListView BorderBrush="Gray" BorderThickness="2" Grid.Row="7"  Height="80" Width="200"
+                   AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
+                   MouseDown="ListView_MouseClick">
+            <ItemsControl Margin="10" x:Name="ImageList">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate >
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ListView>
+
+        
+        <!-- Submit button -->
+        <Button Content="Submit" Click="CreateAccomodationBtn_Clicked" Grid.Row="8"  HorizontalAlignment="Center" Width="100" MaxHeight="40"/>
+    </Grid>
+</Window>
