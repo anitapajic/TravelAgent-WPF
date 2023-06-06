@@ -194,3 +194,25 @@ C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\Travel
 C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.genruntimeconfig.cache
 C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\ref\TravelAgentTim19.dll
 C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\FontAwesome.WPF.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\AjaxMin.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\EntityFramework.SqlServer.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\EntityFramework.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\FontAwesome.WPF.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\Geocoding.Core.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\Gmap.net.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\GMap.NET.Core.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\GMap.NET.WindowsPresentation.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\IPGeolocation.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\IPGeolocation.Net.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\System.Data.SQLite.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\System.Data.SQLite.EF6.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\linux-x64\native\SQLite.Interop.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\osx-x64\native\SQLite.Interop.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x64\native\SQLite.Interop.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win-x86\native\SQLite.Interop.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

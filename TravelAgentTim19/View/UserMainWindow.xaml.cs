@@ -12,6 +12,7 @@ using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
+using TravelAgentTim19.View.Edit;
 using Geometry = System.Windows.Media.Geometry;
 using Location = TravelAgentTim19.Model.Location;
 
@@ -19,16 +20,41 @@ namespace TravelAgentTim19.View;
 
 public partial class UserMainWindow : Window
 {
-    private MainRepository MainRepository { get; set; }
+    private MainRepository MainRepository;
     public List<Trip> Trips { get; set; }
-    public List<Location> attractionsLocations { get; set; }
+    public List<Attraction> Attractions { get; set; }
+    public List<Accomodation> Accomodations { get; set; }
+    public List<Restaurant> Restaurants { get; set; }
+    public List<BookedTrip> BookedTrips { get; set; }
+    public List<BookedTrip> PurchasedTrips { get; set; }
+    public List<Trip> SoldTrips { get; set; }
+    public List<BookedTrip> SoldBookedTrips { get; set; }
+    public List<string> TripsNameList { get; set; }
+    public List<Location> AttractionsLocations { get; set; }
+    
     public UserMainWindow(MainRepository mainRepository)
     {
         MainRepository = mainRepository;
+
         Trips = MainRepository.TripRepository.GetTrips();
-        attractionsLocations = new List<Location>();
+        Attractions = MainRepository.AttractionRepository.GetAttractions();
+        Accomodations = MainRepository.AccomodationRepository.GetAccomodations();
+        Restaurants = MainRepository.RestaurantsRepository.GetRestaurants();
+        BookedTrips = new List<BookedTrip>();
+        PurchasedTrips = new List<BookedTrip>(); 
+        SoldTrips = new List<Trip>();
+        SoldBookedTrips = new List<BookedTrip>();
+        TripsNameList = new List<string>();
+        AttractionsLocations = new List<Location>();
         GetAttractionsLocation();
+        
+        
+        //TODO: popuniti listu rezervisanih i kupljenih putovanja
+        // GetBookedTrips();
+        // GetPurchasedTrips();
         InitializeComponent();
+
+        DataContext = this; 
         
     }
 
@@ -36,7 +62,7 @@ public partial class UserMainWindow : Window
     {
         foreach (Attraction att in MainRepository.AttractionRepository.GetAttractions())
         {
-            attractionsLocations.Add(att.Location);
+            AttractionsLocations.Add(att.Location);
         }
     }
     private void map_load(object sender, RoutedEventArgs e)
@@ -59,7 +85,7 @@ public partial class UserMainWindow : Window
         GMapProvider.WebProxy = WebRequest.GetSystemWebProxy();
         GMapProvider.WebProxy.Credentials = CredentialCache.DefaultCredentials;
         
-        foreach (Location l in attractionsLocations)
+        foreach (Location l in AttractionsLocations)
         {
             GMapMarker marker = new GMapMarker(new PointLatLng(l.Latitude, l.Longitude));
             BitmapImage bi = new BitmapImage();
@@ -88,30 +114,215 @@ public partial class UserMainWindow : Window
         }
     }
 
+    
+    private void TripItem_Click(object sender, RoutedEventArgs e)
+    {
+        MapGrid.Visibility = Visibility.Hidden;
+        // Report2Grid.Visibility = Visibility.Hidden;
+        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        // Report1Grid.Visibility = Visibility.Hidden;
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
+        AccomodationGrid.Visibility = Visibility.Hidden;
+        RestaurantsGrid.Visibility = Visibility.Hidden;
+        AttractionGrid.Visibility = Visibility.Hidden;
+        AttractionGrid.Visibility = Visibility.Hidden;
+        MapGrid.Visibility = Visibility.Hidden;
+        TripsGrid.Visibility = Visibility.Visible;
+        TripsGridTopManu.Visibility = Visibility.Visible;
+        TripsGridTitle.Visibility = Visibility.Visible;
+        RestourantGridTitle.Visibility = Visibility.Hidden;
+        AttractionGridTitle.Visibility = Visibility.Hidden;
+        AccomodationGridTitle.Visibility = Visibility.Hidden;
+
+    }
+    
+    private void AttractionItem_Click(object sender, RoutedEventArgs e)
+    {
+        // Report2Grid.Visibility = Visibility.Hidden;
+        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        // Report1Grid.Visibility = Visibility.Hidden;
+
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
+        TripsGrid.Visibility = Visibility.Hidden;
+        AccomodationGrid.Visibility = Visibility.Hidden;
+        RestaurantsGrid.Visibility = Visibility.Hidden;
+        AttractionGrid.Visibility = Visibility.Visible;
+        MapGrid.Visibility = Visibility.Visible;
+        TripsGrid.Visibility = Visibility.Hidden;
+        TripsGridTopManu.Visibility = Visibility.Hidden;
+        TripsGridTitle.Visibility = Visibility.Hidden;
+        RestourantGridTitle.Visibility = Visibility.Hidden;
+        AccomodationGridTitle.Visibility = Visibility.Hidden;
+        AttractionGridTitle.Visibility = Visibility.Visible;
+    }
+    
+    private void AccomodationItem_Click(object sender, RoutedEventArgs e)
+    {
+        MapGrid.Visibility = Visibility.Hidden;
+        // Report2Grid.Visibility = Visibility.Hidden;
+        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        // Report1Grid.Visibility = Visibility.Hidden;
+
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
+        RestaurantsGrid.Visibility = Visibility.Hidden;
+        AttractionGrid.Visibility = Visibility.Hidden;
+        AccomodationGrid.Visibility = Visibility.Visible;
+        TripsGrid.Visibility = Visibility.Hidden;
+        TripsGridTopManu.Visibility = Visibility.Hidden;
+        TripsGridTitle.Visibility = Visibility.Hidden;
+        TripsGridTitle.Visibility = Visibility.Hidden;
+        RestourantGridTitle.Visibility = Visibility.Hidden;
+        AttractionGridTitle.Visibility = Visibility.Hidden;
+        AccomodationGridTitle.Visibility = Visibility.Visible;
+    }
+    private void RestaurantItem_Click(object sender, RoutedEventArgs e)
+    {
+         MapGrid.Visibility = Visibility.Hidden;
+        // Report2Grid.Visibility = Visibility.Hidden;
+        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        // Report1Grid.Visibility = Visibility.Hidden;
+
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
+        AttractionGrid.Visibility = Visibility.Hidden;
+        AccomodationGrid.Visibility = Visibility.Hidden;
+        RestaurantsGrid.Visibility = Visibility.Visible;
+        TripsGrid.Visibility = Visibility.Hidden;
+        TripsGridTopManu.Visibility = Visibility.Hidden;
+        TripsGridTitle.Visibility = Visibility.Hidden;
+        AttractionGridTitle.Visibility = Visibility.Hidden;
+        AccomodationGridTitle.Visibility = Visibility.Hidden;
+        RestourantGridTitle.Visibility = Visibility.Visible;
+    }
+    
+    private void BookedTripItem_Click(object sender, RoutedEventArgs e)
+    {
+        MapGrid.Visibility = Visibility.Hidden;
+        // Report2Grid.Visibility = Visibility.Hidden;
+        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        // Report1Grid.Visibility = Visibility.Hidden;
+        PurchasedTripGrid.Visibility = Visibility.Hidden;
+        TripsGrid.Visibility = Visibility.Hidden;
+        AttractionGrid.Visibility = Visibility.Hidden;
+        AccomodationGrid.Visibility = Visibility.Hidden;
+        RestaurantsGrid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Visible;
+    }
+
+    private void PurchasedTripItem_Click(object sender, RoutedEventArgs e)
+    {
+        MapGrid.Visibility = Visibility.Hidden;
+        // Report2Grid.Visibility = Visibility.Hidden;
+        // SoldBookedTripGrid.Visibility = Visibility.Hidden;
+        // Report1Grid.Visibility = Visibility.Hidden;
+        BookedTripGrid.Visibility = Visibility.Hidden;
+        TripsGrid.Visibility = Visibility.Hidden;
+        AttractionGrid.Visibility = Visibility.Hidden;
+        AccomodationGrid.Visibility = Visibility.Hidden;
+        RestaurantsGrid.Visibility = Visibility.Hidden;
+        PurchasedTripGrid.Visibility = Visibility.Visible;
+    }
+    
+    
+    
+    private void NewRestaurantWindow_Closed(object sender, EventArgs e)
+    {
+        restaurantItemsControl.Items.Refresh();
+    }
+
+    private void NewAccomodationWindow_Closed(object sender, EventArgs e)
+    {
+        AccomodationItemsControl.Items.Refresh();
+    }
+
+    private void NewAttractionWindow_Closed(object sender, EventArgs e)
+    {
+        attractionItemsControl.Items.Refresh();
+    }
+
+    
+    private void NewTripWindow_Closed(object sender, EventArgs e)
+    {
+        tripItemsControl.Items.Refresh();
+    }
+
+    private void EditRestaurantBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int restaurantId = (int)editButton.Tag;
+        Restaurant restaurant = MainRepository.RestaurantsRepository.GetRestaurantByid(restaurantId);
+
+        EditRestaurantWindow editRestaurantWindow = new EditRestaurantWindow(restaurant, MainRepository);
+        editRestaurantWindow.Show();
+    }
+    private void EditAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int accomodationId = (int)editButton.Tag;
+        Accomodation accomodation = MainRepository.AccomodationRepository.GetAccomodationById(accomodationId);
+
+        EditAccomodationWindow editAccomodationWindow= new EditAccomodationWindow(accomodation, MainRepository);
+        editAccomodationWindow.Show();
+    }
+    private void EditAttractionBtn_Click(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int attId = (int)editButton.Tag;
+        Attraction attraction = MainRepository.AttractionRepository.GetAttractionById(attId);
+
+        EditAttractionWindow editAttractionWindow = new EditAttractionWindow(attraction, MainRepository);
+        editAttractionWindow.Show();
+    }
+    
+    private void EditBookedTripBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int attId = (int)editButton.Tag;
+        BookedTrip bookedTrip = MainRepository.BookedTripRepository.GetBookedTripById(attId);
+
+        EditBookedTripWindow editBookedTripWindow = new EditBookedTripWindow(bookedTrip, MainRepository);
+        editBookedTripWindow.Show();
+    }
+
+    private void EditPurchasedTripBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int attId = (int)editButton.Tag;
+        BookedTrip bookedTrip = MainRepository.BookedTripRepository.GetBookedTripById(attId);
+
+        EditPurchasedTripWindow editPurchasedTripWindow = new EditPurchasedTripWindow(bookedTrip, MainRepository);
+        editPurchasedTripWindow.Show();
+    }
+    private void EditTripBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        Button editButton = (Button)sender;
+        int tripId = (int)editButton.Tag;
+        Trip trip = MainRepository.TripRepository.GetTripById(tripId);
+
+        EditTripWindow editTripWindow = new EditTripWindow(trip, MainRepository);
+        editTripWindow.Show();
+    }
+
     private void Logout_Click(object sender, RoutedEventArgs e)
     {
         MainWindow mainWindow = new MainWindow();
         mainWindow.Show();
         Close();
     }
-
-    private void TripItem_Click(object sender, RoutedEventArgs e)
-    {
-        MapGrid.Visibility = Visibility.Hidden;
-        TripsGrid.Visibility = Visibility.Visible;
-    }
-
-    private void EditTripBtn_Clicked(object sender, RoutedEventArgs e)
-    {
-        throw new System.NotImplementedException();
-    }
-
+    
     private void MapItem_Click(object sender, RoutedEventArgs e)
     {
         TripsGrid.Visibility = Visibility.Hidden;
         MapGrid.Visibility = Visibility.Visible;
     }
-    
 
-    
+
+    private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+    {
+        MainRepository.Save();
+        Application.Current.Shutdown();
+    }
 }
