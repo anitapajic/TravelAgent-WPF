@@ -29,7 +29,7 @@ public partial class UserMainWindow
     private List<BookedTrip> SoldBookedTrips { get; set; }
     private List<string> TripsNameList { get; set; }
     private List<Location> AttractionsLocations { get; set; }
-    private User User { get; set; }
+    public User User { get; set; }
     
     public UserMainWindow(MainRepository mainRepository, User user)
     {
