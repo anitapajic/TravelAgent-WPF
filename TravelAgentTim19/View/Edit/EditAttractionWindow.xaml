@@ -3,112 +3,243 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:wpf="http://schemas.fontawesome.io/icons/"
+        xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         xmlns:local="clr-namespace:TravelAgentTim19.View.Edit"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="EditAttractionWindow" Height="450" Width="800">
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" ResizeMode="CanResize"
+        AllowsTransparency="True"
+        Background="#FFFFFF"
+        Title="EditAttractionWindow" Height="600" Width="1100">
     <ScrollViewer VerticalScrollBarVisibility="Auto">
-    <Grid>
-        
-        <Grid x:Name="InfoGrid" Margin="50">
+        <Grid>
+            <!--<Grid x:Name="InfoGrid" Margin="0">
+            ~1~ Row and Column Definitions @1@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" 
+                   Style="{StaticResource ImgClose}" />
             
-            <!-- Title -->
-            <TextBlock Text="INFO ATRAKCIJE" FontSize="20" FontWeight="Bold" Margin="-20, 10, 0,0"/>
-        
-            <!-- Name -->
-            <TextBlock Text="Naziv:" Grid.Row="1" Margin="10"/>
-            <TextBlock Text="{Binding Attraction.Name}" Grid.Row="1" Grid.Column="1" Margin="10" Width="200"/>
+            <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="450" Margin="0 0 0 -20" Panel.ZIndex="999">
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
+                        <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid>
+                    <Image Source="/Images/beograd.jpg" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                    <Button Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}" Click="EditAttractionBtn_Clicked"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 40 40 15">
+                        <Viewbox Width="20" Height="20">
+                            <wpf:FontAwesome Icon="Pencil" />
+                        </Viewbox>
+                    </Button>
+                    <StackPanel Margin="100 60 10 5" VerticalAlignment="Top">
+                        <TextBlock Text="{Binding Attraction.Name}" Foreground="#FFFFFF"
+                                   FontSize="50" FontWeight="SemiBold">
+                        </TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <wpf:FontAwesome Icon="MapPin" Margin="0,0,10,0" Foreground="#FFFFFF" FontSize="18" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Attraction.Location}" Foreground="#FFFFFF" FontSize="36" FontWeight="Medium"/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding  Attraction.Price}" Foreground="#EBEAE5"
+                                   FontSize="33" Margin="0 5 0 0">
+                        </TextBlock>
+                    </StackPanel>
 
+                </Grid>
+            </Border>
             
-            <!-- Rating -->
-            <TextBlock Text="Cena:" Grid.Row="2" Margin="10"/>
-            <TextBlock Text="{Binding Attraction.Price}" Grid.Row="2" Grid.Column="1" Margin="10" Width="200"/>
-        
-            <!-- Location -->
-            <TextBlock Text="Lokacija:" Grid.Row="3" Margin="10"/>
-            <TextBlock Text="{Binding Attraction.Location}" Grid.Row="3" Grid.Column="1" Margin="10" Width="200"/>
-         
-            <!-- Decription -->
-            <TextBlock Text="Opis:" Grid.Row="4" Margin="10"/>
-            <TextBlock Text="{Binding Attraction.Description}" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Margin="10" Width="200"/>
+            ~1~ Travel Description @1@
             
-            <!-- Image -->
-            <TextBlock Text="SLIKE" Grid.Row="5" Margin="10"></TextBlock>
-            <!-- <ListView BorderBrush="Gray" BorderThickness="2" Grid.Row="5"  Height="80" Width="200"> -->
-            <!--     <ItemsControl Margin="10" x:Name="myImages"> -->
-            <!--         <ItemsControl.ItemsPanel> -->
-            <!--             <ItemsPanelTemplate > -->
-            <!--                 <StackPanel Orientation="Horizontal"/> -->
-            <!--             </ItemsPanelTemplate> -->
-            <!--         </ItemsControl.ItemsPanel> -->
-            <!--     </ItemsControl> -->
-            <!-- </ListView> -->
+            <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" CornerRadius="45" Margin="100 -90 100 0" Panel.ZIndex="9999">
+                    <Border.Effect>
+                     <DropShadowEffect ShadowDepth="5" Color="Black" Opacity="0.5" BlurRadius="10" />
+                        </Border.Effect>
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#FFFFFF" Offset="0"></GradientStop>
+                        <GradientStop Color="#FFFFFF" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid Margin="40 40 40 35">
+                    <TextBlock Text="Opis atrakcije" FontSize="25" FontWeight="SemiBold" Foreground="#11172F" ></TextBlock>
+                    <TextBlock Text="{Binding Attraction.Description}" TextWrapping="Wrap" Foreground="Gray" FontSize="15" Margin="0 45 0 0" />
+                </Grid>
+            </Border>
+            
+            <Grid Grid.Row="3" Name="MapGrid" Height="450" Visibility="Visible" Grid.ColumnSpan="3" Margin="0 -70 0 0" >
+                <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0,5,0,10" />
+                
+            </Grid>
+           
+            </Grid>-->
+            <Grid x:Name="InfoGrid" Margin="0">
+                <!-- Row and Column Definitions -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
 
-        
-            <!-- Submit button -->
-            <Button Content="Izmeni" Click="EditAttractionBtn_Clicked" Grid.Row="7"  HorizontalAlignment="Center" Width="100" MaxHeight="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999"
+                       Style="{StaticResource ImgClose}" />
 
+                <Border Grid.ColumnSpan="3" Grid.Row="0" Height="520" Margin="0 0 0 -50" Panel.ZIndex="999">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                            <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
+                            <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <ListBox ItemsSource="{Binding Trip.Attractions}" Margin="10">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Name}" Margin="0,0,10,0" Foreground="#FFFFFF" FontSize="15"/>
+                                        <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> 
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <Button Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}"
+                                Click="EditAttractionBtn_Clicked" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                Width="100" MaxHeight="40" Margin="0 40 40 15">
+                            <Viewbox Width="20" Height="20">
+                                <wpf:FontAwesome Icon="Pencil" />
+                            </Viewbox>
+                        </Button>
+                    </Grid>
+                </Border>
+
+                <!-- Travel Description -->
+
+                <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" CornerRadius="45 45 0 0" Panel.ZIndex="9999">
+                    <Border.Effect>
+                        <DropShadowEffect ShadowDepth="5" Color="Black" Opacity="0.5" BlurRadius="10" />
+                    </Border.Effect>
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                            <GradientStop Color="#FFFFFF" Offset="0"></GradientStop>
+                            <GradientStop Color="#FFFFFF" Offset="1"></GradientStop>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                    <Grid>
+                        <Grid Margin="40 40 40 35">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Attraction.Name}" FontWeight="SemiBold" Foreground="#11172F"
+                                           FontSize="35">
+                                </TextBlock>
+                                <StackPanel Orientation="Horizontal" Margin="3,15,0,0">
+                                    <wpf:FontAwesome Icon="MapPin" Margin="0,0,8,0" Foreground="#11172F" FontSize="18" />
+                                    <TextBlock Text="{Binding Attraction.Location}" Foreground="Gray" FontSize="18" />
+                                    <wpf:FontAwesome Icon="Star" Margin="80,0,10,0" Foreground="#F2B312" FontSize="25" />
+                                    <TextBlock Margin="0 0 0 0" Text="{Binding Attraction.Id}" Foreground="Gray"
+                                               FontSize="20" FontWeight="DemiBold" />
+                                </StackPanel>
+                                <StackPanel Margin="0 20 0 0">
+                                    <TextBlock Text="Opis atrakcije" FontSize="25" FontWeight="SemiBold"
+                                               Foreground="#11172F">
+                                    </TextBlock>
+                                    <TextBlock MaxHeight="100" Text="{Binding Attraction.Description}" TextWrapping="Wrap"
+                                               Foreground="Gray" FontSize="15" Margin="0 15 0 0" />
+                                </StackPanel>
+                                
+                            </StackPanel>
+                        </Grid>
+                        <Grid Margin="30 200 30 30">
+                            <Border CornerRadius="15">
+                                <Grid Name="MapGrid" Height="450" Visibility="Visible" 
+                                      Margin="10 20 10 20">
+                                    <gmap:GMapControl x:Name="gmap" Loaded="map_load"
+                                                      MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0,5,0,10" />
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+
+            </Grid>
+            <Grid x:Name="EditGrid" Visibility="Hidden" Margin="50">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <!-- Title -->
+                <TextBlock Text="IZMENA ATRAKCIJE" FontSize="20" FontWeight="Bold" Margin="-20, 10, 0,0" />
+
+                <!-- Name -->
+                <TextBlock Text="Naziv:" Grid.Row="1" Margin="10" />
+                <TextBox x:Name="NameBox" Text="{Binding Attraction.Name}" Grid.Row="1" Grid.Column="1" Margin="10"
+                         Width="200" />
+
+                <!-- Price -->
+                <TextBlock Text="Cena:" Grid.Row="2" Margin="10" />
+                <TextBox x:Name="PriceBox" Text="{Binding Attraction.Price}" Grid.Row="2" Grid.Column="1" Margin="10"
+                         Width="200" />
+
+                <!-- Location -->
+                <TextBlock Text="Lokacija:" Grid.Row="3" Margin="10" />
+                <TextBox x:Name="LocationBox" Text="{Binding Attraction.Location.Address}" Grid.Row="3" Grid.Column="1"
+                         Margin="10" Width="200" />
+
+                <!-- Decription -->
+                <TextBlock Text="Opis:" Grid.Row="4" Margin="10" />
+                <TextBox x:Name="DescBox" Text="{Binding Attraction.Description}" Grid.Row="4" Grid.Column="1"
+                         TextWrapping="Wrap" Margin="10" Width="200" />
+
+                <!-- Image -->
+                <TextBlock Grid.Row="5" Text="Drag and drop slike ovde:" Margin="10" />
+                <ListView BorderBrush="Gray" BorderThickness="2" Grid.Row="5" Height="80" Width="200"
+                          AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
+                          MouseDown="ListView_MouseClick">
+                    <ItemsControl Margin="10" x:Name="ImageList">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </ListView>
+
+
+                <!-- Submit button -->
+                <Button Content="Nazad na informacije" Click="InfoAttractionBtn_Clicked" Grid.Row="7"
+                        HorizontalAlignment="Center" Width="160" MaxHeight="50" Margin="0, 20,200,0" />
+                <Button Content="Sacuvaj" Click="SaveChangesBtn_Clicked" Grid.Row="7" HorizontalAlignment="Center"
+                        Width="160" MaxHeight="50" Margin="0, 20,-200,0" />
+            </Grid>
         </Grid>
-            <Grid x:Name="EditGrid" Visibility="Hidden"  Margin="50">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-        
-            <!-- Title -->
-            <TextBlock Text="IZMENA ATRAKCIJE" FontSize="20" FontWeight="Bold" Margin="-20, 10, 0,0"/>
-        
-            <!-- Name -->
-            <TextBlock Text="Naziv:" Grid.Row="1" Margin="10"/>
-            <TextBox x:Name="NameBox" Text="{Binding Attraction.Name}" Grid.Row="1" Grid.Column="1" Margin="10" Width="200"/>
-        
-            <!-- Price -->
-            <TextBlock Text="Cena:" Grid.Row="2" Margin="10"/>
-            <TextBox x:Name="PriceBox" Text="{Binding Attraction.Price}" Grid.Row="2" Grid.Column="1" Margin="10" Width="200"/>
-
-            <!-- Location -->
-            <TextBlock Text="Lokacija:" Grid.Row="3" Margin="10"/>
-            <TextBox x:Name="LocationBox" Text="{Binding Attraction.Location.Address}" Grid.Row="3" Grid.Column="1" Margin="10" Width="200"/>
-        
-            <!-- Decription -->
-            <TextBlock Text="Opis:" Grid.Row="4" Margin="10"/>
-            <TextBox x:Name="DescBox" Text="{Binding Attraction.Description}" Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Margin="10" Width="200"/>
-
-            <!-- Image -->
-            <TextBlock Grid.Row="5" Text="Drag and drop slike ovde:" Margin="10"/>
-            <ListView BorderBrush="Gray" BorderThickness="2" Grid.Row="5"  Height="80" Width="200"
-                      AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
-                      MouseDown="ListView_MouseClick">
-                <ItemsControl Margin="10" x:Name="ImageList">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate >
-                            <StackPanel Orientation="Horizontal"/>
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-                </ItemsControl>
-            </ListView>
-
-        
-            <!-- Submit button -->
-            <Button Content="Nazad na informacije" Click="InfoAttractionBtn_Clicked" Grid.Row="7"  HorizontalAlignment="Center" Width="160" MaxHeight="50" Margin="0, 20,200,0"/>
-            <Button Content="Sacuvaj" Click="SaveChangesBtn_Clicked" Grid.Row="7"  HorizontalAlignment="Center" Width="160" MaxHeight="50" Margin="0, 20,-200,0"/>
-        </Grid>
-    </Grid>
-        </ScrollViewer>
+    </ScrollViewer>
 </Window>

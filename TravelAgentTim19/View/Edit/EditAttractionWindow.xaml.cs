@@ -1,10 +1,14 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsPresentation;
 using Microsoft.Win32;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
@@ -21,6 +25,50 @@ public partial class EditAttractionWindow : Window
         Attraction = attraction;
         MainRepository = mainRepository;
         InitializeComponent();
+    }
+    private void MapControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left)
+        {
+            gmap.Zoom = (gmap.Zoom < gmap.MaxZoom) ? gmap.Zoom + 1 : gmap.MaxZoom;
+        }
+    }
+    private void map_load(object sender, RoutedEventArgs e)
+    {
+        gmap.Bearing = 0;
+        gmap.CanDragMap = true;
+        gmap.DragButton = MouseButton.Left;
+        gmap.MaxZoom = 18;
+        gmap.MinZoom = 2;
+        gmap.MouseWheelZoomType = MouseWheelZoomType.MousePositionWithoutCenter;
+    
+        gmap.ShowTileGridLines = false;
+        gmap.Zoom = 10;
+        gmap.ShowCenter = false;
+    
+        gmap.MapProvider = GMapProviders.GoogleMap;
+        GMaps.Instance.Mode = AccessMode.ServerOnly;
+        gmap.Position = new PointLatLng(Attraction.Location.Latitude, Attraction.Location.Longitude);
+    
+        GMapProvider.WebProxy = WebRequest.GetSystemWebProxy();
+        GMapProvider.WebProxy.Credentials = CredentialCache.DefaultCredentials;
+        
+        GMapMarker marker = new GMapMarker(new PointLatLng(Attraction.Location.Latitude, Attraction.Location.Longitude));
+        BitmapImage bi = new BitmapImage();
+        bi.BeginInit();
+        bi.UriSource = new Uri("pack://application:,,,/Images/redPin.png");
+        bi.EndInit();
+        Image pinImage = new Image();
+        pinImage.Source = bi;
+        pinImage.Width = 50; // Adjust as needed
+        pinImage.Height = 50; // Adjust as needed
+        pinImage.ToolTip = Attraction.Name;
+    
+        ToolTipService.SetShowDuration(pinImage, Int32.MaxValue);
+        ToolTipService.SetInitialShowDelay(pinImage, 0);
+        marker.Shape = pinImage;
+        gmap.Markers.Add(marker);
+        
     }
 
     private void EditAttractionBtn_Clicked(object sender, RoutedEventArgs e)

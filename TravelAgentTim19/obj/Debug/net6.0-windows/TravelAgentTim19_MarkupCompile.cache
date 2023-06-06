@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\
 TravelAgentTim19
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\View\App.xaml
-14106813155
+C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\View\App.xaml
+13-533222544
 11997472999
-37-416460433
-208-1237864579
-View\Add\AddNewAccomodationWindow.xaml;View\Add\AddNewAttractionWindow.xaml;View\Add\AddNewRestaurantWindow.xaml;View\Add\AddNewTripWindow.xaml;View\AgentMainWindow.xaml;View\BookTripWindow.xaml;View\Edit\EditAccomodationWindow.xaml;View\Edit\EditAttractionWindow.xaml;View\Edit\EditBookedTripWindow.xaml;View\Edit\EditPurchasedTripWindow.xaml;View\Edit\EditRestaurantWindow.xaml;View\Edit\EditTripWindow.xaml;View\MainWindow.xaml;View\UserMainWindow.xaml;
+362139543531
+209195906093
+View\Add\AddNewAccomodationWindow.xaml;View\Add\AddNewAttractionWindow.xaml;View\Add\AddNewRestaurantWindow.xaml;View\Add\AddNewTripWindow.xaml;View\AgentMainWindow.xaml;View\Edit\EditAccomodationWindow.xaml;View\Edit\EditAttractionWindow.xaml;View\Edit\EditBookedTripWindow.xaml;View\Edit\EditPurchasedTripWindow.xaml;View\Edit\EditRestaurantWindow.xaml;View\Edit\EditTripWindow.xaml;View\MainWindow.xaml;View\UserMainWindow.xaml;
 
-True
+False
 
