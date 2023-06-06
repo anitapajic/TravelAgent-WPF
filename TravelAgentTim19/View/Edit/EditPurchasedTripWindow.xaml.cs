@@ -4,10 +4,10 @@ using TravelAgentTim19.Repository;
 
 namespace TravelAgentTim19.View.Edit;
 
-public partial class EditPurchasedTripWindow : Window
+public partial class EditPurchasedTripWindow 
 {
-    public BookedTrip BookedTrip;
-    public MainRepository MainRepository;
+    private BookedTrip BookedTrip;
+    private MainRepository MainRepository;
     public EditPurchasedTripWindow(BookedTrip bookedTrip, MainRepository mainRepository)
     {
         BookedTrip = bookedTrip;

@@ -10,10 +10,10 @@ using TravelAgentTim19.Repository;
 
 namespace TravelAgentTim19.View;
 
-public partial class AddNewAttractionWindow : Window
+public partial class AddNewAttractionWindow 
 {
-    public MainRepository MainRepository;
-    public List<Attraction> Attractions { get; set; }
+    private MainRepository MainRepository;
+    private List<Attraction> Attractions { get; set; }
     public AddNewAttractionWindow(MainRepository mainRepository)
     {
         MainRepository = mainRepository;
@@ -31,7 +31,7 @@ public partial class AddNewAttractionWindow : Window
         Close();
     }
     
-    private void nameBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+    private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
     {
         if (!string.IsNullOrEmpty(TxtName.Text) && TxtName.Text.Length > 0)
             TextName.Visibility = Visibility.Collapsed;

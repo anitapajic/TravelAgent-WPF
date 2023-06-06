@@ -625,8 +625,7 @@
                             </ScrollViewer>
                         </Grid>
                     </Grid>
-
-
+                    
                     <!-- Report 1 -->
                     <Grid Name="SoldTripGridForm" Visibility="Hidden">
                         <Grid.RowDefinitions>
