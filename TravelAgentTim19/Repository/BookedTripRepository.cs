@@ -8,7 +8,7 @@ namespace TravelAgentTim19.Repository;
 
 public class BookedTripRepository
 {
-    private List<BookedTrip> bookedTrips;
+    public List<BookedTrip> bookedTrips;
     public List<BookedTrip> purchasedTrips;
     
     public BookedTripRepository()
@@ -21,7 +21,7 @@ public class BookedTripRepository
     }
     public List<BookedTrip> GetBookedTrips()
     {
-        return this.bookedTrips;
+        return bookedTrips;
     }
 
     public List<BookedTrip> GetPurchasedTrips()
@@ -40,7 +40,7 @@ public class BookedTripRepository
 
     public void AddBookedTrip(BookedTrip trip)
     {
-        this.bookedTrips.Add(trip);
+        bookedTrips.Add(trip);
     }
     public void UpdateBookedTrip(BookedTrip bookedTrip)
     {

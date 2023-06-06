@@ -36,6 +36,7 @@ public partial class UserMainWindow : Window
     
     public UserMainWindow(MainRepository mainRepository, User user)
     {
+        User = user;
         MainRepository = mainRepository;
         User = user;
         Trips = MainRepository.TripRepository.GetTrips();
@@ -261,9 +262,11 @@ public partial class UserMainWindow : Window
     }
 
     
-    private void NewTripWindow_Closed(object sender, EventArgs e)
+    private void BookTripWindow_Closed(object sender, EventArgs e)
     {
-        tripItemsControl.Items.Refresh();
+        BookedTrips.Clear();
+        GetBookedTrips();
+        bookedTripItemsControl.Items.Refresh();
     }
 
     private void EditRestaurantBtn_Clicked(object sender, RoutedEventArgs e)
@@ -303,6 +306,11 @@ public partial class UserMainWindow : Window
         EditBookedTripWindow editBookedTripWindow = new EditBookedTripWindow(bookedTrip, MainRepository);
         editBookedTripWindow.Show();
     }
+    
+    private void PurchaseTripBtn_Clicked(object sender, RoutedEventArgs e)
+    {
+        MessageBox.Show("Implementiraj kupovinu");
+    }
 
     private void EditPurchasedTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
@@ -319,14 +327,19 @@ public partial class UserMainWindow : Window
         int tripId = (int)editButton.Tag;
         Trip trip = MainRepository.TripRepository.GetTripById(tripId);
 
-        EditTripWindow editTripWindow = new EditTripWindow(trip, MainRepository);
-        editTripWindow.Show();
+        BookTripWindow bookTripWindow = new BookTripWindow(User, trip, MainRepository);
+        bookTripWindow.Show();
+        bookTripWindow.Closed += BookTripWindow_Closed;
+
+        
+        
     }
 
     private void Logout_Click(object sender, RoutedEventArgs e)
     {
         MainWindow mainWindow = new MainWindow();
         mainWindow.Show();
+        MainRepository.Save();
         Close();
     }
     
