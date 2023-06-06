@@ -169,6 +169,7 @@ public partial class UserMainWindow : Window
     
     private void AccomodationItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         RestaurantsGrid.Visibility = Visibility.Hidden;
@@ -184,6 +185,7 @@ public partial class UserMainWindow : Window
     }
     private void RestaurantItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -199,6 +201,7 @@ public partial class UserMainWindow : Window
     
     private void BookedTripItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         PurchasedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
@@ -209,6 +212,7 @@ public partial class UserMainWindow : Window
 
     private void PurchasedTripItem_Click(object sender, RoutedEventArgs e)
     {
+        MapGrid.Visibility = Visibility.Hidden;
         BookedTripGrid.Visibility = Visibility.Hidden;
         TripsGrid.Visibility = Visibility.Hidden;
         AttractionGrid.Visibility = Visibility.Hidden;
