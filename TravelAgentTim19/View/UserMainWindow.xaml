@@ -177,15 +177,7 @@
                                                                        FontSize="14">
                                                             </TextBlock>
                                                         </StackPanel>
-
-                                                       <Button  Style="{StaticResource DeleteButton}"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20 10 0 15">
-                                                           <Viewbox Width="20" Height="20">
-                                                               <wpf:FontAwesome Icon="Trash" />
-                                                           </Viewbox>
-                                                           <Button.Tag>
-                                                               <Binding Path="Id" />
-                                                           </Button.Tag>
-                                                       </Button>
+                                                        
                                                     </Grid>
                                                 </Border>
                                             </DataTemplate>
@@ -252,15 +244,7 @@
                                                                            FontSize="14">
                                                                 </TextBlock>
                                                             </StackPanel>
-                                                            
-                                                            <Button  Style="{StaticResource DeleteButton}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20 10 0 15">
-                                                                <Viewbox Width="20" Height="20">
-                                                                    <wpf:FontAwesome Icon="Trash" />
-                                                                </Viewbox>
-                                                                <Button.Tag>
-                                                                    <Binding Path="Id" />
-                                                                </Button.Tag>
-                                                            </Button>
+
                                                         </Grid>
                                                     </Border>
                                                 </DataTemplate>
@@ -301,7 +285,7 @@
 
                                                     <Grid>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                Height="230" HorizontalAlignment="Right">
+                                                                Height="230" HorizontalAlignment="Right" Click="EditAccomodationBtn_Clicked">
                                                             <Button.Tag>
                                                                 <Binding Path="Id" />
                                                             </Button.Tag>
@@ -317,14 +301,6 @@
                                                             </TextBlock>
                                                         </StackPanel>
                                                         
-                                                        <Button  Style="{StaticResource DeleteButton}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20 10 0 15">
-                                                            <Viewbox Width="20" Height="20">
-                                                                <wpf:FontAwesome Icon="Trash" />
-                                                            </Viewbox>
-                                                            <Button.Tag>
-                                                                <Binding Path="Id" />
-                                                            </Button.Tag>
-                                                        </Button>
                                                     </Grid>
                                                 </Border>
                                             </DataTemplate>
@@ -380,14 +356,6 @@
                                                             </TextBlock>
                                                         </StackPanel>
                                                         
-                                                        <Button  Style="{StaticResource DeleteButton}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20 10 0 15">
-                                                            <Viewbox Width="20" Height="20">
-                                                                <wpf:FontAwesome Icon="Trash" />
-                                                            </Viewbox>
-                                                            <Button.Tag>
-                                                                <Binding Path="Id" />
-                                                            </Button.Tag>
-                                                        </Button>
                                                     </Grid>
                                                 </Border>
                                             </DataTemplate>
