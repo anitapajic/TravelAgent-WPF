@@ -6,8 +6,9 @@
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         xmlns:service="clr-namespace:TravelAgentTim19.Service"
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip" 
-        Title="Glavni prozor (Korisnik)" Height="600" Width="1100"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResizeWithGrip"
+        AllowsTransparency="True"         Background="Transparent"
+        Title="Glavni prozor (Korisnik)" Height="600" Width="1100" MinWidth="600" MinHeight="600"
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     
@@ -23,68 +24,73 @@
         <Border CornerRadius="10 0 0 10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
-                    <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
-                    <GradientStop Color="#3AADA1" Offset="1"></GradientStop>
+                    <GradientStop Color="#3AA9AD" Offset="0" />
+                    <GradientStop Color="#3AADA1" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
-
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
             <StackPanel>
                 <!-- Username-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 35 0 0">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="40 35 0 0">
                     <Border CornerRadius="250" Width="45" Height="45">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                <GradientStop Color="#11172F" Offset="0"></GradientStop>
-                                <GradientStop Color="#515F98" Offset="1"></GradientStop>
+                                <GradientStop Color="#11172F" Offset="0" />
+                                <GradientStop Color="#515F98" Offset="1" />
                             </LinearGradientBrush>
                         </Border.Background>
-                        <TextBlock Text="K" Foreground="#FFFFFF" FontSize="22" FontWeight="SemiBold"
-                                   TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2">
-                        </TextBlock>
+                        <TextBlock Text="{Binding User.FirstName[0]}" Foreground="#FFFFFF" FontSize="22" FontWeight="SemiBold"
+                                   TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2" />
                     </Border>
 
                     <StackPanel Margin="10 0 0 0" VerticalAlignment="Center">
-                        <TextBlock Text="Korisnik" FontSize="15" Margin="0 0 0 5" Foreground="#FFFFFF"></TextBlock>
+                        <TextBlock Text="{Binding User}" FontSize="15" Margin="0 0 0 5" Foreground="#FFFFFF" />
                     </StackPanel>
                 </StackPanel>
-                <Separator Height="0.8" Margin="20 30" Background="#FFFFFF"></Separator>
+                <Separator Height="0.8" Margin="20 30" Background="#FFFFFF" />
 
                 <!-- Manu Buttons-->
                 <Button Style="{StaticResource ManuButton}" Click="TripItem_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="Car" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Putovanja" Style="{StaticResource ManuButtonText}"></TextBlock>
+                        <TextBlock Text="Putovanja" Style="{StaticResource ManuButtonText}" />
                     </StackPanel>
                 </Button>
 
                 <Button Style="{StaticResource ManuButton}" Click="AttractionItem_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="Map" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Turisticke atrakcije" Style="{StaticResource ManuButtonText}"></TextBlock>
+                        <TextBlock Text="Turisticke atrakcije" Style="{StaticResource ManuButtonText}" />
                     </StackPanel>
                 </Button>
 
                 <Button Style="{StaticResource ManuButton}" Click="AccomodationItem_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="Hotel" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Smestaj" Style="{StaticResource ManuButtonText}"></TextBlock>
+                        <TextBlock Text="Smestaj" Style="{StaticResource ManuButtonText}" />
                     </StackPanel>
                 </Button>
 
                 <Button Style="{StaticResource ManuButton}" Click="RestaurantItem_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="Cutlery" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Restorani" Style="{StaticResource ManuButtonText}"></TextBlock>
+                        <TextBlock Text="Restorani" Style="{StaticResource ManuButtonText}" />
                     </StackPanel>
                 </Button>
-
-                <Button Style="{StaticResource ManuButton}" Margin="0 170 0 20" Click="Logout_Click">
+                
+                </StackPanel>
+                
+                <Button Grid.Row="1" Style="{StaticResource ManuButton}"  Click="Logout_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="PowerOff" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Izloguj se" Style="{StaticResource ManuButtonText}"></TextBlock>
+                        <TextBlock Text="Izloguj se" Style="{StaticResource ManuButtonText}" />
                     </StackPanel>
                 </Button>
-            </StackPanel>
+            </Grid>
         </Border>
 
         <!-- Main section-->
@@ -104,9 +110,11 @@
                 </Grid.RowDefinitions>
 
                 <!-- Top manu trips grid section-->
-                <StackPanel Grid.Row="0" Name="TripsGridTopManu" Visibility="Visible" Orientation="Horizontal"
+                <WrapPanel Grid.Row="0" Name="TripsGridTopManu" Visibility="Visible" Orientation="Horizontal"
                             VerticalAlignment="Bottom"
-                            HorizontalAlignment="Right" Margin="0 10 30 0">
+                            HorizontalAlignment="Right" Margin="0 20 30 0">
+                    <TextBlock Visibility="Hidden" Text="aaaaaaaaaaaaaaaaaaaaaaaaa"/>
+
                     <Button Content="Sva putovanja" Style="{StaticResource TopManuButton}" FontWeight="Medium"
                             Click="TripItem_Click">
                     </Button>
@@ -116,7 +124,7 @@
                     <Button Content="Kupljeni aranzmani" Style="{StaticResource TopManuButton}" FontWeight="Medium"
                             Click="PurchasedTripItem_Click">
                     </Button>
-                </StackPanel>
+                </WrapPanel>
                 <!-- Top manu titles-->
                 <TextBlock Name="TripsGridTitle" Visibility="Visible" Text="Putovanja" FontSize="23"
                            HorizontalAlignment="Left" Margin="50 35 0 5">
@@ -133,10 +141,6 @@
                 
 
                 <Grid Grid.Row="2" Margin="50 20 15 40">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
                     <!-- Trips grid-->
                     <Grid Name="TripsGrid" Visibility="Visible">
                         <Grid>
