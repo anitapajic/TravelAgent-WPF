@@ -3,6 +3,7 @@
 public class Restaurant
 {
     public int Id { get; set; }
+    public string ImgPath{ get; set; }
     public Location Location{ get; set; }
     public string Name{ get; set; }
     public double Rating{ get; set; }
@@ -11,9 +12,10 @@ public class Restaurant
     {
     }
 
-    public Restaurant(int id, Location location, string name, double rating)
+    public Restaurant(int id,string imgPath, Location location, string name, double rating)
     {
         Id = id;
+        ImgPath = imgPath;
         Location = location;
         Name = name;
         Rating = rating;

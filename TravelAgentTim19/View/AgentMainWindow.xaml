@@ -243,10 +243,7 @@
                                             <DataTemplate>
                                                 <Border Margin="0 0 17 12" Height="150" Width="230">
                                                     <Border.Background>
-                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                                            <GradientStop Color="#3AA9AD" Offset="0" />
-                                                            <GradientStop Color="#3AB19B" Offset="1" />
-                                                        </LinearGradientBrush>
+                                                        <ImageBrush ImageSource="{Binding ImgPath}" Stretch="UniformToFill"/>
                                                     </Border.Background>
                                                     <Border.Clip>
                                                         <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 230 150" />
@@ -340,10 +337,7 @@
                                                 <DataTemplate>
                                                     <Border Margin="0 0 17 12" Height="150" Width="230">
                                                         <Border.Background>
-                                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                                                <GradientStop Color="#3AA9AD" Offset="0" />
-                                                                <GradientStop Color="#3AB19B" Offset="1" />
-                                                            </LinearGradientBrush>
+                                                            <ImageBrush ImageSource="{Binding ImgPath}" Stretch="UniformToFill"/>
                                                         </Border.Background>
                                                         <Border.Clip>
                                                             <RectangleGeometry RadiusX="15" RadiusY="15"
@@ -407,10 +401,7 @@
                                             <DataTemplate>
                                                 <Border Margin="0 0 17 12" Height="150" Width="230">
                                                     <Border.Background>
-                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                                            <GradientStop Color="#3AA9AD" Offset="0" />
-                                                            <GradientStop Color="#3AB19B" Offset="1" />
-                                                        </LinearGradientBrush>
+                                                        <ImageBrush ImageSource="{Binding ImgPath}" Stretch="UniformToFill"/>
                                                     </Border.Background>
                                                     <Border.Clip>
                                                         <RectangleGeometry RadiusX="15" RadiusY="15"
@@ -473,10 +464,7 @@
                                             <DataTemplate>
                                                 <Border Margin="0 0 17 12" Height="150" Width="230">
                                                     <Border.Background>
-                                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                                            <GradientStop Color="#3AA9AD" Offset="0" />
-                                                            <GradientStop Color="#3AB19B" Offset="1" />
-                                                        </LinearGradientBrush>
+                                                        <ImageBrush ImageSource="{Binding ImgPath}" Stretch="UniformToFill"/>
                                                     </Border.Background>
                                                     <Border.Clip>
                                                         <RectangleGeometry RadiusX="15" RadiusY="15"

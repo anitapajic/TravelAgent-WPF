@@ -25,9 +25,9 @@ public partial class AddNewAttractionWindow
     {
         Random rand = new Random();
         int id = rand.Next(10000);
-        Attraction attraction = new Attraction(id, TxtName.Text, new Location(TxtCity.Text, TxtAddress.Text), Convert.ToDouble(TxtPrice.Text), TxtDescription.Text);
-        MainRepository.AttractionRepository.AddAttraction(attraction);
-        MessageBox.Show("Uspesno si dodao novu atrakciju!");
+        // Attraction attraction = new Attraction(id, TxtName.Text, new Location(TxtCity.Text, TxtAddress.Text), Convert.ToDouble(TxtPrice.Text), TxtDescription.Text);
+        // MainRepository.AttractionRepository.AddAttraction(attraction);
+        // MessageBox.Show("Uspesno si dodao novu atrakciju!");
         Close();
     }
     

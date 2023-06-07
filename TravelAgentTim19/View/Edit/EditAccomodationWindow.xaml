@@ -87,10 +87,7 @@
                     <Grid>
                         <Border CornerRadius="15 15 45 45" Margin="20 20 20 120">
                             <Border.Background>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                    <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
-                                    <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
-                                </LinearGradientBrush>
+                                <ImageBrush ImageSource="{Binding Accomodation.ImgPath}" Stretch="UniformToFill"/>
                             </Border.Background>
                             <Grid>
                                 <Button Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}" Click="EditAccomodationBtn_Clicked"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 20 0 15">
