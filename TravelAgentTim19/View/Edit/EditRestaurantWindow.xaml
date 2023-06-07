@@ -3,59 +3,84 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="EditRestaurantWindow" Height="450" Width="800">
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        WindowStyle="None" ResizeMode="CanResize"
+        AllowsTransparency="True"
+        Background="#FFFFFF"
+        Title="EditRestaurantWindow" Height="600" Width="1100">
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
     <Grid>
-        <Grid x:Name="InfoGrid" Margin="50">
+            
+        <Grid x:Name="InfoGrid" Margin="0">
+            <!-- Row and Column Definitions -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                
             </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                   Style="{StaticResource ImgClose}" />
             
-            <!-- Title -->
-            <TextBlock Text="INFO RESTORANA" FontSize="20" FontWeight="Bold" Margin="-20, 10, 0,0"/>
-        
-            <!-- Name -->
-            <TextBlock Text="Naziv:" Grid.Row="1" Margin="10"/>
-            <TextBlock Name="nameTextBlock" Text="{Binding Restaurant.Name}" Grid.Row="1" Grid.Column="1" Margin="10" Width="200"/>
+            <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="550" Margin="0 0 0 -20" Panel.ZIndex="999" Background="White">
+                <Grid>
+                    <Grid>
+                        <Border CornerRadius="15 15 45 45" Margin="20 20 20 120">
+                            <Border.Background>
+                                <ImageBrush ImageSource="{Binding Restaurant.ImgPath}" Stretch="UniformToFill"/>
+                            </Border.Background>
+                            <Grid>
+                                <Button Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}" Click="EditRestaurantBtn_Clicked"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 20 0 15">
+                                    <Viewbox Width="20" Height="20">
+                                        <wpf:FontAwesome Icon="Pencil" />
+                                    </Viewbox>
+                                </Button>
+                                <StackPanel Margin="100 60 10 5" VerticalAlignment="Top">
+                                    <TextBlock Name="nameTextBlock" Text="{Binding Restaurant.Name}" Foreground="#FFFFFF"
+                                               FontSize="50" FontWeight="SemiBold">
+                                    </TextBlock>
+                                </StackPanel>
 
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    <Grid Margin="60 450 50 10">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Name="typeTextBlock" Text="Restoran" Foreground="#11172F" FontSize="30" FontWeight="SemiBold"/>
+                                <wpf:FontAwesome Icon="Star" Margin="80,9,10,0" Foreground="#F2B312" FontSize="25"/>
+                                <TextBlock Margin="0 5 0 0" Text="{Binding Restaurant.Rating}" Foreground="#11172F" FontSize="23" FontWeight="DemiBold"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="3,10,0,0">
+                                <wpf:FontAwesome Icon="MapPin" Margin="0,0,8,0" Foreground="#11172F" FontSize="18" />
+                                <TextBlock Name="addressTextBlock" Text="{Binding Restaurant.Location.Address}" Foreground="Gray" FontSize="18"/>
+                            </StackPanel>
+                            
+                        </StackPanel>
+                        
+                    </Grid>
+                </Grid>
+               
+            </Border>
             
-            <!-- Rating -->
-            <TextBlock  Text="Rejting:" Grid.Row="2" Margin="10"/>
-            <TextBlock Name="ratingTextBlock" Text="{Binding Restaurant.Rating}" Grid.Row="2" Grid.Column="1" Margin="10" Width="200"/>
-        
-            <!-- Location -->
-            <TextBlock Text="Lokacija:" Grid.Row="3" Margin="10"/>
-            <TextBlock Name="addressTextBlock" Text="{Binding Restaurant.Location.Address}" Grid.Row="3" Grid.Column="1" Margin="10" Width="200"/>
-            <Grid Grid.Row="4" Name="MapGrid" Height="200" Visibility="Visible" Grid.ColumnSpan="2" >
-                <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="30,5,30,10" />
+            <!-- Travel Description -->
+            
+            <Grid Grid.Row="3" Name="MapGrid" Height="450" Visibility="Visible" Grid.ColumnSpan="3" Margin="0 -70 0 0" >
+                <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0,5,0,10" />
+                
             </Grid>
-            <!-- Image -->
-            <TextBlock Text="SLIKE" Grid.Row="5" Margin="10"></TextBlock>
-            <!-- <ListView BorderBrush="Gray" BorderThickness="2" Grid.Row="5"  Height="80" Width="200"> -->
-            <!--     <ItemsControl Margin="10" x:Name="myImages"> -->
-            <!--         <ItemsControl.ItemsPanel> -->
-            <!--             <ItemsPanelTemplate > -->
-            <!--                 <StackPanel Orientation="Horizontal"/> -->
-            <!--             </ItemsPanelTemplate> -->
-            <!--         </ItemsControl.ItemsPanel> -->
-            <!--     </ItemsControl> -->
-            <!-- </ListView> -->
-
-        
-            <!-- Submit button -->
-            <Button Content="Izmeni" Click="EditRestaurantBtn_Clicked" Grid.Row="7"  HorizontalAlignment="Center" Width="100" Height="30" Margin="0,20,0,10"/>
-
-        </Grid>
+       </Grid>
         
         <Grid x:Name="EditGrid" Visibility="Hidden"  Margin="50">
             <Grid.RowDefinitions>

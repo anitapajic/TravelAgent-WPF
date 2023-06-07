@@ -56,13 +56,13 @@
             
             <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="450" Margin="0 0 0 -20" Panel.ZIndex="999">
                 <Border.Background>
-                    <ImageBrush ImageSource="/Images/beograd.jpg" Stretch="UniformToFill"></ImageBrush>
+                    <ImageBrush ImageSource="{Binding Trip.ImgPath}" Stretch="UniformToFill"/>
                 </Border.Background>
                 <Grid>
                     <!-- <Image Source="/Images/beograd.jpg" Stretch="UniformToFill"/> -->
                     <Button Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}" Click="EditTripBtn_Clicked"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 40 40 15">
                         <Viewbox Width="20" Height="20">
-                            <wpf:FontAwesome Icon="Pencil" />
+                            <wpf:FontAwesome Icon="Pencil" Name="pencil" Visibility="Visible"/>
                         </Viewbox>
                     </Button>
                     <StackPanel Margin="100 60 10 5" VerticalAlignment="Top">

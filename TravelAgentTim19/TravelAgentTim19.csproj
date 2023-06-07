@@ -26,6 +26,33 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Resource Include="Images\Attractions\BeoTvrdjava.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Images\Attractions\DjavoljaVaros.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Images\Attractions\Drvengrad.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Images\Attractions\GolubacTvrdjava.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Images\Attractions\Kopaonik.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Images\Attractions\NiskaTvrdjava.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Images\Attractions\Oplenac.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Images\Attractions\Studenica.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <Resource Include="Images\Attractions\Venicijum.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
       <Resource Include="Images\close.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Resource>
@@ -58,11 +85,77 @@
       <Resource Include="Images\redPin.png" />
       <None Remove="Images\beo.jfif" />
       <None Remove="Images\beograd.jpg" />
-      <Resource Include="Images\beograd.jpg">
+      <None Remove="Images\ns.jpg" />
+      <None Remove="Images\BeoTvrdjava.jpg" />
+      <None Remove="Images\djavoljaVaros.jpg" />
+      <None Remove="Images\Drvengrad.jpg" />
+      <None Remove="Images\GolubacTvrdjava.jpg" />
+      <None Remove="Images\Kopaonik.jpg" />
+      <None Remove="Images\manastirStudenica.jfif" />
+      <None Remove="Images\NiskaTvrdjava.jpg" />
+      <None Remove="Images\Oplenac.jpg" />
+      <None Remove="Images\Studenica.jpg" />
+      <None Remove="Images\Venicijum.jpg" />
+      <Resource Include="Images\Trips\beograd.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Resource>
-      <None Remove="Images\ns.jpg" />
-      <Resource Include="Images\ns.jpg">
+      <Resource Include="Images\Trips\ns.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Attractions\Petrovaradin.jpg" />
+      <Resource Include="Images\Attractions\Petrovaradin.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Accomodations\Aleksandar.png" />
+      <Resource Include="Images\Accomodations\Aleksandar.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Accomodations\Hilton.jpg" />
+      <Resource Include="Images\Accomodations\Hilton.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Accomodations\Hyatt.jpg" />
+      <Resource Include="Images\Accomodations\Hyatt.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Accomodations\Moskva.jpg" />
+      <Resource Include="Images\Accomodations\Moskva.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Accomodations\Park.jpg" />
+      <Resource Include="Images\Accomodations\Park.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Accomodations\Pupin.jpg" />
+      <Resource Include="Images\Accomodations\Pupin.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Accomodations\Turist.jpg" />
+      <Resource Include="Images\Accomodations\Turist.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Restourants\As.jpg" />
+      <Resource Include="Images\Restourants\As.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Restourants\Bottega.jpg" />
+      <Resource Include="Images\Restourants\Bottega.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Restourants\Camelot.jpg" />
+      <Resource Include="Images\Restourants\Camelot.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Restourants\IrishPub.jpg" />
+      <Resource Include="Images\Restourants\IrishPub.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Restourants\Skadarlija.jpg" />
+      <Resource Include="Images\Restourants\Skadarlija.jpg">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Images\Restourants\Vapiano.jpg" />
+      <Resource Include="Images\Restourants\Vapiano.jpg">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Resource>
     </ItemGroup>

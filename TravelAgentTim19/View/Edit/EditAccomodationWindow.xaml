@@ -12,7 +12,7 @@
         AllowsTransparency="True"
         Background="#FFFFFF"
         Title="Edit Accomodation" Height="600" Width="1100">
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <Grid>
             <!--<Grid x:Name="InfoGrid" Margin="50">
                     

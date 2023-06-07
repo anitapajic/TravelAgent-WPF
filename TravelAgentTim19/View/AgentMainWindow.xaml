@@ -148,7 +148,7 @@
                 <TextBlock Name="RestourantGridTitle" Visibility="Hidden" Text="Restorani" FontSize="23"
                            HorizontalAlignment="Left" Margin="50 35 0 5" />
 
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="2" Panel.ZIndex="99999" >
                     <ToggleButton x:Name="ToggleButtonAttraction" Click="ToggleButtonAttraction_Click"
                                   Width="40"
                                   Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
@@ -227,7 +227,7 @@
                     </ToggleButton>
                 </Grid>
 
-                <Grid Grid.Row="3" Margin="50 20 15 40">
+                <Grid Grid.Row="3" Margin="50 20 15 25">
                     <!-- Trips grid-->
                     <Grid Name="TripsGrid" Visibility="Visible">
                         <Grid>
@@ -316,9 +316,9 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Grid Name="MapGrid" Height="230" Visibility="Hidden" Grid.Row="0">
+                        <Grid Name="MapGrid" Height="200" Visibility="Hidden" Grid.Row="0">
                             <gmap:GMapControl x:Name="gmap" Loaded="map_load"
-                                              MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0 0 15 25" />
+                                              MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0 -65 15 25" />
 
                         </Grid>
                         <Grid Grid.Row="1" Name="AttractionGrid" Visibility="Hidden">
