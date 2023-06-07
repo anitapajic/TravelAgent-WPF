@@ -32,6 +32,10 @@ public partial class EditRestaurantWindow
             gmap.Zoom = (gmap.Zoom < gmap.MaxZoom) ? gmap.Zoom + 1 : gmap.MaxZoom;
         }
     }
+    private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+    {
+        Close();
+    }
     private void map_load(object sender, RoutedEventArgs e)
     {
         gmap.Bearing = 0;
@@ -113,7 +117,7 @@ public partial class EditRestaurantWindow
             
             MainRepository.RestaurantsRepository.UpdateRestaurant(Restaurant);
             nameTextBlock.Text = Restaurant.Name;
-            ratingTextBlock.Text = Restaurant.Rating.ToString();
+            //ratingTextBlock.Text = Restaurant.Rating.ToString();
             addressTextBlock.Text = Restaurant.Location.Address;
             
             InfoRestaurantBtn_Clicked(sender, e);

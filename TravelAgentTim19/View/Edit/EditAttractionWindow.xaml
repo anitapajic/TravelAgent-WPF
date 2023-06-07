@@ -13,7 +13,7 @@
         AllowsTransparency="True"
         Background="#FFFFFF"
         Title="EditAttractionWindow" Height="600" Width="1100">
-    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <Grid>
             <!--<Grid x:Name="InfoGrid" Margin="0">
             ~1~ Row and Column Definitions @1@
@@ -104,27 +104,14 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999"
+                <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                        Style="{StaticResource ImgClose}" />
 
                 <Border Grid.ColumnSpan="3" Grid.Row="0" Height="520" Margin="0 0 0 -50" Panel.ZIndex="999">
                     <Border.Background>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                            <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
-                            <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
-                        </LinearGradientBrush>
+                        <ImageBrush ImageSource="{Binding Attraction.ImgPath}" Stretch="UniformToFill"/>
                     </Border.Background>
                     <Grid>
-                        <ListBox ItemsSource="{Binding Trip.Attractions}" Margin="10">
-                            <ListBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock  Text="{Binding Name}" Margin="0,0,10,0" Foreground="#FFFFFF" FontSize="15"/>
-                                        <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> 
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ListBox.ItemTemplate>
-                        </ListBox>
                         <Button Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}"
                                 Click="EditAttractionBtn_Clicked" HorizontalAlignment="Right" VerticalAlignment="Top"
                                 Width="100" MaxHeight="40" Margin="0 40 40 15">

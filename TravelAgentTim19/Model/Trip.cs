@@ -7,6 +7,7 @@ public class  Trip
 {
     public int Id { get; set; }
     public string Name { get; set; }
+    public string ImgPath{ get; set; }
     public double Price{ get; set; }
     public List<Accomodation> Accomodations{ get; set; }
     public List<Attraction> Attractions{ get; set; }
@@ -22,6 +23,7 @@ public class  Trip
     {
         Id = trip.Id;
         Name = trip.Name;
+        ImgPath = trip.ImgPath;
         Price = trip.Price;
         Accomodations = trip.Accomodations;
         Attractions = trip.Attractions;
@@ -36,10 +38,11 @@ public class  Trip
     //         trip.Description);
     // }
 
-    public Trip(int id, string name, double price, List<Accomodation> accomodations, List<Attraction> attractions, List<Restaurant> restaurants, List<DatePeriods> datePeriods, string description)
+    public Trip(int id, string name,string imgPath, double price, List<Accomodation> accomodations, List<Attraction> attractions, List<Restaurant> restaurants, List<DatePeriods> datePeriods, string description)
     {
         Id = id;
         Name = name;
+        ImgPath = imgPath;
         Price = price;
         Accomodations = accomodations;
         Attractions = attractions;
