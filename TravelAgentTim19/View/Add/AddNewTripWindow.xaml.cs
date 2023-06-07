@@ -249,13 +249,13 @@ public partial class AddNewTripWindow
     }
     private void CreateTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
-        string name = NameBox.Text;
+        string name = TxtName.Text;
         string description = DescriptionBox.Text;
 
         double price;
         try
         {
-            string p = PriceBox.Text;
+            string p = TxtPrice.Text;
             price = Double.Parse(p);
         }
         catch
@@ -307,5 +307,44 @@ public partial class AddNewTripWindow
             MainRepository.TripRepository.AddTrip(trip);
             Close();
         }
+    }
+    private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TxtName.Text) && TxtName.Text.Length > 0)
+            TextName.Visibility = Visibility.Collapsed;
+        else
+            TextName.Visibility = Visibility.Visible;
+    }
+        
+
+    private void textName_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtName.Focus();
+    }
+
+   
+    private void textDesc_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TextDes.Focus();
+    }
+
+    private void descBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(DescriptionBox.Text) && DescriptionBox.Text.Length > 0)
+            DescriptionBox.Visibility = Visibility.Collapsed;
+        else
+            DescriptionBox.Visibility = Visibility.Visible;
+    }
+    private void textPrice_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtPrice.Focus();
+    }
+
+    private void priceBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TxtPrice.Text) && TxtPrice.Text.Length > 0)
+            TextPrice.Visibility = Visibility.Collapsed;
+        else
+            TextPrice.Visibility = Visibility.Visible;
     }
 }

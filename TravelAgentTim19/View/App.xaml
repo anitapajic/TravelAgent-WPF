@@ -110,7 +110,31 @@
             <Setter Property="BorderBrush" Value="Transparent" />
             <Setter Property="BorderThickness" Value="0" />
         </Style>
-
+        
+        <Style x:Key="TextBoxEdit" TargetType="Control">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Foreground" Value="#878787" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Control">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" /> <!-- Row for the label -->
+                                <RowDefinition Height="Auto" /> <!-- Row for the text editing control -->
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" /> <!-- Column for the label -->
+                                <ColumnDefinition Width="*" /> <!-- Column for the text editing control -->
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="Label" Grid.Row="0" Grid.Column="0" Margin="10" />
+                            <TextBox Text="Text for editing" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <Style x:Key="MainButton" TargetType="{x:Type Button}">
             <Setter Property="FontSize" Value="14" />

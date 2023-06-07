@@ -71,13 +71,13 @@ public partial class AddNewRestaurantWindow
 
     private void CreateRestaurantBtn_Clicked(object sender, RoutedEventArgs e)
     {
-        string name = NameBox.Text;
+        string name = TxtName.Text;
         Location location = new Location();
-        location.Address = LocationBox.Text;
+        location.Address = TxtAddress.Text;
         ItemCollection Images = ImageList.Items;
 
         // double rating = RatingSlider.Value;
-        double rating = slider.Value;
+        //double rating = slider.Value;
 
         // Validate inputs
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(location.Address) || Images == null || Images.Count == 0)
@@ -96,7 +96,7 @@ public partial class AddNewRestaurantWindow
             restaurant.Id = rand.Next(10000);
             restaurant.Location = location;
             restaurant.Name = name;
-            restaurant.Rating = rating;
+            //restaurant.Rating = rating;
             //dodati slike
             MainRepository.RestaurantsRepository.AddRestaurant(restaurant);
             Close();
@@ -124,11 +124,52 @@ public partial class AddNewRestaurantWindow
                 image.Width = 50;
                 image.MaxHeight = 50;
 
-                ImageList.Items.Add(image);
+               // ImageList.Items.Add(image);
             }
             
         }
     }
+     private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TxtName.Text) && TxtName.Text.Length > 0)
+            TextName.Visibility = Visibility.Collapsed;
+        else
+            TextName.Visibility = Visibility.Visible;
+    }
+        
+
+    private void textName_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtName.Focus();
+    }
+
+    private void textCity_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtCity.Focus();
+    }
+
+    private void cityBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TxtCity.Text) && TxtCity.Text.Length > 0)
+            TextCity.Visibility = Visibility.Collapsed;
+        else
+            TextCity.Visibility = Visibility.Visible;
+    }
+
+    private void textAddress_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtAddress.Focus();
+    }
+
+    private void addressBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TxtAddress.Text) && TxtAddress.Text.Length > 0)
+            TextAddress.Visibility = Visibility.Collapsed;
+        else
+            TextAddress.Visibility = Visibility.Visible;
+    }
+
+
 
 }
 

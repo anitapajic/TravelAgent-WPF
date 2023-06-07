@@ -69,9 +69,9 @@ public partial class AddNewAccomodationWindow
     
     private void CreateAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
     {
-        string name = NameBox.Text;
+        string name = TxtName.Text;
         Location location = new Location();
-        location.Address = LocationBox.Text;
+        location.Address = TxtAddress.Text;
         ItemCollection Images = ImageList.Items;
         AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
         // double rating = RatingSlider.Value;
@@ -127,5 +127,46 @@ public partial class AddNewAccomodationWindow
             
         }
     }
+     private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TxtName.Text) && TxtName.Text.Length > 0)
+            TextName.Visibility = Visibility.Collapsed;
+        else
+            TextName.Visibility = Visibility.Visible;
+    }
+        
+
+    private void textName_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtName.Focus();
+    }
+
+   
+    private void textAddress_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtAddress.Focus();
+    }
+
+    private void addressBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TxtAddress.Text) && TxtAddress.Text.Length > 0)
+            TextAddress.Visibility = Visibility.Collapsed;
+        else
+            TextAddress.Visibility = Visibility.Visible;
+    }
+
+    private void textPrice_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtPrice.Focus();
+    }
+
+    private void priceBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TxtPrice.Text) && TxtPrice.Text.Length > 0)
+            TextPrice.Visibility = Visibility.Collapsed;
+        else
+            TextPrice.Visibility = Visibility.Visible;
+    }
+    
 
 }
