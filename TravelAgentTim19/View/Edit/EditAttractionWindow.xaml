@@ -13,7 +13,7 @@
         AllowsTransparency="True"
         Background="#FFFFFF"
         Title="EditAttractionWindow" Height="600" Width="1100">
-    
+
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
@@ -21,7 +21,7 @@
     <Window.InputBindings>
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
-    
+
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <Grid>
             <!--<Grid x:Name="InfoGrid" Margin="0">
@@ -118,7 +118,7 @@
 
                 <Border Grid.ColumnSpan="3" Grid.Row="0" Height="520" Margin="0 0 0 -50" Panel.ZIndex="999">
                     <Border.Background>
-                        <ImageBrush ImageSource="{Binding Attraction.ImgPath}" Stretch="UniformToFill"/>
+                        <ImageBrush ImageSource="{Binding Attraction.ImgPath}" Stretch="UniformToFill" />
                     </Border.Background>
                     <Grid>
                         <Button Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}"
@@ -146,29 +146,33 @@
                     <Grid>
                         <Grid Margin="40 40 40 35">
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Name="nameTextBlock" Text="{Binding Attraction.Name}" FontWeight="SemiBold" Foreground="#11172F"
+                                <TextBlock Name="nameTextBlock" Text="{Binding Attraction.Name}" FontWeight="SemiBold"
+                                           Foreground="#11172F"
                                            FontSize="35">
                                 </TextBlock>
                                 <StackPanel Orientation="Horizontal" Margin="3,15,0,0">
                                     <wpf:FontAwesome Icon="MapPin" Margin="0,0,8,0" Foreground="#11172F" FontSize="18" />
-                                    <TextBlock Name="addressTextBlock" Text="{Binding Attraction.Location.Address}" Foreground="Gray" FontSize="18" />
+                                    <TextBlock Name="addressTextBlock" Text="{Binding Attraction.Location.Address}"
+                                               Foreground="Gray" FontSize="18" />
                                     <wpf:FontAwesome Icon="Star" Margin="80,0,10,0" Foreground="#F2B312" FontSize="25" />
-                                    <TextBlock Name="priceTextBlock" Margin="0 0 0 0" Text="{Binding Attraction.Price}" Foreground="Gray"
+                                    <TextBlock Name="priceTextBlock" Margin="0 0 0 0" Text="{Binding Attraction.Price}"
+                                               Foreground="Gray"
                                                FontSize="20" FontWeight="DemiBold" />
                                 </StackPanel>
                                 <StackPanel Margin="0 20 0 0">
                                     <TextBlock Text="Opis atrakcije" FontSize="25" FontWeight="SemiBold"
                                                Foreground="#11172F">
                                     </TextBlock>
-                                    <TextBlock Name="descTextBlock" MaxHeight="100" Text="{Binding Attraction.Description}" TextWrapping="Wrap"
+                                    <TextBlock Name="descTextBlock" MaxHeight="100"
+                                               Text="{Binding Attraction.Description}" TextWrapping="Wrap"
                                                Foreground="Gray" FontSize="15" Margin="0 15 0 0" />
                                 </StackPanel>
-                                
+
                             </StackPanel>
                         </Grid>
                         <Grid Margin="30 200 30 30">
                             <Border CornerRadius="15">
-                                <Grid Name="MapGrid" Height="450" Visibility="Visible" 
+                                <Grid Name="MapGrid" Height="450" Visibility="Visible"
                                       Margin="10 20 10 20">
                                     <gmap:GMapControl x:Name="gmap" Loaded="map_load"
                                                       MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0,5,0,10" />
@@ -190,7 +194,7 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                
+
                 <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                        Style="{StaticResource ImgClose}" Margin="0 0 -35 0" />
 
@@ -228,22 +232,22 @@
                                  Text="{Binding Attraction.Price, Mode=OneWay}" Margin="10 22 10 5" />
                     </Grid>
                 </Border>
-            
-            <!-- Location -->
-            <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#3AA9AD" BorderThickness="1"
-                    Margin="0 7  10 7"
-                    CornerRadius="5">
 
-                <Grid Margin="7 9">
+                <!-- Location -->
+                <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#3AA9AD" BorderThickness="1"
+                        Margin="0 7  10 7"
+                        CornerRadius="5">
 
-                    <Grid>
-                        <TextBlock x:Name="TextLocation" Text="Lokacija"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                    <Grid Margin="7 9">
+
+                        <Grid>
+                            <TextBlock x:Name="TextLocation" Text="Lokacija"
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                        </Grid>
+                        <TextBox Name="TxtLocation" MouseDown="textName_MouseDown" Style="{StaticResource TextBox}"
+                                 Text="{Binding Attraction.Location, Mode=OneWay}" Margin="10 22 10 5" />
                     </Grid>
-                    <TextBox Name="TxtLocation" MouseDown="textName_MouseDown" Style="{StaticResource TextBox}"
-                             Text="{Binding Attraction.Location, Mode=OneWay}" Margin="10 22 10 5" />
-                </Grid>
-            </Border>
+                </Border>
                 <!-- Description -->
                 <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#3AA9AD" BorderThickness="1"
                         Margin="0 7"
@@ -257,37 +261,38 @@
 
                     </Grid>
                 </Border>
-            <!-- Image drop -->
-            <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#3AA9AD" BorderThickness="1"
-                    Margin="0 7"
-                    CornerRadius="5" Height="150">
+                <!-- Image drop -->
+                <Border Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#3AA9AD" BorderThickness="1"
+                        Margin="0 7"
+                        CornerRadius="5" Height="150">
 
-                <Grid>
-                    <Grid Margin="7 9">
-                        <TextBlock x:Name="Images" Text="Prevuci slike"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                    <Grid>
+                        <Grid Margin="7 9">
+                            <TextBlock x:Name="Images" Text="Prevuci slike"
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
 
+                        </Grid>
+                        <Grid Margin="7 30 7 9">
+                            <ListView BorderBrush="Transparent"
+                                      AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
+                                      MouseDown="ListView_MouseClick">
+                                <ItemsControl Margin="10" x:Name="ImageList">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </ListView>
+                        </Grid>
                     </Grid>
-                    <Grid Margin="7 30 7 9">
-                        <ListView BorderBrush="Transparent"
-                                  AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
-                                  MouseDown="ListView_MouseClick">
-                            <ItemsControl Margin="10" x:Name="ImageList">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal" />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                            </ItemsControl>
-                        </ListView>
-                    </Grid>
-                </Grid>
-            </Border>
-            
-            <!-- Button -->
-            <Button x:Name="SaveButton" Content="Sacuvaj"
-                    Grid.Row="6" Grid.ColumnSpan="2" Click="SaveChangesBtn_Clicked" Style="{StaticResource MainButton}"
-                    Margin="40" />
+                </Border>
+
+                <!-- Button -->
+                <Button x:Name="EditButton" Content="Sacuvaj"
+                        Grid.Row="6" Grid.ColumnSpan="2" Click="SaveChangesBtn_Clicked"
+                        Style="{StaticResource MainButton}"
+                        Margin="40" />
 
                 <!--
                 ~1~ Title @1@
@@ -332,8 +337,8 @@
                 <Button Content="Nazad na informacije" Click="InfoAttractionBtn_Clicked" Grid.Row="7"
                         HorizontalAlignment="Center" Width="160" MaxHeight="50" Margin="0, 20,200,0" />
                 <Button x:Name="EditButton" Content="Sacuvaj" Click="SaveChangesBtn_Clicked" Grid.Row="7" HorizontalAlignment="Center"
-                        Width="160" MaxHeight="50" Margin="0, 20,-200,0" />
-            </Grid>
+                        Width="160" MaxHeight="50" Margin="0, 20,-200,0" />-->
+            </Grid> 
         </Grid>
     </ScrollViewer>
 </Window>

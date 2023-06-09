@@ -555,7 +555,7 @@
                 </Border>
 
                 <!-- Button -->
-                <Button x:Name="SaveButton" Content="Sacuvaj"
+                <Button x:Name="EditButton" Content="Sacuvaj"
                         Grid.Row="11" Grid.ColumnSpan="2" Click="EditTripBtn_Clicked" Style="{StaticResource MainButton}"
                         Margin="40" />
 
@@ -696,7 +696,7 @@
             </ListView>
             ~1~ Submit button @1@
             <Button Grid.Row="14" Grid.Column="0" Content="Nazad na info" Click="InfoTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>
-            <Button  x:Name="EditButton" Grid.Row="14" Grid.Column="1" Content="Sacuvaj izmene" Click="SaveTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>
+            <Button  x:Name="EditButton" Grid.Row="14" Grid.Column="1" Content="Sacuvaj izmene" Click="SaveTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>-->
         </Grid>
         </Grid>
     </ScrollViewer>
