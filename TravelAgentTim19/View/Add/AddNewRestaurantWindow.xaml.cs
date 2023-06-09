@@ -62,7 +62,7 @@ public partial class AddNewRestaurantWindow
     {
         
         string fileName = Path.GetFileName(filePath);
-        string destinationFolderPath = "C:\\Users\\tamar\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\Images"; // Destination folder path
+        string destinationFolderPath = "C:\\Users\\tamar\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\Images\\Restourants"; // Destination folder path
         string destinationFilePath = Path.Combine(destinationFolderPath, fileName);
 
         // Copy the image to the destination folder
@@ -107,9 +107,15 @@ public partial class AddNewRestaurantWindow
             restaurant.Location = location;
             restaurant.Name = name;
             // restaurant.Rating = rating;
-            // restaurant.ImgPath = Images[0].ToString();
+            
+            Image image = (Image)Images[0]; // Assuming there is only one image in the list
+            string imagePath = ((BitmapImage)image.Source).UriSource.AbsolutePath;
+            string imageFilename = Path.GetFileName(imagePath);
+
+            restaurant.ImgPath = "/Images/Restourants/" + imageFilename;
             MessageBox.Show(restaurant.ImgPath);
             MainRepository.RestaurantsRepository.AddRestaurant(restaurant);
+            MainRepository.RestaurantsRepository.Save();
             Close();
         }
     }
