@@ -363,9 +363,9 @@ public partial class EditTripWindow
     {
         ClearData();
         AddData();
-        NameBox.Text = Trip.Name;
+        TxtName.Text = Trip.Name;
         DescriptionBox.Text = Trip.Description;
-        PriceBox.Text = Trip.Price.ToString();
+        TxtPrice.Text = Trip.Price.ToString();
         
         InfoGrid.Visibility = Visibility.Hidden;
         EditGrid.Visibility = Visibility.Visible;
@@ -376,18 +376,56 @@ public partial class EditTripWindow
         InfoGrid.Visibility = Visibility.Visible;
         EditGrid.Visibility = Visibility.Hidden;
     }
+    private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TxtName.Text) && TxtName.Text.Length > 0)
+            TextName.Visibility = Visibility.Collapsed;
+        else
+            TextName.Visibility = Visibility.Visible;
+    }
+        
 
+    private void textName_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtName.Focus();
+    }
+
+   
+    private void textDesc_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TextDes.Focus();
+    }
+
+    private void descBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(DescriptionBox.Text) && DescriptionBox.Text.Length > 0)
+            DescriptionBox.Visibility = Visibility.Collapsed;
+        else
+            DescriptionBox.Visibility = Visibility.Visible;
+    }
+    private void textPrice_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtPrice.Focus();
+    }
+
+    private void priceBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(TxtPrice.Text) && TxtPrice.Text.Length > 0)
+            TextPrice.Visibility = Visibility.Collapsed;
+        else
+            TextPrice.Visibility = Visibility.Visible;
+    }
     
     private void SaveTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
 
-        string name = NameBox.Text;
+        string name = TxtName.Text;
         string description = DescriptionBox.Text;
 
       
         try
         {
-            string p = PriceBox.Text;
+            string p = TxtPrice.Text;
             Trip.Price = Double.Parse(p);
         }
         catch
