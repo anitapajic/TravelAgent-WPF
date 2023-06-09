@@ -22,7 +22,6 @@ C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Deb
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\ref\TravelAgentTim19.dll
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.csproj.CopyComplete
-C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19_Content.g.cs
 C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\TravelAgentTim19.exe
 C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\TravelAgentTim19.deps.json
 C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\bin\Debug\net6.0-windows\TravelAgentTim19.runtimeconfig.json
