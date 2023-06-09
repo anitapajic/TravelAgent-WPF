@@ -176,4 +176,9 @@ public partial class AddNewAccomodationWindow
             CreateAccomodationBtn_Clicked(saveButton, null);
         }
     }
+    
+    private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Close();
+    }
 }

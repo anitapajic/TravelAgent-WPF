@@ -92,4 +92,9 @@ public partial class BookTripWindow
         }
     }
     
+    private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Close(); 
+    }
+    
 }

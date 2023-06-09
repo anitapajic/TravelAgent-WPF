@@ -131,4 +131,9 @@ public partial class AddNewAttractionWindow
             SaveButton_OnClick(saveButton, null);
         }
     }
+    
+    private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Close(); 
+    }
 }

@@ -207,4 +207,8 @@ public partial class EditAccomodationWindow
             SaveAccomodationBtn_Clicked(saveButton, null);
         }
     }
+    private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Close(); 
+    }
 }

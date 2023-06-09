@@ -204,4 +204,8 @@ public partial class EditRestaurantWindow
             SaveChangesBtn_Clicked(saveButton, null);
         }
     }
+    private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Close(); 
+    }
 }
