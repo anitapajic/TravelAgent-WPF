@@ -60,12 +60,22 @@ public partial class AddNewRestaurantWindow
 
     private void AddImage(string filePath)
     {
+        
+        string fileName = Path.GetFileName(filePath);
+        string destinationFolderPath = "C:\\Users\\tamar\\Desktop\\TravelAgentTim19\\TravelAgentTim19\\Images"; // Destination folder path
+        string destinationFilePath = Path.Combine(destinationFolderPath, fileName);
+
+        // Copy the image to the destination folder
+        File.Copy(filePath, destinationFilePath, true);
+        
+        
         Image image = new Image
         {
             Source = new BitmapImage(new Uri(filePath)),
             Width = 60,
             Height = 60
         };
+        ImageList.Items.Clear();
         ImageList.Items.Add(image);
     }
 
@@ -96,8 +106,9 @@ public partial class AddNewRestaurantWindow
             restaurant.Id = rand.Next(10000);
             restaurant.Location = location;
             restaurant.Name = name;
-            //restaurant.Rating = rating;
-            //dodati slike
+            // restaurant.Rating = rating;
+            // restaurant.ImgPath = Images[0].ToString();
+            MessageBox.Show(restaurant.ImgPath);
             MainRepository.RestaurantsRepository.AddRestaurant(restaurant);
             Close();
         }
@@ -106,26 +117,12 @@ public partial class AddNewRestaurantWindow
     private void ListView_MouseClick(object sender, MouseButtonEventArgs e)
     {
         OpenFileDialog openFileDialog = new OpenFileDialog();
-        openFileDialog.Multiselect = true; // Allow multiple file selection
+        openFileDialog.Multiselect = false; 
         openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"; // Filter image files
 
         if (openFileDialog.ShowDialog() == true)
         {
-
-            foreach (string filename in openFileDialog.FileNames)
-            {
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.UriSource = new Uri(filename);
-                bitmapImage.EndInit();
-
-                Image image = new Image();
-                image.Source = bitmapImage;
-                image.Width = 50;
-                image.MaxHeight = 50;
-
-               // ImageList.Items.Add(image);
-            }
+            AddImage(openFileDialog.FileName);
             
         }
     }
