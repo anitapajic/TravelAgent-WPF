@@ -30,7 +30,7 @@
             <ColumnDefinition Width="270" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Image Source="../Images/close.png" Grid.Column="1" Panel.ZIndex="1" MouseUp="Image_MouseUp"
+        <Image x:Name="Ximg" Source="../Images/close.png" Grid.Column="1" Panel.ZIndex="1" MouseUp="Image_MouseUp"
                Style="{StaticResource ImgClose}" />
 
         <!-- Left manu-->

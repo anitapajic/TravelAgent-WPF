@@ -589,7 +589,15 @@ public partial class AgentMainWindow
     }
     private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
     {
-        if (e.ChangedButton == MouseButton.Left)
+        if (e.ChangedButton == MouseButton.Left && !IsMouseOverDraggableComponent(e))
             this.DragMove();
     }
+
+    private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
+    {
+        var element = e.OriginalSource as FrameworkElement;
+        return element != null && (element.Name == "Ximg" || element.Name == "gmap");
+    }
+
+
 }
