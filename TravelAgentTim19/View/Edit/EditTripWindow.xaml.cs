@@ -445,4 +445,13 @@ public partial class EditTripWindow
         }
     }
     
+    private void SaveBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Button saveButton = FindName("EditButton") as Button;
+        if (saveButton != null)
+        {
+            SaveTripBtn_Clicked(saveButton, null);
+        }
+    }
+    
 }

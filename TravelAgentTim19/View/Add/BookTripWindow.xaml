@@ -6,6 +6,7 @@
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         mc:Ignorable="d"
         Title="Book Trip" Height="500" Width="800">
+    
     <ScrollViewer>
         <Grid>
         <Grid x:Name="InfoGrid" HorizontalAlignment="Center" Margin="10">
@@ -236,7 +237,7 @@
 
             <!-- Submit button -->
             <Button Grid.Row="9" Grid.Column="0" Content="Nazad na info" Click="InfoTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>
-            <Button Grid.Row="9" Grid.Column="1" Content="Rezervisi" Click="BookTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>
+            <Button x:Name="SaveEditButton" Grid.Row="9" Grid.Column="1" Content="Rezervisi" Click="BookTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>
         </Grid>
         </Grid>
     </ScrollViewer>

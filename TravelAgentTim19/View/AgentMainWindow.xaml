@@ -18,7 +18,7 @@
 
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
-    
+        <CommandBinding Command="ApplicationCommands.New" Executed="NewCommand_Executed" />
         <!-- <CommandBinding Command="cmd:RoutedCommands.Enable" CanExecute="Enable_CanExecute" Executed="Enable_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Komanda" CanExecute="Komanda_CanExecute" Executed="Komanda_Executed"></CommandBinding> -->
         <!-- <CommandBinding Command="cmd:RoutedCommands.Ugradjene" CanExecute="Ugradjene_CanExecute" Executed="Ugradjene_Executed"></CommandBinding> -->

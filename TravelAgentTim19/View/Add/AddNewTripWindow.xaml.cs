@@ -347,4 +347,13 @@ public partial class AddNewTripWindow
         else
             TextPrice.Visibility = Visibility.Visible;
     }
+    
+    private void SaveBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Button saveButton = FindName("SaveButton") as Button;
+        if (saveButton != null)
+        {
+            CreateTripBtn_Clicked(saveButton, null);
+        }
+    }
 }

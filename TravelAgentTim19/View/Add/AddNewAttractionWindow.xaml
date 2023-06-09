@@ -6,6 +6,11 @@
         xmlns:local="clr-namespace:TravelAgentTim19.View"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
         Title="Dodaj novu atrakciju" Height="600" Width="1100">
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
+    </Window.CommandBindings>
+    
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

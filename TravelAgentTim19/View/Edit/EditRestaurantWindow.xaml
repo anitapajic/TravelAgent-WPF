@@ -11,6 +11,11 @@
         AllowsTransparency="True"
         Background="#FFFFFF"
         Title="EditRestaurantWindow" Height="600" Width="1100">
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
+    </Window.CommandBindings>
+    
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
     <Grid>
             
@@ -131,7 +136,7 @@
         
             <!-- Submit button -->
             <Button Content="Nazad na informacije" Click="InfoRestaurantBtn_Clicked" Grid.Row="6"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="0, 0,200,0"/>
-            <Button Content="Sacuvaj" Click="SaveChangesBtn_Clicked" Grid.Row="6"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="0, 0,-200,0"/>
+            <Button  x:Name="EditButton" Content="Sacuvaj" Click="SaveChangesBtn_Clicked" Grid.Row="6"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="0, 0,-200,0"/>
         </Grid>
     </Grid>
         </ScrollViewer>

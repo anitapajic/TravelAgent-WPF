@@ -12,6 +12,10 @@
         Background="#FFFFFF"
         Title="EditTripWindow" Height="600" Width="1100">
     
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
+    </Window.CommandBindings>
+    
     <Window.Resources>
         <Style TargetType="Window">
             <Setter Property="Template">
@@ -404,7 +408,7 @@
             </ListView>
             <!-- Submit button -->
             <Button Grid.Row="14" Grid.Column="0" Content="Nazad na info" Click="InfoTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>
-            <Button Grid.Row="14" Grid.Column="1" Content="Sacuvaj izmene" Click="SaveTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>
+            <Button  x:Name="EditButton" Grid.Row="14" Grid.Column="1" Content="Sacuvaj izmene" Click="SaveTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>
         </Grid>
         </Grid>
     </ScrollViewer>

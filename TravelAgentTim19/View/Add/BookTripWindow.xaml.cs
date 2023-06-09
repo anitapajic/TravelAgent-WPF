@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
@@ -78,6 +80,15 @@ public partial class BookTripWindow
             MainRepository.BookedTripRepository.AddBookedTrip(BookedTrip);
             
             InfoTripBtn_Clicked(sender, e);
+        }
+    }
+    
+    private void SaveBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Button saveButton = FindName("SaveBookButton") as Button;
+        if (saveButton != null)
+        {
+            BookTripBtn_Clicked(saveButton, null);
         }
     }
     

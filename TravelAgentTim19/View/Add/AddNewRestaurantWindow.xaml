@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
         Title="Add New Restaurant" Height="600" Width="1100">
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
+    </Window.CommandBindings>
+    
     <Grid HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

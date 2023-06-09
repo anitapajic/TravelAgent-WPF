@@ -28,7 +28,6 @@ public partial class AddNewAttractionWindow
          Attraction attraction = new Attraction(id, TxtName.Text, "",new Location(TxtCity.Text, TxtAddress.Text), Convert.ToDouble(TxtPrice.Text), TxtDescription.Text);
          MainRepository.AttractionRepository.AddAttraction(attraction);
         MessageBox.Show("Uspesno si dodao novu atrakciju!");
-        Close();
     }
     
     private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -124,4 +123,12 @@ public partial class AddNewAttractionWindow
         }
     }
 
+    private void SaveBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Button saveButton = FindName("SaveButton") as Button;
+        if (saveButton != null)
+        {
+            SaveButton_OnClick(saveButton, null);
+        }
+    }
 }
