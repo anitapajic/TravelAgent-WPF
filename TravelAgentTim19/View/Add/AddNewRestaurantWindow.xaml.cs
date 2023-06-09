@@ -74,6 +74,7 @@ public partial class AddNewRestaurantWindow
         string name = TxtName.Text;
         Location location = new Location();
         location.Address = TxtAddress.Text;
+        location.City = TextCity.Text;
         ItemCollection Images = ImageList.Items;
 
         // double rating = RatingSlider.Value;
