@@ -600,4 +600,31 @@ public partial class AgentMainWindow
     }
 
 
+    private void NewCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        if (TripsGrid.Visibility == Visibility.Visible)
+        {
+            AddNewTripWindow newTripWindow = new AddNewTripWindow(MainRepository);
+            newTripWindow.Show();
+            newTripWindow.Closed += NewTripWindow_Closed;
+        }
+        else if (AttractionGrid.Visibility == Visibility.Visible)
+        {
+            AddNewAttractionWindow newAttractionWindow = new AddNewAttractionWindow(MainRepository);
+            newAttractionWindow.Show();
+            newAttractionWindow.Closed += NewAttractionWindow_Closed;
+        }
+        else if (AccomodationGrid.Visibility == Visibility.Visible)
+        {
+            AddNewAccomodationWindow newAccomodationWindow = new AddNewAccomodationWindow(MainRepository);
+            newAccomodationWindow.Show();
+            newAccomodationWindow.Closed += NewAccomodationWindow_Closed;
+        }
+        else if (RestaurantsGrid.Visibility == Visibility.Visible)
+        {
+            AddNewRestaurantWindow newRestaurantWindow = new AddNewRestaurantWindow(MainRepository);
+            newRestaurantWindow.Show();
+            newRestaurantWindow.Closed += NewRestaurantWindow_Closed;
+        }
+    }
 }
