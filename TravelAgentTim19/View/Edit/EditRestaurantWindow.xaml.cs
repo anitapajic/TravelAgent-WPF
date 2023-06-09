@@ -200,4 +200,17 @@ public partial class EditRestaurantWindow
             
         }
     }
+    
+    private void SaveBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Button saveButton = FindName("EditButton") as Button;
+        if (saveButton != null)
+        {
+            SaveChangesBtn_Clicked(saveButton, null);
+        }
+    }
+    private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Close(); 
+    }
 }

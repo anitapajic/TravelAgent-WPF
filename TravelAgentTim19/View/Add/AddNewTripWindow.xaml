@@ -8,6 +8,15 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Add New Trip" Height="600" Width="1100">
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
+        <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
+    </Window.InputBindings>
+    
     <ScrollViewer>
         <Grid HorizontalAlignment="Center">
             <!-- Row and Column Definitions -->

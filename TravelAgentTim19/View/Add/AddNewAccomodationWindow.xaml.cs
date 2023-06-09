@@ -168,5 +168,17 @@ public partial class AddNewAccomodationWindow
             TextPrice.Visibility = Visibility.Visible;
     }
     
-
+    private void SaveBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Button saveButton = FindName("SaveButton") as Button;
+        if (saveButton != null)
+        {
+            CreateAccomodationBtn_Clicked(saveButton, null);
+        }
+    }
+    
+    private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        Close();
+    }
 }
