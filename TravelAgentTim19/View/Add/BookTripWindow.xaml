@@ -3,107 +3,225 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:wpf="http://schemas.fontawesome.io/icons/"
+        xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        mc:Ignorable="d"
-        Title="Book Trip" Height="500" Width="800">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResize"
+        AllowsTransparency="True"
+        Background="#FFFFFF"
+        Title="Putovanje" Height="600" Width="1100">
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
+        <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
+    <Window.Resources>
+        <Style TargetType="Window">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Window">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                                    BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    CornerRadius="15">
+                                <AdornerDecorator>
+                                    <ContentPresenter />
+                                </AdornerDecorator>
+                            </Border>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
     
     <ScrollViewer>
         <Grid>
-        <Grid x:Name="InfoGrid" HorizontalAlignment="Center" Margin="10">
+            <!-- Info grid -->
+             <Grid x:Name="InfoGrid" Margin="0">
             <!-- Row and Column Definitions -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto"/>
+                
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                   Style="{StaticResource ImgClose}" />
+
             
+            <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="450" Margin="0 0 0 -20" Panel.ZIndex="999">
+                <Border.Background>
+                    <ImageBrush ImageSource="{Binding Trip.ImgPath}" Stretch="UniformToFill"/>
+                </Border.Background>
+                <Grid>
+                    <!-- <Image Source="/Images/beograd.jpg" Stretch="UniformToFill"/> -->
+                    <StackPanel Margin="100 60 10 5" VerticalAlignment="Top">
+                        <TextBlock Name="TripNameTextBlock" Text="{Binding Trip.Name}" Foreground="#FFFFFF"
+                                   FontSize="50" FontWeight="SemiBold">
+                        </TextBlock>
+                        <TextBlock Name="PriceTextBlock" Text="{Binding  Trip.Price}" Foreground="#EBEAE5"
+                                   FontSize="33" Margin="0 5 0 0">
+                        </TextBlock>
+                    </StackPanel>
 
-            <Border Grid.Row="3" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
-            <Border Grid.Row="5" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
-            <Border Grid.Row="7" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
-            <Border Grid.Row="9" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
-            <Border Grid.Row="11" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
-
-            <!-- Title -->
-            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="INFO PUTOVANJA" FontSize="20" FontWeight="Bold" Margin="10"/>
-
-            <!-- Travel Information -->
-            <TextBlock  Grid.Row="1" Grid.Column="0" Text="{Binding Trip.Name}" Margin="10"/>
-            <TextBlock  Grid.Row="1" Grid.Column="1" Text="{Binding Trip.Price}" Margin="10"/>
-
+                </Grid>
+            </Border>
+            
             <!-- Travel Description -->
-            <TextBlock Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Trip.Description}" TextWrapping="Wrap" Margin="10"/>
-
+            
+            <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="3" CornerRadius="45" Margin="100 -170 100 -50" Panel.ZIndex="9999">
+                    <Border.Effect>
+                     <DropShadowEffect ShadowDepth="5" Color="Black" Opacity="0.5" BlurRadius="10" />
+                        </Border.Effect>
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#FFFFFF" Offset="0"></GradientStop>
+                        <GradientStop Color="#FFFFFF" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid Margin="40 40 40 35">
+                    <TextBlock Text="Opis grada" FontSize="25" FontWeight="SemiBold" Foreground="#11172F" ></TextBlock>
+                    <TextBlock Name="DescriptionTextBlock" Text="{Binding Trip.Description}" TextWrapping="Wrap" Foreground="Gray" FontSize="15" Margin="0 45 0 0" />
+                </Grid>
+            </Border>
+            
+            <Grid Grid.Row="3" Name="MapGrid" Height="450" Visibility="Visible" Grid.ColumnSpan="3" Margin="0 -70 0 0" >
+                <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0,5,0,10" />
+                
+            </Grid>
             <!-- Attraction Selection -->
-            <TextBlock Grid.Row="3" Grid.Column="0" Text="Atrakcije"  Margin="10"/>
+            <Border Grid.Row="4" Grid.Column="0" CornerRadius="20" Margin="30 20 20 20">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="5" Color="Black" Opacity="0.5" BlurRadius="10" />
+                </Border.Effect>
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
+                        <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid Margin="30">
+                    <TextBlock  Text="Atrakcije"  FontSize="28" FontWeight="SemiBold" Foreground="#FFFFFF" />
+                    <ListBox Name="tripAttractionItems" ItemsSource="{Binding Trip.Attractions}" Background="Transparent" Margin="0 60 0 0 " BorderBrush="Transparent">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <BulletDecorator >
+                                        <BulletDecorator.Bullet>
+                                            <TextBlock Text="•"  FontSize="18" Foreground="#ffffff" />
+                                        </BulletDecorator.Bullet>
+                                        <TextBlock Text="{Binding Name}" Margin="10,0,10,0" Foreground="#FFFFFF" FontSize="18"/>
+                                    </BulletDecorator>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+                
+            </Border>
+            <Border Grid.Row="4" Grid.Column="1" CornerRadius="20" Margin="0 20 20 20">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="5" Color="Black" Opacity="0.5" BlurRadius="10" />
+                </Border.Effect>
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
+                        <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid Margin="30">
+                    <!-- Accomodation Selection -->
+                    <TextBlock Text="Smestaji"  FontSize="28" FontWeight="SemiBold" Foreground="#FFFFFF"/>
 
-            <ListBox ItemsSource="{Binding Trip.Attractions}" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name}" Margin="0,0,10,0"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+                    <ListBox Name="tripAccomodationsItems" ItemsSource="{Binding Trip.Accomodations}" Background="Transparent" Margin="0 60 0 0 " BorderBrush="Transparent">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <BulletDecorator >
+                                        <BulletDecorator.Bullet>
+                                            <TextBlock Text="•"  FontSize="18" Foreground="#ffffff" />
+                                        </BulletDecorator.Bullet>
+                                        <TextBlock Text="{Binding Name}" Margin="10,0,10,0" Foreground="#FFFFFF" FontSize="18"/>
+                                    </BulletDecorator>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </Grid>
+                
+            </Border>
+            <Border Grid.Row="4" Grid.Column="2" CornerRadius="20" Margin="0 20 30 20">
+                <Border.Effect>
+                    <DropShadowEffect ShadowDepth="5" Color="Black" Opacity="0.5" BlurRadius="10" />
+                </Border.Effect>
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                        <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
+                        <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </Border.Background>
+                <Grid Margin="30">
+                    <!-- Restaurant Selection -->
+                    <TextBlock Text="Restorani"  FontSize="28" FontWeight="SemiBold" Foreground="#FFFFFF"/>
+
+                    <ListBox Name="tripRestaurantsItems" ItemsSource="{Binding Trip.Restaurants}" Background="Transparent" Margin="0 60 0 0 " BorderBrush="Transparent">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <BulletDecorator >
+                                        <BulletDecorator.Bullet>
+                                            <TextBlock Text="•"  FontSize="18" Foreground="#ffffff" />
+                                        </BulletDecorator.Bullet>
+                                        <TextBlock Text="{Binding Name}" Margin="10,0,10,0" Foreground="#FFFFFF" FontSize="18"/>
+                                    </BulletDecorator>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+                
+            </Border>
+            
+            <Border Grid.Row="5" Grid.ColumnSpan="3" Grid.Column="0" CornerRadius="20" Margin="30 30 30 50" Background="#EBEAE5">
+                <Grid>
+                    <TextBlock Text="Dostupni termini" Margin="20"  FontSize="28" FontWeight="SemiBold" Foreground="#3AA9AD"></TextBlock>
+                    <Border CornerRadius="20" Margin="30 100 30 30" Background="White">
+                        <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                            <ListBox Name="tripPeriodsItems" ItemsSource="{Binding Trip.DatePeriods}" Background="Transparent"  BorderBrush="Transparent" Margin="10">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock  Text="{Binding  }" Margin="20 20 20 0" FontSize="18" Foreground="Gray"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </Border>
+                </Grid>
+                
+            </Border>
+            <Button Grid.Row="6" Grid.ColumnSpan="3" Click="EditTripBtn_Clicked" Margin="0,20,0,20" Style="{StaticResource MainButton}" HorizontalAlignment="Center" >Rezervisi</Button>
             
             
-            <!-- Accomodation Selection -->
-            <TextBlock Grid.Row="5" Grid.Column="0" Text="Smestaji"  Margin="10"/>
-
-            <ListBox  ItemsSource="{Binding Trip.Accomodations}" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name }" Margin="0,0,10,0"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-
-
-            
-            
-            <!-- Restaurant Selection -->
-            <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Text="Restorani"  Margin="10"/>
-
-            <ListBox ItemsSource="{Binding Trip.Restaurants}" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding Name}" Margin="0,0,10,0"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-            
-
             <!-- DateRange List and Form -->
-            <TextBlock Grid.Row="9" Grid.Column="0" Text="Periodi putovanja"  Margin="10"/>
+           
 
-            <!-- <Grid Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="10"> -->
+            <!-- <Grid Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="11"> -->
             <!--     <Grid.ColumnDefinitions> -->
             <!--         <ColumnDefinition Width="*"/> -->
             <!--         <ColumnDefinition Width="*"/> -->
@@ -113,17 +231,11 @@
             <!--     <DatePicker  Grid.Column="1" Margin="10"/> -->
             <!--     <Button Grid.Column="2" Click="AddDateRange_Click" Content="Dodaj" Margin="10"/> -->
             <!-- </Grid> -->
-            <ListBox ItemsSource="{Binding Trip.DatePeriods}"  Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                            <TextBlock  Text="{Binding }"/>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            
             
             <!-- Image -->
-            <TextBlock Grid.Row="11" Grid.ColumnSpan="2" Text="SLIKE:" Margin="10"/>
-            <!-- <ListView  Grid.Row="13" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="2"   Height="80" Margin="10" -->
+            <!-- <TextBlock Grid.Row="13" Grid.ColumnSpan="2" Text="SLIKE:" Margin="10"/> -->
+            <!-- <ListView  Grid.Row="14" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="2"   Height="80" Margin="10" -->
             <!--            AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop" -->
             <!--            MouseDown="ListView_MouseClick"> -->
             <!--     <ItemsControl Margin="10" x:Name="ImageList"> -->
@@ -136,10 +248,13 @@
             <!-- </ListView> -->
             
             <!-- Submit button -->
-            <Button Grid.Row="13" Grid.ColumnSpan="2" Content="Rezervisi" Click="EditTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>
+            <!-- <Button Grid.Row="15" Grid.ColumnSpan="2" Content="Edit" Click="EditTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/> -->
         </Grid>
             
-        <Grid x:Name="EditGrid" HorizontalAlignment="Center" Visibility="Hidden" Margin="10">
+            
+            
+            <!-- Edit grid -->
+            <Grid x:Name="EditGrid" HorizontalAlignment="Center" Visibility="Hidden" Margin="10">
             <!-- Row and Column Definitions -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
