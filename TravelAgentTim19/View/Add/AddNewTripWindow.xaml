@@ -3,52 +3,209 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
         xmlns:local="clr-namespace:TravelAgentTim19.View"
         mc:Ignorable="d"
-        Title="Add New Trip" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+        Title="Add New Trip" Height="600" Width="1100">
     <ScrollViewer>
         <Grid HorizontalAlignment="Center">
             <!-- Row and Column Definitions -->
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            
 
-            <Border Grid.Row="3" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
+           <!-- Title -->
+            <TextBlock Text="Dodaj novo putovanje" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
+                       Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch" />
+            <!-- Name -->
+            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7  5 7"
+                    CornerRadius="5" Width="220">
+                <Grid Margin="7 9">
+                    <TextBlock x:Name="TextName" MouseDown="textName_MouseDown" Text="Ime"
+                               Style="{StaticResource TextHint}" />
+                    <TextBox Name="TxtName" TextChanged="nameBox_TextChanged" Style="{StaticResource TextBox}" />
+                </Grid>
+            </Border>
+            <!-- Price -->
+            <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="0 7  70 7"
+                    CornerRadius="5" Width="220">
+                <Grid Margin="7 9">
+                    <TextBlock x:Name="TextPrice" MouseDown="textPrice_MouseDown" Text="Cena"
+                               Style="{StaticResource TextHint}" />
+                    <TextBox Name="TxtPrice" TextChanged="priceBox_TextChanged" Style="{StaticResource TextBox}" />
+                </Grid>
+            </Border>
+            <!-- Description -->
+            <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7"
+                    CornerRadius="5" Height="150">
+                <Grid Margin="7 9">
+                    <TextBlock x:Name="TextDes" MouseDown="textDesc_MouseDown" Text="Opis"
+                               Style="{StaticResource TextHint}" />
+                    <TextBox Name="DescriptionBox" TextChanged="descBox_TextChanged" AcceptsReturn="True" TextWrapping="Wrap" Style="{StaticResource TextBox}" />
+
+                </Grid>
+            </Border>
+            <!-- Attraction list 5 -->
+            <ListBox x:Name="AllAttractionsListBox" Grid.Row="5" Grid.Column="0" PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown" PreviewMouseMove="MoveItem_PreviewMouseMove"  PreviewDragEnter="DragAttraction_PreviewDragEnter" PreviewDragOver="DragOverAttraction_PreviewDragOver" PreviewDrop="DropAttraction_PreviewDrop" AllowDrop="True" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" Margin="70,0,10,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <ListBox x:Name="ChosenAttractionsListBox" Grid.Row="5" Grid.Column="1" PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown" PreviewMouseMove="MoveItem_PreviewMouseMove" PreviewDragEnter="DragAttraction_PreviewDragEnter" PreviewDragOver="DragOverAttraction_PreviewDragOver" PreviewDrop="DropAttraction_PreviewDrop" AllowDrop="True" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" Margin="0,0,70,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+            <!-- Accomodation list 6-->
+            <ListBox x:Name="AllAccommodationsListBox" Grid.Row="6" Grid.Column="0" PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown" PreviewMouseMove="MoveItem_PreviewMouseMove"  PreviewDragEnter="DragAccomodation_PreviewDragEnter" PreviewDragOver="DragOverAccomodation_PreviewDragOver" PreviewDrop="DropAccomodation_PreviewDrop" AllowDrop="True" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name }" Margin="70,0,10,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <ListBox x:Name="ChosenAccommodationsListBox" Grid.Row="6" Grid.Column="1" PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown" PreviewMouseMove="MoveItem_PreviewMouseMove" PreviewDragEnter="DragAccomodation_PreviewDragEnter" PreviewDragOver="DragOverAccomodation_PreviewDragOver" PreviewDrop="DropAccomodation_PreviewDrop" AllowDrop="True" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" Margin="0,0,70,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+            
+            <!-- Restaurant list 7-->
+
+            <ListBox x:Name="AllRestaurantsListBox" Grid.Row="7" Grid.Column="0" PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown" PreviewMouseMove="MoveItem_PreviewMouseMove"  PreviewDragEnter="DragRestaurant_PreviewDragEnter" PreviewDragOver="DragOverRestaurant_PreviewDragOver" PreviewDrop="DropRestaurant_PreviewDrop" AllowDrop="True" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" Margin="70,0,10,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <ListBox x:Name="ChosenRestaurantsListBox" Grid.Row="7" Grid.Column="1" PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown" PreviewMouseMove="MoveItem_PreviewMouseMove" PreviewDragEnter="DragRestaurant_PreviewDragEnter" PreviewDragOver="DragOverRestaurant_PreviewDragOver" PreviewDrop="DropRestaurant_PreviewDrop" AllowDrop="True" Margin="10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Name}" Margin="0,0,70,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <!-- Date picker -->
+
+            <Grid Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Margin="70 7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <DatePicker x:Name="StartDatePicker" Grid.Column="0" Margin="10"/>
+                <DatePicker x:Name="EndDatePicker" Grid.Column="1" Margin="10"/>
+                <Button Grid.Column="2" Click="AddDateRange_Click" Style="{StaticResource MainButton}" Content="Dodaj" Margin="20 10 0  10"/>
+            </Grid>
+            <ListBox x:Name="DateListBox" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="70 7">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" Text="{Binding }"/>
+
+                            <Button Grid.Column="1" Style="{StaticResource MainButton}" Content="Izbaci" Click="DeleteDateRange_Click"  Margin="10, 0,0,0"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            
+            <!-- Image drop -->
+            <Border Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7"
+                    CornerRadius="5"  Height="100">
+
+                <Grid>
+                    <Grid Margin="7 9">
+                        <TextBlock x:Name="Images" Text="Prevuci slike"
+                                   Style="{StaticResource TextHint}" />
+
+                    </Grid>
+                    <Grid Margin="7 30 7 9">
+                        <ListView BorderBrush="Transparent"
+                                  AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
+                                  MouseDown="ListView_MouseClick">
+                            <ItemsControl Margin="10" x:Name="ImageList">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </ListView>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <!-- Button -->
+            <Button x:Name="SaveButton" Background="#3AA9AD" Foreground="White" FontWeight="Bold" Content="Dodaj"
+                    Grid.Row="12" Grid.ColumnSpan="2" Click="CreateTripBtn_Clicked" Style="{StaticResource MainButton}"
+                    Margin="40" />
+
+
+            <!--<Border Grid.Row="3" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
             <Border Grid.Row="5" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
             <Border Grid.Row="7" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
             <Border Grid.Row="9" Grid.RowSpan="3"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
             <Border Grid.Row="12" Grid.RowSpan="2"  Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" Margin="5"/>
 
-            <!-- Title -->
+            ~1~ Title @1@
             <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="DODAVANJE NOVOG PUTOVANJA" FontSize="20" FontWeight="Bold" Margin="10"/>
 
-            <!-- Travel Information -->
+            ~1~ Travel Information @1@
             <TextBox x:Name="NameBox" Grid.Row="1" Grid.Column="0" Text="Unesite naziv putovanja" Margin="10"/>
             <TextBox x:Name="PriceBox" Grid.Row="1" Grid.Column="1" Text="Unesite cenu" Margin="10"/>
 
-            <!-- Travel Description -->
+            ~1~ Travel Description @1@
             <TextBox x:Name="DescriptionBox" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="Unesite opis putovanja" AcceptsReturn="True" TextWrapping="Wrap" Margin="10"/>
 
-            <!-- Attraction Selection -->
+            ~1~ Attraction Selection @1@
             <TextBlock Grid.Row="3" Grid.Column="0" Text="Sve atrakcije"  Margin="10"/>
             <TextBlock Grid.Row="3" Grid.Column="1" Text="Izabrane atrakcije"  Margin="10"/>
 
@@ -72,7 +229,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             
-            <!-- Accomodation Selection -->
+            ~1~ Accomodation Selection @1@
             <TextBlock Grid.Row="5" Grid.Column="0" Text="Svi smestaji"  Margin="10"/>
             <TextBlock Grid.Row="5" Grid.Column="1" Text="Izabrani smestaji"  Margin="10"/>
 
@@ -97,7 +254,7 @@
             </ListBox>
             
             
-            <!-- Restaurant Selection -->
+            ~1~ Restaurant Selection @1@
             <TextBlock Grid.Row="7" Grid.Column="0" Text="Svi restorani"  Margin="10"/>
             <TextBlock Grid.Row="7" Grid.Column="1" Text="Izabrani restorani"  Margin="10"/>
 
@@ -121,7 +278,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <!-- DateRange List and Form -->
+            ~1~ DateRange List and Form @1@
             <TextBlock Grid.Row="9" Grid.Column="0" Text="Dodajte periode putovanja"  Margin="10"/>
 
             <Grid Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
@@ -143,17 +300,17 @@
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
 
-                            <!-- Display the DateRange -->
+                            ~1~ Display the DateRange @1@
                             <TextBlock Grid.Column="0" Text="{Binding }"/>
 
-                            <!-- Delete Button -->
+                            ~1~ Delete Button @1@
                             <Button Grid.Column="1" Content="Izbaci" Click="DeleteDateRange_Click"  Margin="10, 0,0,0"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             
-            <!-- Image -->
+            ~1~ Image @1@
             <TextBlock Grid.Row="12" Grid.ColumnSpan="2" Text="Dodajte slike ovde:" Margin="10"/>
             <ListView  Grid.Row="13" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="2"   Height="80" Margin="10"
                        AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
@@ -166,8 +323,9 @@
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
             </ListView>
-            <!-- Submit button -->
+            ~1~ Submit button @1@
             <Button Grid.Row="14" Grid.ColumnSpan="2" Content="Submit" Click="CreateTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/>
+        -->
         </Grid>
     </ScrollViewer>
 </Window>
