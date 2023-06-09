@@ -58,15 +58,24 @@ public partial class AddNewAccomodationWindow
 
     private void AddImage(string filePath)
     {
+        
+        string fileName = Path.GetFileName(filePath);
+        string destinationFolderPath = "../../../Images/Accomodations"; // Destination folder path
+        string destinationFilePath = Path.Combine(destinationFolderPath, fileName);
+
+        // Copy the image to the destination folder
+        File.Copy(filePath, destinationFilePath, true);
+        
+        
         Image image = new Image
         {
             Source = new BitmapImage(new Uri(filePath)),
             Width = 60,
             Height = 60
         };
+        ImageList.Items.Clear();
         ImageList.Items.Add(image);
     }
-    
     private void CreateAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
     {
         string name = TxtName.Text;
@@ -96,7 +105,11 @@ public partial class AddNewAccomodationWindow
             accomodation.Name = name;
             accomodation.Rating = rating;
             accomodation.AccomodationType = type;
-            //dodati slike
+            Image image = (Image)Images[0]; // Assuming there is only one image in the list
+            string imagePath = ((BitmapImage)image.Source).UriSource.AbsolutePath;
+            string imageFilename = Path.GetFileName(imagePath);
+            accomodation.ImgPath = "/Images/Accomodation/" + imageFilename;
+
             MainRepository.AccomodationRepository.AddAccomodation(accomodation);
             Close();
         }
@@ -109,21 +122,7 @@ public partial class AddNewAccomodationWindow
 
         if (openFileDialog.ShowDialog() == true)
         {
-
-            foreach (string filename in openFileDialog.FileNames)
-            {
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.UriSource = new Uri(filename);
-                bitmapImage.EndInit();
-
-                Image image = new Image();
-                image.Source = bitmapImage;
-                image.Width = 50;
-                image.MaxHeight = 50;
-
-                ImageList.Items.Add(image);
-            }
+            AddImage(openFileDialog.FileName);
             
         }
     }

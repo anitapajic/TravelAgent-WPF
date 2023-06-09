@@ -76,12 +76,22 @@ public partial class AddNewTripWindow
 
     private void AddImage(string filePath)
     {
+        
+        string fileName = Path.GetFileName(filePath);
+        string destinationFolderPath = "../../../Images/Trips"; // Destination folder path
+        string destinationFilePath = Path.Combine(destinationFolderPath, fileName);
+
+        // Copy the image to the destination folder
+        File.Copy(filePath, destinationFilePath, true);
+        
+        
         Image image = new Image
         {
             Source = new BitmapImage(new Uri(filePath)),
             Width = 60,
             Height = 60
         };
+        ImageList.Items.Clear();
         ImageList.Items.Add(image);
     }
     private void ListView_MouseClick(object sender, MouseButtonEventArgs e)
@@ -93,20 +103,8 @@ public partial class AddNewTripWindow
         if (openFileDialog.ShowDialog() == true)
         {
 
-            foreach (string filename in openFileDialog.FileNames)
-            {
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.UriSource = new Uri(filename);
-                bitmapImage.EndInit();
+            AddImage(openFileDialog.FileName);
 
-                Image image = new Image();
-                image.Source = bitmapImage;
-                image.Width = 50;
-                image.MaxHeight = 50;
-
-                ImageList.Items.Add(image);
-            }
             
         }
     }
@@ -298,7 +296,12 @@ public partial class AddNewTripWindow
             trip.Restaurants = restaurants.OfType<Restaurant>().ToList();
             trip.DatePeriods = dataPeriods.OfType<DatePeriods>().ToList();
 
-            //dodati slike
+                        
+            Image image = (Image)Images[0]; // Assuming there is only one image in the list
+            string imagePath = ((BitmapImage)image.Source).UriSource.AbsolutePath;
+            string imageFilename = Path.GetFileName(imagePath);
+            trip.ImgPath = "/Images/Trips/" + imageFilename;
+
             
             foreach (DatePeriods dp in trip.DatePeriods)
             {

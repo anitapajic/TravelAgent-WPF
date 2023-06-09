@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -97,6 +99,60 @@ public partial class AddNewAttractionWindow
             TextDescription.Visibility = Visibility.Visible;
     }
     
+    private void Border_DragEnter(object sender, DragEventArgs e)
+    {
+        e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
+        e.Handled = true;
+    }
+
+    private void Border_Drop(object sender, DragEventArgs e)
+    {
+        if (e.Data.GetDataPresent(DataFormats.FileDrop))
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            foreach (string file in files)
+            {
+                if (IsImageFile(file))
+                {
+                    AddImage(file);
+                }
+            }
+        }
+    }
+
+    private bool IsImageFile(string filePath)
+    {
+        string extension = Path.GetExtension(filePath);
+
+        if (extension != null)
+        {
+            string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
+            return imageExtensions.Contains(extension.ToLower());
+        }
+
+        return false;
+    }
+    private void AddImage(string filePath)
+    {
+        
+        string fileName = Path.GetFileName(filePath);
+        string destinationFolderPath = "../../../Images/Attractions"; // Destination folder path
+        string destinationFilePath = Path.Combine(destinationFolderPath, fileName);
+    
+        // Copy the image to the destination folder
+        File.Copy(filePath, destinationFilePath, true);
+        
+        
+        Image image = new Image
+        {
+            Source = new BitmapImage(new Uri(filePath)),
+            Width = 60,
+            Height = 60
+        };
+        // ImageList.Items.Clear();
+        // ImageList.Items.Add(image);
+    }
+    
     private void ListView_MouseClick(object sender, MouseButtonEventArgs e)
     {
         OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -105,23 +161,10 @@ public partial class AddNewAttractionWindow
 
         if (openFileDialog.ShowDialog() == true)
         {
+            // AddImage(openFileDialog.FileName);
 
-            foreach (string filename in openFileDialog.FileNames)
-            {
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.UriSource = new Uri(filename);
-                bitmapImage.EndInit();
-
-                Image image = new Image();
-                image.Source = bitmapImage;
-                image.Width = 50;
-                image.MaxHeight = 50;
-
-                // ImageList.Items.Add(image);
-            }
-            
         }
     }
+  
 
 }
