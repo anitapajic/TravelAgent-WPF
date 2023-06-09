@@ -13,6 +13,15 @@
         AllowsTransparency="True"
         Background="#FFFFFF"
         Title="EditAttractionWindow" Height="600" Width="1100">
+    
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
+        <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
+    </Window.CommandBindings>
+    <Window.InputBindings>
+        <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
+    </Window.InputBindings>
+    
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <Grid>
             <!--<Grid x:Name="InfoGrid" Margin="0">
@@ -224,7 +233,7 @@
                 <!-- Submit button -->
                 <Button Content="Nazad na informacije" Click="InfoAttractionBtn_Clicked" Grid.Row="7"
                         HorizontalAlignment="Center" Width="160" MaxHeight="50" Margin="0, 20,200,0" />
-                <Button Content="Sacuvaj" Click="SaveChangesBtn_Clicked" Grid.Row="7" HorizontalAlignment="Center"
+                <Button x:Name="EditButton" Content="Sacuvaj" Click="SaveChangesBtn_Clicked" Grid.Row="7" HorizontalAlignment="Center"
                         Width="160" MaxHeight="50" Margin="0, 20,-200,0" />
             </Grid>
         </Grid>

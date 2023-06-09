@@ -287,16 +287,6 @@ public partial class UserMainWindow
         }
     }
 
-    // private void EditPurchasedTripBtn_Clicked(object sender, RoutedEventArgs e)
-    // {
-    //     Button editButton = (Button)sender;
-    //     int attId = (int)editButton.Tag;
-    //     BookedTrip bookedTrip = MainRepository.BookedTripRepository.GetBookedTripById(attId);
-    //
-    //     EditPurchasedTripWindow editPurchasedTripWindow = new EditPurchasedTripWindow(bookedTrip, MainRepository);
-    //     editPurchasedTripWindow.Show();
-    // }
-    
     private void EditTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
         Button editButton = (Button)sender;
