@@ -91,8 +91,8 @@ public partial class EditAccomodationWindow
         string address = LocationBox.Text;
         ItemCollection Images = ImageList.Items;
 
-        double rating = slider.Value;
-        AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
+        //double rating = slider.Value;
+        //AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
 
         // Validate inputs
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || Images == null || Images.Count == 0)
@@ -109,8 +109,8 @@ public partial class EditAccomodationWindow
             
             Accomodation.Location.Address = address;
             Accomodation.Name = name;
-            Accomodation.Rating = rating;
-            Accomodation.AccomodationType = type;
+            //Accomodation.Rating = rating;
+            //Accomodation.AccomodationType = type;
             //dodati slike
             
             MainRepository.AccomodationRepository.UpdateAccomodation(Accomodation);
@@ -122,6 +122,11 @@ public partial class EditAccomodationWindow
             InfoAccomodationBtn_Clicked(sender,e);
         }
     }
+    private void textName_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        NameBox.Focus();
+    }
+
     
     private void Border_DragEnter(object sender, DragEventArgs e)
     {

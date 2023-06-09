@@ -151,23 +151,107 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
         
-            <!-- Title -->
+                
+                <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                       Style="{StaticResource ImgClose}" Margin="0 0 -35 0" />
+
+                <!-- Title -->
+                <TextBlock Text="Izmena smestaja" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
+                           Style="{StaticResource TitleText}" FontSize="20" Margin="20 30"
+                           HorizontalAlignment="Stretch" />
+                <!-- Name -->
+                <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#3AA9AD" BorderThickness="1"
+                        Margin="0 7  10 7"
+                        CornerRadius="5">
+
+                    <Grid Margin="7 9">
+
+                        <Grid>
+                            <TextBlock x:Name="TextName" Text="Ime"
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                        </Grid>
+                        <TextBox Name="NameBox" MouseDown="textName_MouseDown" Style="{StaticResource TextBox}"
+                                 Text="{Binding Accomodation.Name, Mode=OneWay}" Margin="10 22 10 5" />
+                    </Grid>
+                </Border>
+                <!-- Price -->
+                <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#3AA9AD" BorderThickness="1"
+                        Margin="0 7  10 7"
+                        CornerRadius="5">
+
+                    <Grid Margin="7 9">
+
+                        <Grid>
+                            <TextBlock x:Name="TextPrice" Text="Cena"
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                        </Grid>
+                        <TextBox Name="PriceBox" MouseDown="textName_MouseDown" Style="{StaticResource TextBox}"
+                                 Text="{Binding Accomodation.Price, Mode=OneWay}" Margin="10 22 10 5" />
+                    </Grid>
+                </Border>
+            
+            <!-- Location -->
+            <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#3AA9AD" BorderThickness="1"
+                    Margin="0 7  10 7"
+                    CornerRadius="5">
+
+                <Grid Margin="7 9">
+
+                    <Grid>
+                        <TextBlock x:Name="TextLocation" Text="Lokacija"
+                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                    </Grid>
+                    <TextBox Name="LocationBox" MouseDown="textName_MouseDown" Style="{StaticResource TextBox}"
+                             Text="{Binding Accomodation.Location, Mode=OneWay}" Margin="10 22 10 5" />
+                </Grid>
+            </Border>
+                
+            <!-- Image drop -->
+            <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#3AA9AD" BorderThickness="1"
+                    Margin="0 7"
+                    CornerRadius="5" Height="150">
+
+                <Grid>
+                    <Grid Margin="7 9">
+                        <TextBlock x:Name="Images" Text="Prevuci slike"
+                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+
+                    </Grid>
+                    <Grid Margin="7 30 7 9">
+                        <ListView BorderBrush="Transparent"
+                                  AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
+                                  MouseDown="ListView_MouseClick">
+                            <ItemsControl Margin="10" x:Name="ImageList">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </ListView>
+                    </Grid>
+                </Grid>
+            </Border>
+            
+            <!-- Button -->
+            <Button x:Name="EditButton" Content="Sacuvaj"
+                    Grid.Row="5" Grid.ColumnSpan="2" Click="SaveAccomodationBtn_Clicked" Style="{StaticResource MainButton}"
+                    Margin="40" />
+            <!--
+            ~1~ Title @1@
             <TextBlock Text="IZMENA SMESTAJA" FontSize="20" FontWeight="Bold" Margin="-20, 10, 0,0"/>
         
-              <!-- Name -->
+              ~1~ Name @1@
         <TextBlock Text="Naziv:" Grid.Row="1" Margin="10"/>
         <TextBox x:Name="NameBox" Text="{Binding Accomodation.Name, Mode=OneWay}" Grid.Row="1" Grid.Column="1" Margin="10" Width="200"/>
         
-        <!-- Price -->
+        ~1~ Price @1@
         <TextBlock Text="Cena:" Grid.Row="2" Margin="10"/>
         <TextBox x:Name="PriceBox" Text="{Binding Accomodation.Price, Mode=OneWay}" Grid.Row="2" Grid.Column="1" Margin="10" Width="200"/>
 
-        <!-- Type -->
+        ~1~ Type @1@
         <TextBlock Text="Tip:" Grid.Row="3" Margin="10"/>
 
         <Grid Grid.Row="3">
@@ -185,7 +269,7 @@
             </ComboBox>
         </Grid>
         
-        <!-- Rating -->
+        ~1~ Rating @1@
         <TextBlock Text="Rejting:" Grid.Row="4" Margin="10"/>
         <Grid Grid.Row="4" Margin="10,0,0,0" Width="200">
             <Grid.ColumnDefinitions>
@@ -196,11 +280,11 @@
             <TextBox Text="{Binding ElementName=slider, Path=Value, Mode=TwoWay}" Grid.Column="1" Margin="10" Width="20"/>
         </Grid>
         
-        <!-- Location -->
+        ~1~ Location @1@
         <TextBlock Text="Lokacija:" Grid.Row="5" Margin="10"/>
         <TextBox x:Name="LocationBox" Text="{Binding Accomodation.Location.Address, Mode=OneWay}" Grid.Row="5" Grid.Column="1" Margin="10" Width="200"/>
         
-        <!-- Image -->
+        ~1~ Image @1@
         <TextBlock Grid.Row="6" Text="Drag and drop slike ovde:" Margin="10"/>
         <ListView BorderBrush="Gray" BorderThickness="2" Grid.Row="7"  Height="80" Width="200"
                    AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
@@ -214,9 +298,9 @@
             </ItemsControl>
         </ListView>
 
-            <!-- Submit button -->
+            ~1~ Submit button @1@
             <Button Content="Back to info" Click="InfoAccomodationBtn_Clicked" Grid.Row="8"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="0, 0,200,0"/>
-            <Button x:Name="EditButton" Content="Save changes" Click="SaveAccomodationBtn_Clicked" Grid.Row="8"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="0, 0,-200,0"/>
+            <Button x:Name="EditButton" Content="Save changes" Click="SaveAccomodationBtn_Clicked" Grid.Row="8"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="0, 0,-200,0"/>-->
         </Grid>
     </Grid>
         </ScrollViewer>

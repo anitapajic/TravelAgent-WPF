@@ -133,23 +133,32 @@ public partial class EditAttractionWindow
         };
         ImageList.Items.Add(image);
     }
+    private void textName_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtName.Focus();
+    }
 
+   
+    private void textDesc_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TextDes.Focus();
+    }
     private void InfoAttractionBtn_Clicked(object sender, RoutedEventArgs e)
     {
         InfoGrid.Visibility = Visibility.Visible;
         EditGrid.Visibility = Visibility.Hidden;
-        NameBox.Text = Attraction.Name;
-        LocationBox.Text = Attraction.Location.Address;
-        PriceBox.Text = Attraction.Price.ToString();
-        DescBox.Text = Attraction.Description;
+        TxtName.Text = Attraction.Name;
+        TxtLocation.Text = Attraction.Location.Address;
+        TxtPrice.Text = Attraction.Price.ToString();
+        DescriptionBox.Text = Attraction.Description;
     }
 
     private void SaveChangesBtn_Clicked(object sender, RoutedEventArgs e)
     {
-        string name = NameBox.Text;
-        string address = LocationBox.Text;
-        double price = Convert.ToDouble(PriceBox.Text);
-        string desc = DescBox.Text;
+        string name = TxtName.Text;
+        string address = TxtLocation.Text;
+        double price = Convert.ToDouble(TxtPrice.Text);
+        string desc = DescriptionBox.Text;
         ItemCollection Images = ImageList.Items;
         
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || Images == null || Images.Count == 0)

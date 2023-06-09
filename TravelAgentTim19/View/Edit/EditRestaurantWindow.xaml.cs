@@ -84,18 +84,18 @@ public partial class EditRestaurantWindow
     {
         InfoGrid.Visibility = Visibility.Visible;
         EditGrid.Visibility = Visibility.Hidden;
-        NameBox.Text = Restaurant.Name;
-        LocationBox.Text = Restaurant.Location.Address;
+        TxtName.Text = Restaurant.Name;
+        TxtLocation.Text = Restaurant.Location.Address;
         
     }
     
     private void SaveChangesBtn_Clicked(object sender, RoutedEventArgs e)
     {
-        string name = NameBox.Text;
-        string address = LocationBox.Text;
+        string name = TxtName.Text;
+        string address = TxtLocation.Text;
         ItemCollection Images = ImageList.Items;
 
-        double rating = slider.Value;
+        //double rating = slider.Value;
 
         // Validate inputs
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || Images == null || Images.Count == 0)
@@ -112,7 +112,7 @@ public partial class EditRestaurantWindow
             
             Restaurant.Location.Address = address;
             Restaurant.Name = name;
-            Restaurant.Rating = rating;
+            //Restaurant.Rating = rating;
             //dodati slike
             
             MainRepository.RestaurantsRepository.UpdateRestaurant(Restaurant);
@@ -123,7 +123,12 @@ public partial class EditRestaurantWindow
             InfoRestaurantBtn_Clicked(sender, e);
         }
     }
-    
+
+    private void textName_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtName.Focus();
+    }
+
     private void Border_DragEnter(object sender, DragEventArgs e)
     {
         e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
