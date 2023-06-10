@@ -240,13 +240,16 @@
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <Border Margin="0 0 17 12" Height="150" Width="230">
+                                                    <Border.Effect>
+                                                        <DropShadowEffect ShadowDepth="5" Color="Black" Opacity="0.5" BlurRadius="10" />
+                                                    </Border.Effect>
                                                     <Border.Background>
                                                         <ImageBrush ImageSource="{Binding ImgPath}" Stretch="UniformToFill"/>
                                                     </Border.Background>
                                                     <Border.Clip>
                                                         <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 230 150" />
                                                     </Border.Clip>
-
+                                                    
                                                     <Grid>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
                                                                 Height="230" HorizontalAlignment="Right"
@@ -255,11 +258,19 @@
                                                                 <Binding Path="Id" />
                                                             </Button.Tag>
                                                         </Button>
-                                                        <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                        <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold" />
+                                                                       FontSize="22" FontWeight="SemiBold">
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                       FontSize="14" />
+                                                                       FontSize="15" FontWeight="SemiBold">
+                                                            <TextBlock.Effect>
+                                                                <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                            </TextBlock.Effect>
+                                                            </TextBlock>
                                                         </StackPanel>
 
                                                         <Button Style="{StaticResource DeleteButton}"
@@ -352,13 +363,25 @@
                                                             </Button>
 
 
-                                                            <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                            <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
                                                                 <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                           FontSize="18" FontWeight="SemiBold" />
-                                                                <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                           FontSize="14" />
-                                                                <TextBlock Text="{Binding Location.Address}" Foreground="#EBEAE5"
-                                                                           FontSize="14" />
+                                                                           FontSize="20" FontWeight="Bold" >
+                                                                    <TextBlock.Effect>
+                                                                        <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.7" BlurRadius="3"/>
+                                                                    </TextBlock.Effect>
+                                                                </TextBlock>
+                                                                <TextBlock Text="{Binding Price}" Foreground="#FFFFFF"
+                                                                           FontSize="14" FontWeight="Bold">
+                                                                    <TextBlock.Effect>
+                                                                        <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                    </TextBlock.Effect>
+                                                                </TextBlock>
+                                                                <TextBlock Text="{Binding Location.Address}" Foreground="#FFFFFF"
+                                                                           FontSize="14" FontWeight="Bold" >
+                                                                    <TextBlock.Effect>
+                                                                        <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                    </TextBlock.Effect>
+                                                                </TextBlock>
                                                             </StackPanel>
 
                                                             <Button Style="{StaticResource DeleteButton}"
@@ -416,13 +439,25 @@
                                                         </Button>
 
 
-                                                        <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                        <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold" />
-                                                            <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                       FontSize="14" />
-                                                            <TextBlock Text="{Binding Location.Address}" Foreground="#EBEAE5"
-                                                                       FontSize="14" />
+                                                                       FontSize="22" FontWeight="Bold" >
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Price}" Foreground="#FFFFFF"
+                                                                       FontSize="14" FontWeight="Bold">
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Location.Address}" Foreground="#FFFFFF"
+                                                                       FontSize="14" FontWeight="Bold">
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
                                                         </StackPanel>
 
                                                         <Button Style="{StaticResource DeleteButton}"
@@ -479,11 +514,19 @@
                                                         </Button>
 
 
-                                                        <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                        <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold" />
-                                                            <TextBlock Text="{Binding Location.Address}" Foreground="#EBEAE5"
-                                                                       FontSize="14" />
+                                                                       FontSize="22" FontWeight="Bold" >
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Location.Address}" Foreground="#FFFFFF"
+                                                                       FontSize="14" FontWeight="SemiBold">
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
                                                         </StackPanel>
 
                                                         <Button Style="{StaticResource DeleteButton}"
