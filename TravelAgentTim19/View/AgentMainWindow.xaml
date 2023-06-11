@@ -107,7 +107,7 @@
         <Border Grid.Column="1" CornerRadius="0 10 10 0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                    <GradientStop Color="#EBEAE5" Offset="0" />
+                    <GradientStop Color="#FFFFFF" Offset="0" />
                     <GradientStop Color="#FFFFFF" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
@@ -672,14 +672,21 @@
                         
                         
                         <WrapPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,20"
-                                   VerticalAlignment="Bottom" 
+                                   VerticalAlignment="Top" 
                                    HorizontalAlignment="Center">
 
-                            <Label Content="Izaberite mesec:" HorizontalAlignment="Left" Margin="10"
+                            <Label Content="Izaberite mesec:" Foreground="#3AA9AD" FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10"
                                    VerticalAlignment="Center" />
 
                             <ComboBox x:Name="monthComboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="10"
-                                      VerticalAlignment="Center">
+                                      VerticalAlignment="Center" Width="100" Height="30">
+                                <ComboBox.Resources>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="Foreground" Value="#11172F"/>
+                                        <Setter Property="Background" Value="#3AA9AD"/>
+                                        <Setter Property="FontSize" Value="12"/>
+                                    </Style>
+                                </ComboBox.Resources>
                                 <ComboBoxItem Content="Januar" />
                                 <ComboBoxItem Content="Februar" />
                                 <ComboBoxItem Content="Mart" />
@@ -694,8 +701,12 @@
                                 <ComboBoxItem Content="Decembar" />
                             </ComboBox>
                             <Button x:Name="FindByMonthBtn" Click="FindTripsReport1_Clicked" Grid.Column="2"
-                                    Content="Filtriraj" HorizontalAlignment="Left" Margin="10"
-                                    VerticalAlignment="Center" />
+                                     HorizontalAlignment="Left" Margin="5" 
+                                    VerticalAlignment="Center" Style="{StaticResource SearchButton}">
+                                <Viewbox Width="10" Height="10">
+                                    <wpf:FontAwesome Icon="Search" />
+                                </Viewbox>  
+                            </Button>
                         </WrapPanel>
 
                         <!-- SoldTrip grid-->
@@ -768,14 +779,19 @@
                                    VerticalAlignment="Bottom" 
                                    HorizontalAlignment="Center">
                  
-                            <Label Content="Izaberite putovanje:" HorizontalAlignment="Left" Margin="10"
+                            <Label Content="Izaberite putovanje:" Foreground="#3AA9AD" FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10"
                                    VerticalAlignment="Center" />
 
                             <ComboBox x:Name="tripComboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="10"
-                                      VerticalAlignment="Center" />
+                                      VerticalAlignment="Center" Width="100" Height="30" />
+                            
                             <Button x:Name="FindByTripBtn" Click="FindTripsReport2_Clicked" Grid.Column="2"
-                                    Content="Filtriraj" HorizontalAlignment="Left" Margin="10"
-                                    VerticalAlignment="Center" />
+                                    HorizontalAlignment="Left" Margin="5" 
+                                    VerticalAlignment="Center" Style="{StaticResource SearchButton}">
+                                <Viewbox Width="10" Height="10">
+                                    <wpf:FontAwesome Icon="Search" />
+                                </Viewbox> 
+                            </Button>
                         </WrapPanel>
                         <!-- Report 2 Trips -->
                         <Grid Name="BookedTripsGrid" Visibility="Visible" Grid.Row="1">

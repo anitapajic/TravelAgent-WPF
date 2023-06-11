@@ -11,13 +11,13 @@ using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
 using Microsoft.Win32;
-using NodaTime;
+using NodaTime; 
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
 using Location = TravelAgentTim19.Model.Location;
 
 namespace TravelAgentTim19.View.Edit;
-
+ 
 public partial class EditTripWindow 
 {
     public Trip Trip { get; set; }
