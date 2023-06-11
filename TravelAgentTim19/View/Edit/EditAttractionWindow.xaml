@@ -6,7 +6,6 @@
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        xmlns:local="clr-namespace:TravelAgentTim19.View.Edit"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" ResizeMode="CanResize"

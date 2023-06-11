@@ -3,8 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
-        xmlns:local="clr-namespace:TravelAgentTim19.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         Title="Novo putovanje" Height="600" Width="1100">
