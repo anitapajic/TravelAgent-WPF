@@ -165,6 +165,9 @@
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </ToggleButton.Template>
+                        <ToggleButton.ToolTip>
+                            <ToolTip Content="Dodaj novu atrakciju" />
+                        </ToggleButton.ToolTip>
                     </ToggleButton>
                     <ToggleButton x:Name="ToggleButtonAccomodation" Click="ToggleButtonAccomodation_Click"
                                   Width="40"
@@ -184,6 +187,9 @@
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </ToggleButton.Template>
+                        <ToggleButton.ToolTip>
+                            <ToolTip Content="Dodaj novi smestaj" />
+                        </ToggleButton.ToolTip>
                     </ToggleButton>
                     <ToggleButton x:Name="ToggleButtonRestourant" Click="ToggleButtonRestaurant_Click"
                                   Width="40"
@@ -203,6 +209,9 @@
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </ToggleButton.Template>
+                        <ToggleButton.ToolTip>
+                            <ToolTip Content="Dodaj novi restoran" />
+                        </ToggleButton.ToolTip>
                     </ToggleButton>
                     <ToggleButton x:Name="ToggleButtonTrip" Click="ToggleButtonTrip_Click"
                                   Width="40"
@@ -222,6 +231,9 @@
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </ToggleButton.Template>
+                        <ToggleButton.ToolTip>
+                            <ToolTip Content="Dodaj novo putovanje" />
+                        </ToggleButton.ToolTip>
                     </ToggleButton>
                 </Grid>
 
