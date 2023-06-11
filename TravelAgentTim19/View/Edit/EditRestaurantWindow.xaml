@@ -10,7 +10,7 @@
         WindowStyle="None" ResizeMode="CanResize"
         AllowsTransparency="True"
         Background="#FFFFFF"
-        Title="EditRestaurantWindow" Height="600" Width="1100">
+        Title="Restoran" Height="600" Width="1100">
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />

@@ -7,7 +7,7 @@
         xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
-        Title="Add New Accomodation" Height="600" Width="1100">
+        Title="Novi smestaj" Height="600" Width="1100">
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />

@@ -74,7 +74,6 @@ public partial class AddNewAccomodationWindow
         location.Address = TxtAddress.Text;
         ItemCollection Images = ImageList.Items;
         AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
-        // double rating = RatingSlider.Value;
         double rating = slider.Value;
 
         // Validate inputs
@@ -83,10 +82,22 @@ public partial class AddNewAccomodationWindow
             MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar jednu sliku.");
             return;
         }
+
+        // Additional validations
+        if (rating < 0 || rating > 5)
+        {
+            MessageBox.Show("Ocena mora biti između 0 i 5.");
+            return;
+        }
+
+        if (type == null)
+        {
+            MessageBox.Show("Molimo Vas odaberite tip smještaja.");
+            return;
+        }
         
 
-        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da dodate ovaj smestaj?", "Potvrda",
-            MessageBoxButton.YesNo);
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da dodate ovaj smeštaj?", "Potvrda", MessageBoxButton.YesNo);
         if (result == MessageBoxResult.Yes)
         {
             Accomodation accomodation = new Accomodation();
@@ -96,7 +107,7 @@ public partial class AddNewAccomodationWindow
             accomodation.Name = name;
             accomodation.Rating = rating;
             accomodation.AccomodationType = type;
-            //dodati slike
+
             MainRepository.AccomodationRepository.AddAccomodation(accomodation);
             Close();
         }

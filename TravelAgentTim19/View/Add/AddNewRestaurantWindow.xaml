@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TravelAgentTim19.View"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
-        Title="Add New Restaurant" Height="600" Width="1100">
+        Title="Novi restoran" Height="600" Width="1100">
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />

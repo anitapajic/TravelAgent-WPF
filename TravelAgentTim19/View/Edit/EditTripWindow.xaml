@@ -10,7 +10,7 @@
         WindowStyle="None" ResizeMode="CanResize"
         AllowsTransparency="True"
         Background="#FFFFFF"
-        Title="EditTripWindow" Height="600" Width="1100">
+        Title="Putovanje" Height="600" Width="1100">
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />

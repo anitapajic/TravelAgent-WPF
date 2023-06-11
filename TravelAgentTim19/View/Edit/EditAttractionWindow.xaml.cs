@@ -157,32 +157,37 @@ public partial class EditAttractionWindow
     {
         string name = TxtName.Text;
         string address = TxtLocation.Text;
-        double price = Convert.ToDouble(TxtPrice.Text);
+        string priceText = TxtPrice.Text;
         string desc = DescriptionBox.Text;
         ItemCollection Images = ImageList.Items;
-        
-        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || Images == null || Images.Count == 0)
+
+        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(priceText) || Images == null || Images.Count == 0)
         {
             MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar 1 sliku.");
             return;
         }
-        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da izmenite ovu atrakciju?", "Potvrda",
-            MessageBoxButton.YesNo);
+
+        if (!double.TryParse(priceText, out double price))
+        {
+            MessageBox.Show("Cena mora biti numerička vrednost.");
+            return;
+        }
+
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da izmenite ovu atrakciju?", "Potvrda", MessageBoxButton.YesNo);
         if (result == MessageBoxResult.Yes)
         {
-
             Attraction.Name = name;
             Attraction.Description = desc;
             Attraction.Location.Address = address;
             Attraction.Price = price;
             //dodati slike
-            
+
             MainRepository.AttractionRepository.UpdateAttraction(Attraction);
             nameTextBlock.Text = Attraction.Name;
             addressTextBlock.Text = Attraction.Location.Address;
             priceTextBlock.Text = Attraction.Price.ToString();
             descTextBlock.Text = Attraction.Description;
-            
+
             Close();
         }
         

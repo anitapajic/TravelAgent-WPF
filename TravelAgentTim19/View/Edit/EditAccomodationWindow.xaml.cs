@@ -109,8 +109,8 @@ public partial class EditAccomodationWindow
             
             Accomodation.Location.Address = address;
             Accomodation.Name = name;
-            //Accomodation.Rating = rating;
-            //Accomodation.AccomodationType = type;
+            // Accomodation.Rating = rating;
+            // Accomodation.AccomodationType = type;
             //dodati slike
             
             MainRepository.AccomodationRepository.UpdateAccomodation(Accomodation);

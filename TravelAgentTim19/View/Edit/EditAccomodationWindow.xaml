@@ -11,7 +11,7 @@
         WindowStyle="None" ResizeMode="CanResize"
         AllowsTransparency="True"
         Background="#FFFFFF"
-        Title="Edit Accomodation" Height="600" Width="1100">
+        Title="Smestaj" Height="600" Width="1100">
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
