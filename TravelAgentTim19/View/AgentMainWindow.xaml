@@ -260,7 +260,7 @@
                                                         </Button>
                                                         <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                       FontSize="22" FontWeight="SemiBold">
+                                                                       FontSize="20" FontWeight="SemiBold">
                                                                 <TextBlock.Effect>
                                                                     <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
                                                                 </TextBlock.Effect>
@@ -587,12 +587,12 @@
 
                                                         <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold" />
-                                                            <TextBlock Height="10" />
+                                                                       FontSize="18" FontWeight="SemiBold" Margin="0 0 0 10" />
+                                                            
                                                             <TextBlock Text="{Binding User}" Foreground="#FFFFFF"
                                                                        FontSize="14" FontWeight="SemiBold" />
-                                                            <TextBlock Height="20" />
 
+                                                            
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                        FontSize="14" />
                                                         </StackPanel>
@@ -645,11 +645,9 @@
 
                                                         <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold" />
-                                                            <TextBlock Height="10" />
+                                                                       FontSize="18" FontWeight="SemiBold" Margin="0 0 0 10"/>
                                                             <TextBlock Text="{Binding User}" Foreground="#FFFFFF"
                                                                        FontSize="14" FontWeight="SemiBold" />
-                                                            <TextBlock Height="20" />
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                        FontSize="14" />
                                                         </StackPanel>
@@ -657,6 +655,7 @@
                                                 </Border>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
+                                        
                                     </ItemsControl>
                                 </Grid>
                             </ScrollViewer>
@@ -749,8 +748,7 @@
 
                                                             <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                                 <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                           FontSize="18" FontWeight="SemiBold" />
-                                                                <TextBlock Height="20" />
+                                                                           FontSize="18" FontWeight="SemiBold" Margin="0 0 0 10" />
                                                                 <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                            FontSize="14" />
                                                             </StackPanel>

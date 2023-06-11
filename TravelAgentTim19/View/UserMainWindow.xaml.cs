@@ -284,6 +284,7 @@ public partial class UserMainWindow
             PurchasedTrips.Clear();
             GetBookedTrips();
             bookedTripItemsControl.Items.Refresh();
+            purchasedTripItemsControl.Items.Refresh();
         }
     }
 

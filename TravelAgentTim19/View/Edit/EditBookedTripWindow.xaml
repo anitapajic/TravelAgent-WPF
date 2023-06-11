@@ -67,7 +67,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Pocetni datum:" Foreground="#11172F" FontSize="20" FontWeight="SemiBold"/>
+                    <TextBlock Text="Od:" Foreground="#11172F" FontSize="20" FontWeight="SemiBold"/>
                     <TextBlock Grid.Column="1" Text="{Binding BookedTrip.DatePeriod.StartDate  }" Foreground="#FFFFFF" FontSize="20" Margin="15 0 0 0" FontWeight="SemiBold" />
                 </Grid>
                 
@@ -76,7 +76,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="Krajnji datum:" Foreground="#11172F" FontSize="20" FontWeight="SemiBold" />
+                    <TextBlock Text="Do:" Foreground="#11172F" FontSize="20" FontWeight="SemiBold" />
                     <TextBlock Grid.Column="1" Text="{Binding  BookedTrip.DatePeriod.EndDate}" Foreground="#FFFFFF" FontSize="20" Margin="15 0 0 0"  FontWeight="SemiBold"/>
                 </Grid>
                 <Grid Grid.Column="0" Grid.Row="4" Margin="70 15 10 5" VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -115,4 +115,5 @@
 
 
     </Grid>
+    
 </Window>

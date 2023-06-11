@@ -7,7 +7,7 @@ namespace TravelAgentTim19.View.Edit;
 
 public partial class EditPurchasedTripWindow 
 {
-    private BookedTrip BookedTrip;
+    public BookedTrip BookedTrip { get; set; }
     private MainRepository MainRepository;
     public EditPurchasedTripWindow(BookedTrip bookedTrip, MainRepository mainRepository)
     {
@@ -17,6 +17,11 @@ public partial class EditPurchasedTripWindow
     }
     private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
     {
+        Close(); 
+    }
+    private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+    {
+        MainRepository.Save();
         Close(); 
     }
 }
