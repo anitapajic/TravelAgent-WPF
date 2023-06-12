@@ -4,13 +4,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
-        xmlns:local="clr-namespace:TravelAgentTim19.View.Edit"
+        xmlns:helpSistem="clr-namespace:HelpSistem"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Rezervacija" Height="600" Width="1100" 
         WindowStyle="None"
-        DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="EditBookedTripWindow" Height="600" Width="1100">
+        helpSistem:HelpProvider.HelpKey="infoBookedTrip"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>
     <Window.InputBindings>

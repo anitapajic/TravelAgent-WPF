@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using HelpSistem;
 using Microsoft.Win32;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
@@ -23,11 +24,28 @@ public partial class AddNewAttractionWindow
 
     private void SaveButton_OnClick(object sender, RoutedEventArgs e)
     {
+        // Validate inputs
+        if (string.IsNullOrEmpty(TxtName.Text) || string.IsNullOrEmpty(TxtCity.Text) ||
+            string.IsNullOrEmpty(TxtAddress.Text) || string.IsNullOrEmpty(TxtPrice.Text) ||
+            string.IsNullOrEmpty(TxtDescription.Text))
+        {
+            MessageBox.Show("Molimo Vas popunite sva polja.");
+            return;
+        }
+
+        double price;
+        if (!double.TryParse(TxtPrice.Text, out price))
+        {
+            MessageBox.Show("Cena mora biti numerička vrednost.");
+            return;
+        }
+
         Random rand = new Random();
         int id = rand.Next(10000);
-         Attraction attraction = new Attraction(id, TxtName.Text, "",new Location(TxtCity.Text, TxtAddress.Text), Convert.ToDouble(TxtPrice.Text), TxtDescription.Text);
-         MainRepository.AttractionRepository.AddAttraction(attraction);
-        MessageBox.Show("Uspesno si dodao novu atrakciju!");
+        Attraction attraction = new Attraction(id, TxtName.Text, "", new Location(TxtCity.Text, TxtAddress.Text),
+            price, TxtDescription.Text);
+        MainRepository.AttractionRepository.AddAttraction(attraction);
+        MessageBox.Show("Uspešno si dodao novu atrakciju!");
     }
     
     private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -135,5 +153,10 @@ public partial class AddNewAttractionWindow
     private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
     {
         Close(); 
+    }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+     {
+         string str = HelpProvider.GetHelpKey(this);
+         HelpProvider.ShowHelp(str, this);
     }
 }

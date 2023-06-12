@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using HelpSistem;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
 
@@ -23,5 +24,10 @@ public partial class EditPurchasedTripWindow
     {
         MainRepository.Save();
         Close(); 
+    }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string str = HelpProvider.GetHelpKey(this);
+        HelpProvider.ShowHelp(str, this);
     }
 }

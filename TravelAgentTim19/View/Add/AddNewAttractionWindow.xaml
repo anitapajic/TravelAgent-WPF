@@ -3,11 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:TravelAgentTim19.View"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
-        Title="Dodaj novu atrakciju" Height="600" Width="1100">
+        xmlns:l="clr-namespace:HelpSistem"
+        l:HelpProvider.HelpKey="newAttraction"
+        Title="Nova atrakcija" Height="600" Width="1100">
     
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>

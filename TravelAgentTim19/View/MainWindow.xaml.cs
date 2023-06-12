@@ -82,12 +82,12 @@ namespace TravelAgentTim19.View
                 }
                 if (found == false)
                 {
-                    MessageBox.Show("User does not exist!");
+                    MessageBox.Show("Korisnik ne postoji!");
                 }
             }
             else
             {
-                MessageBox.Show("Invalid data!");
+                MessageBox.Show("Pogresni uneti podaci!");
             }
         }
         
@@ -103,7 +103,7 @@ namespace TravelAgentTim19.View
                 SignUpPasswordBox.Password = null;
                 SignUpPassword2Box.Password = null;
             }
-            MessageBox.Show(registered ? "Successfully Signed Up" : "Unsuccessfully Signed Up");
+            MessageBox.Show(registered ? "Uspesna registracija!" : "Neuspesna registracija!");
         }
 
         private void emailBox_TextChanged(object sender, TextChangedEventArgs e)

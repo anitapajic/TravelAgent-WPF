@@ -9,7 +9,7 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
         ResizeMode="CanResize"  PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
-        l:HelpProvider.HelpKey="Forma"
+        l:HelpProvider.HelpKey="index"
         Background="Transparent"
         Title="Glavni prozor" Height="600" Width="1100" MinWidth="600" MinHeight="500" 
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}" 
@@ -165,6 +165,9 @@
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </ToggleButton.Template>
+                        <ToggleButton.ToolTip>
+                            <ToolTip Content="Dodaj novu atrakciju" />
+                        </ToggleButton.ToolTip>
                     </ToggleButton>
                     <ToggleButton x:Name="ToggleButtonAccomodation" Click="ToggleButtonAccomodation_Click"
                                   Width="40"
@@ -184,6 +187,9 @@
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </ToggleButton.Template>
+                        <ToggleButton.ToolTip>
+                            <ToolTip Content="Dodaj novi smestaj" />
+                        </ToggleButton.ToolTip>
                     </ToggleButton>
                     <ToggleButton x:Name="ToggleButtonRestourant" Click="ToggleButtonRestaurant_Click"
                                   Width="40"
@@ -203,6 +209,9 @@
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </ToggleButton.Template>
+                        <ToggleButton.ToolTip>
+                            <ToolTip Content="Dodaj novi restoran" />
+                        </ToggleButton.ToolTip>
                     </ToggleButton>
                     <ToggleButton x:Name="ToggleButtonTrip" Click="ToggleButtonTrip_Click"
                                   Width="40"
@@ -222,6 +231,9 @@
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </ToggleButton.Template>
+                        <ToggleButton.ToolTip>
+                            <ToolTip Content="Dodaj novo putovanje" />
+                        </ToggleButton.ToolTip>
                     </ToggleButton>
                 </Grid>
 
@@ -636,7 +648,7 @@
                                                     <Grid>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
                                                                 Height="230" HorizontalAlignment="Right"
-                                                                Click="EditBookedTripBtn_Clicked">
+                                                                Click="EditPurchasedTripBtn_Clicked">
                                                             <Button.Tag>
                                                                 <Binding Path="Id" />
                                                             </Button.Tag>
@@ -709,7 +721,7 @@
                         </WrapPanel>
 
                         <!-- SoldTrip grid-->
-                        <Grid Name="SoldTripGrid" Grid.Row="1" Visibility="Visible">
+                        <Grid Name="SoldTripGrid" Grid.Row="1" Visibility="Hidden">
                             <Grid>
                                 <ScrollViewer VerticalScrollBarVisibility="Hidden"
                                               HorizontalScrollBarVisibility="Disabled">
@@ -737,7 +749,7 @@
 
                                                         <Grid>
                                                             <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                    Height="230" HorizontalAlignment="Right">
+                                                                    Height="230" HorizontalAlignment="Right" Click="EditTripBtn_Clicked">
                                                                     <!-- Click="EditBookedTripBtn_Clicked" -->
                                                                     
                                                                 <Button.Tag>
@@ -792,7 +804,7 @@
                             </Button>
                         </WrapPanel>
                         <!-- Report 2 Trips -->
-                        <Grid Name="BookedTripsGrid" Visibility="Visible" Grid.Row="1">
+                        <Grid Name="BookedTripsGrid" Visibility="Hidden" Grid.Row="1">
                             <Grid>
                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                                               HorizontalScrollBarVisibility="Disabled">
@@ -820,8 +832,7 @@
 
                                                         <Grid>
                                                             <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                    Height="230" HorizontalAlignment="Right">
-                                                                    <!-- Click="EditBookedTripBtn_Clicked" -->
+                                                                    Height="230" HorizontalAlignment="Right" Click="EditPurchasedTripBtn_Clicked">
                                                                     
                                                                 <Button.Tag>
                                                                     <Binding Path="Id" />
