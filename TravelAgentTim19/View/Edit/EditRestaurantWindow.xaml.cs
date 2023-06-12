@@ -19,12 +19,19 @@ namespace TravelAgentTim19.View.Edit;
 public partial class EditRestaurantWindow
 {
     public Restaurant Restaurant { get; set; }
-    private MainRepository MainRepository;
-    public EditRestaurantWindow(Restaurant restaurant, MainRepository mainRepository)
+    private MainRepository MainRepository  { get; set; }
+    private Boolean IsAgent { get; set; }
+
+    public EditRestaurantWindow(Restaurant restaurant, MainRepository mainRepository, Boolean isAgent)
     {
         MainRepository = mainRepository;
         Restaurant = restaurant;
+        IsAgent = isAgent;
         InitializeComponent();
+        if (!isAgent)
+        {
+            EditBtn.Visibility = Visibility.Hidden;
+        }
     }
     private void MapControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
     {

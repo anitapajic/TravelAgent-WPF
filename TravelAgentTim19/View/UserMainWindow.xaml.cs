@@ -236,7 +236,7 @@ public partial class UserMainWindow
         int restaurantId = (int)editButton.Tag;
         Restaurant restaurant = MainRepository.RestaurantsRepository.GetRestaurantByid(restaurantId);
 
-        EditRestaurantWindow editRestaurantWindow = new EditRestaurantWindow(restaurant, MainRepository);
+        EditRestaurantWindow editRestaurantWindow = new EditRestaurantWindow(restaurant, MainRepository, false);
         editRestaurantWindow.Show();
     }
     private void EditAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
@@ -245,7 +245,7 @@ public partial class UserMainWindow
         int accomodationId = (int)editButton.Tag;
         Accomodation accomodation = MainRepository.AccomodationRepository.GetAccomodationById(accomodationId);
 
-        EditAccomodationWindow editAccomodationWindow= new EditAccomodationWindow(accomodation, MainRepository);
+        EditAccomodationWindow editAccomodationWindow= new EditAccomodationWindow(accomodation, MainRepository, false);
         editAccomodationWindow.Show();
     }
     private void EditAttractionBtn_Click(object sender, RoutedEventArgs e)
@@ -254,7 +254,7 @@ public partial class UserMainWindow
         int attId = (int)editButton.Tag;
         Attraction attraction = MainRepository.AttractionRepository.GetAttractionById(attId);
 
-        EditAttractionWindow editAttractionWindow = new EditAttractionWindow(attraction, MainRepository);
+        EditAttractionWindow editAttractionWindow = new EditAttractionWindow(attraction, MainRepository, false);
         editAttractionWindow.Show();
     }
     

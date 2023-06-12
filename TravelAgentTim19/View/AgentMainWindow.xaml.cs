@@ -332,7 +332,7 @@ public partial class AgentMainWindow
         int restaurantId = (int)editButton.Tag;
         Restaurant restaurant = MainRepository.RestaurantsRepository.GetRestaurantByid(restaurantId);
 
-        EditRestaurantWindow editRestaurantWindow = new EditRestaurantWindow(restaurant, MainRepository);
+        EditRestaurantWindow editRestaurantWindow = new EditRestaurantWindow(restaurant, MainRepository, true);
         editRestaurantWindow.Show();
         editRestaurantWindow.Closed += EditRestaurantWindow_Closed;
     }
@@ -357,7 +357,7 @@ public partial class AgentMainWindow
         int accomodationId = (int)editButton.Tag;
         Accomodation accomodation = MainRepository.AccomodationRepository.GetAccomodationById(accomodationId);
 
-        EditAccomodationWindow editAccomodationWindow= new EditAccomodationWindow(accomodation, MainRepository);
+        EditAccomodationWindow editAccomodationWindow= new EditAccomodationWindow(accomodation, MainRepository, true);
         editAccomodationWindow.Show();
         editAccomodationWindow.Closed += EditAccommodationpWindow_Closed;
     }
@@ -423,7 +423,7 @@ public partial class AgentMainWindow
         int attId = (int)editButton.Tag;
         Attraction attraction = MainRepository.AttractionRepository.GetAttractionById(attId);
 
-        EditAttractionWindow editAttractionWindow = new EditAttractionWindow(attraction, MainRepository);
+        EditAttractionWindow editAttractionWindow = new EditAttractionWindow(attraction, MainRepository, true);
         editAttractionWindow.Show();
         editAttractionWindow.Closed += EditAttractionWindow_Closed;
     }
