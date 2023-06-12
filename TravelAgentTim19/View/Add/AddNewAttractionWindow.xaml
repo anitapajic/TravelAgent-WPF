@@ -9,7 +9,7 @@
         AllowsTransparency="True"
         MinWidth="600" MinHeight="500" 
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
-        Title="Dodaj novu atrakciju" Height="600" Width="1100">
+        Title="Dodaj novu atrakciju" Height="600" Width="700">
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
@@ -19,6 +19,8 @@
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
     
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+
     <Grid Margin="10" MouseDown="Grid_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -30,7 +32,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
-      
+        <Image x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+               Style="{StaticResource ImgClose}" />
+
         <TextBlock Text="Dodaj novu atrakciju" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch"  />
 
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
@@ -66,4 +70,5 @@
         
         <Button x:Name="SaveButton" Background="#3AA9AD" Foreground="White" FontWeight="Bold" Content="Dodaj" Grid.Row="6" Grid.ColumnSpan="2"  Click="SaveButton_OnClick" Style="{StaticResource MainButton}" Margin="40"/>
     </Grid>
+        </ScrollViewer>
 </Window>

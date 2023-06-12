@@ -136,7 +136,10 @@ public partial class AddNewAttractionWindow
     {
         Close(); 
     }
-
+    private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+    {
+        Close();
+    }
     private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
     {
         if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
@@ -153,6 +156,6 @@ public partial class AddNewAttractionWindow
     private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
     {
         var element = e.OriginalSource as FrameworkElement;
-        return !(element is TextBox);
+        return !(element is TextBox) && (element.Name != "Ximg");
     }
 }

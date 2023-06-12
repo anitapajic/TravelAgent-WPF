@@ -360,6 +360,10 @@ public partial class AddNewTripWindow
     {
         Close(); 
     }
+    private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+    {
+        Close();
+    }
 
     private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
     {
@@ -377,6 +381,6 @@ public partial class AddNewTripWindow
     private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
     {
         var element = e.OriginalSource as FrameworkElement;
-        return !(element is TextBox);
+        return !(element is TextBox) && (element.Name != "Ximg");
     }
 }

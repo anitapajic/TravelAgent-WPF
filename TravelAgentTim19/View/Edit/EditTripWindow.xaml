@@ -42,6 +42,7 @@
             </Setter>
         </Style>
     </Window.Resources>
+    
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <Grid MouseDown="Grid_MouseDown">
             <Grid x:Name="InfoGrid" Visibility="Visible" Margin="0">

@@ -9,7 +9,7 @@
         AllowsTransparency="True"
         MinWidth="600" MinHeight="500" 
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
-        Title="Add New Restaurant" Height="600" Width="1100">
+        Title="Add New Restaurant" Height="600" Width="700">
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
@@ -18,7 +18,8 @@
     <Window.InputBindings>
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
-    
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+
     <Grid HorizontalAlignment="Center" MouseDown="Grid_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -31,7 +32,9 @@
         </Grid.RowDefinitions>
         
         
-        
+        <Image x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+               Style="{StaticResource ImgClose}" />
+
         
         <TextBlock Text="Dodaj novi restoran" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch"  />
 
@@ -119,4 +122,5 @@
         ~1~ Submit button @1@
         <Button Content="Submit" Click="CreateRestaurantBtn_Clicked" Grid.Row="6"  HorizontalAlignment="Center" Width="100" MaxHeight="40"/>-->
     </Grid>
+        </ScrollViewer>
 </Window>
