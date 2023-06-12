@@ -8,6 +8,7 @@ using System.Windows.Media.Imaging;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using HelpSistem;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
@@ -236,7 +237,7 @@ public partial class UserMainWindow
         int restaurantId = (int)editButton.Tag;
         Restaurant restaurant = MainRepository.RestaurantsRepository.GetRestaurantByid(restaurantId);
 
-        EditRestaurantWindow editRestaurantWindow = new EditRestaurantWindow(restaurant, MainRepository);
+        EditRestaurantWindow editRestaurantWindow = new EditRestaurantWindow(restaurant, MainRepository, false);
         editRestaurantWindow.Show();
     }
     private void EditAccomodationBtn_Clicked(object sender, RoutedEventArgs e)
@@ -245,7 +246,7 @@ public partial class UserMainWindow
         int accomodationId = (int)editButton.Tag;
         Accomodation accomodation = MainRepository.AccomodationRepository.GetAccomodationById(accomodationId);
 
-        EditAccomodationWindow editAccomodationWindow= new EditAccomodationWindow(accomodation, MainRepository);
+        EditAccomodationWindow editAccomodationWindow= new EditAccomodationWindow(accomodation, MainRepository, false);
         editAccomodationWindow.Show();
     }
     private void EditAttractionBtn_Click(object sender, RoutedEventArgs e)
@@ -254,7 +255,7 @@ public partial class UserMainWindow
         int attId = (int)editButton.Tag;
         Attraction attraction = MainRepository.AttractionRepository.GetAttractionById(attId);
 
-        EditAttractionWindow editAttractionWindow = new EditAttractionWindow(attraction, MainRepository);
+        EditAttractionWindow editAttractionWindow = new EditAttractionWindow(attraction, MainRepository, false);
         editAttractionWindow.Show();
     }
     
@@ -325,5 +326,11 @@ public partial class UserMainWindow
     {
         if (e.ChangedButton == MouseButton.Left)
             this.DragMove();
+    }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string helpKey;
+        helpKey = "indexUser"; // default key
+        HelpProvider.ShowHelp(helpKey, this);
     }
 }

@@ -60,7 +60,7 @@
                                 <ImageBrush ImageSource="{Binding Restaurant.ImgPath}" Stretch="UniformToFill"/>
                             </Border.Background>
                             <Grid>
-                                <Button Grid.ColumnSpan="3" Style="{StaticResource PenButton}" Click="EditRestaurantBtn_Clicked"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 20 0 15">
+                                <Button x:Name="EditBtn" Grid.ColumnSpan="3" Style="{StaticResource PenButton}" Click="EditRestaurantBtn_Clicked"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 20 0 15">
                                     <Viewbox Width="25" Height="25">
                                         <wpf:FontAwesome Icon="Pencil" />
                                     </Viewbox>
@@ -79,7 +79,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Name="typeTextBlock" Text="Restoran" Foreground="#11172F" FontSize="30" FontWeight="SemiBold"/>
                                 <wpf:FontAwesome Icon="Star" Margin="80,9,10,0" Foreground="#F2B312" FontSize="25"/>
-                                <TextBlock Margin="0 5 0 0" Text="{Binding Restaurant.Rating}" Foreground="#11172F" FontSize="23" FontWeight="DemiBold"/>
+                                <TextBlock Name="rating" Margin="0 5 0 0" Text="{Binding Restaurant.Rating}" Foreground="#11172F" FontSize="23" FontWeight="DemiBold"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="3,10,0,0">
                                 <wpf:FontAwesome Icon="MapPin" Margin="0,0,8,0" Foreground="#11172F" FontSize="18" />

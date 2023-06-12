@@ -8,6 +8,7 @@ using System.Windows.Media.Imaging;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using HelpSistem;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
@@ -191,5 +192,24 @@ public partial class BookTripWindow
     {
         var element = e.OriginalSource as FrameworkElement;
         return element != null && (element.Name == "Ximg" || element.Name == "gmap");
+    }
+    
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string helpKey;
+        if (InfoGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "infoTripUser";
+        }
+        else if (EditGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "bookTripUser";
+        }
+        else
+        {
+            helpKey = "indexUser"; // default key
+        }
+
+        HelpProvider.ShowHelp(helpKey, this);
     }
 }

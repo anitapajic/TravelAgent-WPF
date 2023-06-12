@@ -167,7 +167,11 @@
                         </Grid>
                     </Border>
 
-                    <Button Content="Prijavi se" Click="SignInFormButton_Click" Style="{StaticResource MainButton}" />
+                    <Button Content="Prijavi se" Click="SignInFormButton_Click" Style="{StaticResource MainButton}">
+                        <Button.ToolTip>
+                            <ToolTip Content="Tooltip za prijavu" ShowsToolTipOnKeyboardFocus="True" />
+                        </Button.ToolTip>
+                    </Button>
                 </StackPanel>
             </Grid>
         </Border>

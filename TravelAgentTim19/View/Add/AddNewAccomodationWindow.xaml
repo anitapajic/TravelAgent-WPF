@@ -13,7 +13,7 @@
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
         xmlns:helpSistem="clr-namespace:HelpSistem"
         helpSistem:HelpProvider.HelpKey="newAccommodation"
-        Title="Novi smestaj" Height="600" Width="700">
+        Title="Novi smestaj" Height="600" Width="1100">
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />

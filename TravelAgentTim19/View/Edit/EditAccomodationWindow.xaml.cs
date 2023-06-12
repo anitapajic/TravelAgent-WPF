@@ -23,11 +23,18 @@ public partial class EditAccomodationWindow
 {
     public Accomodation Accomodation { get; set; }
     private MainRepository MainRepository { get; set; }
-    public EditAccomodationWindow(Accomodation accomodation, MainRepository mainRepository)
+    private Boolean IsAgent { get; set; }
+
+    public EditAccomodationWindow(Accomodation accomodation, MainRepository mainRepository, Boolean isAgent)
     {
         Accomodation = accomodation;
         MainRepository = mainRepository;
+        IsAgent = isAgent;
         InitializeComponent();
+        if (!isAgent)
+        {
+            EditBtn.Visibility = Visibility.Hidden;
+        }
     }
     private void MapControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
     {
@@ -121,6 +128,7 @@ public partial class EditAccomodationWindow
             priceTextBlock.Text = Accomodation.Price.ToString();
             typeTextBlock.Text = Accomodation.AccomodationType.ToString();
             addressTextBlock.Text = Accomodation.Location.Address;
+            rating.Text = Accomodation.Rating.ToString();
 
             InfoAccomodationBtn_Clicked(sender,e);
         }
@@ -317,7 +325,14 @@ private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         string helpKey;
         if (InfoGrid.Visibility == Visibility.Visible)
         {
-            helpKey = "infoAccommodation";
+            if (IsAgent)
+            {
+                helpKey = "infoAccommodation";
+            }
+            else
+            {
+                helpKey = "infoAccommodationUser";
+            }
         }
         else if (EditGrid.Visibility == Visibility.Visible)
         {

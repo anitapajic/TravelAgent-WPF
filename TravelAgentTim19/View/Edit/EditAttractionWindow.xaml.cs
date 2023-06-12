@@ -20,12 +20,18 @@ public partial class EditAttractionWindow
 {
     public Attraction Attraction { get; set; }
     private MainRepository MainRepository { get; set; }
+    private Boolean IsAgent { get; set; }
     
-    public EditAttractionWindow(Attraction attraction, MainRepository mainRepository)
+    public EditAttractionWindow(Attraction attraction, MainRepository mainRepository, Boolean isAgent)
     {
         Attraction = attraction;
         MainRepository = mainRepository;
+        IsAgent = isAgent;
         InitializeComponent();
+        if (!isAgent)
+        {
+            EditBtn.Visibility = Visibility.Hidden;
+        }
     }
     private void MapControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
     {
@@ -259,7 +265,14 @@ public partial class EditAttractionWindow
         string helpKey;
         if (InfoGrid.Visibility == Visibility.Visible)
         {
-            helpKey = "infoAttraction";
+            if (IsAgent)
+            {
+                helpKey = "infoAttraction";
+            }
+            else
+            {
+                helpKey = "infoAttractionUser";
+            }
         }
         else if (EditGrid.Visibility == Visibility.Visible)
         {

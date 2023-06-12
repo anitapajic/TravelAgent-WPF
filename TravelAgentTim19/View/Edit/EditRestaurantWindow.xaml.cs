@@ -21,12 +21,19 @@ namespace TravelAgentTim19.View.Edit;
 public partial class EditRestaurantWindow
 {
     public Restaurant Restaurant { get; set; }
-    private MainRepository MainRepository;
-    public EditRestaurantWindow(Restaurant restaurant, MainRepository mainRepository)
+    private MainRepository MainRepository  { get; set; }
+    private Boolean IsAgent { get; set; }
+
+    public EditRestaurantWindow(Restaurant restaurant, MainRepository mainRepository, Boolean isAgent)
     {
         MainRepository = mainRepository;
         Restaurant = restaurant;
+        IsAgent = isAgent;
         InitializeComponent();
+        if (!isAgent)
+        {
+            EditBtn.Visibility = Visibility.Hidden;
+        }
     }
     private void MapControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
     {
@@ -195,6 +202,8 @@ private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
             nameTextBlock.Text = Restaurant.Name;
             //RatingTextBlock.Text = Restaurant.Rating.ToString();
             addressTextBlock.Text = Restaurant.Location.Address;
+            rating.Text = Restaurant.Rating.ToString();
+            
             
             InfoRestaurantBtn_Clicked(sender, e);
         }
@@ -314,7 +323,14 @@ private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         string helpKey;
         if (InfoGrid.Visibility == Visibility.Visible)
         {
-            helpKey = "infoRestaurant";
+            if (IsAgent)
+            {
+                helpKey = "infoAccommodation";
+            }
+            else
+            {
+                helpKey = "infoRestaurantUser";
+            }
         }
         else if (EditGrid.Visibility == Visibility.Visible)
         {
