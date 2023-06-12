@@ -21,11 +21,18 @@ public partial class EditAccomodationWindow
 {
     public Accomodation Accomodation { get; set; }
     private MainRepository MainRepository { get; set; }
-    public EditAccomodationWindow(Accomodation accomodation, MainRepository mainRepository)
+    private Boolean IsAgent { get; set; }
+
+    public EditAccomodationWindow(Accomodation accomodation, MainRepository mainRepository, Boolean isAgent)
     {
         Accomodation = accomodation;
         MainRepository = mainRepository;
+        IsAgent = isAgent;
         InitializeComponent();
+        if (!isAgent)
+        {
+            EditBtn.Visibility = Visibility.Hidden;
+        }
     }
     private void MapControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
     {

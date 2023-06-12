@@ -20,12 +20,18 @@ public partial class EditAttractionWindow
 {
     public Attraction Attraction { get; set; }
     private MainRepository MainRepository { get; set; }
+    private Boolean IsAgent { get; set; }
     
-    public EditAttractionWindow(Attraction attraction, MainRepository mainRepository)
+    public EditAttractionWindow(Attraction attraction, MainRepository mainRepository, Boolean isAgent)
     {
         Attraction = attraction;
         MainRepository = mainRepository;
+        IsAgent = isAgent;
         InitializeComponent();
+        if (!isAgent)
+        {
+            EditBtn.Visibility = Visibility.Hidden;
+        }
     }
     private void MapControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
     {

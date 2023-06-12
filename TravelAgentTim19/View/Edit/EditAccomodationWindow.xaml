@@ -102,7 +102,7 @@
                                 <ImageBrush ImageSource="{Binding Accomodation.ImgPath}" Stretch="UniformToFill"/>
                             </Border.Background>
                             <Grid>
-                                <Button Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}" Click="EditAccomodationBtn_Clicked"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 20 0 15">
+                                <Button x:Name="EditBtn" Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}" Click="EditAccomodationBtn_Clicked"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 20 0 15">
                                     <Viewbox Width="20" Height="20">
                                         <wpf:FontAwesome Icon="Pencil" />
                                     </Viewbox>
