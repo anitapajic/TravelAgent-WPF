@@ -3,10 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen" 
+        xmlns:local="clr-namespace:TravelAgentTim19.View"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
+        AllowsTransparency="True"
+        MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
         xmlns:l="clr-namespace:HelpSistem"
         l:HelpProvider.HelpKey="newAttraction"
-        Title="Nova atrakcija" Height="600" Width="1100">
+        Title="Nova atrakcija" Height="600" Width="700">
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
@@ -17,7 +22,9 @@
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
     
-    <Grid Margin="10">
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+
+    <Grid Margin="10" MouseDown="Grid_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -28,7 +35,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
-      
+        <Image x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+               Style="{StaticResource ImgClose}" />
+
         <TextBlock Text="Dodaj novu atrakciju" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch"  />
 
         <Border Grid.Row="1" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
@@ -64,4 +73,5 @@
         
         <Button x:Name="SaveButton" Background="#3AA9AD" Foreground="White" FontWeight="Bold" Content="Dodaj" Grid.Row="6" Grid.ColumnSpan="2"  Click="SaveButton_OnClick" Style="{StaticResource MainButton}" Margin="40"/>
     </Grid>
+        </ScrollViewer>
 </Window>
