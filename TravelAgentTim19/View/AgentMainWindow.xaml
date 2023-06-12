@@ -648,7 +648,7 @@
                                                     <Grid>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
                                                                 Height="230" HorizontalAlignment="Right"
-                                                                Click="EditBookedTripBtn_Clicked">
+                                                                Click="EditPurchasedTripBtn_Clicked">
                                                             <Button.Tag>
                                                                 <Binding Path="Id" />
                                                             </Button.Tag>
@@ -721,7 +721,7 @@
                         </WrapPanel>
 
                         <!-- SoldTrip grid-->
-                        <Grid Name="SoldTripGrid" Grid.Row="1" Visibility="Visible">
+                        <Grid Name="SoldTripGrid" Grid.Row="1" Visibility="Hidden">
                             <Grid>
                                 <ScrollViewer VerticalScrollBarVisibility="Hidden"
                                               HorizontalScrollBarVisibility="Disabled">
@@ -749,7 +749,7 @@
 
                                                         <Grid>
                                                             <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                    Height="230" HorizontalAlignment="Right">
+                                                                    Height="230" HorizontalAlignment="Right" Click="EditTripBtn_Clicked">
                                                                     <!-- Click="EditBookedTripBtn_Clicked" -->
                                                                     
                                                                 <Button.Tag>
@@ -804,7 +804,7 @@
                             </Button>
                         </WrapPanel>
                         <!-- Report 2 Trips -->
-                        <Grid Name="BookedTripsGrid" Visibility="Visible" Grid.Row="1">
+                        <Grid Name="BookedTripsGrid" Visibility="Hidden" Grid.Row="1">
                             <Grid>
                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                                               HorizontalScrollBarVisibility="Disabled">
@@ -832,8 +832,7 @@
 
                                                         <Grid>
                                                             <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                    Height="230" HorizontalAlignment="Right">
-                                                                    <!-- Click="EditBookedTripBtn_Clicked" -->
+                                                                    Height="230" HorizontalAlignment="Right" Click="EditPurchasedTripBtn_Clicked">
                                                                     
                                                                 <Button.Tag>
                                                                     <Binding Path="Id" />
