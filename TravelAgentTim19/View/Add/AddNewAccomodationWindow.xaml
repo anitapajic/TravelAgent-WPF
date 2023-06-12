@@ -5,8 +5,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:TravelAgentTim19.View"
         xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
-        mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen" 
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
+        AllowsTransparency="True"
+        MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
         Title="Add New Accomodation" Height="600" Width="1100">
     
     <Window.CommandBindings>
@@ -17,8 +20,8 @@
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
     
-    <Grid HorizontalAlignment="Center">
-        <Grid.RowDefinitions>
+    <Grid HorizontalAlignment="Center" MouseDown="Grid_MouseDown">
+        <Grid.RowDefinitions >
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>

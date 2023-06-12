@@ -7,7 +7,7 @@
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:l="clr-namespace:HelpSistem"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
-        ResizeMode="CanResize"  PreviewKeyDown="Window_PreviewKeyDown"
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
         l:HelpProvider.HelpKey="Forma"
         Background="Transparent"

@@ -6,9 +6,11 @@
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" ResizeMode="CanResize"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
+        MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
         Background="#FFFFFF"
         Title="EditTripWindow" Height="600" Width="1100">
     
@@ -41,7 +43,7 @@
         </Style>
     </Window.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
-        <Grid>
+        <Grid MouseDown="Grid_MouseDown">
             <Grid x:Name="InfoGrid" Visibility="Visible" Margin="0">
                 <!-- Row and Column Definitions -->
                 <Grid.RowDefinitions>
@@ -58,7 +60,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                <Image x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                        Style="{StaticResource ImgClose}" />
 
 
@@ -296,11 +298,11 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                <Image x:Name="Ximg2" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                        Style="{StaticResource ImgClose}" />
 
                 <!-- Title -->
-                <TextBlock Text="Dodaj novo putovanje" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
+                <TextBlock Text="Izmeni putovanje" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
                            Style="{StaticResource TitleText}" FontSize="20" Margin="20 30"
                            HorizontalAlignment="Stretch" />
                 <!-- Name -->

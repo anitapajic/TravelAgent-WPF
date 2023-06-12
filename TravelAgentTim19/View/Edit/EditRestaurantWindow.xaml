@@ -6,9 +6,11 @@
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" ResizeMode="CanResize"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
+        MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
         Background="#FFFFFF"
         Title="EditRestaurantWindow" Height="600" Width="1100">
     
@@ -21,8 +23,8 @@
     </Window.InputBindings>
     
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
-    <Grid>
-        <Image  Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+    <Grid MouseDown="Grid_MouseDown">
+        <Image x:Name="Ximg" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                Style="{StaticResource ImgClose}" />
         <Grid x:Name="InfoGrid" Margin="0">
             <!-- Row and Column Definitions -->
@@ -100,8 +102,8 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
         
-            <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
-                       Style="{StaticResource ImgClose}" Margin="0 0 -35 0" />
+            <!-- <Image x:Name="Ximg2" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp" -->
+            <!--        Style="{StaticResource ImgClose}" Margin="0 0 -35 0" /> -->
 
                 <!-- Title -->
                 <TextBlock Text="Izmena restorana" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"

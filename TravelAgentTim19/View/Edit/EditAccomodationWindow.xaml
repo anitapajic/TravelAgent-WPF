@@ -7,9 +7,11 @@
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" ResizeMode="CanResize"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
+        MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
         Background="#FFFFFF"
         Title="Edit Accomodation" Height="600" Width="1100">
     
@@ -22,7 +24,7 @@
     </Window.InputBindings>
     
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
-        <Grid>
+        <Grid MouseDown="Grid_MouseDown">
             <!--<Grid x:Name="InfoGrid" Margin="50">
                     
                 <Grid.RowDefinitions>
@@ -88,7 +90,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+            <Image x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                    Style="{StaticResource ImgClose}" />
             
             <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="550" Margin="0 0 0 -20" Panel.ZIndex="999" Background="White">
@@ -154,7 +156,7 @@
             </Grid.RowDefinitions>
         
                 
-                <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                <Image x:Name="Ximg2" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                        Style="{StaticResource ImgClose}" Margin="0 0 -35 0" />
 
                 <!-- Title -->

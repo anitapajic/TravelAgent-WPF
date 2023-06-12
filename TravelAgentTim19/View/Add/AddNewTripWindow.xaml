@@ -5,9 +5,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
         xmlns:local="clr-namespace:TravelAgentTim19.View"
-        mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
-        Title="Add New Trip" Height="600" Width="1100">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
+        AllowsTransparency="True"
+        MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
+        Title="Add New Trip" Height="600" Width="1100" >
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
@@ -17,10 +20,10 @@
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
     
-    <ScrollViewer>
-        <Grid HorizontalAlignment="Center">
+    <ScrollViewer  VerticalScrollBarVisibility="Hidden">
+        <Grid HorizontalAlignment="Center" MouseDown="Grid_MouseDown">
             <!-- Row and Column Definitions -->
-            <Grid.RowDefinitions>
+            <Grid.RowDefinitions >
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
