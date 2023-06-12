@@ -3,11 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
+        xmlns:local="clr-namespace:TravelAgentTim19.View"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
+        AllowsTransparency="True"
+        MinWidth="700" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
         xmlns:l="clr-namespace:HelpSistem"
-        mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
         l:HelpProvider.HelpKey="newTrip"
-        Title="Novo putovanje" Height="600" Width="1100">
+        Title="Novo putovanje" Height="600" Width="700">
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
@@ -18,10 +23,10 @@
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
     
-    <ScrollViewer>
-        <Grid HorizontalAlignment="Center">
+    <ScrollViewer  VerticalScrollBarVisibility="Hidden">
+        <Grid HorizontalAlignment="Center" MouseDown="Grid_MouseDown">
             <!-- Row and Column Definitions -->
-            <Grid.RowDefinitions>
+            <Grid.RowDefinitions >
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -42,6 +47,9 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            
+            <Image x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                   Style="{StaticResource ImgClose}" />
 
            <!-- Title -->
             <TextBlock Text="Dodaj novo putovanje" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
@@ -141,17 +149,17 @@
 
             <!-- Date picker -->
 
-            <Grid Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Margin="70 7">
+            <Grid Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <DatePicker x:Name="StartDatePicker" Grid.Column="0" Margin="10"/>
-                <DatePicker x:Name="EndDatePicker" Grid.Column="1" Margin="10"/>
+                <DatePicker x:Name="StartDatePicker" Grid.Column="0" Margin="5"/>
+                <DatePicker x:Name="EndDatePicker" Grid.Column="1" Margin="5"/>
                 <Button Grid.Column="2" Click="AddDateRange_Click" Style="{StaticResource MainButton}" Content="Dodaj" Margin="20 10 0  10"/>
             </Grid>
-            <ListBox x:Name="DateListBox" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="70 7">
+            <ListBox x:Name="DateListBox" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>

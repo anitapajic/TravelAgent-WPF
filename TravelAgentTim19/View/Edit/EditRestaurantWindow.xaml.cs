@@ -214,6 +214,25 @@ public partial class EditRestaurantWindow
     {
         Close(); 
     }
+    
+    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
+        {
+            WindowState = WindowState.Normal;
+        }
+    }
+    private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left && IsMouseOverDraggableComponent(e))
+            this.DragMove();
+    }
+
+    private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
+    {
+        var element = e.OriginalSource as FrameworkElement;
+        return !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") && !(element.Name == "Ximg") && !(element.Name == "Ximg2");
+    }
     private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
     {
         string helpKey;
