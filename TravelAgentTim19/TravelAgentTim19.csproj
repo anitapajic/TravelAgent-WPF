@@ -25,28 +25,31 @@
       <PackageReference Include="NodaTime" Version="3.1.9" />
     </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="Images\**\*.jpg" />
-    <None Remove="Images\**\*.png" />
-    <None Remove="Images\*.png" />
-    <None Remove="Images\*.jpg" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="Images\**\*.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-      <Resource Include="Images\**\*.png">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Resource>
-    <Resource Include="Images\*.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\*.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\Restourants\Screenshot (26).png" />
-  </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="Images\**\*.jpg" />
+        <None Remove="Images\**\*.png" />
+        <None Remove="Images\*.png" />
+        <None Remove="Images\*.jpg" />
+
+        <Resource Include="Images\**\*.jpg">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Resource>
+
+        <Resource Include="Images\**\*.png">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Resource>
+
+        <Resource Include="Images\*.png">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Resource>
+
+        <Resource Include="Images\*.jpg">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Resource>
+    </ItemGroup>
+
 
     <ItemGroup>
       <Folder Include="Helper" />

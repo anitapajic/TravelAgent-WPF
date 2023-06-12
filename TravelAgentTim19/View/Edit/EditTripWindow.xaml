@@ -265,7 +265,7 @@
                 <!-- <TextBlock Grid.Row="13" Grid.ColumnSpan="2" Text="SLIKE:" Margin="10"/> -->
                 <!-- <ListView  Grid.Row="14" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="2"   Height="80" Margin="10" -->
                 <!--            AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop" -->
-                <!--            MouseDown="ListView_MouseClick"> -->
+                <!--             MouseDoubleClick="ListView_MouseClick"> -->
                 <!--     <ItemsControl Margin="10" x:Name="ImageList"> -->
                 <!--         <ItemsControl.ItemsPanel> -->
                 <!--             <ItemsPanelTemplate > -->
@@ -551,7 +551,7 @@
                         <Grid Margin="7 30 7 9">
                             <ListView BorderBrush="Transparent"
                                       AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
-                                      MouseDown="ListView_MouseClick">
+                                       MouseDoubleClick="ListView_MouseClick">
                                 <ItemsControl Margin="10" x:Name="ImageList">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>
@@ -695,7 +695,7 @@
             <TextBlock Grid.Row="12" Grid.ColumnSpan="2" Text="Dodajte slike ovde:" Margin="10"/>
             <ListView  Grid.Row="13" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="2"   Height="80" Margin="10"
                        AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
-                       MouseDown="ListView_MouseClick">
+                        MouseDoubleClick="ListView_MouseClick">
                 <ItemsControl Margin="10" x:Name="ImageList">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate >
