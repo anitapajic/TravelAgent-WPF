@@ -4,11 +4,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
+        xmlns:helpSistem="clr-namespace:HelpSistem"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
+        helpSistem:HelpProvider.HelpKey="newAccommodation"
         Title="Novi smestaj" Height="600" Width="1100">
     
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>

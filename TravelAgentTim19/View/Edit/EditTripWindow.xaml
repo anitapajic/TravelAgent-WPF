@@ -13,6 +13,7 @@
         Title="Putovanje" Height="600" Width="1100">
     
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>
@@ -294,7 +295,7 @@
                        Style="{StaticResource ImgClose}" />
 
                 <!-- Title -->
-                <TextBlock Text="Dodaj novo putovanje" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
+                <TextBlock Text="Izmena putovanja" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
                            Style="{StaticResource TitleText}" FontSize="20" Margin="20 30"
                            HorizontalAlignment="Stretch" />
                 <!-- Name -->

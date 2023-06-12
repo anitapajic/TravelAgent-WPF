@@ -9,7 +9,7 @@
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
         ResizeMode="CanResize"  PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
-        l:HelpProvider.HelpKey="Forma"
+        l:HelpProvider.HelpKey="index"
         Background="Transparent"
         Title="Glavni prozor" Height="600" Width="1100" MinWidth="600" MinHeight="500" 
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}" 
