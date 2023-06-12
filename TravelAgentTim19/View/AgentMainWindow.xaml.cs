@@ -231,8 +231,11 @@ public partial class AgentMainWindow
 
     private void Logout_Click(object sender, RoutedEventArgs e)
     {
+        MainRepository.Save();
+
         MainWindow mainWindow = new MainWindow();
         mainWindow.Show();
+
         Close();
     }
 

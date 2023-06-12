@@ -61,12 +61,22 @@ public partial class AddNewRestaurantWindow
 
     private void AddImage(string filePath)
     {
+        
+        string fileName = Path.GetFileName(filePath);
+        string destinationFolderPath = "../../../Images/Restourants"; // Destination folder path
+        string destinationFilePath = Path.Combine(destinationFolderPath, fileName);
+
+        // Copy the image to the destination folder
+        File.Copy(filePath, destinationFilePath, true);
+        
+        
         Image image = new Image
         {
             Source = new BitmapImage(new Uri(filePath)),
             Width = 60,
             Height = 60
         };
+        ImageList.Items.Clear();
         ImageList.Items.Add(image);
     }
 
@@ -75,7 +85,7 @@ public partial class AddNewRestaurantWindow
         string name = TxtName.Text;
         Location location = new Location();
         location.Address = TxtAddress.Text;
-        location.City = TextCity.Text;
+        location.City = TxtCity.Text;
         ItemCollection Images = ImageList.Items;
         
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(location.Address) || Images == null || Images.Count == 0 || string.IsNullOrEmpty(location.City))
@@ -92,7 +102,13 @@ public partial class AddNewRestaurantWindow
             restaurant.Id = rand.Next(10000);
             restaurant.Location = location;
             restaurant.Name = name;
-
+            // restaurant.Rating = rating;
+            
+            Image image = (Image)Images[0]; // Assuming there is only one image in the list
+            string imagePath = ((BitmapImage)image.Source).UriSource.AbsolutePath;
+            string imageFilename = Path.GetFileName(imagePath);
+            restaurant.ImgPath = "/Images/Restourants/" + imageFilename;
+            
             MainRepository.RestaurantsRepository.AddRestaurant(restaurant);
             Close();
         }
@@ -101,26 +117,12 @@ public partial class AddNewRestaurantWindow
     private void ListView_MouseClick(object sender, MouseButtonEventArgs e)
     {
         OpenFileDialog openFileDialog = new OpenFileDialog();
-        openFileDialog.Multiselect = true; // Allow multiple file selection
+        openFileDialog.Multiselect = false; 
         openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png"; // Filter image files
 
         if (openFileDialog.ShowDialog() == true)
         {
-
-            foreach (string filename in openFileDialog.FileNames)
-            {
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.UriSource = new Uri(filename);
-                bitmapImage.EndInit();
-
-                Image image = new Image();
-                image.Source = bitmapImage;
-                image.Width = 50;
-                image.MaxHeight = 50;
-
-               // ImageList.Items.Add(image);
-            }
+            AddImage(openFileDialog.FileName);
             
         }
     }

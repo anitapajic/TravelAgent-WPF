@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using GMap.NET.MapProviders;
 using HelpSistem;
 using Microsoft.Win32;
 using NodaTime;
@@ -77,14 +78,27 @@ public partial class AddNewTripWindow
 
     private void AddImage(string filePath)
     {
+
+        string fileName = Path.GetFileName(filePath);
+
+        string destinationFolderPath = "../../../Images/Trips"; // Destination folder path
+        string destinationFilePath = Path.Combine(destinationFolderPath, fileName);
+
+        // Copy the image to the destination folder
+        File.Copy(filePath, destinationFilePath, true);
+
+        
         Image image = new Image
         {
             Source = new BitmapImage(new Uri(filePath)),
             Width = 60,
             Height = 60
         };
+        ImageList.Items.Clear();
         ImageList.Items.Add(image);
+
     }
+    
     private void ListView_MouseClick(object sender, MouseButtonEventArgs e)
     {
         OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -93,22 +107,7 @@ public partial class AddNewTripWindow
 
         if (openFileDialog.ShowDialog() == true)
         {
-
-            foreach (string filename in openFileDialog.FileNames)
-            {
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.UriSource = new Uri(filename);
-                bitmapImage.EndInit();
-
-                Image image = new Image();
-                image.Source = bitmapImage;
-                image.Width = 50;
-                image.MaxHeight = 50;
-
-                ImageList.Items.Add(image);
-            }
-            
+            AddImage(openFileDialog.FileName);
         }
     }
     
@@ -248,60 +247,82 @@ public partial class AddNewTripWindow
         var dateRangeToDelete = (DatePeriods)button.DataContext;
         DateListBox.Items.Remove(dateRangeToDelete);
     }
-private void CreateTripBtn_Clicked(object sender, RoutedEventArgs e)
-{
-    string name = TxtName.Text;
-    string description = DescriptionBox.Text;
 
-    double price;
-    if (!double.TryParse(TxtPrice.Text, out price))
+    private void CreateTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
-        MessageBox.Show("Unesite cenu. Mora biti numerička vrednost.");
-        return;
-    }
+        string name = TxtName.Text;
+        string description = DescriptionBox.Text;
 
-    ItemCollection attractions = ChosenAccommodationsListBox.Items;
-    ItemCollection accommodations = ChosenAccommodationsListBox.Items;
-    ItemCollection restaurants = ChosenAccommodationsListBox.Items;
-    ItemCollection dataPeriods = DateListBox.Items;
-    ItemCollection Images = ImageList.Items;
+        double price;
+        if (!double.TryParse(TxtPrice.Text, out price))
+        {   
+            try
+            {
+                string p = TxtPrice.Text;
+                price = Double.Parse(p);
+            }
+            catch
+            {
+                price = -1;
+                MessageBox.Show("Unesite cenu. Mora biti numericka vrednost.");
+                return;
+            }
 
-    if (attractions == null || accommodations == null || restaurants == null || attractions.Count == 0 || accommodations.Count == 0 || restaurants.Count == 0 || Images == null || Images.Count == 0)
-    {
-        MessageBox.Show("Izaberite atrakcije, smestaje i restorane za ovo putovanje i ubacite bar jednu sliku.");
-        return;
-    }
 
-    if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) || price < 0)
-    {
-        MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar jednu sliku.");
-        return;
-    }
+            ItemCollection attractions = ChosenAccommodationsListBox.Items;
+            ItemCollection accommodations = ChosenAccommodationsListBox.Items;
+            ItemCollection restaurants = ChosenAccommodationsListBox.Items;
+            ItemCollection dataPeriods = DateListBox.Items;
+            ItemCollection Images = ImageList.Items;
 
-    MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da dodate ovo putovanje?", "Potvrda", MessageBoxButton.YesNo);
-    if (result == MessageBoxResult.Yes)
-    {
-        Trip trip = new Trip();
-        Random rand = new Random();
-        trip.Id = rand.Next(10000);
-        trip.Name = name;
-        trip.Price = price;
-        trip.Description = description;
-        trip.Accomodations = accommodations.OfType<Accomodation>().ToList();
-        trip.Attractions = attractions.OfType<Attraction>().ToList();
-        trip.Restaurants = restaurants.OfType<Restaurant>().ToList();
-        trip.DatePeriods = dataPeriods.OfType<DatePeriods>().ToList();
+            if (attractions == null || accommodations == null || restaurants == null || attractions.Count == 0 ||
+                accommodations.Count == 0 || restaurants.Count == 0 || Images == null || Images.Count == 0)
+            {
+                MessageBox.Show(
+                    "Izaberite atrakcije, smestaje i restorane za ovo putovanje i ubacite bar jednu sliku/");
+                return;
+            }
 
-        // Add image validation if required
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) || price < 0)
+            {
+                MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar jednu sliku.");
+                return;
+            }
 
-        foreach (DatePeriods dp in trip.DatePeriods)
-        {
-            MainRepository.DatePeriodRepository.AddDatePeriod(dp);
+            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da dodate ovao putovanje?",
+                "Potvrda",
+                MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                Trip trip = new Trip();
+                Random rand = new Random();
+                trip.Id = rand.Next(10000);
+                trip.Name = name;
+                trip.Price = price;
+                trip.Description = description;
+                trip.Accomodations = accommodations.OfType<Accomodation>().ToList();
+                trip.Attractions = attractions.OfType<Attraction>().ToList();
+                trip.Restaurants = restaurants.OfType<Restaurant>().ToList();
+                trip.DatePeriods = dataPeriods.OfType<DatePeriods>().ToList();
+
+
+                Image image = (Image)Images[0]; // Assuming there is only one image in the list
+                string imagePath = ((BitmapImage)image.Source).UriSource.AbsolutePath;
+                string imageFilename = Path.GetFileName(imagePath);
+                trip.ImgPath = "/Images/Trips/" + imageFilename;
+
+
+                foreach (DatePeriods dp in trip.DatePeriods)
+                {
+                    MainRepository.DatePeriodRepository.AddDatePeriod(dp);
+                }
+
+                MainRepository.TripRepository.AddTrip(trip);
+                Close();
+            }
         }
-        MainRepository.TripRepository.AddTrip(trip);
-        Close();
+
     }
-}
 
     private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
     {
@@ -376,7 +397,7 @@ private void CreateTripBtn_Clicked(object sender, RoutedEventArgs e)
     private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
     {
         var element = e.OriginalSource as FrameworkElement;
-        return !(element is TextBox) && (element.Name != "Ximg");
+        return !(element is TextBox) && (element.Name != "Ximg") && (element.Name != "imgDrop");
     }
     private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
     {
