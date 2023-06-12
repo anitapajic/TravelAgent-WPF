@@ -214,7 +214,7 @@ public partial class AddNewAccomodationWindow
     {
         var element = e.OriginalSource as FrameworkElement;
         return !(element is TextBox) && (element.Name != "Ximg");
-    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    }private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
     {
         string str = HelpProvider.GetHelpKey(this);
         HelpProvider.ShowHelp(str, this);

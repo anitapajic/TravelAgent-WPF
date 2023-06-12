@@ -508,7 +508,10 @@ public partial class EditTripWindow
     private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
     {
         var element = e.OriginalSource as FrameworkElement;
-        return !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") && !(element.Name == "Ximg") && !(element.Name == "Ximg2");
+        return !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") &&
+               !(element.Name == "Ximg") && !(element.Name == "Ximg2");
+    }
+
     private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
     {
         string helpKey;

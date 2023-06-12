@@ -43,6 +43,7 @@ public partial class EditPurchasedTripWindow
     {
         var element = e.OriginalSource as FrameworkElement;
         return !(element.Name == "Ximg");
+    }
     private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
     {
         string str = HelpProvider.GetHelpKey(this);

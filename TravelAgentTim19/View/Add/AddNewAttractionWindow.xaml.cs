@@ -175,6 +175,7 @@ public partial class AddNewAttractionWindow
     {
         var element = e.OriginalSource as FrameworkElement;
         return !(element is TextBox) && (element.Name != "Ximg");
+    }
     private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
      {
          string str = HelpProvider.GetHelpKey(this);

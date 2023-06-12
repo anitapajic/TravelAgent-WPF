@@ -5,7 +5,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:TravelAgentTim19.View.Edit"
-        DataContext="{Binding RelativeSource={RelativeSource Self}}"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
         ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
