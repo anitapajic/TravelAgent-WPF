@@ -35,7 +35,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <ScrollViewer VerticalScrollBarVisibility="Hidden">
-            <Grid Margin="10" MouseDown="Grid_MouseDown">
+            <Grid Margin="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />

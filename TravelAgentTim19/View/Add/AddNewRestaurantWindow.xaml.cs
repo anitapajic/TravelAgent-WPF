@@ -4,7 +4,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using FontAwesome.WPF;
 using HelpSistem;
 using Microsoft.Win32;
 using TravelAgentTim19.Model;
@@ -58,7 +60,80 @@ public partial class AddNewRestaurantWindow
 
         return false;
     }
+private bool isRatingLocked = false;
 
+private void Star_MouseEnter(object sender, MouseEventArgs e)
+{
+    isRatingLocked = false;
+    if (!isRatingLocked)
+    {
+        ImageAwesome star = sender as ImageAwesome;
+        star.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+        int value = int.Parse(star.Name.Replace("star", ""));
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome filledStar = FindName("star" + i) as ImageAwesome;
+            if (i <= value)
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.Star;
+            }
+            else
+            {
+                filledStar.Foreground = Brushes.Yellow ; // Change the color to black or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.StarOutline;
+            }
+        }
+    }
+}
+
+private void Star_MouseLeave(object sender, MouseEventArgs e)
+{
+    if (!isRatingLocked)
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome star = FindName("star" + i) as ImageAwesome;
+            if (star.Tag == null)
+            {
+                star.Foreground = Brushes.Yellow; // Change the color to black or any other color you prefer
+                star.Icon = FontAwesomeIcon.StarOutline;
+            }
+            else
+            {
+                star.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                star.Icon = FontAwesomeIcon.Star;
+            }
+        }
+    }
+}
+
+private int rstar;
+private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+{
+    ImageAwesome star = sender as ImageAwesome;
+    int value = int.Parse(star.Name.Replace("star", ""));
+    rstar = value;
+    if (!isRatingLocked)
+    {
+        
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome filledStar = FindName("star" + i) as ImageAwesome;
+            if (i <= value)
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.Star;
+            }
+            else
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to black or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.StarOutline;
+            }
+        }
+        isRatingLocked = true; // Lock the rating
+    }
+}
     private void AddImage(string filePath)
     {
         
@@ -102,6 +177,8 @@ public partial class AddNewRestaurantWindow
             restaurant.Id = rand.Next(10000);
             restaurant.Location = location;
             restaurant.Name = name;
+            restaurant.Rating = rstar;
+            //dodati slike
             // restaurant.Rating = rating;
             
             Image image = (Image)Images[0]; // Assuming there is only one image in the list
@@ -137,11 +214,13 @@ public partial class AddNewRestaurantWindow
 
     private void textName_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextName.Visibility = Visibility.Collapsed;
         TxtName.Focus();
     }
 
     private void textCity_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextCity.Visibility = Visibility.Collapsed;
         TxtCity.Focus();
     }
 
@@ -155,6 +234,7 @@ public partial class AddNewRestaurantWindow
 
     private void textAddress_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextAddress.Visibility = Visibility.Collapsed;
         TxtAddress.Focus();
     }
 

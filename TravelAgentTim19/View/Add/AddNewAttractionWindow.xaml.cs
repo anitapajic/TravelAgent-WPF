@@ -61,11 +61,13 @@ public partial class AddNewAttractionWindow
 
     private void textName_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextName.Visibility = Visibility.Collapsed;
         TxtName.Focus();
     }
 
     private void textCity_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextCity.Visibility = Visibility.Collapsed;
         TxtCity.Focus();
     }
 
@@ -79,6 +81,7 @@ public partial class AddNewAttractionWindow
 
     private void textAddress_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextAddress.Visibility = Visibility.Collapsed;
         TxtAddress.Focus();
     }
 
@@ -92,6 +95,7 @@ public partial class AddNewAttractionWindow
 
     private void textPrice_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextPrice.Visibility = Visibility.Collapsed;
         TxtPrice.Focus();
     }
 
@@ -105,6 +109,7 @@ public partial class AddNewAttractionWindow
 
     private void textDesc_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextDescription.Visibility = Visibility.Collapsed;
         TxtDescription.Focus();
     }
 

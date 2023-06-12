@@ -142,13 +142,15 @@ public partial class EditAttractionWindow
     }
     private void textName_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextName.Visibility = Visibility.Collapsed;
         TxtName.Focus();
     }
 
    
     private void textDesc_MouseDown(object sender, MouseButtonEventArgs e)
     {
-        TextDes.Focus();
+        TextDes.Visibility = Visibility.Collapsed;
+        TxtDes.Focus();
     }
     private void InfoAttractionBtn_Clicked(object sender, RoutedEventArgs e)
     {
@@ -157,7 +159,7 @@ public partial class EditAttractionWindow
         TxtName.Text = Attraction.Name;
         TxtLocation.Text = Attraction.Location.Address;
         TxtPrice.Text = Attraction.Price.ToString();
-        DescriptionBox.Text = Attraction.Description;
+        TxtDes.Text = Attraction.Description;
     }
 
     private void SaveChangesBtn_Clicked(object sender, RoutedEventArgs e)
@@ -165,7 +167,7 @@ public partial class EditAttractionWindow
         string name = TxtName.Text;
         string address = TxtLocation.Text;
         string priceText = TxtPrice.Text;
-        string desc = DescriptionBox.Text;
+        string desc = TxtDes.Text;
         ItemCollection Images = ImageList.Items;
 
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(priceText) || Images == null || Images.Count == 0)
@@ -256,7 +258,7 @@ public partial class EditAttractionWindow
     private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
     {
         var element = e.OriginalSource as FrameworkElement;
-        return !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") && !(element.Name == "Ximg") && !(element.Name == "Ximg2");
+        return !(element is TextBlock) && !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") && !(element.Name == "Ximg") && !(element.Name == "Ximg2");
     }
     private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
     {

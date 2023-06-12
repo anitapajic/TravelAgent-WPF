@@ -4,6 +4,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
+        xmlns:fa="http://schemas.fontawesome.com/wpf"
+
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
@@ -23,8 +25,12 @@
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
     
+    <Window.Resources>
+        <FontFamily x:Key="FontAwesomeSolid">/FontAwesome.Solid;/#Font Awesome 5 Free Solid</FontFamily>
+    </Window.Resources>
+    
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
-    <Grid MouseDown="Grid_MouseDown">
+    <Grid >
         <Image x:Name="Ximg" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                Style="{StaticResource ImgClose}" />
         <Grid x:Name="InfoGrid" Margin="0">
@@ -43,7 +49,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+            <Image  Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                    Style="{StaticResource ImgClose}" />
             
             <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="550" Margin="0 0 0 -20" Panel.ZIndex="999" Background="White">
                 <Grid>
@@ -53,8 +60,8 @@
                                 <ImageBrush ImageSource="{Binding Restaurant.ImgPath}" Stretch="UniformToFill"/>
                             </Border.Background>
                             <Grid>
-                                <Button x:Name="EditBtn" Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}" Click="EditRestaurantBtn_Clicked"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 20 0 15">
-                                    <Viewbox Width="20" Height="20">
+                                <Button Grid.ColumnSpan="3" Style="{StaticResource PenButton}" Click="EditRestaurantBtn_Clicked"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 20 0 15">
+                                    <Viewbox Width="25" Height="25">
                                         <wpf:FontAwesome Icon="Pencil" />
                                     </Viewbox>
                                 </Button>
@@ -94,8 +101,9 @@
             </Grid>
        </Grid>
         
-        <Grid x:Name="EditGrid" Visibility="Hidden"  Margin="70 7">
+        <Grid x:Name="EditGrid" Visibility="Hidden"  Margin="50 30 50 0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -108,18 +116,18 @@
 
                 <!-- Title -->
                 <TextBlock Text="Izmena restorana" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
-                           Style="{StaticResource TitleText}" FontSize="20" Margin="20 30"
+                           Style="{StaticResource TitleText}" FontSize="30" Margin="20 30"
                            HorizontalAlignment="Stretch" />
                 <!-- Name -->
                 <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#3AA9AD" BorderThickness="1"
-                        Margin="0 7  10 7"
+                        Margin="0 7  0 7"
                         CornerRadius="5">
 
                     <Grid Margin="7 9">
 
                         <Grid>
                             <TextBlock x:Name="TextName" Text="Ime"
-                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
                         </Grid>
                         <TextBox Name="TxtName" MouseDown="textName_MouseDown" Style="{StaticResource TextBox}"
                                  Text="{Binding Restaurant.Name, Mode=OneWay}" Margin="10 22 10 5" />
@@ -128,20 +136,21 @@
             
             <!-- Location -->
             <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#3AA9AD" BorderThickness="1"
-                    Margin="0 7  10 7"
+                    Margin="0 7  0 7"
                     CornerRadius="5">
 
                 <Grid Margin="7 9">
 
                     <Grid>
                         <TextBlock x:Name="TextLocation" Text="Lokacija"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
                     </Grid>
                     <TextBox Name="TxtLocation" MouseDown="textName_MouseDown" Style="{StaticResource TextBox}"
                              Text="{Binding Restaurant.Location, Mode=OneWay}" Margin="10 22 10 5" />
                 </Grid>
             </Border>
             
+         
             <!-- Image drop -->
             <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#3AA9AD" BorderThickness="1"
                     Margin="0 7"
@@ -150,7 +159,7 @@
                 <Grid>
                     <Grid Margin="7 9">
                         <TextBlock x:Name="Images" Text="Prevuci slike"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
 
                     </Grid>
                     <Grid Margin="7 30 7 9">
@@ -169,9 +178,22 @@
                 </Grid>
             </Border>
             
+            <!-- Rating -->
+            <Grid Grid.Row="4" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Oceni" Style="{StaticResource TextHint}" Margin="0 0 10 0" Foreground="#3AA9AD" FontWeight="SemiBold"></TextBlock>
+                    <wpf:ImageAwesome x:Name="star1" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25" MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave" MouseLeftButtonDown="Star_MouseLeftButtonDown"/>
+                    <wpf:ImageAwesome x:Name="star2" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25" MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave" MouseLeftButtonDown="Star_MouseLeftButtonDown"/>
+                    <wpf:ImageAwesome x:Name="star3" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25" MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave" MouseLeftButtonDown="Star_MouseLeftButtonDown"/>
+                    <wpf:ImageAwesome x:Name="star4" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25" MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave" MouseLeftButtonDown="Star_MouseLeftButtonDown"/>
+                    <wpf:ImageAwesome x:Name="star5" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25" MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave" MouseLeftButtonDown="Star_MouseLeftButtonDown"/>
+                </StackPanel>
+                
+            </Grid>
+            
             <!-- Button -->
             <Button x:Name="EditButton" Content="Sacuvaj"
-                    Grid.Row="4" Grid.ColumnSpan="2" Click="SaveChangesBtn_Clicked" Style="{StaticResource MainButton}"
+                    Grid.Row="5" Grid.ColumnSpan="2" Click="SaveChangesBtn_Clicked" Style="{StaticResource MainButton}"
                     Margin="40" />
 
             <!--~1~ Title @1@
