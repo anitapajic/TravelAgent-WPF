@@ -110,7 +110,6 @@ public partial class AddNewRestaurantWindow
             restaurant.ImgPath = "/Images/Restourants/" + imageFilename;
             
             MainRepository.RestaurantsRepository.AddRestaurant(restaurant);
-            MainRepository.RestaurantsRepository.Save();
             Close();
         }
     }

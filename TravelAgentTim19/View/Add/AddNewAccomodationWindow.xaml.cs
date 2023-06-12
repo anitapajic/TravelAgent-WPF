@@ -120,7 +120,7 @@ public partial class AddNewAccomodationWindow
             Image image = (Image)Images[0]; // Assuming there is only one image in the list
             string imagePath = ((BitmapImage)image.Source).UriSource.AbsolutePath;
             string imageFilename = Path.GetFileName(imagePath);
-            accomodation.ImgPath = "/Images/Accomodation/" + imageFilename;
+            accomodation.ImgPath = "/Images/Accomodations/" + imageFilename;
 
             MainRepository.AccomodationRepository.AddAccomodation(accomodation);
             Close();
