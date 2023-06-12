@@ -26,6 +26,17 @@ public partial class AddNewAttractionWindow
 
     private void SaveButton_OnClick(object sender, RoutedEventArgs e)
     {
+        if (TxtName.Text.Length > 40)
+        {
+            MessageBox.Show("Naziv je predugačak");
+            return;
+        }
+        if (TxtAddress.Text.Length > 40 || TxtCity.Text.Length > 20)
+        {
+            MessageBox.Show("Adresa i naziv grada su predugački");
+            return;
+        }
+
         // Validate inputs
         if (string.IsNullOrEmpty(TxtName.Text) || string.IsNullOrEmpty(TxtCity.Text) ||
             string.IsNullOrEmpty(TxtAddress.Text) || string.IsNullOrEmpty(TxtPrice.Text) ||

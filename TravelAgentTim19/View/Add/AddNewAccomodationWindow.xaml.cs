@@ -160,7 +160,17 @@ private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         ItemCollection Images = ImageList.Items;
         AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
         // double rating = RatingSlider.Value;
-
+        if (name.Length > 40)
+        {
+            MessageBox.Show("Naziv je predugačak");
+            return;
+        }
+        if (location.Address.Length > 40)
+        {
+            MessageBox.Show("Adresa je predugačka");
+            return;
+        }
+        
         // Validate inputs
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(location.Address) || Images == null || Images.Count == 0)
         {
