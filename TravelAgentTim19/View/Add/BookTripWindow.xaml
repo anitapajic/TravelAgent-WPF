@@ -259,7 +259,7 @@
                 <!-- <TextBlock Grid.Row="13" Grid.ColumnSpan="2" Text="SLIKE:" Margin="10"/> -->
                 <!-- <ListView  Grid.Row="14" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="2"   Height="80" Margin="10" -->
                 <!--            AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop" -->
-                <!--            MouseDown="ListView_MouseClick"> -->
+                <!--             MouseDoubleClick="ListView_MouseClick"> -->
                 <!--     <ItemsControl Margin="10" x:Name="ImageList"> -->
                 <!--         <ItemsControl.ItemsPanel> -->
                 <!--             <ItemsPanelTemplate > -->
