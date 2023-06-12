@@ -30,7 +30,7 @@
     </Window.Resources>
     
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
-    <Grid MouseDown="Grid_MouseDown">
+    <Grid >
         <Image x:Name="Ximg" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                Style="{StaticResource ImgClose}" />
         <Grid x:Name="InfoGrid" Margin="0">

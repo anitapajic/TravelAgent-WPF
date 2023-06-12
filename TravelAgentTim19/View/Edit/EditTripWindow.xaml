@@ -45,7 +45,7 @@
     </Window.Resources>
     
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
-        <Grid MouseDown="Grid_MouseDown">
+        <Grid>
             <Grid x:Name="InfoGrid" Visibility="Visible" Margin="0">
                 <!-- Row and Column Definitions -->
                 <Grid.RowDefinitions>
@@ -356,7 +356,7 @@
                     <Grid Margin="7 9">
                         <TextBlock x:Name="TextAttr" Text="Sve atrakcije"
                                    Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold" />
-                        <Grid Margin="0 12 0 5">
+                        <Grid Margin="0 12 0 5" ZIndex="9999">
                             <ListBox BorderThickness="0" x:Name="AllAttractionsListBox"
                                      PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown"
                                      PreviewMouseMove="MoveItem_PreviewMouseMove"
@@ -382,7 +382,7 @@
                         <TextBlock x:Name="TextAttr2" Text="Izabrane atrakcije"
                                    Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
 
-                        <Grid Margin="0 12 7 0">
+                        <Grid Margin="0 12 7 0" ZIndex="9999">
                             <ListBox BorderThickness="0" x:Name="ChosenAttractionsListBox"
                                      PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown"
                                      PreviewMouseMove="MoveItem_PreviewMouseMove"
@@ -407,7 +407,7 @@
                     <Grid Margin="7 9">
                         <TextBlock x:Name="TextAcc" Text="Svi smestaji"
                                    Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
-                        <Grid Margin="0 12 0 0">
+                        <Grid Margin="0 12 0 0" ZIndex="9999">
                             <ListBox BorderThickness="0" x:Name="AllAccommodationsListBox"
                                      PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown"
                                      PreviewMouseMove="MoveItem_PreviewMouseMove"
@@ -431,7 +431,7 @@
                     <Grid Margin="7 9">
                         <TextBlock x:Name="TextAcc2" Text="Izabrani smestaji"
                                    Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
-                        <Grid Margin="0 12 0 0">
+                        <Grid Margin="0 12 0 0" ZIndex="9999">
                             <ListBox BorderThickness="0" x:Name="ChosenAccommodationsListBox"
                                      PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown"
                                      PreviewMouseMove="MoveItem_PreviewMouseMove"
@@ -457,7 +457,7 @@
                         <TextBlock x:Name="TextRes" Text="Svi restorani"
                                    Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
 
-                        <Grid Margin="0 12 0 0">
+                        <Grid Margin="0 12 0 0" ZIndex="9999">
                             <ListBox BorderThickness="0" x:Name="AllRestaurantsListBox"
                                      PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown"
                                      PreviewMouseMove="MoveItem_PreviewMouseMove"
@@ -481,7 +481,7 @@
                     <Grid Margin="7 9">
                         <TextBlock x:Name="TextRes2" Text="Izabrani restorani"
                                    Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
-                        <Grid Margin="0 12 0 0">
+                        <Grid Margin="0 12 0 0" ZIndex="9999">
                             <ListBox BorderThickness="0" x:Name="ChosenRestaurantsListBox"
                                      PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown"
                                      PreviewMouseMove="MoveItem_PreviewMouseMove"
