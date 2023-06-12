@@ -6,21 +6,27 @@
         xmlns:local="clr-namespace:TravelAgentTim19.View"
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
-        mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen" 
-        Title="Add New Accomodation" Height="600" Width="1100">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
+        AllowsTransparency="True"
+        MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
+        xmlns:helpSistem="clr-namespace:HelpSistem"
+        helpSistem:HelpProvider.HelpKey="newAccommodation"
+        Title="Novi smestaj" Height="600" Width="700">
     
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
+    
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
-        
-        <Grid HorizontalAlignment="Center">
-        <Grid.RowDefinitions>
+        <Grid HorizontalAlignment="Center" MouseDown="Grid_MouseDown">
+        <Grid.RowDefinitions >
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -31,8 +37,10 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <TextBlock Text="Dodaj novi smestaj" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="30" Margin="20 30" HorizontalAlignment="Stretch"  />
+            <Image x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                   Style="{StaticResource ImgClose}" />
+
+        <TextBlock Text="Dodaj novi smestaj" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch"  />
 
         <Border Grid.Row="1"  BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
             <Grid Margin="7 9">
@@ -62,7 +70,7 @@
                 <Grid Margin="7 30 7 9">
                     <ListView BorderBrush="Transparent"
                               AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop" 
-                              MouseDown="ListView_MouseClick">
+                               MouseDoubleClick="ListView_MouseClick">
                         <ItemsControl Margin="10" x:Name="ImageList">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate >
@@ -170,7 +178,7 @@
         <TextBlock Grid.Row="6" Text="Drag and drop slike ovde:" Margin="10"/>
         <ListView BorderBrush="Gray" BorderThickness="2" Grid.Row="7"  Height="80" Width="200"
                    AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
-                   MouseDown="ListView_MouseClick">
+                    MouseDoubleClick="ListView_MouseClick">
             <ItemsControl Margin="10" x:Name="ImageList">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate >
@@ -184,6 +192,5 @@
         ~1~ Submit button @1@
         <Button Content="Submit" Click="CreateAccomodationBtn_Clicked" Grid.Row="8"  HorizontalAlignment="Center" Width="100" MaxHeight="40"/>-->
     </Grid>
-        
     </ScrollViewer>
 </Window>

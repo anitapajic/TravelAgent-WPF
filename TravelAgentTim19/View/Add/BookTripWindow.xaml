@@ -3,12 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="CanResize"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip" PreviewKeyDown="Window_PreviewKeyDown" MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}" 
         AllowsTransparency="True"
-        Background="#FFFFFF"
+        Background="Transparent"
         Title="Putovanje" Height="600" Width="1100">
 
     <Window.CommandBindings>
@@ -40,8 +41,10 @@
     </Window.Resources>
 
 
+    <Border CornerRadius="10 10 10 10" Background="#FFFFFF">
+        
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
-        <Grid>
+        <Grid MouseDown="Grid_MouseDown">
             <!-- Info grid -->
             <Grid x:Name="InfoGrid" Margin="0">
                 <!-- Row and Column Definitions -->
@@ -60,11 +63,11 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                <Image x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                        Style="{StaticResource ImgClose}" />
 
 
-                <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="450" Margin="0 0 0 -20"
+                <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="10 10 45 45" Height="450" Margin="0 0 0 -20"
                         Panel.ZIndex="999">
                     <Border.Background>
                         <ImageBrush ImageSource="{Binding Trip.ImgPath}" Stretch="UniformToFill" />
@@ -256,7 +259,7 @@
                 <!-- <TextBlock Grid.Row="13" Grid.ColumnSpan="2" Text="SLIKE:" Margin="10"/> -->
                 <!-- <ListView  Grid.Row="14" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="2"   Height="80" Margin="10" -->
                 <!--            AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop" -->
-                <!--            MouseDown="ListView_MouseClick"> -->
+                <!--             MouseDoubleClick="ListView_MouseClick"> -->
                 <!--     <ItemsControl Margin="10" x:Name="ImageList"> -->
                 <!--         <ItemsControl.ItemsPanel> -->
                 <!--             <ItemsPanelTemplate > -->
@@ -524,4 +527,6 @@
             </Grid>
         </Grid>
     </ScrollViewer>
+    </Border>
+
 </Window>

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using HelpSistem;
 using Microsoft.Win32;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
@@ -23,11 +26,28 @@ public partial class AddNewAttractionWindow
 
     private void SaveButton_OnClick(object sender, RoutedEventArgs e)
     {
+        // Validate inputs
+        if (string.IsNullOrEmpty(TxtName.Text) || string.IsNullOrEmpty(TxtCity.Text) ||
+            string.IsNullOrEmpty(TxtAddress.Text) || string.IsNullOrEmpty(TxtPrice.Text) ||
+            string.IsNullOrEmpty(TxtDescription.Text))
+        {
+            MessageBox.Show("Molimo Vas popunite sva polja.");
+            return;
+        }
+
+        double price;
+        if (!double.TryParse(TxtPrice.Text, out price))
+        {
+            MessageBox.Show("Cena mora biti numerička vrednost.");
+            return;
+        }
+
         Random rand = new Random();
         int id = rand.Next(10000);
-         Attraction attraction = new Attraction(id, TxtName.Text, "",new Location(TxtCity.Text, TxtAddress.Text), Convert.ToDouble(TxtPrice.Text), TxtDescription.Text);
-         MainRepository.AttractionRepository.AddAttraction(attraction);
-        MessageBox.Show("Uspesno si dodao novu atrakciju!");
+        Attraction attraction = new Attraction(id, TxtName.Text, "", new Location(TxtCity.Text, TxtAddress.Text),
+            price, TxtDescription.Text);
+        MainRepository.AttractionRepository.AddAttraction(attraction);
+        MessageBox.Show("Uspešno si dodao novu atrakciju!");
     }
     
     private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -96,6 +116,60 @@ public partial class AddNewAttractionWindow
             TextDescription.Visibility = Visibility.Visible;
     }
     
+    private void Border_DragEnter(object sender, DragEventArgs e)
+    {
+        e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
+        e.Handled = true;
+    }
+
+    private void Border_Drop(object sender, DragEventArgs e)
+    {
+        if (e.Data.GetDataPresent(DataFormats.FileDrop))
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            foreach (string file in files)
+            {
+                if (IsImageFile(file))
+                {
+                    AddImage(file);
+                }
+            }
+        }
+    }
+
+    private bool IsImageFile(string filePath)
+    {
+        string extension = Path.GetExtension(filePath);
+
+        if (extension != null)
+        {
+            string[] imageExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp" };
+            return imageExtensions.Contains(extension.ToLower());
+        }
+
+        return false;
+    }
+    private void AddImage(string filePath)
+    {
+        
+        string fileName = Path.GetFileName(filePath);
+        string destinationFolderPath = "../../../Images/Attractions"; // Destination folder path
+        string destinationFilePath = Path.Combine(destinationFolderPath, fileName);
+    
+        // Copy the image to the destination folder
+        File.Copy(filePath, destinationFilePath, true);
+        
+        
+        Image image = new Image
+        {
+            Source = new BitmapImage(new Uri(filePath)),
+            Width = 60,
+            Height = 60
+        };
+        // ImageList.Items.Clear();
+        // ImageList.Items.Add(image);
+    }
+    
     private void ListView_MouseClick(object sender, MouseButtonEventArgs e)
     {
         OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -104,24 +178,11 @@ public partial class AddNewAttractionWindow
 
         if (openFileDialog.ShowDialog() == true)
         {
+            // AddImage(openFileDialog.FileName);
 
-            foreach (string filename in openFileDialog.FileNames)
-            {
-                BitmapImage bitmapImage = new BitmapImage();
-                bitmapImage.BeginInit();
-                bitmapImage.UriSource = new Uri(filename);
-                bitmapImage.EndInit();
-
-                Image image = new Image();
-                image.Source = bitmapImage;
-                image.Width = 50;
-                image.MaxHeight = 50;
-
-                // ImageList.Items.Add(image);
-            }
-            
         }
     }
+  
 
     private void SaveBinding_Executed(object sender, ExecutedRoutedEventArgs e)
     {
@@ -135,5 +196,32 @@ public partial class AddNewAttractionWindow
     private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
     {
         Close(); 
+    }
+    private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+    {
+        Close();
+    }
+    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
+        {
+            WindowState = WindowState.Normal;
+        }
+    }
+    private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left && IsMouseOverDraggableComponent(e))
+            this.DragMove();
+    }
+
+    private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
+    {
+        var element = e.OriginalSource as FrameworkElement;
+        return !(element is TextBox) && (element.Name != "Ximg");
+    }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+     {
+         string str = HelpProvider.GetHelpKey(this);
+         HelpProvider.ShowHelp(str, this);
     }
 }

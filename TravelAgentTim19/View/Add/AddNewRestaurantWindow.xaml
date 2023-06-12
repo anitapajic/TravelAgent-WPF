@@ -5,19 +5,26 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:TravelAgentTim19.View"
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
-        mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen" 
-        Title="Add New Restaurant" Height="600" Width="1100">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
+        AllowsTransparency="True"
+        MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
+        xmlns:l="clr-namespace:HelpSistem"
+        l:HelpProvider.HelpKey="newRestaurant"
+        Title="Novi restoran" Height="600" Width="700">
     
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
-    
-    <Grid HorizontalAlignment="Center">
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+
+    <Grid HorizontalAlignment="Center" MouseDown="Grid_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -28,6 +35,10 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
+        
+        <Image x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+               Style="{StaticResource ImgClose}" />
+
         
         <TextBlock Text="Dodaj novi restoran" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch"  />
 
@@ -52,14 +63,14 @@
         <Border Grid.Row="4" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400" Height="100">
             
             <Grid>
-                <Grid Margin="7 9">
-                    <TextBlock x:Name="Images" MouseDown="textAddress_MouseDown" Text="Prevuci slike" Style="{StaticResource TextHint}" />
-
-                </Grid>
+                <!-- <Grid Margin="7 9"> -->
+                <!--     <TextBlock x:Name="Images" MouseDown="textAddress_MouseDown" Text="Prevuci slike" Style="{StaticResource TextHint}" /> -->
+                <!-- -->
+                <!-- </Grid> -->
                 <Grid Margin="7 30 7 9">
                 <ListView BorderBrush="Transparent"
                           AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop" 
-                          MouseDown="ListView_MouseClick">
+                           MouseDoubleClick="ListView_MouseClick">
                     <ItemsControl Margin="10" x:Name="ImageList">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate >
@@ -125,7 +136,7 @@
         <TextBlock Grid.Row="4" Text="Drag and drop slike ovde:" Margin="10"/>
         <ListView BorderBrush="Gray" BorderThickness="2" Grid.Row="5"  Height="80" Width="200"
                    AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
-                   MouseDown="ListView_MouseClick">
+                    MouseDoubleClick="ListView_MouseClick">
             <ItemsControl Margin="10" x:Name="ImageList">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate >
@@ -139,4 +150,5 @@
         ~1~ Submit button @1@
         <Button Content="Submit" Click="CreateRestaurantBtn_Clicked" Grid.Row="6"  HorizontalAlignment="Center" Width="100" MaxHeight="40"/>-->
     </Grid>
+        </ScrollViewer>
 </Window>

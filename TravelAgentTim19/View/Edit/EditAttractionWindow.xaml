@@ -7,14 +7,16 @@
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         xmlns:local="clr-namespace:TravelAgentTim19.View.Edit"
-        mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
-        WindowStyle="None" ResizeMode="CanResize"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
+        MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
         Background="#FFFFFF"
-        Title="EditAttractionWindow" Height="600" Width="1100">
+        Title="Atrakcija" Height="600" Width="1100">
 
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>
@@ -40,8 +42,8 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
-                       Style="{StaticResource ImgClose}" />
+                <Image  x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                        Style="{StaticResource ImgClose}" />
 
                 <Border Grid.ColumnSpan="3" Grid.Row="0" Height="520" Margin="0 0 0 -50" Panel.ZIndex="999">
                     <Border.Background>
@@ -122,8 +124,8 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <Image Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
-                       Style="{StaticResource ImgClose}" Margin="0 -13 -35 0" />
+                <Image x:Name="Ximg2" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                       Style="{StaticResource ImgClose}" Margin="0 0 -35 0" />
 
                 <!-- Title -->
                 <TextBlock Text="Izmena atrakcije" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
@@ -204,7 +206,7 @@
                         <Grid Margin="7 30 7 9">
                             <ListView BorderBrush="Transparent"
                                       AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
-                                      MouseDown="ListView_MouseClick">
+                                       MouseDoubleClick="ListView_MouseClick">
                                 <ItemsControl Margin="10" x:Name="ImageList">
                                     <ItemsControl.ItemsPanel>
                                         <ItemsPanelTemplate>

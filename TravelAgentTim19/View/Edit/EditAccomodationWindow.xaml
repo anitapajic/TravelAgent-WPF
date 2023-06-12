@@ -7,13 +7,16 @@
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        WindowStyle="None" ResizeMode="CanResize"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
+        MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
         Background="#FFFFFF"
         Title="Edit Accomodation" Height="600" Width="1100">
 
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>
@@ -22,7 +25,7 @@
     </Window.InputBindings>
 
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
-        <Grid>
+        <Grid MouseDown="Grid_MouseDown">
             <!--<Grid x:Name="InfoGrid" Margin="50">
                     
                 <Grid.RowDefinitions>
@@ -72,27 +75,27 @@
                 <Button Content="Edit" Click="EditAccomodationBtn_Clicked" Grid.Row="9"  HorizontalAlignment="Center" Width="100" Height="30" Margin="0,20,0,10"/>
                 
         </Grid>-->
-            <Grid x:Name="InfoGrid" Margin="0">
-                <!-- Row and Column Definitions -->
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
-                       Style="{StaticResource ImgClose}" />
-
-                <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="550" Margin="0 0 0 -20"
-                        Panel.ZIndex="999" Background="White">
+             <Grid x:Name="InfoGrid" Margin="0">
+            <!-- Row and Column Definitions -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                   Style="{StaticResource ImgClose}" />
+            
+            <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="550" Margin="0 0 0 -20" Panel.ZIndex="999" Background="White">
+                <Grid>
                     <Grid>
                         <Grid>
                             <Border CornerRadius="15 15 45 45" Margin="20 20 20 120">
@@ -152,20 +155,20 @@
 
                 </Grid>
             </Grid>
-
-            <Grid x:Name="EditGrid" Visibility="Hidden" Margin="50 30 50 0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-
-
-                <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+       </Grid>
+            
+            <Grid x:Name="EditGrid" Visibility="Hidden"  Margin="50">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        
+                
+                <Image x:Name="Ximg2" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                        Style="{StaticResource ImgClose}" Margin="0 0 -35 0" />
 
                 <!-- Title -->
@@ -269,6 +272,20 @@
                                           MouseLeftButtonDown="Star_MouseLeftButtonDown" />
                     </StackPanel>
 
+                    </Grid>
+                    <Grid Margin="7 30 7 9">
+                        <ListView BorderBrush="Transparent"
+                                  AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
+                                   MouseDoubleClick="ListView_MouseClick">
+                            <ItemsControl Margin="10" x:Name="ImageList">
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Orientation="Horizontal" />
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </ListView>
+                    </Grid>
                 </Grid>
                 <!-- Button -->
                 <Button x:Name="EditButton" Content="Sacuvaj"
@@ -324,7 +341,7 @@
         <TextBlock Grid.Row="6" Text="Drag and drop slike ovde:" Margin="10"/>
         <ListView BorderBrush="Gray" BorderThickness="2" Grid.Row="7"  Height="80" Width="200"
                    AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
-                   MouseDown="ListView_MouseClick">
+                    MouseDoubleClick="ListView_MouseClick">
             <ItemsControl Margin="10" x:Name="ImageList">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate >
