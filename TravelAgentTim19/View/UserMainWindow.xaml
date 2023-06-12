@@ -99,7 +99,7 @@
         <Border Grid.Column="1" CornerRadius="0 10 10 0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                    <GradientStop Color="#EBEAE5" Offset="0"></GradientStop>
+                    <GradientStop Color="#FFFFFF" Offset="0"></GradientStop>
                     <GradientStop Color="#FFFFFF" Offset="1"></GradientStop>
                 </LinearGradientBrush>
             </Border.Background>
