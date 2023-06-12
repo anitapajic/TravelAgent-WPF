@@ -10,6 +10,7 @@ using System.Windows.Media.Imaging;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using HelpSistem;
 using Microsoft.Win32;
 using NodaTime; 
 using TravelAgentTim19.Model;
@@ -421,27 +422,21 @@ public partial class EditTripWindow
 
         string name = TxtName.Text;
         string description = DescriptionBox.Text;
-
-      
-        try
-        {
-            string p = TxtPrice.Text;
-            Trip.Price = Double.Parse(p);
-        }
-        catch
+        string p = TxtPrice.Text;
+        if (!double.TryParse(p, out double price))
         {
             MessageBox.Show("Unesite cenu. Mora biti numericka vrednost.");
             return;
         }
-
-
+        Trip.Price = price;
+        
         ItemCollection attractions = ChosenAttractionsListBox.Items;
         ItemCollection accommodations = ChosenAccommodationsListBox.Items;
         ItemCollection restaurants = ChosenRestaurantsListBox.Items;
         ItemCollection dataPeriods = DateListBox.Items;
         ItemCollection Images = ImageList.Items;
 
-        if (attractions == null || accommodations == null || restaurants == null || attractions.Count == 0 || accommodations.Count == 0 || restaurants.Count == 0 ||Images == null || Images.Count == 0)
+        if (attractions == null || accommodations == null || restaurants == null || attractions.Count == 0 || accommodations.Count == 0 || restaurants.Count == 0 || Images == null || Images.Count == 0)
         {
             MessageBox.Show("Izaberite atrakcije, smestaje i restorane za ovo putovanje i ubacite bar jednu sliku/");
             return;
@@ -464,13 +459,13 @@ public partial class EditTripWindow
             Trip.DatePeriods = dataPeriods.OfType<DatePeriods>().ToList();
 
             //dodati slike
-            
+
             foreach (DatePeriods dp in Trip.DatePeriods)
             {
                 MainRepository.DatePeriodRepository.AddDatePeriod(dp);
             }
             MainRepository.TripRepository.UpdateTrip(Trip);
-            
+
             TripNameTextBlock.Text = Trip.Name;
             DescriptionTextBlock.Text = Trip.Description;
             PriceTextBlock.Text = Trip.Price.ToString();
@@ -481,6 +476,7 @@ public partial class EditTripWindow
 
             InfoTripBtn_Clicked(sender, e);
         }
+
     }
     
     private void SaveBinding_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -513,5 +509,22 @@ public partial class EditTripWindow
     {
         var element = e.OriginalSource as FrameworkElement;
         return !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") && !(element.Name == "Ximg") && !(element.Name == "Ximg2");
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string helpKey;
+        if (InfoGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "infoTrip";
+        }
+        else if (EditGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "editTrip";
+        }
+        else
+        {
+            helpKey = "index"; // default key
+        }
+
+        HelpProvider.ShowHelp(helpKey, this);
     }
 }

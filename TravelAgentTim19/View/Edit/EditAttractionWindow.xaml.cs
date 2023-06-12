@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using HelpSistem;
 using Microsoft.Win32;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
@@ -157,32 +158,37 @@ public partial class EditAttractionWindow
     {
         string name = TxtName.Text;
         string address = TxtLocation.Text;
-        double price = Convert.ToDouble(TxtPrice.Text);
+        string priceText = TxtPrice.Text;
         string desc = DescriptionBox.Text;
         ItemCollection Images = ImageList.Items;
-        
-        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || Images == null || Images.Count == 0)
+
+        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(priceText) || Images == null || Images.Count == 0)
         {
             MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar 1 sliku.");
             return;
         }
-        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da izmenite ovu atrakciju?", "Potvrda",
-            MessageBoxButton.YesNo);
+
+        if (!double.TryParse(priceText, out double price))
+        {
+            MessageBox.Show("Cena mora biti numerička vrednost.");
+            return;
+        }
+
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da izmenite ovu atrakciju?", "Potvrda", MessageBoxButton.YesNo);
         if (result == MessageBoxResult.Yes)
         {
-
             Attraction.Name = name;
             Attraction.Description = desc;
             Attraction.Location.Address = address;
             Attraction.Price = price;
             //dodati slike
-            
+
             MainRepository.AttractionRepository.UpdateAttraction(Attraction);
             nameTextBlock.Text = Attraction.Name;
             addressTextBlock.Text = Attraction.Location.Address;
             priceTextBlock.Text = Attraction.Price.ToString();
             descTextBlock.Text = Attraction.Description;
-            
+
             Close();
         }
         
@@ -246,4 +252,23 @@ public partial class EditAttractionWindow
         var element = e.OriginalSource as FrameworkElement;
         return !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") && !(element.Name == "Ximg") && !(element.Name == "Ximg2");
     }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string helpKey;
+        if (InfoGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "infoAttraction";
+        }
+        else if (EditGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "editAttraction";
+        }
+        else
+        {
+            helpKey = "index"; // default key
+        }
+
+        HelpProvider.ShowHelp(helpKey, this);
+    }
+    
 }

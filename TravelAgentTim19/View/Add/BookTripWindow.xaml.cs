@@ -68,43 +68,46 @@ public partial class BookTripWindow
     
     private void BookTripBtn_Clicked(object sender, RoutedEventArgs e)
     {
-     
- 
         Accomodation accommodation = (Accomodation)AccomodationComboBox.SelectedItem;
         DatePeriods datePeriods = (DatePeriods)DateComboBox.SelectedItem;
 
-
         if (accommodation == null || datePeriods == null)
         {
-            MessageBox.Show("Izaberite smestaj i datum za ovo putovanje");
+            MessageBox.Show("Izaberite smestaj i datum za ovo putovanje.");
             return;
         }
 
-        int days = datePeriods.EndDate.Minus(datePeriods.StartDate).Days;
-        double totalPrice = Trip.Price + accommodation.Price*days;
-        
-        MessageBoxResult result = MessageBox.Show("Ukupna cena putovanja je: " + totalPrice + "din.\n Da li ste sigurni da zelite da rezervisete ovao putovanje?", "Potvrda",
-            MessageBoxButton.YesNo);
+        NodaTime.Period period = datePeriods.EndDate - datePeriods.StartDate;
+
+        int days = period.Days;
+        if (days <= 0)
+        {
+            MessageBox.Show("Krajnji datum mora biti posle početnog datuma.");
+            return;
+        }
+
+        double totalPrice = Trip.Price + (accommodation.Price * days);
+
+        MessageBoxResult result = MessageBox.Show("Ukupna cena putovanja je: " + totalPrice + " din.\nDa li ste sigurni da želite da rezervišete ovo putovanje?", "Potvrda", MessageBoxButton.YesNo);
         if (result == MessageBoxResult.Yes)
         {
-            
             Random random = new Random();
             BookedTrip.Id = random.Next();
             BookedTrip.TripId = Trip.Id;
             BookedTrip.TripName = Trip.Name;
             BookedTrip.Status = BookedTripStatus.Reserved;
-            
             BookedTrip.Price = totalPrice;
             BookedTrip.DatePeriod = datePeriods;
             BookedTrip.Accomodation = accommodation;
             BookedTrip.ChoosenAttractions = Trip.Attractions;
             BookedTrip.User = LoggedUser;
-            
+
             MainRepository.BookedTripRepository.AddBookedTrip(BookedTrip);
-            
+
             InfoTripBtn_Clicked(sender, e);
         }
     }
+
     
     private void SaveBinding_Executed(object sender, ExecutedRoutedEventArgs e)
     {

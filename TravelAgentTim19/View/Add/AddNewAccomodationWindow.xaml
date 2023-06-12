@@ -3,16 +3,18 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:TravelAgentTim19.View"
         xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
         ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
         MinWidth="600" MinHeight="500" 
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
-        Title="Add New Accomodation" Height="600" Width="700">
+        xmlns:helpSistem="clr-namespace:HelpSistem"
+        helpSistem:HelpProvider.HelpKey="newAccommodation"
+        Title="Novi smestaj" Height="600" Width="700">
     
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>

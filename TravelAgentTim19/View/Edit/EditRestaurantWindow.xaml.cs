@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using HelpSistem;
 using Microsoft.Win32;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
@@ -232,4 +233,23 @@ public partial class EditRestaurantWindow
         var element = e.OriginalSource as FrameworkElement;
         return !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") && !(element.Name == "Ximg") && !(element.Name == "Ximg2");
     }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string helpKey;
+        if (InfoGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "infoRestaurant";
+        }
+        else if (EditGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "editRestaurant";
+        }
+        else
+        {
+            helpKey = "index"; // default key
+        }
+
+        HelpProvider.ShowHelp(helpKey, this);
+    }
+    
 }

@@ -13,9 +13,10 @@
         MinWidth="600" MinHeight="500" 
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
         Background="#FFFFFF"
-        Title="EditAttractionWindow" Height="600" Width="1100">
+        Title="Atrakcija" Height="600" Width="1100">
 
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>

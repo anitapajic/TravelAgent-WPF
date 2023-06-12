@@ -21,7 +21,7 @@ namespace HelpSistem
     public partial class HelpViewer : Window
     {
         private JavaScriptControlHelper ch;
-        public HelpViewer(string key, AgentMainWindow originator)
+        public HelpViewer(string key, Window originator)
         {
             InitializeComponent();
             string curDir = Directory.GetCurrentDirectory();
@@ -34,6 +34,7 @@ namespace HelpSistem
             ch = new JavaScriptControlHelper(originator);
             wbHelp.ObjectForScripting = ch;
             wbHelp.Navigate(u);
+         
            
 
         }

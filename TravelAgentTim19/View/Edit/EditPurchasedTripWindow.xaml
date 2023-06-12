@@ -11,9 +11,13 @@
         AllowsTransparency="True"
         MinWidth="800" MinHeight="600" 
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
-        Title="EditPurchasedTripWindow" Height="600" Width="1100">
+        xmlns:helpSistem="clr-namespace:HelpSistem"
+        helpSistem:HelpProvider.HelpKey="infoPurchasedTrip"
+        Title="Kupljeno putovanje" Height="600" Width="1100"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
     
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>
     <Window.InputBindings>

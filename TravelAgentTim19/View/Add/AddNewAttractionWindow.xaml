@@ -9,9 +9,12 @@
         AllowsTransparency="True"
         MinWidth="600" MinHeight="500" 
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
-        Title="Dodaj novu atrakciju" Height="600" Width="700">
+        xmlns:l="clr-namespace:HelpSistem"
+        l:HelpProvider.HelpKey="newAttraction"
+        Title="Nova atrakcija" Height="600" Width="700">
     
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>

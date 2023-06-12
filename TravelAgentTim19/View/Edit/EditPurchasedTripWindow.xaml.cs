@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using HelpSistem;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
 
@@ -42,5 +43,9 @@ public partial class EditPurchasedTripWindow
     {
         var element = e.OriginalSource as FrameworkElement;
         return !(element.Name == "Ximg");
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string str = HelpProvider.GetHelpKey(this);
+        HelpProvider.ShowHelp(str, this);
     }
 }
