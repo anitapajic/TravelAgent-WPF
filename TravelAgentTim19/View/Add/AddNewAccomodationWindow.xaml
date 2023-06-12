@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:TravelAgentTim19.View"
+        xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:enum="clr-namespace:TravelAgentTim19.Model.Enum"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
@@ -16,8 +17,9 @@
     <Window.InputBindings>
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
-    
-    <Grid HorizontalAlignment="Center">
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+        
+        <Grid HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -30,49 +32,27 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <TextBlock Text="Dodaj novi smestaj" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch"  />
+        <TextBlock Text="Dodaj novi smestaj" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="30" Margin="20 30" HorizontalAlignment="Stretch"  />
 
-        <Border Grid.Row="1" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
+        <Border Grid.Row="1"  BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
             <Grid Margin="7 9">
                 <TextBlock x:Name="TextName" MouseDown="textName_MouseDown" Text="Ime" Style="{StaticResource TextHint}" />
                 <TextBox Name="TxtName" TextChanged="nameBox_TextChanged" Style="{StaticResource TextBox}" />
             </Grid>
         </Border>
-        <Border Grid.Row="2" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
+        <Border Grid.Row="2"  BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
             <Grid Margin="7 9">
                 <TextBlock x:Name="TextPrice" MouseDown="textPrice_MouseDown" Text="Cena" Style="{StaticResource TextHint}" />
                 <TextBox Name="TxtPrice" TextChanged="priceBox_TextChanged"  Style="{StaticResource TextBox}" />
             </Grid>
         </Border>
-        <Border Grid.Row="3" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
+        <Border Grid.Row="3"  BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
             <Grid Margin="7 9">
                 <TextBlock x:Name="TextAddress" MouseDown="textAddress_MouseDown" Text="Adresa" Style="{StaticResource TextHint}" />
                 <TextBox Name="TxtAddress" TextChanged="addressBox_TextChanged" Style="{StaticResource TextBox}" />
             </Grid>
         </Border>
-        <Grid Grid.Row="4">
-            <ComboBox x:Name="accomodationComboBox" Grid.Column="2" Margin="10" Width="400" BorderBrush="Transparent" SelectedItem="{Binding SelectedAccomodationType}">
-                <ComboBox.ItemsSource>
-                    <x:Array Type="{x:Type enum:AccomodationType}">
-                        <enum:AccomodationType>Hotel</enum:AccomodationType>
-                        <enum:AccomodationType>Villa</enum:AccomodationType>
-                        <enum:AccomodationType>Motel</enum:AccomodationType>
-                        <enum:AccomodationType>Hostel</enum:AccomodationType>
-                        <enum:AccomodationType>Apartment</enum:AccomodationType>
-                    </x:Array>
-                </ComboBox.ItemsSource>
-                <ComboBox.SelectedIndex>0</ComboBox.SelectedIndex>
-            </ComboBox>
-        </Grid>
-        <Grid Grid.Row="5" Margin="70,7,70,7">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="160"/>
-                <ColumnDefinition Width="40"/>
-            </Grid.ColumnDefinitions>
-            <Slider x:Name="slider" Minimum="0" Maximum="5" TickFrequency="0.5" Value="{Binding Rating}" Grid.Column="0" Margin="10" Width="160"/>
-            <TextBox Text="{Binding ElementName=slider, Path=Value, Mode=TwoWay}" Grid.Column="1" Margin="10" Width="20"/>
-        </Grid>
-        <Border Grid.Row="6" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400" Height="100">
+        <Border Grid.Row="4" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400" Height="100">
             
             <Grid>
                 <Grid Margin="7 9">
@@ -94,6 +74,50 @@
                 </Grid>
             </Grid>
         </Border>
+        
+        <Grid Grid.Row="5" Margin="80 7">
+            <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Tip smestaja" Style="{StaticResource TextHint}" Margin="0 3 10 10"
+            >
+            </TextBlock>
+            <ComboBox x:Name="accomodationComboBox" Width="300" Margin="10"  BorderBrush="Transparent" SelectedItem="{Binding SelectedAccomodationType}">
+                <ComboBox.ItemsSource>
+                    <x:Array Type="{x:Type enum:AccomodationType}">
+                        <enum:AccomodationType>Hotel</enum:AccomodationType>
+                        <enum:AccomodationType>Villa</enum:AccomodationType>
+                        <enum:AccomodationType>Motel</enum:AccomodationType>
+                        <enum:AccomodationType>Hostel</enum:AccomodationType>
+                        <enum:AccomodationType>Apartment</enum:AccomodationType>
+                    </x:Array>
+                </ComboBox.ItemsSource>
+                <ComboBox.SelectedIndex>0</ComboBox.SelectedIndex>
+            </ComboBox>
+            </StackPanel>
+        </Grid>
+        <!-- Rating -->
+        <Grid Grid.Row="6" Grid.ColumnSpan="2" Margin="80 7">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Oceni" Style="{StaticResource TextHint}" Margin="0 0 10 0"
+                           >
+                </TextBlock>
+                <wpf:ImageAwesome x:Name="star1" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                  MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                  MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                <wpf:ImageAwesome x:Name="star2" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                  MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                  MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                <wpf:ImageAwesome x:Name="star3" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                  MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                  MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                <wpf:ImageAwesome x:Name="star4" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                  MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                  MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                <wpf:ImageAwesome x:Name="star5" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                  MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                  MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+            </StackPanel>
+
+        </Grid>
         
         <Button x:Name="SaveButton" Background="#3AA9AD" Foreground="White" FontWeight="Bold" Content="Dodaj" Grid.Row="7" Grid.ColumnSpan="2"  Click="CreateAccomodationBtn_Clicked" Style="{StaticResource MainButton}" Margin="40"/>
     
@@ -160,4 +184,6 @@
         ~1~ Submit button @1@
         <Button Content="Submit" Click="CreateAccomodationBtn_Clicked" Grid.Row="8"  HorizontalAlignment="Center" Width="100" MaxHeight="40"/>-->
     </Grid>
+        
+    </ScrollViewer>
 </Window>

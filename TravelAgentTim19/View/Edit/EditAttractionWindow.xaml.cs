@@ -141,7 +141,7 @@ public partial class EditAttractionWindow
    
     private void textDesc_MouseDown(object sender, MouseButtonEventArgs e)
     {
-        TextDes.Focus();
+        TxtDes.Focus();
     }
     private void InfoAttractionBtn_Clicked(object sender, RoutedEventArgs e)
     {
@@ -150,7 +150,7 @@ public partial class EditAttractionWindow
         TxtName.Text = Attraction.Name;
         TxtLocation.Text = Attraction.Location.Address;
         TxtPrice.Text = Attraction.Price.ToString();
-        DescriptionBox.Text = Attraction.Description;
+        TxtDes.Text = Attraction.Description;
     }
 
     private void SaveChangesBtn_Clicked(object sender, RoutedEventArgs e)
@@ -158,7 +158,7 @@ public partial class EditAttractionWindow
         string name = TxtName.Text;
         string address = TxtLocation.Text;
         double price = Convert.ToDouble(TxtPrice.Text);
-        string desc = DescriptionBox.Text;
+        string desc = TxtDes.Text;
         ItemCollection Images = ImageList.Items;
         
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || Images == null || Images.Count == 0)

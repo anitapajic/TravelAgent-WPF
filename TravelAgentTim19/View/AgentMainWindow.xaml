@@ -6,14 +6,14 @@
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:l="clr-namespace:HelpSistem"
-        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
-        ResizeMode="CanResize"  PreviewKeyDown="Window_PreviewKeyDown"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        ResizeMode="CanResize" PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
         l:HelpProvider.HelpKey="Forma"
         Background="Transparent"
-        Title="Glavni prozor" Height="600" Width="1100" MinWidth="600" MinHeight="500" 
-        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}" 
-        DataContext="{Binding RelativeSource={RelativeSource Self}}">   
+        Title="Glavni prozor" Height="600" Width="1100" MinWidth="600" MinHeight="500"
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
 
     <Window.CommandBindings>
@@ -21,7 +21,7 @@
         <CommandBinding Command="ApplicationCommands.New" Executed="NewCommand_Executed" />
     </Window.CommandBindings>
 
-    
+
     <Grid MouseDown="Grid_MouseDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="270" />
@@ -40,61 +40,61 @@
             </Border.Background>
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-            <StackPanel>
-                <!-- Username-->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 35 0 0">
-                    <Border CornerRadius="250" Width="45" Height="45">
-                        <Border.Background>
-                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                                <GradientStop Color="#11172F" Offset="0" />
-                                <GradientStop Color="#515F98" Offset="1" />
-                            </LinearGradientBrush>
-                        </Border.Background>
-                        <TextBlock Text="A" Foreground="#FFFFFF" FontSize="22" FontWeight="SemiBold"
-                                   TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2" />
-                    </Border>
+                <StackPanel>
+                    <!-- Username-->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 35 0 0">
+                        <Border CornerRadius="250" Width="45" Height="45">
+                            <Border.Background>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                                    <GradientStop Color="#11172F" Offset="0" />
+                                    <GradientStop Color="#515F98" Offset="1" />
+                                </LinearGradientBrush>
+                            </Border.Background>
+                            <TextBlock Text="A" Foreground="#FFFFFF" FontSize="22" FontWeight="SemiBold"
+                                       TextAlignment="Center" VerticalAlignment="Center" Margin="3 0 0 2" />
+                        </Border>
 
-                    <StackPanel Margin="10 0 0 0" VerticalAlignment="Center">
-                        <TextBlock Text="Administrator" FontSize="15" Margin="0 0 0 5" Foreground="#FFFFFF" />
+                        <StackPanel Margin="10 0 0 0" VerticalAlignment="Center">
+                            <TextBlock Text="Administrator" FontSize="15" Margin="0 0 0 5" Foreground="#FFFFFF" />
+                        </StackPanel>
                     </StackPanel>
+                    <Separator Height="0.8" Margin="20 30" Background="#FFFFFF" />
+
+                    <!-- Manu Buttons-->
+                    <Button Style="{StaticResource ManuButton}" Click="TripItem_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <wpf:FontAwesome Icon="Car" Style="{StaticResource ManuButtonIcon}" />
+                            <TextBlock Text="Putovanja" Style="{StaticResource ManuButtonText}" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource ManuButton}" Click="AttractionItem_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <wpf:FontAwesome Icon="Map" Style="{StaticResource ManuButtonIcon}" />
+                            <TextBlock Text="Turisticke atrakcije" Style="{StaticResource ManuButtonText}" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource ManuButton}" Click="AccomodationItem_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <wpf:FontAwesome Icon="Hotel" Style="{StaticResource ManuButtonIcon}" />
+                            <TextBlock Text="Smestaj" Style="{StaticResource ManuButtonText}" />
+                        </StackPanel>
+                    </Button>
+
+                    <Button Style="{StaticResource ManuButton}" Click="RestaurantItem_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <wpf:FontAwesome Icon="Cutlery" Style="{StaticResource ManuButtonIcon}" />
+                            <TextBlock Text="Restorani" Style="{StaticResource ManuButtonText}" />
+                        </StackPanel>
+                    </Button>
+
                 </StackPanel>
-                <Separator Height="0.8" Margin="20 30" Background="#FFFFFF" />
 
-                <!-- Manu Buttons-->
-                <Button Style="{StaticResource ManuButton}" Click="TripItem_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <wpf:FontAwesome Icon="Car" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Putovanja" Style="{StaticResource ManuButtonText}" />
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource ManuButton}" Click="AttractionItem_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <wpf:FontAwesome Icon="Map" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Turisticke atrakcije" Style="{StaticResource ManuButtonText}" />
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource ManuButton}" Click="AccomodationItem_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <wpf:FontAwesome Icon="Hotel" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Smestaj" Style="{StaticResource ManuButtonText}" />
-                    </StackPanel>
-                </Button>
-
-                <Button Style="{StaticResource ManuButton}" Click="RestaurantItem_Click">
-                    <StackPanel Orientation="Horizontal">
-                        <wpf:FontAwesome Icon="Cutlery" Style="{StaticResource ManuButtonIcon}" />
-                        <TextBlock Text="Restorani" Style="{StaticResource ManuButtonText}" />
-                    </StackPanel>
-                </Button>
-                
-                </StackPanel>
-                
-                <Button Grid.Row="1" Style="{StaticResource ManuButton}"  Click="Logout_Click">
+                <Button Grid.Row="1" Style="{StaticResource ManuButton}" Click="Logout_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="PowerOff" Style="{StaticResource ManuButtonIcon}" />
                         <TextBlock Text="Izloguj se" Style="{StaticResource ManuButtonText}" />
@@ -102,7 +102,7 @@
                 </Button>
             </Grid>
         </Border>
-        
+
         <!-- Main section-->
         <Border Grid.Column="1" CornerRadius="0 10 10 0">
             <Border.Background>
@@ -122,9 +122,9 @@
 
                 <!-- Top manu trips grid section-->
                 <WrapPanel Grid.Row="0" Name="TripsGridTopManu" Visibility="Visible" Orientation="Horizontal"
-                            VerticalAlignment="Bottom" Margin="0 20 30 0"
-                            HorizontalAlignment="Right">
-                    <TextBlock Visibility="Hidden" Text="aaaaaaaaaaaaaaaaaaaaaaaaa"/>
+                           VerticalAlignment="Bottom" Margin="0 20 30 0"
+                           HorizontalAlignment="Right">
+                    <TextBlock Visibility="Hidden" Text="aaaaaaaaaaaaaaaaaaaaaaaaa" />
                     <Button Content="Sva putovanja" Style="{StaticResource TopManuButton}" FontWeight="Medium"
                             Click="TripItem_Click" />
                     <Button Content="Rezervacije" Style="{StaticResource TopManuButton}" FontWeight="Medium"
@@ -146,7 +146,7 @@
                 <TextBlock Name="RestourantGridTitle" Visibility="Hidden" Text="Restorani" FontSize="23"
                            HorizontalAlignment="Left" Margin="50 35 0 5" />
 
-                <Grid Grid.Row="2" Panel.ZIndex="99999" >
+                <Grid Grid.Row="2" Panel.ZIndex="99999">
                     <ToggleButton x:Name="ToggleButtonAttraction" Click="ToggleButtonAttraction_Click"
                                   Width="40"
                                   Height="40" HorizontalAlignment="Right" VerticalAlignment="Top"
@@ -213,7 +213,7 @@
                                 <Grid x:Name="ButtonGrid">
                                     <Ellipse x:Name="Circle" Fill="#3AA9AD" />
                                     <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                               FontSize="24" FontWeight="Bold" Foreground="White" />
+                                               FontSize="26" FontWeight="Bold" Foreground="White" />
                                 </Grid>
                                 <ControlTemplate.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
@@ -239,18 +239,23 @@
                                         </ItemsControl.ItemsPanel>
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
-                                                <Border Margin="0 0 17 12" Height="150" Width="230">
+                                                <Grid>
+                                                    <Border Margin="0 0 17 12" Height="150" Width="230">
                                                     <Border.Effect>
-                                                        <DropShadowEffect ShadowDepth="5" Color="Black" Opacity="0.5" BlurRadius="10" />
+                                                        <DropShadowEffect ShadowDepth="5" Color="Black" Opacity="0.5"
+                                                                          BlurRadius="10" />
                                                     </Border.Effect>
-                                                    <Border.Background>
-                                                        <ImageBrush ImageSource="{Binding ImgPath}" Stretch="UniformToFill"/>
-                                                    </Border.Background>
+                                                        <Border.Background>
+                                                            <SolidColorBrush Color="Black"/>
+                                                        </Border.Background>
                                                     <Border.Clip>
                                                         <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 230 150" />
                                                     </Border.Clip>
-                                                    
+
                                                     <Grid>
+                                                        <Image Source="{Binding ImgPath}" Stretch="UniformToFill" Opacity="0.8">
+                                                            
+                                                        </Image>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
                                                                 Height="230" HorizontalAlignment="Right"
                                                                 Click="EditTripBtn_Clicked">
@@ -258,18 +263,20 @@
                                                                 <Binding Path="Id" />
                                                             </Button.Tag>
                                                         </Button>
-                                                        <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
+                                                        <StackPanel Margin="23 9 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
                                                                        FontSize="20" FontWeight="SemiBold">
                                                                 <TextBlock.Effect>
-                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4"
+                                                                        Opacity="0.7" BlurRadius="3" />
                                                                 </TextBlock.Effect>
                                                             </TextBlock>
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                       FontSize="15" FontWeight="SemiBold">
-                                                            <TextBlock.Effect>
-                                                                <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
-                                                            </TextBlock.Effect>
+                                                                       FontSize="17" FontWeight="SemiBold">
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4"
+                                                                        Opacity="0.7" BlurRadius="3" />
+                                                                </TextBlock.Effect>
                                                             </TextBlock>
                                                         </StackPanel>
 
@@ -286,6 +293,7 @@
                                                         </Button>
                                                     </Grid>
                                                 </Border>
+                                                </Grid>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
 
@@ -293,30 +301,6 @@
                                 </Grid>
                             </ScrollViewer>
                         </Grid>
-
-                        <!-- Cards-->
-                        <!--<Border  Margin="0 0 25 0">
-                       <Border.Background>
-                           <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                               <GradientStop Color="#3AA9AD" Offset="0"></GradientStop>
-                               <GradientStop Color="#3AB19B" Offset="1"></GradientStop>
-                           </LinearGradientBrush>
-                       </Border.Background>
-                       <Border.Clip>
-                           <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 230 150"></RectangleGeometry>
-                       </Border.Clip>
-                       
-                       <Grid>
-                           <Button Style="{StaticResource MoreButton}" Width="230" Height="230"  HorizontalAlignment="Right">
-                           </Button>
-
-
-                           <StackPanel Margin="27 5 10 5" VerticalAlignment="Top">
-                               <TextBlock Text="Lokacija" Foreground="#EBEAE5" FontSize="14"></TextBlock>
-                               <TextBlock Text="Novi Sad" Foreground="#FFFFFF" FontSize="28" FontWeight="SemiBold"></TextBlock>
-                           </StackPanel>
-                       </Grid>
-                   </Border>-->
                     </Grid>
 
                     <!-- Attraction grid-->
@@ -325,9 +309,9 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Grid Name="MapGrid" Height="200" Visibility="Hidden" Grid.Row="0">
+                        <Grid Name="MapGrid" Height="180" Visibility="Hidden" Grid.Row="0">
                             <gmap:GMapControl x:Name="gmap" Loaded="map_load"
-                                              MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0 -65 15 25" />
+                                              MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0 -65 32 25" />
 
                         </Grid>
                         <Grid Grid.Row="1" Name="AttractionGrid" Visibility="Hidden">
@@ -339,14 +323,14 @@
                                                       ItemsSource="{Binding Attractions}">
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
-                                                    <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                                                    <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
                                                     <Border Margin="0 0 17 12" Height="150" Width="230">
                                                         <Border.Background>
-                                                            <ImageBrush ImageSource="{Binding ImgPath}" Stretch="UniformToFill"/>
+                                                            <SolidColorBrush Color="#000000" />
                                                         </Border.Background>
                                                         <Border.Clip>
                                                             <RectangleGeometry RadiusX="15" RadiusY="15"
@@ -354,6 +338,7 @@
                                                         </Border.Clip>
 
                                                         <Grid>
+                                                            <Image Source="{Binding ImgPath}" Stretch="UniformToFill" Opacity="0.8" />
                                                             <Button Style="{StaticResource MoreButton}" Width="230"
                                                                     Height="230" HorizontalAlignment="Right"
                                                                     Click="EditAttractionBtn_Click">
@@ -365,21 +350,25 @@
 
                                                             <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
                                                                 <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                           FontSize="20" FontWeight="Bold" >
+                                                                           FontSize="20" FontWeight="Bold">
                                                                     <TextBlock.Effect>
-                                                                        <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.7" BlurRadius="3"/>
-                                                                    </TextBlock.Effect>
-                                                                </TextBlock>
-                                                                <TextBlock Text="{Binding Price}" Foreground="#FFFFFF"
-                                                                           FontSize="14" FontWeight="Bold">
-                                                                    <TextBlock.Effect>
-                                                                        <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                        <DropShadowEffect Color="Black" ShadowDepth="4"
+                                                                            Opacity="0.7" BlurRadius="3" />
                                                                     </TextBlock.Effect>
                                                                 </TextBlock>
                                                                 <TextBlock Text="{Binding Location.Address}" Foreground="#FFFFFF"
-                                                                           FontSize="14" FontWeight="Bold" >
+                                                                           FontSize="14" FontWeight="Bold">
                                                                     <TextBlock.Effect>
-                                                                        <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                        <DropShadowEffect Color="Black" ShadowDepth="4"
+                                                                            Opacity="0.8" BlurRadius="3" />
+                                                                    </TextBlock.Effect>
+                                                                </TextBlock>
+                                                                <TextBlock Text="{Binding Price }"
+                                                                           Foreground="#FFFFFF"
+                                                                           FontSize="14" FontWeight="Bold">
+                                                                    <TextBlock.Effect>
+                                                                        <DropShadowEffect Color="Black" ShadowDepth="4"
+                                                                            Opacity="0.8" BlurRadius="3" />
                                                                     </TextBlock.Effect>
                                                                 </TextBlock>
                                                             </StackPanel>
@@ -420,9 +409,10 @@
                                         </ItemsControl.ItemsPanel>
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
+                                                
                                                 <Border Margin="0 0 17 12" Height="150" Width="230">
                                                     <Border.Background>
-                                                        <ImageBrush ImageSource="{Binding ImgPath}" Stretch="UniformToFill"/>
+                                                        <SolidColorBrush Color="#000000"/>
                                                     </Border.Background>
                                                     <Border.Clip>
                                                         <RectangleGeometry RadiusX="15" RadiusY="15"
@@ -430,6 +420,8 @@
                                                     </Border.Clip>
 
                                                     <Grid>
+                                                        <Image Source="{Binding ImgPath}" Stretch="UniformToFill" Opacity="0.7">
+                                                        </Image>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
                                                                 Height="230" HorizontalAlignment="Right"
                                                                 Click="EditAccomodationBtn_Clicked">
@@ -441,21 +433,25 @@
 
                                                         <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                       FontSize="22" FontWeight="Bold" >
+                                                                       FontSize="22" FontWeight="Bold">
                                                                 <TextBlock.Effect>
-                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
-                                                                </TextBlock.Effect>
-                                                            </TextBlock>
-                                                            <TextBlock Text="{Binding Price}" Foreground="#FFFFFF"
-                                                                       FontSize="14" FontWeight="Bold">
-                                                                <TextBlock.Effect>
-                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4"
+                                                                        Opacity="0.8" BlurRadius="3" />
                                                                 </TextBlock.Effect>
                                                             </TextBlock>
                                                             <TextBlock Text="{Binding Location.Address}" Foreground="#FFFFFF"
                                                                        FontSize="14" FontWeight="Bold">
                                                                 <TextBlock.Effect>
-                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4"
+                                                                        Opacity="0.8" BlurRadius="3" />
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Price}"
+                                                                       Foreground="#FFFFFF"
+                                                                       FontSize="14" FontWeight="Bold">
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4"
+                                                                        Opacity="0.8" BlurRadius="3" />
                                                                 </TextBlock.Effect>
                                                             </TextBlock>
                                                         </StackPanel>
@@ -490,14 +486,14 @@
                                     <ItemsControl x:Name="restaurantItemsControl" ItemsSource="{Binding Restaurants}">
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
-                                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"  />
+                                                <WrapPanel IsItemsHost="True" Orientation="Horizontal" />
                                             </ItemsPanelTemplate>
                                         </ItemsControl.ItemsPanel>
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <Border Margin="0 0 17 12" Height="150" Width="230">
                                                     <Border.Background>
-                                                        <ImageBrush ImageSource="{Binding ImgPath}" Stretch="UniformToFill"/>
+                                                        <SolidColorBrush Color="#000000"/>
                                                     </Border.Background>
                                                     <Border.Clip>
                                                         <RectangleGeometry RadiusX="15" RadiusY="15"
@@ -505,6 +501,8 @@
                                                     </Border.Clip>
 
                                                     <Grid>
+                                                        <Image Source="{Binding ImgPath}" Stretch="UniformToFill" Opacity="0.7" />
+
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
                                                                 Height="230" HorizontalAlignment="Right"
                                                                 Click="EditRestaurantBtn_Clicked">
@@ -516,15 +514,18 @@
 
                                                         <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                       FontSize="22" FontWeight="Bold" >
+                                                                       FontSize="22" FontWeight="Bold">
                                                                 <TextBlock.Effect>
-                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4"
+                                                                        Opacity="0.8" BlurRadius="3" />
                                                                 </TextBlock.Effect>
                                                             </TextBlock>
-                                                            <TextBlock Text="{Binding Location.Address}" Foreground="#FFFFFF"
-                                                                       FontSize="14" FontWeight="SemiBold">
+                                                            <TextBlock Text="{Binding Location.Address}"
+                                                                       Foreground="#FFFFFF"
+                                                                       FontSize="14" FontWeight="SemiBold" Margin="0 0 20 0">
                                                                 <TextBlock.Effect>
-                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4"
+                                                                        Opacity="0.8" BlurRadius="3" />
                                                                 </TextBlock.Effect>
                                                             </TextBlock>
                                                         </StackPanel>
@@ -587,12 +588,13 @@
 
                                                         <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold" Margin="0 0 0 10" />
-                                                            
+                                                                       FontSize="18" FontWeight="SemiBold"
+                                                                       Margin="0 0 0 10" />
+
                                                             <TextBlock Text="{Binding User}" Foreground="#FFFFFF"
                                                                        FontSize="14" FontWeight="SemiBold" />
 
-                                                            
+
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                        FontSize="14" />
                                                         </StackPanel>
@@ -645,7 +647,8 @@
 
                                                         <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold" Margin="0 0 0 10"/>
+                                                                       FontSize="18" FontWeight="SemiBold"
+                                                                       Margin="0 0 0 10" />
                                                             <TextBlock Text="{Binding User}" Foreground="#FFFFFF"
                                                                        FontSize="14" FontWeight="SemiBold" />
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
@@ -655,35 +658,36 @@
                                                 </Border>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
-                                        
+
                                     </ItemsControl>
                                 </Grid>
                             </ScrollViewer>
                         </Grid>
                     </Grid>
-                    
+
                     <!-- Report 1 -->
                     <Grid Name="SoldTripGridForm" Visibility="Hidden">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        
-                        
+
+
                         <WrapPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,20"
-                                   VerticalAlignment="Top" 
+                                   VerticalAlignment="Top"
                                    HorizontalAlignment="Center">
 
-                            <Label Content="Izaberite mesec:" Foreground="#3AA9AD" FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10"
+                            <Label Content="Izaberite mesec:" Foreground="#3AA9AD" FontSize="17" FontWeight="SemiBold"
+                                   HorizontalAlignment="Left" Margin="10"
                                    VerticalAlignment="Center" />
 
                             <ComboBox x:Name="monthComboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="10"
                                       VerticalAlignment="Center" Width="100" Height="30">
                                 <ComboBox.Resources>
                                     <Style TargetType="ComboBox">
-                                        <Setter Property="Foreground" Value="#11172F"/>
-                                        <Setter Property="Background" Value="#3AA9AD"/>
-                                        <Setter Property="FontSize" Value="12"/>
+                                        <Setter Property="Foreground" Value="#11172F" />
+                                        <Setter Property="Background" Value="#3AA9AD" />
+                                        <Setter Property="FontSize" Value="12" />
                                     </Style>
                                 </ComboBox.Resources>
                                 <ComboBoxItem Content="Januar" />
@@ -700,11 +704,11 @@
                                 <ComboBoxItem Content="Decembar" />
                             </ComboBox>
                             <Button x:Name="FindByMonthBtn" Click="FindTripsReport1_Clicked" Grid.Column="2"
-                                     HorizontalAlignment="Left" Margin="5" 
+                                    HorizontalAlignment="Left" Margin="5"
                                     VerticalAlignment="Center" Style="{StaticResource SearchButton}">
                                 <Viewbox Width="10" Height="10">
                                     <wpf:FontAwesome Icon="Search" />
-                                </Viewbox>  
+                                </Viewbox>
                             </Button>
                         </WrapPanel>
 
@@ -718,7 +722,7 @@
                                             <ItemsControl.ItemsPanel>
                                                 <ItemsPanelTemplate>
                                                     <WrapPanel IsItemsHost="True" Orientation="Horizontal"
-                                                                MinWidth="250" />
+                                                               MinWidth="250" />
                                                 </ItemsPanelTemplate>
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
@@ -738,8 +742,8 @@
                                                         <Grid>
                                                             <Button Style="{StaticResource MoreButton}" Width="230"
                                                                     Height="230" HorizontalAlignment="Right">
-                                                                    <!-- Click="EditBookedTripBtn_Clicked" -->
-                                                                    
+                                                                <!-- Click="EditBookedTripBtn_Clicked" -->
+
                                                                 <Button.Tag>
                                                                     <Binding Path="Id" />
                                                                 </Button.Tag>
@@ -748,14 +752,15 @@
 
                                                             <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                                 <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                           FontSize="18" FontWeight="SemiBold" Margin="0 0 0 10" />
+                                                                           FontSize="18" FontWeight="SemiBold"
+                                                                           Margin="0 0 0 10" />
                                                                 <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                            FontSize="14" />
                                                             </StackPanel>
 
                                                         </Grid>
-                                                </Border>
-                               
+                                                    </Border>
+
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
                                         </ItemsControl>
@@ -766,29 +771,30 @@
                     </Grid>
 
                     <!-- Report 2-->
-                    <Grid Name="BookedTripGridForm" Visibility="Hidden" >
+                    <Grid Name="BookedTripGridForm" Visibility="Hidden">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions> 
-                        
-                        
+                        </Grid.RowDefinitions>
+
+
                         <WrapPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,20"
-                                   VerticalAlignment="Bottom" 
+                                   VerticalAlignment="Bottom"
                                    HorizontalAlignment="Center">
-                 
-                            <Label Content="Izaberite putovanje:" Foreground="#3AA9AD" FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10"
+
+                            <Label Content="Izaberite putovanje:" Foreground="#3AA9AD" FontSize="17"
+                                   FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10"
                                    VerticalAlignment="Center" />
 
                             <ComboBox x:Name="tripComboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="10"
                                       VerticalAlignment="Center" Width="100" Height="30" />
-                            
+
                             <Button x:Name="FindByTripBtn" Click="FindTripsReport2_Clicked" Grid.Column="2"
-                                    HorizontalAlignment="Left" Margin="5" 
+                                    HorizontalAlignment="Left" Margin="5"
                                     VerticalAlignment="Center" Style="{StaticResource SearchButton}">
                                 <Viewbox Width="10" Height="10">
                                     <wpf:FontAwesome Icon="Search" />
-                                </Viewbox> 
+                                </Viewbox>
                             </Button>
                         </WrapPanel>
                         <!-- Report 2 Trips -->
@@ -806,7 +812,7 @@
                                             </ItemsControl.ItemsPanel>
                                             <ItemsControl.ItemTemplate>
                                                 <DataTemplate>
-                                                                                                    <Border Margin="0 0 17 12" Height="150" Width="230">
+                                                    <Border Margin="0 0 17 12" Height="150" Width="230">
                                                         <Border.Background>
                                                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                                                                 <GradientStop Color="#3AA9AD" Offset="0" />
@@ -821,8 +827,8 @@
                                                         <Grid>
                                                             <Button Style="{StaticResource MoreButton}" Width="230"
                                                                     Height="230" HorizontalAlignment="Right">
-                                                                    <!-- Click="EditBookedTripBtn_Clicked" -->
-                                                                    
+                                                                <!-- Click="EditBookedTripBtn_Clicked" -->
+
                                                                 <Button.Tag>
                                                                     <Binding Path="Id" />
                                                                 </Button.Tag>
@@ -830,14 +836,17 @@
 
 
                                                             <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
-                                                                <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
+                                                                <TextBlock Text="{Binding TripName}"
+                                                                           Foreground="#FFFFFF"
                                                                            FontSize="18" FontWeight="SemiBold" />
                                                                 <TextBlock Height="10" />
                                                                 <TextBlock Text="{Binding User}" Foreground="#FFFFFF"
                                                                            FontSize="14" />
-                                                                <TextBlock Text="{Binding DatePeriod.StartDate}" Foreground="#FFFFFF"
+                                                                <TextBlock Text="{Binding DatePeriod.StartDate}"
+                                                                           Foreground="#FFFFFF"
                                                                            FontSize="14" />
-                                                                <TextBlock Text="{Binding DatePeriod.EndDate}" Foreground="#FFFFFF"
+                                                                <TextBlock Text="{Binding DatePeriod.EndDate}"
+                                                                           Foreground="#FFFFFF"
                                                                            FontSize="14" />
                                                                 <TextBlock Height="20" />
 
@@ -846,7 +855,7 @@
                                                             </StackPanel>
 
                                                         </Grid>
-                                                </Border>
+                                                    </Border>
                                                 </DataTemplate>
                                             </ItemsControl.ItemTemplate>
                                         </ItemsControl>
@@ -859,455 +868,4 @@
             </Grid>
         </Border>
     </Grid>
-
-
-    <!--<DockPanel >
-        <Menu DockPanel.Dock="Top">
-            <Menu.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#3AA9AD" Offset="0" />
-                    <GradientStop Color="#3AADA1" Offset="1" />
-                </LinearGradientBrush>
-            </Menu.Background>
-            <MenuItem Header="TuristickaAgencijaTim19" IsEnabled="False"></MenuItem>
-            <Separator></Separator>
-            <MenuItem Header="Putovanja">
-                <MenuItem Header="Sva putovanja" Click="TripItem_Click"></MenuItem>
-                <MenuItem Header="Mapa"></MenuItem>
-                <MenuItem Header="Rezervacije" Click="BookedTripItem_Click"></MenuItem>
-                <MenuItem Header="Kupljena aranzmani" Click="PurchasedTripItem_Click"></MenuItem>
-                <MenuItem Header="Prodata putovanja mesecu" Click="SoldTrips_Click"></MenuItem>
-                <MenuItem Header="Prodati aranzmani jednog putovanja" Click="SoldBookedTrips_Click"></MenuItem>
-            </MenuItem>
-            <MenuItem Header="Turisticke atrakcije" Click="AttractionItem_Click"></MenuItem>
-            <MenuItem Header="Smestaj" Click="AccomodationItem_Click"></MenuItem>
-            <MenuItem Header="Restorani" Click="RestaurantItem_Click"></MenuItem>
-            <Separator></Separator>
-            <MenuItem Header="Logout" Click="Logout_Click"></MenuItem>
-        </Menu>
-        <Grid DockPanel.Dock="Bottom" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Name="grid1">
-            <Grid Name="RowsGrid">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <Grid Name="MapGrid" Height="200" Visibility="Hidden" Grid.Row="0">
-                <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="30,5,30,10" />
-            
-            </Grid>
-                <Grid Grid.Row="1" Name="AttractionGrid" Visibility="Hidden">
-                     <Grid>
-                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ItemsControl x:Name="attractionItemsControl" ItemsSource="{Binding Attractions}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                        Width="200" Height="200" VerticalAlignment="Top">
-                                    ~1~ Card content @1@
-                                    <StackPanel>
-                                        ~1~ <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> @1@
-                                        <TextBlock Text="{Binding Name}" Margin="5,10,5,5" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding Price}" Margin="5"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Detaljnije" Click="EditAttractionBtn_Click" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                            <Button Content="Obrisi" Click="DeleteAttractionBtn_Clicked" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-                </ScrollViewer>
-                </Grid>
-                <ToggleButton x:Name="ToggleButtonAttraction" Click="ToggleButtonAttraction_Click" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="30">
-                    <ToggleButton.Template>
-                        <ControlTemplate TargetType="ToggleButton">
-                            <Grid x:Name="ButtonGrid">
-                                <Ellipse x:Name="Circle" Fill="#3AA9AD"/>
-                                <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="White"/>
-                            </Grid>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="Circle" Property="Fill" Value="#2D8487"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </ToggleButton.Template>
-                </ToggleButton>
-            </Grid>
-            </Grid>
-            <Grid Name="TripsGrid" Visibility="Visible">
-                <Grid>
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ItemsControl x:Name="tripItemsControl" ItemsSource="{Binding Trips}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                        Width="200" Height="200" VerticalAlignment="Top">
-                                    ~1~ Card content @1@
-                                    <StackPanel>
-                                        ~1~ <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> @1@
-                                        <TextBlock Text="{Binding Name}" Margin="5,10,5,5" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding Price}" Margin="5"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Detaljnije" Click="EditTripBtn_Clicked" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                            <Button Content="Obrisi" Click="DeleteTripBtn_Clicked" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-                        </ScrollViewer>
-                    </Grid>
-                <ToggleButton x:Name="ToggleButtonTrip" Click="ToggleButtonTrip_Click" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="30">
-                    <ToggleButton.Template>
-                        <ControlTemplate TargetType="ToggleButton">
-                            <Grid x:Name="ButtonGrid">
-                                <Ellipse x:Name="Circle" Fill="#3AA9AD"/>
-                                <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="White"/>
-                            </Grid>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="Circle" Property="Fill" Value="#2D8487"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </ToggleButton.Template>
-                </ToggleButton>
-            </Grid>
-
-            <Grid  Name="AccomodationGrid" Visibility="Hidden">
-                <Grid>
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ItemsControl x:Name="AccomodationItemsControl"  ItemsSource="{Binding Accomodations}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                        Width="200" Height="200" VerticalAlignment="Top">
-                                    ~1~ Card content @1@
-                                    <StackPanel>
-                                        ~1~ <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> @1@
-                                        <TextBlock Text="{Binding Name}" Margin="5,10,5,5" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding Price}" Margin="5"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Detaljnije" Click="EditAccomodationBtn_Clicked" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                            <Button Content="Obrisi" Click="DeleteAccomodationBtn_Clicked" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-                    </ScrollViewer>
-                </Grid>
-                <ToggleButton x:Name="ToggleButtonAccomodation" Click="ToggleButtonAccomodation_Click" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="30">
-                    <ToggleButton.Template>
-                        <ControlTemplate TargetType="ToggleButton">
-                            <Grid x:Name="ButtonGrid">
-                                <Ellipse x:Name="Circle" Fill="#3AA9AD"/>
-                                <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="White"/>
-                            </Grid>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="Circle" Property="Fill" Value="#2D8487"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </ToggleButton.Template>
-                </ToggleButton>
-            </Grid>
-            <Grid  Name="RestaurantsGrid" Visibility="Hidden">
-                <Grid>
-                    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                    <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ItemsControl x:Name="restaurantItemsControl" ItemsSource="{Binding Restaurants}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                        Width="200" Height="200" VerticalAlignment="Top">
-                                    ~1~ Card content @1@
-                                    <StackPanel>
-                                        ~1~ <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> @1@
-                                        <TextBlock Text="{Binding Name}" Margin="5,10,5,5" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding Location.Address}" Margin="5"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Detaljnije" Click="EditRestaurantBtn_Clicked" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                            <Button Content="Obrisi" Click="DeleteRestaurantBtn_Clicked" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-                    </ScrollViewer>
-                </Grid>
-                <ToggleButton x:Name="ToggleButtonRestaurant" Click="ToggleButtonRestaurant_Click" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="30">
-                    <ToggleButton.Template>
-                        <ControlTemplate TargetType="ToggleButton">
-                            <Grid x:Name="ButtonGrid">
-                                <Ellipse x:Name="Circle" Fill="#3AA9AD"/>
-                                <TextBlock Text="+" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Foreground="White"/>
-                            </Grid>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="Circle" Property="Fill" Value="#2D8487"/>
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </ToggleButton.Template>
-                </ToggleButton>
-            </Grid>
-            <Grid  Name="BookedTripGrid" Visibility="Hidden">
-                     <Grid>
-                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ItemsControl x:Name="bookedTripItemsControl" ItemsSource="{Binding BookedTrips}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                        Width="200" Height="200" VerticalAlignment="Top">
-                                    ~1~ Card content @1@
-                                    <StackPanel>
-                                        ~1~ <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> @1@
-                                        <TextBlock Text="{Binding TripName}" Margin="5,10,5,5" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding DatePeriod.StartDate}" Margin="5"/>
-                                        <TextBlock Text="{Binding DatePeriod.EndDate}" Margin="5"/>
-                                        <TextBlock Text="{Binding Price}" Margin="5"/>
-                                        <TextBlock Text="{Binding Accomodation.Name}" Margin="5"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Detaljnije" Click="EditBookedTripBtn_Clicked" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-                             </ScrollViewer>
-                         </Grid>
-            </Grid>
-            <Grid  Name="PurchasedTripGrid" Visibility="Hidden">
-                     <Grid>
-                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ItemsControl x:Name="purchasedTripItemsControl" ItemsSource="{Binding PurchasedTrips}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                        Width="200" Height="200" VerticalAlignment="Top">
-                                    ~1~ Card content @1@
-                                    <StackPanel>
-                                        ~1~ <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> @1@
-                                        <TextBlock Text="{Binding TripName}" Margin="5,10,5,5" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding DatePeriod.StartDate}" Margin="5"/>
-                                        <TextBlock Text="{Binding DatePeriod.EndDate}" Margin="5"/>
-                                        <TextBlock Text="{Binding Price}" Margin="5"/>
-                                        <TextBlock Text="{Binding Accomodation.Name}" Margin="5"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Detaljnije" Click="EditPurchasedTripBtn_Clicked" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-                             </ScrollViewer>
-                     </Grid>
-            </Grid>
-            <Grid  Name="Report1Grid" Visibility="Hidden">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <Label Content="Izaberite mesec:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center"/>
-
-                <ComboBox x:Name="monthComboBox" Grid.Row="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center">
-                    <ComboBoxItem Content="Januar"/>
-                    <ComboBoxItem Content="Februar"/>
-                    <ComboBoxItem Content="Mart"/>
-                    <ComboBoxItem Content="April"/>
-                    <ComboBoxItem Content="Maj"/>
-                    <ComboBoxItem Content="Jun"/>
-                    <ComboBoxItem Content="Jul"/>
-                    <ComboBoxItem Content="Avgust"/>
-                    <ComboBoxItem Content="Septembar"/>
-                    <ComboBoxItem Content="Octobar"/>
-                    <ComboBoxItem Content="Novembar"/>
-                    <ComboBoxItem Content="Decembar"/>
-                </ComboBox>
-                <Button x:Name="FindByMonthBtn" Click="FindTripsReport1_Clicked" Grid.Row="2" Content="Find trips" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" ></Button>
-            </Grid>
-            <Grid  Name="SoldTripGrid" Visibility="Hidden">
-                     <Grid>
-                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ItemsControl x:Name="soldTripItemsControl" ItemsSource="{Binding SoldTrips}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                        Width="200" Height="200" VerticalAlignment="Top">
-                                    ~1~ Card content @1@
-                                    <StackPanel>
-                                        ~1~ <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> @1@
-                                        <TextBlock Text="{Binding Name}" Margin="5,10,5,5" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding Price}" Margin="5"/>
-                                        <TextBlock TextWrapping="Wrap" Text="{Binding Description}" Margin="5"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Detaljnije" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-                             </ScrollViewer>
-                         </Grid>
-            </Grid>
-            <Grid  Name="Report2Grid" Visibility="Hidden">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <Label Content="Izaberite putovanje:" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center"/>
-
-                <ComboBox x:Name="tripComboBox" Grid.Row="1" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center">
-                </ComboBox>
-                <Button x:Name="FindByTripBtn" Click="FindBookedTripsReport1_Clicked" Grid.Row="2" Content="Find trips" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Center" ></Button>
-            </Grid>
-             <Grid   Name="SoldBookedTripGrid" Visibility="Hidden">
-                     <Grid>
-                         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                     <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <ItemsControl x:Name="soldBookedTripItemsControl" ItemsSource="{Binding SoldBookedTrips}">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <Border BorderBrush="Gray" BorderThickness="1" Margin="10"
-                                        Width="200" Height="200" VerticalAlignment="Top">
-                                    ~1~ Card content @1@
-                                    <StackPanel>
-                                        ~1~ <Image Source="{Binding ImagePath}" Width="150" Height="100" Stretch="UniformToFill"/> @1@
-                                        <TextBlock Text="{Binding TripName}" Margin="5,10,5,5" FontWeight="Bold"/>
-                                        <TextBlock Text="{Binding DatePeriod.StartDate}" Margin="5"/>
-                                        <TextBlock Text="{Binding DatePeriod.EndDate}" Margin="5"/>
-                                        <TextBlock Text="{Binding Price}" Margin="5"/>
-                                        <TextBlock Text="{Binding Accomodation.Name}" Margin="5"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                                            <Button Content="Detaljnije" Margin="5">
-                                                <Button.Tag>
-                                                    <Binding Path="Id"/>
-                                                </Button.Tag>
-                                            </Button>
-                                        </StackPanel>
-                                    </StackPanel>
-                                </Border>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </Grid>
-                             </ScrollViewer>
-                         </Grid>
-            </Grid>
-            
-        </Grid>
-    </DockPanel>-->
-
-
 </Window>

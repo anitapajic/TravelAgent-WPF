@@ -12,7 +12,7 @@
         AllowsTransparency="True"
         Background="#FFFFFF"
         Title="Edit Accomodation" Height="600" Width="1100">
-    
+
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
@@ -20,7 +20,7 @@
     <Window.InputBindings>
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
-    
+
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
         <Grid>
             <!--<Grid x:Name="InfoGrid" Margin="50">
@@ -72,105 +72,116 @@
                 <Button Content="Edit" Click="EditAccomodationBtn_Clicked" Grid.Row="9"  HorizontalAlignment="Center" Width="100" Height="30" Margin="0,20,0,10"/>
                 
         </Grid>-->
-             <Grid x:Name="InfoGrid" Margin="0">
-            <!-- Row and Column Definitions -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
-                   Style="{StaticResource ImgClose}" />
-            
-            <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="550" Margin="0 0 0 -20" Panel.ZIndex="999" Background="White">
-                <Grid>
+            <Grid x:Name="InfoGrid" Margin="0">
+                <!-- Row and Column Definitions -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                       Style="{StaticResource ImgClose}" />
+
+                <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="550" Margin="0 0 0 -20"
+                        Panel.ZIndex="999" Background="White">
                     <Grid>
-                        <Border CornerRadius="15 15 45 45" Margin="20 20 20 120">
-                            <Border.Background>
-                                <ImageBrush ImageSource="{Binding Accomodation.ImgPath}" Stretch="UniformToFill"/>
-                            </Border.Background>
-                            <Grid>
-                                <Button Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}" Click="EditAccomodationBtn_Clicked"  HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 20 0 15">
-                                    <Viewbox Width="20" Height="20">
-                                        <wpf:FontAwesome Icon="Pencil" />
-                                    </Viewbox>
-                                </Button>
-                                <StackPanel Margin="100 60 10 5" VerticalAlignment="Top">
-                                    <TextBlock Name="nameTextBlock" Text="{Binding Accomodation.Name}" Foreground="#FFFFFF"
-                                               FontSize="50" FontWeight="SemiBold">
-                                    </TextBlock>
-                                    <TextBlock Name="priceTextBlock" Text="{Binding  Accomodation.Price}" Foreground="#EBEAE5"
-                                               FontSize="33" Margin="0 5 0 0">
-                                    </TextBlock>
+                        <Grid>
+                            <Border CornerRadius="15 15 45 45" Margin="20 20 20 120">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding Accomodation.ImgPath}" Stretch="UniformToFill" />
+                                </Border.Background>
+                                <Grid>
+                                    <Button Grid.ColumnSpan="3" Style="{StaticResource PenButton}"
+                                            Click="EditAccomodationBtn_Clicked" HorizontalAlignment="Right"
+                                            VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 20 0 15">
+                                        <Viewbox Width="25" Height="25">
+                                            <wpf:FontAwesome Icon="Pencil" />
+                                        </Viewbox>
+                                    </Button>
+                                    <StackPanel Margin="100 60 10 5" VerticalAlignment="Top">
+                                        <TextBlock Name="nameTextBlock" Text="{Binding Accomodation.Name}"
+                                                   Foreground="#FFFFFF"
+                                                   FontSize="50" FontWeight="SemiBold">
+                                        </TextBlock>
+                                        <TextBlock Name="priceTextBlock" Text="{Binding  Accomodation.Price}"
+                                                   Foreground="#EBEAE5"
+                                                   FontSize="33" Margin="0 5 0 0">
+                                        </TextBlock>
+                                    </StackPanel>
+
+                                </Grid>
+                            </Border>
+                        </Grid>
+                        <Grid Margin="60 450 50 10">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Name="typeTextBlock" Text="{Binding Accomodation.AccomodationType}"
+                                               Foreground="#11172F" FontSize="30" FontWeight="SemiBold" />
+                                    <wpf:FontAwesome Icon="Star" Margin="80,9,10,0" Foreground="#F2B312" FontSize="25" />
+                                    <TextBlock Margin="0 5 0 0" Text="{Binding Accomodation.Rating}"
+                                               Foreground="#11172F" FontSize="23" FontWeight="DemiBold" />
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="3,10,0,0">
+                                    <wpf:FontAwesome Icon="MapPin" Margin="0,0,8,0" Foreground="#11172F" FontSize="18" />
+                                    <TextBlock Name="addressTextBlock" Text="{Binding Accomodation.Location.Address}"
+                                               Foreground="Gray" FontSize="18" />
                                 </StackPanel>
 
-                            </Grid>
-                        </Border>
-                    </Grid>
-                    <Grid Margin="60 450 50 10">
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Name="typeTextBlock" Text="{Binding Accomodation.AccomodationType}" Foreground="#11172F" FontSize="30" FontWeight="SemiBold"/>
-                                <wpf:FontAwesome Icon="Star" Margin="80,9,10,0" Foreground="#F2B312" FontSize="25"/>
-                                <TextBlock Margin="0 5 0 0" Text="{Binding Accomodation.Rating}" Foreground="#11172F" FontSize="23" FontWeight="DemiBold"/>
                             </StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="3,10,0,0">
-                                <wpf:FontAwesome Icon="MapPin" Margin="0,0,8,0" Foreground="#11172F" FontSize="18" />
-                                <TextBlock Name="addressTextBlock" Text="{Binding Accomodation.Location.Address}" Foreground="Gray" FontSize="18"/>
-                            </StackPanel>
-                            
-                        </StackPanel>
-                        
+
+                        </Grid>
                     </Grid>
+
+                </Border>
+
+                <!-- Travel Description -->
+
+                <Grid Grid.Row="3" Name="MapGrid" Height="450" Visibility="Visible" Grid.ColumnSpan="3"
+                      Margin="0 -70 0 0">
+                    <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick"
+                                      Margin="0,5,0,10" />
+
                 </Grid>
-               
-            </Border>
-            
-            <!-- Travel Description -->
-            
-            <Grid Grid.Row="3" Name="MapGrid" Height="450" Visibility="Visible" Grid.ColumnSpan="3" Margin="0 -70 0 0" >
-                <gmap:GMapControl x:Name="gmap" Loaded="map_load" MouseDoubleClick="MapControl_MouseDoubleClick" Margin="0,5,0,10" />
-                
             </Grid>
-       </Grid>
-            
-            <Grid x:Name="EditGrid" Visibility="Hidden"  Margin="50">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-        
-                
+
+            <Grid x:Name="EditGrid" Visibility="Hidden" Margin="50 30 50 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+
                 <Image Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
                        Style="{StaticResource ImgClose}" Margin="0 0 -35 0" />
 
                 <!-- Title -->
                 <TextBlock Text="Izmena smestaja" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
-                           Style="{StaticResource TitleText}" FontSize="20" Margin="20 30"
+                           Style="{StaticResource TitleText}" FontSize="30" Margin="20 30"
                            HorizontalAlignment="Stretch" />
                 <!-- Name -->
                 <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#3AA9AD" BorderThickness="1"
-                        Margin="0 7  10 7"
+                        Margin="0 7  0 7"
                         CornerRadius="5">
 
                     <Grid Margin="7 9">
 
                         <Grid>
-                            <TextBlock x:Name="TextName" Text="Ime"
-                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                            <TextBlock x:Name="TextName" Text="Naziv"
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold" />
                         </Grid>
                         <TextBox Name="NameBox" MouseDown="textName_MouseDown" Style="{StaticResource TextBox}"
                                  Text="{Binding Accomodation.Name, Mode=OneWay}" Margin="10 22 10 5" />
@@ -178,68 +189,93 @@
                 </Border>
                 <!-- Price -->
                 <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#3AA9AD" BorderThickness="1"
-                        Margin="0 7  10 7"
+                        Margin="0 7  0 7"
                         CornerRadius="5">
 
                     <Grid Margin="7 9">
 
                         <Grid>
                             <TextBlock x:Name="TextPrice" Text="Cena"
-                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold" />
                         </Grid>
                         <TextBox Name="PriceBox" MouseDown="textName_MouseDown" Style="{StaticResource TextBox}"
                                  Text="{Binding Accomodation.Price, Mode=OneWay}" Margin="10 22 10 5" />
                     </Grid>
                 </Border>
-            
-            <!-- Location -->
-            <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#3AA9AD" BorderThickness="1"
-                    Margin="0 7  10 7"
-                    CornerRadius="5">
 
-                <Grid Margin="7 9">
+                <!-- Location -->
+                <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#3AA9AD" BorderThickness="1"
+                        Margin="0 7  0 7"
+                        CornerRadius="5">
+
+                    <Grid Margin="7 9">
+
+                        <Grid>
+                            <TextBlock x:Name="TextLocation" Text="Lokacija"
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold" />
+                        </Grid>
+                        <TextBox Name="LocationBox" MouseDown="textName_MouseDown" Style="{StaticResource TextBox}"
+                                 Text="{Binding Accomodation.Location, Mode=OneWay}" Margin="10 22 10 5" />
+                    </Grid>
+                </Border>
+
+                <!-- Image drop -->
+                <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#3AA9AD" BorderThickness="1"
+                        Margin="0 7"
+                        CornerRadius="5" Height="150">
 
                     <Grid>
-                        <TextBlock x:Name="TextLocation" Text="Lokacija"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
-                    </Grid>
-                    <TextBox Name="LocationBox" MouseDown="textName_MouseDown" Style="{StaticResource TextBox}"
-                             Text="{Binding Accomodation.Location, Mode=OneWay}" Margin="10 22 10 5" />
-                </Grid>
-            </Border>
-                
-            <!-- Image drop -->
-            <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#3AA9AD" BorderThickness="1"
-                    Margin="0 7"
-                    CornerRadius="5" Height="150">
+                        <Grid Margin="7 9">
+                            <TextBlock x:Name="Images" Text="Prevuci slike"
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold" />
 
-                <Grid>
-                    <Grid Margin="7 9">
-                        <TextBlock x:Name="Images" Text="Prevuci slike"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                        </Grid>
+                        <Grid Margin="7 30 7 9">
+                            <ListView BorderBrush="Transparent"
+                                      AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
+                                      MouseDown="ListView_MouseClick">
+                                <ItemsControl Margin="10" x:Name="ImageList">
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <StackPanel Orientation="Horizontal" />
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </ListView>
+                        </Grid>
+                    </Grid>
+                </Border>
 
-                    </Grid>
-                    <Grid Margin="7 30 7 9">
-                        <ListView BorderBrush="Transparent"
-                                  AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
-                                  MouseDown="ListView_MouseClick">
-                            <ItemsControl Margin="10" x:Name="ImageList">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal" />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                            </ItemsControl>
-                        </ListView>
-                    </Grid>
+                <!-- Rating -->
+                <Grid Grid.Row="5" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Oceni" Style="{StaticResource TextHint}" Margin="0 0 10 0"
+                                   Foreground="#3AA9AD" FontWeight="SemiBold">
+                        </TextBlock>
+                        <wpf:ImageAwesome x:Name="star1" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                          MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                          MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                        <wpf:ImageAwesome x:Name="star2" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                          MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                          MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                        <wpf:ImageAwesome x:Name="star3" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                          MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                          MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                        <wpf:ImageAwesome x:Name="star4" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                          MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                          MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                        <wpf:ImageAwesome x:Name="star5" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                          MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                          MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                    </StackPanel>
+
                 </Grid>
-            </Border>
-            
-            <!-- Button -->
-            <Button x:Name="EditButton" Content="Sacuvaj"
-                    Grid.Row="5" Grid.ColumnSpan="2" Click="SaveAccomodationBtn_Clicked" Style="{StaticResource MainButton}"
-                    Margin="40" />
-            <!--
+                <!-- Button -->
+                <Button x:Name="EditButton" Content="Sacuvaj"
+                        Grid.Row="6" Grid.ColumnSpan="2" Click="SaveAccomodationBtn_Clicked"
+                        Style="{StaticResource MainButton}"
+                        Margin="40" />
+                <!--
             ~1~ Title @1@
             <TextBlock Text="IZMENA SMESTAJA" FontSize="20" FontWeight="Bold" Margin="-20, 10, 0,0"/>
         
@@ -301,7 +337,7 @@
             ~1~ Submit button @1@
             <Button Content="Back to info" Click="InfoAccomodationBtn_Clicked" Grid.Row="8"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="0, 0,200,0"/>
             <Button x:Name="EditButton" Content="Save changes" Click="SaveAccomodationBtn_Clicked" Grid.Row="8"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="0, 0,-200,0"/>-->
+            </Grid>
         </Grid>
-    </Grid>
-        </ScrollViewer>
+    </ScrollViewer>
 </Window>

@@ -69,10 +69,10 @@
                     </Border.Background>
                     <Grid>
                         <!-- <Image Source="/Images/beograd.jpg" Stretch="UniformToFill"/> -->
-                        <Button Grid.ColumnSpan="3" Style="{StaticResource DeleteButton}" Click="EditTripBtn_Clicked"
+                        <Button Grid.ColumnSpan="3" Style="{StaticResource PenButton}" Click="EditTripBtn_Clicked"
                                 HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" MaxHeight="40"
                                 Margin="0 40 40 15">
-                            <Viewbox Width="20" Height="20">
+                            <Viewbox Width="25" Height="25">
                                 <wpf:FontAwesome Icon="Pencil" Name="pencil" Visibility="Visible" />
                             </Viewbox>
                         </Button>
@@ -275,7 +275,7 @@
                 <!-- <Button Grid.Row="15" Grid.ColumnSpan="2" Content="Edit" Click="EditTripBtn_Clicked"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="10"/> -->
             </Grid>
 
-            <Grid x:Name="EditGrid" HorizontalAlignment="Center" Visibility="Hidden" Margin="70 7">
+            <Grid x:Name="EditGrid" HorizontalAlignment="Center" Visibility="Hidden" Margin="50 30 50 0">
                 <!-- Row and Column Definitions -->
 
                 <Grid.RowDefinitions>
@@ -301,7 +301,7 @@
 
                 <!-- Title -->
                 <TextBlock Text="Dodaj novo putovanje" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
-                           Style="{StaticResource TitleText}" FontSize="20" Margin="20 30"
+                           Style="{StaticResource TitleText}" FontSize="30" Margin="20 30"
                            HorizontalAlignment="Stretch" />
                 <!-- Name -->
                 <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#3AA9AD" BorderThickness="1"
@@ -312,7 +312,7 @@
 
                         <Grid>
                             <TextBlock x:Name="TextName" Text="Ime"
-                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD"  FontWeight="SemiBold"/>
                         </Grid>
                         <TextBox Name="TxtName" MouseDown="textName_MouseDown" Style="{StaticResource TextBox}"
                                  Text="{Binding Trip.Name, Mode=OneWay}" Margin="10 22 10 5" />
@@ -325,7 +325,7 @@
                     <Grid Margin="7 9">
                         <Grid>
                             <TextBlock x:Name="TextPrice" Text="Cena"
-                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
                         </Grid>
                         <TextBox Name="TxtPrice" MouseDown="textPrice_MouseDown" Style="{StaticResource TextBox}"
                                  Text="{Binding Trip.Price, Mode=OneWay}" Margin="10 22 10 5" />
@@ -333,15 +333,17 @@
                 </Border>
                 <!-- Description -->
                 <Border Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="#3AA9AD" BorderThickness="1"
-                        Margin="0 7"
+                        Margin="0 7  00 7"
                         CornerRadius="5">
-                    <Grid Margin="7 9">
-                        <TextBlock x:Name="TextDes" Text="Opis"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
-                        <TextBox Name="DescriptionBox" MouseDown="textDesc_MouseDown" Style="{StaticResource TextBox}"
-                                 Text="{Binding Trip.Description, Mode=OneWay}" AcceptsReturn="True"
-                                 TextWrapping="Wrap" Margin="10 22 10 5" />
 
+                    <Grid Margin="7 9">
+
+                        <Grid>
+                            <TextBlock x:Name="TextDes" Text="Opis"
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold" />
+                        </Grid>
+                        <TextBox Name="DescriptionBox" MouseDown="textDesc_MouseDown" Style="{StaticResource TextBox}"
+                                 Text="{Binding Trip.Description, Mode=OneWay}" Margin="10 22 10 5" TextWrapping="Wrap" />
                     </Grid>
                 </Border>
                 <!-- Attraction list 5 -->
@@ -349,7 +351,7 @@
                         Margin="0 7 10 7">
                     <Grid Margin="7 9">
                         <TextBlock x:Name="TextAttr" Text="Sve atrakcije"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold" />
                         <Grid Margin="0 12 0 5">
                             <ListBox BorderThickness="0" x:Name="AllAttractionsListBox"
                                      PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown"
@@ -360,7 +362,7 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Name}" Margin="0,0,5,0" />
+                                            <TextBlock  Style="{StaticResource TextList}" Text="{Binding Name}" Margin="0,0,5,0" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
@@ -374,7 +376,7 @@
                         Margin="0 7 0 7">
                     <Grid Margin="7 9">
                         <TextBlock x:Name="TextAttr2" Text="Izabrane atrakcije"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
 
                         <Grid Margin="0 12 7 0">
                             <ListBox BorderThickness="0" x:Name="ChosenAttractionsListBox"
@@ -386,7 +388,7 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Name}" Margin="0,0,0,0" />
+                                            <TextBlock Style="{StaticResource TextList}" Text="{Binding Name}" Margin="0,0,0,0" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
@@ -400,7 +402,7 @@
                         Margin="0 7 10 7">
                     <Grid Margin="7 9">
                         <TextBlock x:Name="TextAcc" Text="Svi smestaji"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
                         <Grid Margin="0 12 0 0">
                             <ListBox BorderThickness="0" x:Name="AllAccommodationsListBox"
                                      PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown"
@@ -411,7 +413,7 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Name }" Margin="0,0,5,0" />
+                                            <TextBlock Style="{StaticResource TextList}" Text="{Binding Name }" Margin="0,0,5,0" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
@@ -424,7 +426,7 @@
                         Margin="0 7">
                     <Grid Margin="7 9">
                         <TextBlock x:Name="TextAcc2" Text="Izabrani smestaji"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
                         <Grid Margin="0 12 0 0">
                             <ListBox BorderThickness="0" x:Name="ChosenAccommodationsListBox"
                                      PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown"
@@ -435,7 +437,7 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Name}" Margin="0,0,0,0" />
+                                            <TextBlock Style="{StaticResource TextList}" Text="{Binding Name}" Margin="0,0,0,0" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
@@ -449,7 +451,7 @@
                         Margin="0 7 10 7">
                     <Grid Margin="7 9">
                         <TextBlock x:Name="TextRes" Text="Svi restorani"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
 
                         <Grid Margin="0 12 0 0">
                             <ListBox BorderThickness="0" x:Name="AllRestaurantsListBox"
@@ -461,7 +463,7 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Name}" Margin="0,0,5,0" />
+                                            <TextBlock Style="{StaticResource TextList}" Text="{Binding Name}" Margin="0,0,5,0" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
@@ -474,7 +476,7 @@
                         Margin="0 7">
                     <Grid Margin="7 9">
                         <TextBlock x:Name="TextRes2" Text="Izabrani restorani"
-                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                   Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold"/>
                         <Grid Margin="0 12 0 0">
                             <ListBox BorderThickness="0" x:Name="ChosenRestaurantsListBox"
                                      PreviewMouseLeftButtonDown="SelectedItem_PreviewMouseLeftButtonDown"
@@ -485,7 +487,7 @@
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Name}" Margin="0,0,0,0" />
+                                            <TextBlock Style="{StaticResource TextList}" Text="{Binding Name}" Margin="0,0,0,0" />
                                         </StackPanel>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
@@ -505,9 +507,12 @@
                         </Grid.ColumnDefinitions>
                         <DatePicker BorderThickness="0" x:Name="StartDatePicker" Grid.Column="0" Margin="10" VerticalAlignment="Center"/>
                         <DatePicker BorderThickness="0" x:Name="EndDatePicker" Grid.Column="1" Margin="10" VerticalAlignment="Center"/>
-                        <Button Grid.Column="2" Click="AddDateRange_Click" Style="{StaticResource MainButton}" 
-                                Content="Dodaj" Margin="20 10 0  10" />
-                        
+                        <Button Grid.Column="2" Click="AddDateRange_Click" Style="{StaticResource SearchButton}" 
+                                Margin="28 10 0  10" Height="40" Width="40" >
+                        <Viewbox>
+                            <TextBlock Text="+" FontSize="17"></TextBlock>
+                        </Viewbox>
+                        </Button>
                     </Grid>
                 </Border>
                 <Border Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="5" BorderBrush="#3AA9AD"
@@ -520,9 +525,9 @@
                                         <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="{Binding }" Width="800"/>
+                                    <TextBlock Grid.Column="0" Text="{Binding }" Width="800" Style="{StaticResource TextList}"/>
 
-                                    <Button Grid.Column="1" Style="{StaticResource DeleteButton}" 
+                                    <Button Grid.Column="1" Style="{StaticResource DeleteButton2}" 
                                             Click="DeleteDateRange_Click" HorizontalAlignment="Right" VerticalAlignment="Top">
                                     <Viewbox Width="20" Height="20">
                                         <wpf:FontAwesome Icon="Trash" />
@@ -541,7 +546,7 @@
                     <Grid>
                         <Grid Margin="7 9">
                             <TextBlock x:Name="Images" Text="Prevuci slike"
-                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" />
+                                       Style="{StaticResource TextHint}" Foreground="#3AA9AD" FontWeight="SemiBold" />
 
                         </Grid>
                         <Grid Margin="7 30 7 9">

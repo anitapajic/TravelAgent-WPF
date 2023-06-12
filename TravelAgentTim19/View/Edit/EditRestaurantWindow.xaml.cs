@@ -5,7 +5,9 @@ using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using FontAwesome.WPF;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
@@ -32,6 +34,81 @@ public partial class EditRestaurantWindow
             gmap.Zoom = (gmap.Zoom < gmap.MaxZoom) ? gmap.Zoom + 1 : gmap.MaxZoom;
         }
     }
+    private bool isRatingLocked = false;
+
+private void Star_MouseEnter(object sender, MouseEventArgs e)
+{
+    isRatingLocked = false;
+    if (!isRatingLocked)
+    {
+        ImageAwesome star = sender as ImageAwesome;
+        star.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+        int value = int.Parse(star.Name.Replace("star", ""));
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome filledStar = FindName("star" + i) as ImageAwesome;
+            if (i <= value)
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.Star;
+            }
+            else
+            {
+                filledStar.Foreground = Brushes.Yellow ; // Change the color to black or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.StarOutline;
+            }
+        }
+    }
+}
+
+private void Star_MouseLeave(object sender, MouseEventArgs e)
+{
+    if (!isRatingLocked)
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome star = FindName("star" + i) as ImageAwesome;
+            if (star.Tag == null)
+            {
+                star.Foreground = Brushes.Yellow; // Change the color to black or any other color you prefer
+                star.Icon = FontAwesomeIcon.StarOutline;
+            }
+            else
+            {
+                star.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                star.Icon = FontAwesomeIcon.Star;
+            }
+        }
+    }
+}
+
+private int rstar;
+private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+{
+    ImageAwesome star = sender as ImageAwesome;
+    int value = int.Parse(star.Name.Replace("star", ""));
+    rstar = value;
+    if (!isRatingLocked)
+    {
+        
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome filledStar = FindName("star" + i) as ImageAwesome;
+            if (i <= value)
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.Star;
+            }
+            else
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to black or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.StarOutline;
+            }
+        }
+        isRatingLocked = true; // Lock the rating
+    }
+}
+
     private void Image_MouseUp(object sender, MouseButtonEventArgs e)
     {
         Close();
@@ -94,11 +171,9 @@ public partial class EditRestaurantWindow
         string name = TxtName.Text;
         string address = TxtLocation.Text;
         ItemCollection Images = ImageList.Items;
-
-        //double rating = slider.Value;
-
+        
         // Validate inputs
-        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || Images == null || Images.Count == 0)
+        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address)|| Images == null || Images.Count == 0)
         {
             MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar 1 sliku.");
             return;
@@ -112,12 +187,12 @@ public partial class EditRestaurantWindow
             
             Restaurant.Location.Address = address;
             Restaurant.Name = name;
-            //Restaurant.Rating = rating;
+            Restaurant.Rating = rstar;
             //dodati slike
             
             MainRepository.RestaurantsRepository.UpdateRestaurant(Restaurant);
             nameTextBlock.Text = Restaurant.Name;
-            //ratingTextBlock.Text = Restaurant.Rating.ToString();
+            //RatingTextBlock.Text = Restaurant.Rating.ToString();
             addressTextBlock.Text = Restaurant.Location.Address;
             
             InfoRestaurantBtn_Clicked(sender, e);

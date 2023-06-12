@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:TravelAgentTim19.View"
+        xmlns:wpf="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen" 
         Title="Add New Restaurant" Height="600" Width="1100">
@@ -24,10 +25,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        
-        
         
         
         <TextBlock Text="Dodaj novi restoran" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch"  />
@@ -50,7 +49,7 @@
                 <TextBox Name="TxtAddress" TextChanged="addressBox_TextChanged" Style="{StaticResource TextBox}" />
             </Grid>
         </Border>
-        <Border Grid.Row="5" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400" Height="100">
+        <Border Grid.Row="4" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400" Height="100">
             
             <Grid>
                 <Grid Margin="7 9">
@@ -72,8 +71,32 @@
                 </Grid>
             </Grid>
         </Border>
+        <!-- Rating -->
+        <Grid Grid.Row="5"  Margin="70 7">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Oceni" Style="{StaticResource TextHint}" Margin="0 0 10 0"
+                           >
+                </TextBlock>
+                <wpf:ImageAwesome x:Name="star1" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                  MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                  MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                <wpf:ImageAwesome x:Name="star2" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                  MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                  MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                <wpf:ImageAwesome x:Name="star3" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                  MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                  MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                <wpf:ImageAwesome x:Name="star4" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                  MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                  MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                <wpf:ImageAwesome x:Name="star5" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                                  MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
+                                  MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+            </StackPanel>
+
+        </Grid>
     
-        <Button x:Name="SaveButton" Background="#3AA9AD" Foreground="White" FontWeight="Bold" Content="Dodaj" Grid.Row="6" Grid.ColumnSpan="2"  Click="CreateRestaurantBtn_Clicked" Style="{StaticResource MainButton}" MaxHeight="50" Margin="70 7"/>
+        <Button x:Name="SaveButton" Background="#3AA9AD" Foreground="White" FontWeight="Bold" Content="Dodaj" Grid.Row="6"  Click="CreateRestaurantBtn_Clicked" Style="{StaticResource MainButton}" MaxHeight="50" Margin="70 7"/>
 
         
         <!--~1~ Title @1@

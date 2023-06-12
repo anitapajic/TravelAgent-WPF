@@ -4,7 +4,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using FontAwesome.WPF;
 using Microsoft.Win32;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
@@ -42,7 +44,80 @@ public partial class AddNewAccomodationWindow
             }
         }
     }
+private bool isRatingLocked = false;
 
+private void Star_MouseEnter(object sender, MouseEventArgs e)
+{
+    isRatingLocked = false;
+    if (!isRatingLocked)
+    {
+        ImageAwesome star = sender as ImageAwesome;
+        star.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+        int value = int.Parse(star.Name.Replace("star", ""));
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome filledStar = FindName("star" + i) as ImageAwesome;
+            if (i <= value)
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.Star;
+            }
+            else
+            {
+                filledStar.Foreground = Brushes.Yellow ; // Change the color to black or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.StarOutline;
+            }
+        }
+    }
+}
+
+private void Star_MouseLeave(object sender, MouseEventArgs e)
+{
+    if (!isRatingLocked)
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome star = FindName("star" + i) as ImageAwesome;
+            if (star.Tag == null)
+            {
+                star.Foreground = Brushes.Yellow; // Change the color to black or any other color you prefer
+                star.Icon = FontAwesomeIcon.StarOutline;
+            }
+            else
+            {
+                star.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                star.Icon = FontAwesomeIcon.Star;
+            }
+        }
+    }
+}
+
+private int rstar;
+private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+{
+    ImageAwesome star = sender as ImageAwesome;
+    int value = int.Parse(star.Name.Replace("star", ""));
+    rstar = value;
+    if (!isRatingLocked)
+    {
+        
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome filledStar = FindName("star" + i) as ImageAwesome;
+            if (i <= value)
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.Star;
+            }
+            else
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to black or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.StarOutline;
+            }
+        }
+        isRatingLocked = true; // Lock the rating
+    }
+}
     private bool IsImageFile(string filePath)
     {
         string extension = Path.GetExtension(filePath);
@@ -75,7 +150,6 @@ public partial class AddNewAccomodationWindow
         ItemCollection Images = ImageList.Items;
         AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
         // double rating = RatingSlider.Value;
-        double rating = slider.Value;
 
         // Validate inputs
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(location.Address) || Images == null || Images.Count == 0)
@@ -94,7 +168,7 @@ public partial class AddNewAccomodationWindow
             accomodation.Id = rand.Next(10000);
             accomodation.Location = location;
             accomodation.Name = name;
-            accomodation.Rating = rating;
+            accomodation.Rating = rstar;
             accomodation.AccomodationType = type;
             //dodati slike
             MainRepository.AccomodationRepository.AddAccomodation(accomodation);
