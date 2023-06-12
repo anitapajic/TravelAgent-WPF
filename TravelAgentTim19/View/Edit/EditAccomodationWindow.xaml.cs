@@ -8,6 +8,8 @@ using System.Windows.Media.Imaging;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 using System.Windows.Input;
+using System.Windows.Media;
+using FontAwesome.WPF;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
@@ -103,15 +105,15 @@ public partial class EditAccomodationWindow
         }
         
 
-        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da izmenite ovaj restoran?", "Potvrda",
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da izmenite ovaj smestaj?", "Potvrda",
             MessageBoxButton.YesNo);
         if (result == MessageBoxResult.Yes)
         {
             
             Accomodation.Location.Address = address;
             Accomodation.Name = name;
-            // Accomodation.Rating = rating;
-            // Accomodation.AccomodationType = type;
+            Accomodation.Rating = rstar;
+            //Accomodation.AccomodationType = type;
             //dodati slike
             
             MainRepository.AccomodationRepository.UpdateAccomodation(Accomodation);
@@ -125,9 +127,83 @@ public partial class EditAccomodationWindow
     }
     private void textName_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextName.Visibility = Visibility.Collapsed;
         NameBox.Focus();
     }
+        private bool isRatingLocked = false;
 
+private void Star_MouseEnter(object sender, MouseEventArgs e)
+{
+    isRatingLocked = false;
+    if (!isRatingLocked)
+    {
+        ImageAwesome star = sender as ImageAwesome;
+        star.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+        int value = int.Parse(star.Name.Replace("star", ""));
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome filledStar = FindName("star" + i) as ImageAwesome;
+            if (i <= value)
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.Star;
+            }
+            else
+            {
+                filledStar.Foreground = Brushes.Yellow ; // Change the color to black or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.StarOutline;
+            }
+        }
+    }
+}
+
+private void Star_MouseLeave(object sender, MouseEventArgs e)
+{
+    if (!isRatingLocked)
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome star = FindName("star" + i) as ImageAwesome;
+            if (star.Tag == null)
+            {
+                star.Foreground = Brushes.Yellow; // Change the color to black or any other color you prefer
+                star.Icon = FontAwesomeIcon.StarOutline;
+            }
+            else
+            {
+                star.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                star.Icon = FontAwesomeIcon.Star;
+            }
+        }
+    }
+}
+
+private int rstar;
+private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+{
+    ImageAwesome star = sender as ImageAwesome;
+    int value = int.Parse(star.Name.Replace("star", ""));
+    rstar = value;
+    if (!isRatingLocked)
+    {
+        
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome filledStar = FindName("star" + i) as ImageAwesome;
+            if (i <= value)
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.Star;
+            }
+            else
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to black or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.StarOutline;
+            }
+        }
+        isRatingLocked = true; // Lock the rating
+    }
+}
     
     private void Border_DragEnter(object sender, DragEventArgs e)
     {

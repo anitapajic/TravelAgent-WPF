@@ -4,7 +4,9 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using FontAwesome.WPF;
 using HelpSistem;
 using Microsoft.Win32;
 using TravelAgentTim19.Model;
@@ -43,7 +45,80 @@ public partial class AddNewAccomodationWindow
             }
         }
     }
+private bool isRatingLocked = false;
 
+private void Star_MouseEnter(object sender, MouseEventArgs e)
+{
+    isRatingLocked = false;
+    if (!isRatingLocked)
+    {
+        ImageAwesome star = sender as ImageAwesome;
+        star.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+        int value = int.Parse(star.Name.Replace("star", ""));
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome filledStar = FindName("star" + i) as ImageAwesome;
+            if (i <= value)
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.Star;
+            }
+            else
+            {
+                filledStar.Foreground = Brushes.Yellow ; // Change the color to black or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.StarOutline;
+            }
+        }
+    }
+}
+
+private void Star_MouseLeave(object sender, MouseEventArgs e)
+{
+    if (!isRatingLocked)
+    {
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome star = FindName("star" + i) as ImageAwesome;
+            if (star.Tag == null)
+            {
+                star.Foreground = Brushes.Yellow; // Change the color to black or any other color you prefer
+                star.Icon = FontAwesomeIcon.StarOutline;
+            }
+            else
+            {
+                star.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                star.Icon = FontAwesomeIcon.Star;
+            }
+        }
+    }
+}
+
+private int rstar;
+private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+{
+    ImageAwesome star = sender as ImageAwesome;
+    int value = int.Parse(star.Name.Replace("star", ""));
+    rstar = value;
+    if (!isRatingLocked)
+    {
+        
+        for (int i = 1; i <= 5; i++)
+        {
+            ImageAwesome filledStar = FindName("star" + i) as ImageAwesome;
+            if (i <= value)
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to yellow or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.Star;
+            }
+            else
+            {
+                filledStar.Foreground = Brushes.Yellow; // Change the color to black or any other color you prefer
+                filledStar.Icon = FontAwesomeIcon.StarOutline;
+            }
+        }
+        isRatingLocked = true; // Lock the rating
+    }
+}
     private bool IsImageFile(string filePath)
     {
         string extension = Path.GetExtension(filePath);
@@ -84,7 +159,7 @@ public partial class AddNewAccomodationWindow
         location.Address = TxtAddress.Text;
         ItemCollection Images = ImageList.Items;
         AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
-        double rating = slider.Value;
+        // double rating = RatingSlider.Value;
 
         // Validate inputs
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(location.Address) || Images == null || Images.Count == 0)
@@ -94,7 +169,7 @@ public partial class AddNewAccomodationWindow
         }
 
         // Additional validations
-        if (rating < 0 || rating > 5)
+        if (rstar < 0 || rstar > 5)
         {
             MessageBox.Show("Ocena mora biti između 0 i 5.");
             return;
@@ -115,7 +190,7 @@ public partial class AddNewAccomodationWindow
             accomodation.Id = rand.Next(10000);
             accomodation.Location = location;
             accomodation.Name = name;
-            accomodation.Rating = rating;
+            accomodation.Rating = rstar;
             accomodation.AccomodationType = type;
             Image image = (Image)Images[0]; // Assuming there is only one image in the list
             string imagePath = ((BitmapImage)image.Source).UriSource.AbsolutePath;
@@ -149,12 +224,14 @@ public partial class AddNewAccomodationWindow
 
     private void textName_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextName.Visibility = Visibility.Collapsed;
         TxtName.Focus();
     }
 
    
     private void textAddress_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextAddress.Visibility = Visibility.Collapsed;
         TxtAddress.Focus();
     }
 
@@ -168,6 +245,7 @@ public partial class AddNewAccomodationWindow
 
     private void textPrice_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextPrice.Visibility = Visibility.Collapsed;
         TxtPrice.Focus();
     }
 

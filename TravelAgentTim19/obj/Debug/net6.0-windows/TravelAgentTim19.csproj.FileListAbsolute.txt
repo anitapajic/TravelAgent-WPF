@@ -128,7 +128,6 @@ C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\Travel
 C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\MainWindow.g.cs
 C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\UserMainWindow.g.cs
 C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\App.g.cs
-C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19_Content.g.cs
 C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19_MarkupCompile.cache
 C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19_MarkupCompile.lref

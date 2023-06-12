@@ -24,7 +24,7 @@
     </Window.InputBindings>
     
     <ScrollViewer  VerticalScrollBarVisibility="Hidden">
-        <Grid HorizontalAlignment="Center" MouseDown="Grid_MouseDown">
+        <Grid HorizontalAlignment="Center" >
             <!-- Row and Column Definitions -->
             <Grid.RowDefinitions >
                 <RowDefinition Height="Auto" />
@@ -55,16 +55,14 @@
             <TextBlock Text="Dodaj novo putovanje" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
                        Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch" />
             <!-- Name -->
-            <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7  5 7"
-                    CornerRadius="5" Width="220">
+            <Border Grid.Row="1" Grid.Column="0" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7  0 7" CornerRadius="5" Width="220">
                 <Grid Margin="7 9">
-                    <TextBlock x:Name="TextName" MouseDown="textName_MouseDown" Text="Ime"
-                               Style="{StaticResource TextHint}" />
+                    <TextBlock x:Name="TextName" MouseDown="textName_MouseDown" Text="Ime" Style="{StaticResource TextHint}" />
                     <TextBox Name="TxtName" TextChanged="nameBox_TextChanged" Style="{StaticResource TextBox}" />
                 </Grid>
             </Border>
             <!-- Price -->
-            <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="0 7  70 7"
+            <Border Grid.Row="1" Grid.Column="1"  BorderBrush="#ACB0AF" BorderThickness="1" Margin="0 7  70 7"
                     CornerRadius="5" Width="220">
                 <Grid Margin="7 9">
                     <TextBlock x:Name="TextPrice" MouseDown="textPrice_MouseDown" Text="Cena"

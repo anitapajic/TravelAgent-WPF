@@ -335,24 +335,27 @@ public partial class AddNewTripWindow
 
     private void textName_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextName.Visibility = Visibility.Collapsed;
         TxtName.Focus();
     }
 
    
     private void textDesc_MouseDown(object sender, MouseButtonEventArgs e)
     {
-        TextDes.Focus();
+        TextDes.Visibility = Visibility.Collapsed;
+        DescriptionBox.Focus();
     }
 
     private void descBox_TextChanged(object sender, TextChangedEventArgs e)
     {
         if (!string.IsNullOrEmpty(DescriptionBox.Text) && DescriptionBox.Text.Length > 0)
-            DescriptionBox.Visibility = Visibility.Collapsed;
+            TextDes.Visibility = Visibility.Collapsed;
         else
-            DescriptionBox.Visibility = Visibility.Visible;
+            TextDes.Visibility = Visibility.Visible;
     }
     private void textPrice_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextPrice.Visibility = Visibility.Collapsed;
         TxtPrice.Focus();
     }
 
