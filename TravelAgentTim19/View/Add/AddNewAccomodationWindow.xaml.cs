@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using HelpSistem;
 using Microsoft.Win32;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
@@ -83,7 +84,6 @@ public partial class AddNewAccomodationWindow
         location.Address = TxtAddress.Text;
         ItemCollection Images = ImageList.Items;
         AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
-        // double rating = RatingSlider.Value;
         double rating = slider.Value;
 
         // Validate inputs
@@ -92,10 +92,22 @@ public partial class AddNewAccomodationWindow
             MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar jednu sliku.");
             return;
         }
+
+        // Additional validations
+        if (rating < 0 || rating > 5)
+        {
+            MessageBox.Show("Ocena mora biti između 0 i 5.");
+            return;
+        }
+
+        if (type == null)
+        {
+            MessageBox.Show("Molimo Vas odaberite tip smještaja.");
+            return;
+        }
         
 
-        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da dodate ovaj smestaj?", "Potvrda",
-            MessageBoxButton.YesNo);
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da dodate ovaj smeštaj?", "Potvrda", MessageBoxButton.YesNo);
         if (result == MessageBoxResult.Yes)
         {
             Accomodation accomodation = new Accomodation();
@@ -179,5 +191,31 @@ public partial class AddNewAccomodationWindow
     private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
     {
         Close();
+    }
+    private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+    {
+        Close();
+    }
+    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
+        {
+            WindowState = WindowState.Normal;
+        }
+    }
+    private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left && IsMouseOverDraggableComponent(e))
+            this.DragMove();
+    }
+
+    private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
+    {
+        var element = e.OriginalSource as FrameworkElement;
+        return !(element is TextBox) && (element.Name != "Ximg");
+    }private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string str = HelpProvider.GetHelpKey(this);
+        HelpProvider.ShowHelp(str, this);
     }
 }

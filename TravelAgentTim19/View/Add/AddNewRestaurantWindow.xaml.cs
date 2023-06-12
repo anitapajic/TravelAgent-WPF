@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using HelpSistem;
 using Microsoft.Win32;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
@@ -86,20 +87,14 @@ public partial class AddNewRestaurantWindow
         location.Address = TxtAddress.Text;
         location.City = TxtCity.Text;
         ItemCollection Images = ImageList.Items;
-
-        // double rating = RatingSlider.Value;
-        //double rating = slider.Value;
-
-        // Validate inputs
-        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(location.Address) || Images == null || Images.Count == 0)
+        
+        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(location.Address) || Images == null || Images.Count == 0 || string.IsNullOrEmpty(location.City))
         {
             MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar jednu sliku.");
             return;
         }
-        
 
-        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da dodate ovaj restoran?", "Potvrda",
-            MessageBoxButton.YesNo);
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da dodate ovaj restoran?", "Potvrda", MessageBoxButton.YesNo);
         if (result == MessageBoxResult.Yes)
         {
             Restaurant restaurant = new Restaurant();
@@ -184,8 +179,33 @@ public partial class AddNewRestaurantWindow
     {
         Close(); 
     }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string str = HelpProvider.GetHelpKey(this);
+        HelpProvider.ShowHelp(str, this);
+    }
 
+    private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+    {
+        Close();
+    }
+    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
+        {
+            WindowState = WindowState.Normal;
+        }
+    }
+    private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left && IsMouseOverDraggableComponent(e))
+            this.DragMove();
+    }
 
-
+    private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
+    {
+        var element = e.OriginalSource as FrameworkElement;
+        return !(element is TextBox) && (element.Name != "Ximg");
+    }
 }
 

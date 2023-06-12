@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using HelpSistem;
 using Microsoft.Win32;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
@@ -84,18 +85,18 @@ public partial class EditRestaurantWindow
     {
         InfoGrid.Visibility = Visibility.Visible;
         EditGrid.Visibility = Visibility.Hidden;
-        NameBox.Text = Restaurant.Name;
-        LocationBox.Text = Restaurant.Location.Address;
+        TxtName.Text = Restaurant.Name;
+        TxtLocation.Text = Restaurant.Location.Address;
         
     }
     
     private void SaveChangesBtn_Clicked(object sender, RoutedEventArgs e)
     {
-        string name = NameBox.Text;
-        string address = LocationBox.Text;
+        string name = TxtName.Text;
+        string address = TxtLocation.Text;
         ItemCollection Images = ImageList.Items;
 
-        double rating = slider.Value;
+        //double rating = slider.Value;
 
         // Validate inputs
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || Images == null || Images.Count == 0)
@@ -112,7 +113,7 @@ public partial class EditRestaurantWindow
             
             Restaurant.Location.Address = address;
             Restaurant.Name = name;
-            Restaurant.Rating = rating;
+            //Restaurant.Rating = rating;
             //dodati slike
             
             MainRepository.RestaurantsRepository.UpdateRestaurant(Restaurant);
@@ -123,7 +124,12 @@ public partial class EditRestaurantWindow
             InfoRestaurantBtn_Clicked(sender, e);
         }
     }
-    
+
+    private void textName_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtName.Focus();
+    }
+
     private void Border_DragEnter(object sender, DragEventArgs e)
     {
         e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
@@ -208,4 +214,42 @@ public partial class EditRestaurantWindow
     {
         Close(); 
     }
+    
+    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
+        {
+            WindowState = WindowState.Normal;
+        }
+    }
+    private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left && IsMouseOverDraggableComponent(e))
+            this.DragMove();
+    }
+
+    private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
+    {
+        var element = e.OriginalSource as FrameworkElement;
+        return !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") && !(element.Name == "Ximg") && !(element.Name == "Ximg2");
+    }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string helpKey;
+        if (InfoGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "infoRestaurant";
+        }
+        else if (EditGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "editRestaurant";
+        }
+        else
+        {
+            helpKey = "index"; // default key
+        }
+
+        HelpProvider.ShowHelp(helpKey, this);
+    }
+    
 }

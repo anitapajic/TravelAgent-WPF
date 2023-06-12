@@ -11,6 +11,7 @@ using System.Windows.Input;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using HelpSistem;
 using Microsoft.Win32;
 using TravelAgentTim19.Repository;
 
@@ -91,8 +92,8 @@ public partial class EditAccomodationWindow
         string address = LocationBox.Text;
         ItemCollection Images = ImageList.Items;
 
-        double rating = slider.Value;
-        AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
+        //double rating = slider.Value;
+        //AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
 
         // Validate inputs
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || Images == null || Images.Count == 0)
@@ -109,8 +110,8 @@ public partial class EditAccomodationWindow
             
             Accomodation.Location.Address = address;
             Accomodation.Name = name;
-            Accomodation.Rating = rating;
-            Accomodation.AccomodationType = type;
+            // Accomodation.Rating = rating;
+            // Accomodation.AccomodationType = type;
             //dodati slike
             
             MainRepository.AccomodationRepository.UpdateAccomodation(Accomodation);
@@ -122,6 +123,11 @@ public partial class EditAccomodationWindow
             InfoAccomodationBtn_Clicked(sender,e);
         }
     }
+    private void textName_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        NameBox.Focus();
+    }
+
     
     private void Border_DragEnter(object sender, DragEventArgs e)
     {
@@ -211,4 +217,42 @@ public partial class EditAccomodationWindow
     {
         Close(); 
     }
+    
+    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
+        {
+            WindowState = WindowState.Normal;
+        }
+    }
+    private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left && IsMouseOverDraggableComponent(e))
+            this.DragMove();
+    }
+
+    private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
+    {
+        var element = e.OriginalSource as FrameworkElement;
+        return !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") && !(element.Name == "Ximg") && !(element.Name == "Ximg2");
+    }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string helpKey;
+        if (InfoGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "infoAccommodation";
+        }
+        else if (EditGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "editAccommodation";
+        }
+        else
+        {
+            helpKey = "index"; // default key
+        }
+
+        HelpProvider.ShowHelp(helpKey, this);
+    }
+    
 }

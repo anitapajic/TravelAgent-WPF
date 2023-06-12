@@ -4,19 +4,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:TravelAgentTim19.View"
-        mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen" 
-        Title="Add New Restaurant" Height="600" Width="1100">
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
+        AllowsTransparency="True"
+        MinWidth="600" MinHeight="500" 
+        MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
+        xmlns:l="clr-namespace:HelpSistem"
+        l:HelpProvider.HelpKey="newRestaurant"
+        Title="Novi restoran" Height="600" Width="700">
     
     <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Save" Executed="SaveBinding_Executed" />
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
-    
-    <Grid HorizontalAlignment="Center">
+    <ScrollViewer VerticalScrollBarVisibility="Hidden">
+
+    <Grid HorizontalAlignment="Center" MouseDown="Grid_MouseDown">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -28,7 +35,9 @@
         </Grid.RowDefinitions>
         
         
-        
+        <Image x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+               Style="{StaticResource ImgClose}" />
+
         
         <TextBlock Text="Dodaj novi restoran" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch"  />
 
@@ -116,4 +125,5 @@
         ~1~ Submit button @1@
         <Button Content="Submit" Click="CreateRestaurantBtn_Clicked" Grid.Row="6"  HorizontalAlignment="Center" Width="100" MaxHeight="40"/>-->
     </Grid>
+        </ScrollViewer>
 </Window>

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:TravelAgentTim19.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         <Style x:Key="TitleText" TargetType="TextBlock">
+        <Style x:Key="TitleText" TargetType="TextBlock">
             <Setter Property="FontSize" Value="36" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="TextAlignment" Value="Center" />
@@ -32,7 +32,8 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="25" BorderBrush="White" Padding="15" BorderThickness="1">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="25" BorderBrush="White"
+                                Padding="15" BorderThickness="1">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
@@ -49,8 +50,8 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
-        
+
+
         <Style x:Key="ButtonCircle" TargetType="Button">
             <Setter Property="Background" Value="Transparent" />
             <Setter Property="Margin" Value="8 0" />
@@ -58,7 +59,8 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="30" BorderBrush="#878787" Padding="15" BorderThickness="1">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="30" BorderBrush="#878787"
+                                Padding="15" BorderThickness="1">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
@@ -85,7 +87,7 @@
                 <Trigger Property="IsMouseOver" Value="True">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
-                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1" />
                         </Setter.Value>
                     </Setter>
                 </Trigger>
@@ -111,6 +113,38 @@
             <Setter Property="BorderThickness" Value="0" />
         </Style>
         
+        <Style x:Key="TextBlock" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="Grid.Column" Value="1" />
+            <Setter Property="Margin" Value="10 0 0 0" />
+            <Setter Property="Foreground" Value="#878787" />
+      
+        </Style>
+
+
+        <Style x:Key="SearchButton" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="Circle" Fill="#3AA9AD" />
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Circle" Property="Fill" Value="#2D8487" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Width" Value="30" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+        </Style>
+
+
+
         <Style x:Key="TextBoxEdit" TargetType="Control">
             <Setter Property="FontSize" Value="14" />
             <Setter Property="Foreground" Value="#878787" />
@@ -128,8 +162,6 @@
                                 <ColumnDefinition Width="Auto" /> <!-- Column for the label -->
                                 <ColumnDefinition Width="*" /> <!-- Column for the text editing control -->
                             </Grid.ColumnDefinitions>
-                            <TextBlock Text="Label" Grid.Row="0" Grid.Column="0" Margin="10" />
-                            <TextBox Text="Text for editing" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="10" />
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -146,7 +178,8 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
-                        <Border Background="{TemplateBinding Background}" CornerRadius="25" BorderBrush="#49B7A3" Padding="15" BorderThickness="1">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="25" BorderBrush="#49B7A3"
+                                Padding="15" BorderThickness="1">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                         </Border>
                     </ControlTemplate>
@@ -174,11 +207,12 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="Transparent">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0"
+                                BorderBrush="Transparent">
                             <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"></ContentPresenter>
-                            
+
                         </Border>
-                        
+
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -198,20 +232,19 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="#11172F">
+                                <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0"
+                                        BorderBrush="#11172F">
                                     <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"></ContentPresenter>
-                            
+
                                 </Border>
-                        
+
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
-                    
-                </Trigger>
-                
-            </Style.Triggers>
 
-            
+                </Trigger>
+
+            </Style.Triggers>
 
 
         </Style>
@@ -220,7 +253,9 @@
             <Setter Property="Width" Value="53"></Setter>
             <Setter Property="Height" Value="53"></Setter>
             <Setter Property="Margin" Value="30 15 9 0"></Setter>
-            <Setter Property="Foreground" Value="{Binding Path=Tag,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"></Setter>
+            <Setter Property="Foreground"
+                    Value="{Binding Path=Tag,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+            </Setter>
 
 
         </Style>
@@ -228,9 +263,11 @@
         <Style x:Key="ManuButtonText" TargetType="TextBlock">
             <Setter Property="FontSize" Value="17"></Setter>
             <Setter Property="VerticalAlignment" Value="Center"></Setter>
-            <Setter Property="Foreground" Value="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}"></Setter>
+            <Setter Property="Foreground"
+                    Value="{Binding Path=Foreground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Button}}}">
+            </Setter>
         </Style>
-         <!--ManuButtonActive -->
+        <!--ManuButtonActive -->
         <Style x:Key="ManuButtonActive" TargetType="Button">
             <Setter Property="Background">
                 <Setter.Value>
@@ -249,11 +286,12 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0" BorderBrush="#11172F">
+                        <Border Background="{TemplateBinding Background}" BorderThickness="4 0 0 0"
+                                BorderBrush="#11172F">
                             <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"></ContentPresenter>
-                            
+
                         </Border>
-                        
+
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -264,13 +302,13 @@
             <Setter Property="Foreground" Value="#3AADA1"></Setter>
             <Setter Property="Margin" Value="17 13 0 0"></Setter>
             <Setter Property="Height" Value="30"></Setter>
-            <Setter Property="FocusVisualStyle" Value="{x:Null}"></Setter> 
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"></Setter>
             <Setter Property="BorderThickness" Value="0"></Setter>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Background="{TemplateBinding Background}" CornerRadius="15" Padding="5">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" ></ContentPresenter>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
@@ -281,39 +319,40 @@
                     <Setter Property="Background" Value="#3AADA1" />
                     <Setter Property="Padding" Value="15 15 15 15"></Setter>
                 </Trigger>
-                
+
             </Style.Triggers>
 
         </Style>
-        
+
         <Style x:Key="MoreButton" TargetType="Button">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="Button" >
-                                <Grid>
-                                    <Ellipse x:Name="Ellipse" Fill="#67BCC0" />
-                                    <Grid>
-                                        <TextBlock x:Name="Text" Text="Više" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60 40 20 20" FontWeight="Medium" FontSize="20"/>
-                                    </Grid>
-                                </Grid>
-                                <ControlTemplate.Triggers>
-                                    <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter TargetName="Ellipse" Property="Fill" Value="#67BCC0" />
-                                        <Setter Property="Foreground" Value="#FFFFFF" />
-                                        <Setter Property="Margin" Value="0 0 -80 -140"></Setter>
-                                        <Setter TargetName="Text" Property="Margin" Value="70 45 20 20"/>
-                                    </Trigger>
-                                    <Trigger Property="IsPressed" Value="True">
-                                        <Setter TargetName="Ellipse" Property="Fill" Value="#67BCC0" />
-                                    </Trigger>
-                                </ControlTemplate.Triggers>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Setter Property="Foreground" Value="White" />
-                    <Setter Property="Margin" Value="0 0 -90 -150"></Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Ellipse x:Name="Ellipse" Fill="#67BCC0" />
+                            <Grid>
+                                <TextBlock x:Name="Text" Text="Više" HorizontalAlignment="Left" VerticalAlignment="Top"
+                                           Margin="60 40 20 20" FontWeight="Medium" FontSize="20" />
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="Ellipse" Property="Fill" Value="#67BCC0" />
+                                <Setter Property="Foreground" Value="#FFFFFF" />
+                                <Setter Property="Margin" Value="0 0 -80 -140"></Setter>
+                                <Setter TargetName="Text" Property="Margin" Value="70 45 20 20" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="Ellipse" Property="Fill" Value="#67BCC0" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="0 0 -90 -150"></Setter>
         </Style>
-        
+
         <Style x:Key="DeleteButton" TargetType="Button">
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="Width" Value="30"></Setter>
@@ -333,7 +372,7 @@
                     <Setter Property="Template">
                         <Setter.Value>
                             <ControlTemplate TargetType="Button">
-                                <Border Background="{TemplateBinding Background}" BorderThickness=" 0" >
+                                <Border Background="{TemplateBinding Background}" BorderThickness=" 0">
                                     <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Center"></ContentPresenter>
                                 </Border>
                             </ControlTemplate>
@@ -343,8 +382,7 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
-        
-        
+
+
     </Application.Resources>
 </Application>

@@ -4,7 +4,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
-        xmlns:service="clr-namespace:TravelAgentTim19.Service"
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
         ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
@@ -99,7 +98,7 @@
         <Border Grid.Column="1" CornerRadius="0 10 10 0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                    <GradientStop Color="#EBEAE5" Offset="0"></GradientStop>
+                    <GradientStop Color="#FFFFFF" Offset="0"></GradientStop>
                     <GradientStop Color="#FFFFFF" Offset="1"></GradientStop>
                 </LinearGradientBrush>
             </Border.Background>

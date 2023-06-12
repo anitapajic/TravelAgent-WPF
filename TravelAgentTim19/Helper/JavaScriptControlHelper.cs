@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Security.Permissions;
 using System.Runtime.InteropServices;
+using System.Windows;
 using TravelAgentTim19.View;
 
 namespace HelpSistem
@@ -12,8 +13,8 @@ namespace HelpSistem
     [ComVisible(true)]
     public class JavaScriptControlHelper
     {
-        AgentMainWindow prozor;
-        public JavaScriptControlHelper(AgentMainWindow w)
+        Window prozor;
+        public JavaScriptControlHelper(Window w)
         {
             prozor = w;
         }

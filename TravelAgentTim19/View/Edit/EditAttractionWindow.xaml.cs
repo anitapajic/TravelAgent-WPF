@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using HelpSistem;
 using Microsoft.Win32;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Repository;
@@ -133,47 +134,61 @@ public partial class EditAttractionWindow
         };
         ImageList.Items.Add(image);
     }
+    private void textName_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TxtName.Focus();
+    }
 
+   
+    private void textDesc_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        TextDes.Focus();
+    }
     private void InfoAttractionBtn_Clicked(object sender, RoutedEventArgs e)
     {
         InfoGrid.Visibility = Visibility.Visible;
         EditGrid.Visibility = Visibility.Hidden;
-        NameBox.Text = Attraction.Name;
-        LocationBox.Text = Attraction.Location.Address;
-        PriceBox.Text = Attraction.Price.ToString();
-        DescBox.Text = Attraction.Description;
+        TxtName.Text = Attraction.Name;
+        TxtLocation.Text = Attraction.Location.Address;
+        TxtPrice.Text = Attraction.Price.ToString();
+        DescriptionBox.Text = Attraction.Description;
     }
 
     private void SaveChangesBtn_Clicked(object sender, RoutedEventArgs e)
     {
-        string name = NameBox.Text;
-        string address = LocationBox.Text;
-        double price = Convert.ToDouble(PriceBox.Text);
-        string desc = DescBox.Text;
+        string name = TxtName.Text;
+        string address = TxtLocation.Text;
+        string priceText = TxtPrice.Text;
+        string desc = DescriptionBox.Text;
         ItemCollection Images = ImageList.Items;
-        
-        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || Images == null || Images.Count == 0)
+
+        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(priceText) || Images == null || Images.Count == 0)
         {
             MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar 1 sliku.");
             return;
         }
-        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da izmenite ovu atrakciju?", "Potvrda",
-            MessageBoxButton.YesNo);
+
+        if (!double.TryParse(priceText, out double price))
+        {
+            MessageBox.Show("Cena mora biti numerička vrednost.");
+            return;
+        }
+
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da izmenite ovu atrakciju?", "Potvrda", MessageBoxButton.YesNo);
         if (result == MessageBoxResult.Yes)
         {
-
             Attraction.Name = name;
             Attraction.Description = desc;
             Attraction.Location.Address = address;
             Attraction.Price = price;
             //dodati slike
-            
+
             MainRepository.AttractionRepository.UpdateAttraction(Attraction);
             nameTextBlock.Text = Attraction.Name;
             addressTextBlock.Text = Attraction.Location.Address;
             priceTextBlock.Text = Attraction.Price.ToString();
             descTextBlock.Text = Attraction.Description;
-            
+
             Close();
         }
         
@@ -218,4 +233,42 @@ public partial class EditAttractionWindow
     {
         Close(); 
     }
+    
+    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
+        {
+            WindowState = WindowState.Normal;
+        }
+    }
+    private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left && IsMouseOverDraggableComponent(e))
+            this.DragMove();
+    }
+
+    private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
+    {
+        var element = e.OriginalSource as FrameworkElement;
+        return !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") && !(element.Name == "Ximg") && !(element.Name == "Ximg2");
+    }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string helpKey;
+        if (InfoGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "infoAttraction";
+        }
+        else if (EditGrid.Visibility == Visibility.Visible)
+        {
+            helpKey = "editAttraction";
+        }
+        else
+        {
+            helpKey = "index"; // default key
+        }
+
+        HelpProvider.ShowHelp(helpKey, this);
+    }
+    
 }

@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using HelpSistem;
 using Microsoft.Win32;
 using NodaTime;
 using TravelAgentTim19.Model;
@@ -245,7 +246,13 @@ public partial class AddNewTripWindow
         var dateRangeToDelete = (DatePeriods)button.DataContext;
         DateListBox.Items.Remove(dateRangeToDelete);
     }
-    private void CreateTripBtn_Clicked(object sender, RoutedEventArgs e)
+private void CreateTripBtn_Clicked(object sender, RoutedEventArgs e)
+{
+    string name = TxtName.Text;
+    string description = DescriptionBox.Text;
+
+    double price;
+    if (!double.TryParse(TxtPrice.Text, out price))
     {
         string name = TxtName.Text;
         string description = DescriptionBox.Text;
@@ -311,6 +318,50 @@ public partial class AddNewTripWindow
             Close();
         }
     }
+
+    ItemCollection attractions = ChosenAccommodationsListBox.Items;
+    ItemCollection accommodations = ChosenAccommodationsListBox.Items;
+    ItemCollection restaurants = ChosenAccommodationsListBox.Items;
+    ItemCollection dataPeriods = DateListBox.Items;
+    ItemCollection Images = ImageList.Items;
+
+    if (attractions == null || accommodations == null || restaurants == null || attractions.Count == 0 || accommodations.Count == 0 || restaurants.Count == 0 || Images == null || Images.Count == 0)
+    {
+        MessageBox.Show("Izaberite atrakcije, smestaje i restorane za ovo putovanje i ubacite bar jednu sliku.");
+        return;
+    }
+
+    if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) || price < 0)
+    {
+        MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar jednu sliku.");
+        return;
+    }
+
+    MessageBoxResult result = MessageBox.Show("Da li ste sigurni da želite da dodate ovo putovanje?", "Potvrda", MessageBoxButton.YesNo);
+    if (result == MessageBoxResult.Yes)
+    {
+        Trip trip = new Trip();
+        Random rand = new Random();
+        trip.Id = rand.Next(10000);
+        trip.Name = name;
+        trip.Price = price;
+        trip.Description = description;
+        trip.Accomodations = accommodations.OfType<Accomodation>().ToList();
+        trip.Attractions = attractions.OfType<Attraction>().ToList();
+        trip.Restaurants = restaurants.OfType<Restaurant>().ToList();
+        trip.DatePeriods = dataPeriods.OfType<DatePeriods>().ToList();
+
+        // Add image validation if required
+
+        foreach (DatePeriods dp in trip.DatePeriods)
+        {
+            MainRepository.DatePeriodRepository.AddDatePeriod(dp);
+        }
+        MainRepository.TripRepository.AddTrip(trip);
+        Close();
+    }
+}
+
     private void nameBox_TextChanged(object sender, TextChangedEventArgs e)
     {
         if (!string.IsNullOrEmpty(TxtName.Text) && TxtName.Text.Length > 0)
@@ -362,5 +413,33 @@ public partial class AddNewTripWindow
     private void CloseCommand_Executed(object sender, ExecutedRoutedEventArgs e)
     {
         Close(); 
+    }
+    private void Image_MouseUp(object sender, MouseButtonEventArgs e)
+    {
+        Close();
+    }
+
+    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Escape && WindowState == WindowState.Maximized)
+        {
+            WindowState = WindowState.Normal;
+        }
+    }
+    private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left && IsMouseOverDraggableComponent(e))
+            this.DragMove();
+    }
+
+    private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
+    {
+        var element = e.OriginalSource as FrameworkElement;
+        return !(element is TextBox) && (element.Name != "Ximg");
+    }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string str = HelpProvider.GetHelpKey(this);
+        HelpProvider.ShowHelp(str, this);
     }
 }

@@ -7,9 +7,9 @@
         xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:l="clr-namespace:HelpSistem"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen" WindowStyle="None" 
-        ResizeMode="CanResize"  PreviewKeyDown="Window_PreviewKeyDown"
+        ResizeMode="CanResizeWithGrip"  PreviewKeyDown="Window_PreviewKeyDown"
         AllowsTransparency="True"
-        l:HelpProvider.HelpKey="Forma"
+        l:HelpProvider.HelpKey="index"
         Background="Transparent"
         Title="Glavni prozor" Height="600" Width="1100" MinWidth="600" MinHeight="500" 
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}" 
@@ -107,7 +107,7 @@
         <Border Grid.Column="1" CornerRadius="0 10 10 0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                    <GradientStop Color="#EBEAE5" Offset="0" />
+                    <GradientStop Color="#FFFFFF" Offset="0" />
                     <GradientStop Color="#FFFFFF" Offset="1" />
                 </LinearGradientBrush>
             </Border.Background>
@@ -165,6 +165,9 @@
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </ToggleButton.Template>
+                        <ToggleButton.ToolTip>
+                            <ToolTip Content="Dodaj novu atrakciju" />
+                        </ToggleButton.ToolTip>
                     </ToggleButton>
                     <ToggleButton x:Name="ToggleButtonAccomodation" Click="ToggleButtonAccomodation_Click"
                                   Width="40"
@@ -184,6 +187,9 @@
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </ToggleButton.Template>
+                        <ToggleButton.ToolTip>
+                            <ToolTip Content="Dodaj novi smestaj" />
+                        </ToggleButton.ToolTip>
                     </ToggleButton>
                     <ToggleButton x:Name="ToggleButtonRestourant" Click="ToggleButtonRestaurant_Click"
                                   Width="40"
@@ -203,6 +209,9 @@
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </ToggleButton.Template>
+                        <ToggleButton.ToolTip>
+                            <ToolTip Content="Dodaj novi restoran" />
+                        </ToggleButton.ToolTip>
                     </ToggleButton>
                     <ToggleButton x:Name="ToggleButtonTrip" Click="ToggleButtonTrip_Click"
                                   Width="40"
@@ -222,6 +231,9 @@
                                 </ControlTemplate.Triggers>
                             </ControlTemplate>
                         </ToggleButton.Template>
+                        <ToggleButton.ToolTip>
+                            <ToolTip Content="Dodaj novo putovanje" />
+                        </ToggleButton.ToolTip>
                     </ToggleButton>
                 </Grid>
 
@@ -240,13 +252,16 @@
                                         <ItemsControl.ItemTemplate>
                                             <DataTemplate>
                                                 <Border Margin="0 0 17 12" Height="150" Width="230">
+                                                    <Border.Effect>
+                                                        <DropShadowEffect ShadowDepth="5" Color="Black" Opacity="0.5" BlurRadius="10" />
+                                                    </Border.Effect>
                                                     <Border.Background>
                                                         <ImageBrush ImageSource="{Binding ImgPath}" Stretch="UniformToFill"/>
                                                     </Border.Background>
                                                     <Border.Clip>
                                                         <RectangleGeometry RadiusX="15" RadiusY="15" Rect="0 0 230 150" />
                                                     </Border.Clip>
-
+                                                    
                                                     <Grid>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
                                                                 Height="230" HorizontalAlignment="Right"
@@ -255,11 +270,19 @@
                                                                 <Binding Path="Id" />
                                                             </Button.Tag>
                                                         </Button>
-                                                        <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                        <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold" />
+                                                                       FontSize="20" FontWeight="SemiBold">
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                       FontSize="14" />
+                                                                       FontSize="15" FontWeight="SemiBold">
+                                                            <TextBlock.Effect>
+                                                                <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                            </TextBlock.Effect>
+                                                            </TextBlock>
                                                         </StackPanel>
 
                                                         <Button Style="{StaticResource DeleteButton}"
@@ -352,13 +375,25 @@
                                                             </Button>
 
 
-                                                            <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                            <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
                                                                 <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                           FontSize="18" FontWeight="SemiBold" />
-                                                                <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                           FontSize="14" />
-                                                                <TextBlock Text="{Binding Location.Address}" Foreground="#EBEAE5"
-                                                                           FontSize="14" />
+                                                                           FontSize="20" FontWeight="Bold" >
+                                                                    <TextBlock.Effect>
+                                                                        <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.7" BlurRadius="3"/>
+                                                                    </TextBlock.Effect>
+                                                                </TextBlock>
+                                                                <TextBlock Text="{Binding Price}" Foreground="#FFFFFF"
+                                                                           FontSize="14" FontWeight="Bold">
+                                                                    <TextBlock.Effect>
+                                                                        <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                    </TextBlock.Effect>
+                                                                </TextBlock>
+                                                                <TextBlock Text="{Binding Location.Address}" Foreground="#FFFFFF"
+                                                                           FontSize="14" FontWeight="Bold" >
+                                                                    <TextBlock.Effect>
+                                                                        <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                    </TextBlock.Effect>
+                                                                </TextBlock>
                                                             </StackPanel>
 
                                                             <Button Style="{StaticResource DeleteButton}"
@@ -416,13 +451,25 @@
                                                         </Button>
 
 
-                                                        <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                        <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold" />
-                                                            <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
-                                                                       FontSize="14" />
-                                                            <TextBlock Text="{Binding Location.Address}" Foreground="#EBEAE5"
-                                                                       FontSize="14" />
+                                                                       FontSize="22" FontWeight="Bold" >
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Price}" Foreground="#FFFFFF"
+                                                                       FontSize="14" FontWeight="Bold">
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Location.Address}" Foreground="#FFFFFF"
+                                                                       FontSize="14" FontWeight="Bold">
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
                                                         </StackPanel>
 
                                                         <Button Style="{StaticResource DeleteButton}"
@@ -479,11 +526,19 @@
                                                         </Button>
 
 
-                                                        <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
+                                                        <StackPanel Margin="23 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold" />
-                                                            <TextBlock Text="{Binding Location.Address}" Foreground="#EBEAE5"
-                                                                       FontSize="14" />
+                                                                       FontSize="22" FontWeight="Bold" >
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
+                                                            <TextBlock Text="{Binding Location.Address}" Foreground="#FFFFFF"
+                                                                       FontSize="14" FontWeight="SemiBold">
+                                                                <TextBlock.Effect>
+                                                                    <DropShadowEffect Color="Black" ShadowDepth="4" Opacity="0.8" BlurRadius="3"/>
+                                                                </TextBlock.Effect>
+                                                            </TextBlock>
                                                         </StackPanel>
 
                                                         <Button Style="{StaticResource DeleteButton}"
@@ -544,12 +599,12 @@
 
                                                         <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold" />
-                                                            <TextBlock Height="10" />
+                                                                       FontSize="18" FontWeight="SemiBold" Margin="0 0 0 10" />
+                                                            
                                                             <TextBlock Text="{Binding User}" Foreground="#FFFFFF"
                                                                        FontSize="14" FontWeight="SemiBold" />
-                                                            <TextBlock Height="20" />
 
+                                                            
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                        FontSize="14" />
                                                         </StackPanel>
@@ -593,7 +648,7 @@
                                                     <Grid>
                                                         <Button Style="{StaticResource MoreButton}" Width="230"
                                                                 Height="230" HorizontalAlignment="Right"
-                                                                Click="EditBookedTripBtn_Clicked">
+                                                                Click="EditPurchasedTripBtn_Clicked">
                                                             <Button.Tag>
                                                                 <Binding Path="Id" />
                                                             </Button.Tag>
@@ -602,11 +657,9 @@
 
                                                         <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                             <TextBlock Text="{Binding TripName}" Foreground="#FFFFFF"
-                                                                       FontSize="18" FontWeight="SemiBold" />
-                                                            <TextBlock Height="10" />
+                                                                       FontSize="18" FontWeight="SemiBold" Margin="0 0 0 10"/>
                                                             <TextBlock Text="{Binding User}" Foreground="#FFFFFF"
                                                                        FontSize="14" FontWeight="SemiBold" />
-                                                            <TextBlock Height="20" />
                                                             <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                        FontSize="14" />
                                                         </StackPanel>
@@ -614,6 +667,7 @@
                                                 </Border>
                                             </DataTemplate>
                                         </ItemsControl.ItemTemplate>
+                                        
                                     </ItemsControl>
                                 </Grid>
                             </ScrollViewer>
@@ -629,14 +683,21 @@
                         
                         
                         <WrapPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,20"
-                                   VerticalAlignment="Bottom" 
+                                   VerticalAlignment="Top" 
                                    HorizontalAlignment="Center">
 
-                            <Label Content="Izaberite mesec:" HorizontalAlignment="Left" Margin="10"
+                            <Label Content="Izaberite mesec:" Foreground="#3AA9AD" FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10"
                                    VerticalAlignment="Center" />
 
                             <ComboBox x:Name="monthComboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="10"
-                                      VerticalAlignment="Center">
+                                      VerticalAlignment="Center" Width="100" Height="30">
+                                <ComboBox.Resources>
+                                    <Style TargetType="ComboBox">
+                                        <Setter Property="Foreground" Value="#11172F"/>
+                                        <Setter Property="Background" Value="#3AA9AD"/>
+                                        <Setter Property="FontSize" Value="12"/>
+                                    </Style>
+                                </ComboBox.Resources>
                                 <ComboBoxItem Content="Januar" />
                                 <ComboBoxItem Content="Februar" />
                                 <ComboBoxItem Content="Mart" />
@@ -651,12 +712,16 @@
                                 <ComboBoxItem Content="Decembar" />
                             </ComboBox>
                             <Button x:Name="FindByMonthBtn" Click="FindTripsReport1_Clicked" Grid.Column="2"
-                                    Content="Filtriraj" HorizontalAlignment="Left" Margin="10"
-                                    VerticalAlignment="Center" />
+                                     HorizontalAlignment="Left" Margin="5" 
+                                    VerticalAlignment="Center" Style="{StaticResource SearchButton}">
+                                <Viewbox Width="10" Height="10">
+                                    <wpf:FontAwesome Icon="Search" />
+                                </Viewbox>  
+                            </Button>
                         </WrapPanel>
 
                         <!-- SoldTrip grid-->
-                        <Grid Name="SoldTripGrid" Grid.Row="1" Visibility="Visible">
+                        <Grid Name="SoldTripGrid" Grid.Row="1" Visibility="Hidden">
                             <Grid>
                                 <ScrollViewer VerticalScrollBarVisibility="Hidden"
                                               HorizontalScrollBarVisibility="Disabled">
@@ -684,7 +749,7 @@
 
                                                         <Grid>
                                                             <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                    Height="230" HorizontalAlignment="Right">
+                                                                    Height="230" HorizontalAlignment="Right" Click="EditTripBtn_Clicked">
                                                                     <!-- Click="EditBookedTripBtn_Clicked" -->
                                                                     
                                                                 <Button.Tag>
@@ -695,8 +760,7 @@
 
                                                             <StackPanel Margin="27 8 10 5" VerticalAlignment="Top">
                                                                 <TextBlock Text="{Binding Name}" Foreground="#FFFFFF"
-                                                                           FontSize="18" FontWeight="SemiBold" />
-                                                                <TextBlock Height="20" />
+                                                                           FontSize="18" FontWeight="SemiBold" Margin="0 0 0 10" />
                                                                 <TextBlock Text="{Binding Price}" Foreground="#EBEAE5"
                                                                            FontSize="14" />
                                                             </StackPanel>
@@ -725,17 +789,22 @@
                                    VerticalAlignment="Bottom" 
                                    HorizontalAlignment="Center">
                  
-                            <Label Content="Izaberite putovanje:" HorizontalAlignment="Left" Margin="10"
+                            <Label Content="Izaberite putovanje:" Foreground="#3AA9AD" FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="10"
                                    VerticalAlignment="Center" />
 
                             <ComboBox x:Name="tripComboBox" Grid.Column="1" HorizontalAlignment="Left" Margin="10"
-                                      VerticalAlignment="Center" />
+                                      VerticalAlignment="Center" Width="100" Height="30" />
+                            
                             <Button x:Name="FindByTripBtn" Click="FindTripsReport2_Clicked" Grid.Column="2"
-                                    Content="Filtriraj" HorizontalAlignment="Left" Margin="10"
-                                    VerticalAlignment="Center" />
+                                    HorizontalAlignment="Left" Margin="5" 
+                                    VerticalAlignment="Center" Style="{StaticResource SearchButton}">
+                                <Viewbox Width="10" Height="10">
+                                    <wpf:FontAwesome Icon="Search" />
+                                </Viewbox> 
+                            </Button>
                         </WrapPanel>
                         <!-- Report 2 Trips -->
-                        <Grid Name="BookedTripsGrid" Visibility="Visible" Grid.Row="1">
+                        <Grid Name="BookedTripsGrid" Visibility="Hidden" Grid.Row="1">
                             <Grid>
                                 <ScrollViewer VerticalScrollBarVisibility="Auto"
                                               HorizontalScrollBarVisibility="Disabled">
@@ -763,8 +832,7 @@
 
                                                         <Grid>
                                                             <Button Style="{StaticResource MoreButton}" Width="230"
-                                                                    Height="230" HorizontalAlignment="Right">
-                                                                    <!-- Click="EditBookedTripBtn_Clicked" -->
+                                                                    Height="230" HorizontalAlignment="Right" Click="EditPurchasedTripBtn_Clicked">
                                                                     
                                                                 <Button.Tag>
                                                                     <Binding Path="Id" />
