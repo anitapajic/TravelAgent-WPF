@@ -263,7 +263,14 @@ public partial class EditAttractionWindow
         string helpKey;
         if (InfoGrid.Visibility == Visibility.Visible)
         {
-            helpKey = "infoAttraction";
+            if (IsAgent)
+            {
+                helpKey = "infoAttraction";
+            }
+            else
+            {
+                helpKey = "infoAttractionUser";
+            }
         }
         else if (EditGrid.Visibility == Visibility.Visible)
         {

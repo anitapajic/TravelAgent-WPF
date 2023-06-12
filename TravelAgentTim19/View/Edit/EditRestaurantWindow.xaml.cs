@@ -245,7 +245,14 @@ public partial class EditRestaurantWindow
         string helpKey;
         if (InfoGrid.Visibility == Visibility.Visible)
         {
-            helpKey = "infoRestaurant";
+            if (IsAgent)
+            {
+                helpKey = "infoAccommodation";
+            }
+            else
+            {
+                helpKey = "infoRestaurantUser";
+            }
         }
         else if (EditGrid.Visibility == Visibility.Visible)
         {

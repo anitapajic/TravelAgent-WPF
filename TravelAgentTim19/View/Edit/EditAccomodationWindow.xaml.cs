@@ -248,7 +248,14 @@ public partial class EditAccomodationWindow
         string helpKey;
         if (InfoGrid.Visibility == Visibility.Visible)
         {
-            helpKey = "infoAccommodation";
+            if (IsAgent)
+            {
+                helpKey = "infoAccommodation";
+            }
+            else
+            {
+                helpKey = "infoAccommodationUser";
+            }
         }
         else if (EditGrid.Visibility == Visibility.Visible)
         {
