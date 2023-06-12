@@ -12,6 +12,9 @@
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}" 
         DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
+    </Window.CommandBindings>
     
         <Grid MouseDown="Grid_MouseDown">
         <Grid.ColumnDefinitions>

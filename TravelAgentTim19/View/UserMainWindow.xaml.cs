@@ -8,6 +8,7 @@ using System.Windows.Media.Imaging;
 using GMap.NET;
 using GMap.NET.MapProviders;
 using GMap.NET.WindowsPresentation;
+using HelpSistem;
 using TravelAgentTim19.Model;
 using TravelAgentTim19.Model.Enum;
 using TravelAgentTim19.Repository;
@@ -325,5 +326,11 @@ public partial class UserMainWindow
     {
         if (e.ChangedButton == MouseButton.Left)
             this.DragMove();
+    }
+    private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
+    {
+        string helpKey;
+        helpKey = "indexUser"; // default key
+        HelpProvider.ShowHelp(helpKey, this);
     }
 }
