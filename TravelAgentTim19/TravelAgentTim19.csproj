@@ -30,7 +30,9 @@
     <ItemGroup>
         <None Remove="Images\**\*.jpg" />
         <None Remove="Images\**\*.png" />
+<!--
         <None Remove="Images\*.png" />
+-->
         <None Remove="Images\*.jpg" />
 
         <Resource Include="Images\**\*.jpg">
@@ -41,9 +43,9 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Resource>
 
-        <Resource Include="Images\*.png">
+<!--        <Resource Include="Images\*.png">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </Resource>
+        </Resource>-->
 
         <Resource Include="Images\*.jpg">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

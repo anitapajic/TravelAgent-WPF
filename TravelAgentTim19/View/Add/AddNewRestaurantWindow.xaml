@@ -12,7 +12,7 @@
         MaxHeight="{Binding Source={x:Static SystemParameters.MaximizedPrimaryScreenHeight}, Mode=OneWay}"  
         xmlns:l="clr-namespace:HelpSistem"
         l:HelpProvider.HelpKey="newRestaurant"
-        Title="Novi restoran" Height="600" Width="700">
+        Title="Novi restoran" Height="600" Width="1100">
     
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Help" Executed="CommandBinding_Executed" />
@@ -24,7 +24,7 @@
     </Window.InputBindings>
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
 
-    <Grid HorizontalAlignment="Center" MouseDown="Grid_MouseDown">
+    <Grid HorizontalAlignment="Center">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -42,19 +42,19 @@
         
         <TextBlock Text="Dodaj novi restoran" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch"  />
 
-        <Border Grid.Row="1" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
+        <Border Grid.Row="1"  BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
             <Grid Margin="7 9">
                 <TextBlock x:Name="TextName" MouseDown="textName_MouseDown" Text="Ime" Style="{StaticResource TextHint}" />
                 <TextBox Name="TxtName" TextChanged="nameBox_TextChanged" Style="{StaticResource TextBox}" />
             </Grid>
         </Border>
-        <Border Grid.Row="2" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
+        <Border Grid.Row="2"  BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
             <Grid Margin="7 9">
                 <TextBlock x:Name="TextCity" MouseDown="textCity_MouseDown" Text="Grad" Style="{StaticResource TextHint}" />
                 <TextBox Name="TxtCity" TextChanged="cityBox_TextChanged" Style="{StaticResource TextBox}" />
             </Grid>
         </Border>
-        <Border Grid.Row="3" Grid.Column="1" BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
+        <Border Grid.Row="3"  BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
             <Grid Margin="7 9">
                 <TextBlock x:Name="TextAddress" MouseDown="textAddress_MouseDown" Text="Adresa" Style="{StaticResource TextHint}" />
                 <TextBox Name="TxtAddress" TextChanged="addressBox_TextChanged" Style="{StaticResource TextBox}" />

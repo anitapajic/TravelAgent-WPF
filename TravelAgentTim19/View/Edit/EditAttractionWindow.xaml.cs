@@ -159,7 +159,7 @@ public partial class EditAttractionWindow
         string name = TxtName.Text;
         string address = TxtLocation.Text;
         string priceText = TxtPrice.Text;
-        string desc = DescriptionBox.Text;
+        string desc = TxtDes.Text;
         ItemCollection Images = ImageList.Items;
 
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(address) || string.IsNullOrEmpty(priceText) || Images == null || Images.Count == 0)
@@ -250,7 +250,7 @@ public partial class EditAttractionWindow
     private bool IsMouseOverDraggableComponent(MouseButtonEventArgs e)
     {
         var element = e.OriginalSource as FrameworkElement;
-        return !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") && !(element.Name == "Ximg") && !(element.Name == "Ximg2");
+        return !(element is TextBlock) && !(element is TextBox) && !(element is ListBox) && !(element.Name == "gmap") && !(element.Name == "Ximg") && !(element.Name == "Ximg2");
     }
     private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
     {

@@ -25,7 +25,7 @@
     </Window.InputBindings>
     
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
-        <Grid HorizontalAlignment="Center" MouseDown="Grid_MouseDown">
+        <Grid HorizontalAlignment="Center" >
         <Grid.RowDefinitions >
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -95,7 +95,7 @@
                         <enum:AccomodationType>Villa</enum:AccomodationType>
                         <enum:AccomodationType>Motel</enum:AccomodationType>
                         <enum:AccomodationType>Hostel</enum:AccomodationType>
-                        <enum:AccomodationType>Apartment</enum:AccomodationType>
+                        <enum:AccomodationType>Apartman</enum:AccomodationType>
                     </x:Array>
                 </ComboBox.ItemsSource>
                 <ComboBox.SelectedIndex>0</ComboBox.SelectedIndex>

@@ -95,7 +95,6 @@
                    Style="{StaticResource ImgClose}" />
             
             <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="550" Margin="0 0 0 -20" Panel.ZIndex="999" Background="White">
-                <Grid>
                     <Grid>
                         <Grid>
                             <Border CornerRadius="15 15 45 45" Margin="20 20 20 120">
@@ -145,7 +144,6 @@
                     </Grid>
 
                 </Border>
-
                 <!-- Travel Description -->
 
                 <Grid Grid.Row="3" Name="MapGrid" Height="450" Visibility="Visible" Grid.ColumnSpan="3"
@@ -155,7 +153,6 @@
 
                 </Grid>
             </Grid>
-       </Grid>
             
             <Grid x:Name="EditGrid" Visibility="Hidden"  Margin="50">
             <Grid.RowDefinitions>
@@ -273,25 +270,16 @@
                     </StackPanel>
 
                     </Grid>
-                    <Grid Margin="7 30 7 9">
-                        <ListView BorderBrush="Transparent"
-                                  AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop"
-                                   MouseDoubleClick="ListView_MouseClick">
-                            <ItemsControl Margin="10" x:Name="ImageList">
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <StackPanel Orientation="Horizontal" />
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                            </ItemsControl>
-                        </ListView>
-                    </Grid>
-                </Grid>
+                
+                
                 <!-- Button -->
                 <Button x:Name="EditButton" Content="Sacuvaj"
                         Grid.Row="6" Grid.ColumnSpan="2" Click="SaveAccomodationBtn_Clicked"
                         Style="{StaticResource MainButton}"
                         Margin="40" />
+                
+                </Grid>
+        
                 <!--
             ~1~ Title @1@
             <TextBlock Text="IZMENA SMESTAJA" FontSize="20" FontWeight="Bold" Margin="-20, 10, 0,0"/>
@@ -354,7 +342,6 @@
             ~1~ Submit button @1@
             <Button Content="Back to info" Click="InfoAccomodationBtn_Clicked" Grid.Row="8"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="0, 0,200,0"/>
             <Button x:Name="EditButton" Content="Save changes" Click="SaveAccomodationBtn_Clicked" Grid.Row="8"  HorizontalAlignment="Center" Width="100" MaxHeight="40" Margin="0, 0,-200,0"/>-->
-            </Grid>
         </Grid>
     </ScrollViewer>
 </Window>
