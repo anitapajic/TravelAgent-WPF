@@ -586,14 +586,21 @@ public partial class AgentMainWindow
     
     private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
     {
-        IInputElement focusedControl = FocusManager.GetFocusedElement(Application.Current.Windows[0]);
-        
-        if (focusedControl is DependencyObject)
+        string helpKey;
+        if (SoldTripGridForm.Visibility == Visibility.Visible || SoldTripGrid.Visibility==Visibility.Visible)
         {
-           
-            string str = HelpProvider.GetHelpKey((DependencyObject)focusedControl);
-            HelpProvider.ShowHelp(str, this);
+            helpKey = "report1";
         }
+        else if (BookedTripGridForm.Visibility == Visibility.Visible || BookedTripsGrid.Visibility==Visibility.Visible)
+        {
+            helpKey = "report2";
+        }
+        else
+        {
+            helpKey = "index"; // default key
+        }
+
+        HelpProvider.ShowHelp(helpKey, this);
     }
     private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
     {

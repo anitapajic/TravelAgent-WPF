@@ -53,7 +53,7 @@
                 
                 <Grid Grid.ColumnSpan="2" Grid.Row="0" Margin="70 40 10 5" VerticalAlignment="Top"
                       HorizontalAlignment="Left">
-                    <TextBlock  Name="nameTextBlock" Text="{Binding  }" Foreground="#FFFFFF"
+                    <TextBlock  Name="nameTextBlock" Text="{Binding BookedTrip.TripName}" Foreground="#FFFFFF"
                                 FontSize="36" FontWeight="SemiBold">
                     </TextBlock>
                 </Grid>

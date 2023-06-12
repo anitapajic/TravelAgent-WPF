@@ -8,7 +8,6 @@ C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Deb
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\App.g.cs
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19_MarkupCompile.cache
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19_MarkupCompile.lref
-C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\App.baml
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\MainWindow.baml
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.g.resources
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\TravelAgentTim19.GeneratedMSBuildEditorConfig.editorconfig
@@ -80,18 +79,10 @@ C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Deb
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAttractionWindow.g.cs
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditRestaurantWindow.g.cs
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditTripWindow.g.cs
-C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAccomodationWindow.baml
-C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAttractionWindow.baml
-C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewRestaurantWindow.baml
-C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewTripWindow.baml
-C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAccomodationWindow.baml
-C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAttractionWindow.baml
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditRestaurantWindow.baml
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditTripWindow.baml
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditBookedTripWindow.g.cs
 C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditPurchasedTripWindow.g.cs
-C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditBookedTripWindow.baml
-C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditPurchasedTripWindow.baml
 C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditBookedTripWindow.g.cs
 C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditPurchasedTripWindow.g.cs
 C:\Users\tamar\Desktop\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
@@ -227,3 +218,12 @@ C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\Travel
 C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\BookTripWindow.baml
 C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\Helper\HelpViewer.g.cs
 C:\Users\Asus\OneDrive\Desktop\III godina\VI-semestar\IB\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\BookTripWindow.g.cs
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\App.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAccomodationWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewAttractionWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewRestaurantWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Add\AddNewTripWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAccomodationWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditAttractionWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditBookedTripWindow.baml
+C:\Users\anita\Desktop\HCI-TravelAgent\TravelAgentTim19\TravelAgentTim19\obj\Debug\net6.0-windows\View\Edit\EditPurchasedTripWindow.baml

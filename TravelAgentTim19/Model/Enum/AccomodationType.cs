@@ -6,5 +6,5 @@ public enum AccomodationType
     Villa,
     Motel,
     Hostel,
-    Apartment
+    Apartman
 }
