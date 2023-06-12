@@ -214,11 +214,13 @@ private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 
     private void textName_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextName.Visibility = Visibility.Collapsed;
         TxtName.Focus();
     }
 
     private void textCity_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextCity.Visibility = Visibility.Collapsed;
         TxtCity.Focus();
     }
 
@@ -232,6 +234,7 @@ private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 
     private void textAddress_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextAddress.Visibility = Visibility.Collapsed;
         TxtAddress.Focus();
     }
 

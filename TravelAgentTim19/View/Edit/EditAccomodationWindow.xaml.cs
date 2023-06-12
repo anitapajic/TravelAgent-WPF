@@ -127,6 +127,7 @@ public partial class EditAccomodationWindow
     }
     private void textName_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextName.Visibility = Visibility.Collapsed;
         NameBox.Focus();
     }
         private bool isRatingLocked = false;
