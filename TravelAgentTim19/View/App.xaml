@@ -194,6 +194,7 @@
                     <Setter Property="Background" Value="#2d7a6c" />
                     <Setter Property="Foreground" Value="White" />
                 </Trigger>
+                
             </Style.Triggers>
         </Style>
         <!--ManuButton -->

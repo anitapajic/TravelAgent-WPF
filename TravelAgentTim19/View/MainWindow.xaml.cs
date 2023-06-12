@@ -93,17 +93,43 @@ namespace TravelAgentTim19.View
         
         private void SignUpFormButton_Click(object sender, RoutedEventArgs e)
         {
-            bool registered = UserService.Register(SignUpFNameBox.Text, SignUpLNameBox.Text, SignUpEmailBox.Text,
-                SignUpPasswordBox.Password, SignUpPassword2Box.Password);
-            if (registered)
+            if (SignUpFNameBox.Text.Length < 1 || SignUpFNameBox.Text.Length > 20)
             {
-                SignUpFNameBox.Text = null;
-                SignUpLNameBox.Text = null;
-                SignUpEmailBox.Text = null;
-                SignUpPasswordBox.Password = null;
-                SignUpPassword2Box.Password = null;
+                MessageBox.Show("Ime nije uneto ili ispravno. \n 20 karaktera maksimalno");
             }
-            MessageBox.Show(registered ? "Uspesna registracija!" : "Neuspesna registracija!");
+            else if (SignUpLNameBox.Text.Length < 1 || SignUpLNameBox.Text.Length > 20)
+            {
+                MessageBox.Show("Prezime nije uneto ili ispravno. \n 20 karaktera maksimalno");
+            }
+            else if (SignUpEmailBox.Text.Length < 1 || SignUpEmailBox.Text.Length > 30)
+            {
+                MessageBox.Show("Mail nije unet ili ispravan. \n 30 karaktera maksimalno");
+            }
+            else if (SignUpPasswordBox.Password.Length < 8)
+            {
+                MessageBox.Show("Šifra nije unet ili ispravna. \n 8 karaktera minimalno");
+ 
+            }
+            else if (SignUpPasswordBox.Password != SignUpPassword2Box.Password)
+            {
+                MessageBox.Show("Šifre se ne poklapaju.");
+            }
+            else
+            {
+                bool registered = UserService.Register(SignUpFNameBox.Text, SignUpLNameBox.Text, SignUpEmailBox.Text,
+                    SignUpPasswordBox.Password, SignUpPassword2Box.Password);
+                if (registered)
+                {
+                    SignUpFNameBox.Text = null;
+                    SignUpLNameBox.Text = null;
+                    SignUpEmailBox.Text = null;
+                    SignUpPasswordBox.Password = null;
+                    SignUpPassword2Box.Password = null;
+                }
+                MessageBox.Show(registered ? "Uspesna registracija!" : "Neuspesna registracija!");
+            }
+            
+           
         }
 
         private void emailBox_TextChanged(object sender, TextChangedEventArgs e)
