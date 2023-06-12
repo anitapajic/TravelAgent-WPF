@@ -136,12 +136,14 @@ public partial class EditAttractionWindow
     }
     private void textName_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextName.Visibility = Visibility.Collapsed;
         TxtName.Focus();
     }
 
    
     private void textDesc_MouseDown(object sender, MouseButtonEventArgs e)
     {
+        TextDes.Visibility = Visibility.Collapsed;
         TxtDes.Focus();
     }
     private void InfoAttractionBtn_Clicked(object sender, RoutedEventArgs e)
