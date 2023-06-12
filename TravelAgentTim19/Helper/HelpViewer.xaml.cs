@@ -59,10 +59,6 @@ namespace HelpSistem
             wbHelp.GoForward();
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-        }
-
         private void wbHelp_Navigating(object sender, System.Windows.Navigation.NavigatingCancelEventArgs e)
         {
         }
