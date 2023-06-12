@@ -166,6 +166,18 @@ public partial class EditAttractionWindow
     {
         string name = TxtName.Text;
         string address = TxtLocation.Text;
+        
+        
+        if (name.Length > 40)
+        {
+            MessageBox.Show("Naziv je predugačak");
+            return;
+        }
+        if (address.Length > 40)
+        {
+            MessageBox.Show("Adresa je predugačka");
+            return;
+        }
         string priceText = TxtPrice.Text;
         string desc = TxtDes.Text;
         ItemCollection Images = ImageList.Items;

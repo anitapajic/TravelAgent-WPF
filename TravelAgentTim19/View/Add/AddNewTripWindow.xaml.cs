@@ -252,7 +252,13 @@ public partial class AddNewTripWindow
     {
         string name = TxtName.Text;
         string description = DescriptionBox.Text;
-
+       
+        if (TxtName.Text.Length > 40)
+        {
+            MessageBox.Show("Naziv je predugačak");
+            return;
+        }
+        
         double price;
         if (!double.TryParse(TxtPrice.Text, out price))
         {   
