@@ -128,6 +128,7 @@ public partial class EditAccomodationWindow
             priceTextBlock.Text = Accomodation.Price.ToString();
             typeTextBlock.Text = Accomodation.AccomodationType.ToString();
             addressTextBlock.Text = Accomodation.Location.Address;
+            rating.Text = Accomodation.Rating.ToString();
 
             InfoAccomodationBtn_Clicked(sender,e);
         }

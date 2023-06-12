@@ -53,7 +53,7 @@
                                     <ImageBrush ImageSource="{Binding Accomodation.ImgPath}" Stretch="UniformToFill" />
                                 </Border.Background>
                                 <Grid>
-                                    <Button Grid.ColumnSpan="3" Style="{StaticResource PenButton}"
+                                    <Button x:Name="EditBtn" Grid.ColumnSpan="3" Style="{StaticResource PenButton}"
                                             Click="EditAccomodationBtn_Clicked" HorizontalAlignment="Right"
                                             VerticalAlignment="Top" Width="100" MaxHeight="40" Margin="0 20 0 15">
                                         <Viewbox Width="25" Height="25">
@@ -80,7 +80,7 @@
                                     <TextBlock Name="typeTextBlock" Text="{Binding Accomodation.AccomodationType}"
                                                Foreground="#11172F" FontSize="30" FontWeight="SemiBold" />
                                     <wpf:FontAwesome Icon="Star" Margin="80,9,10,0" Foreground="#F2B312" FontSize="25" />
-                                    <TextBlock Margin="0 5 0 0" Text="{Binding Accomodation.Rating}"
+                                    <TextBlock Name="rating" Margin="0 5 0 0" Text="{Binding Accomodation.Rating}"
                                                Foreground="#11172F" FontSize="23" FontWeight="DemiBold" />
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal" Margin="3,10,0,0">
