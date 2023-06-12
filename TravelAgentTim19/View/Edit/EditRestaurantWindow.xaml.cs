@@ -202,7 +202,7 @@ private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
             nameTextBlock.Text = Restaurant.Name;
             //RatingTextBlock.Text = Restaurant.Rating.ToString();
             addressTextBlock.Text = Restaurant.Location.Address;
-            rating.Text = Restaurant.Rating.ToString();
+            ratingTextBlock.Text = Restaurant.Rating.ToString();
             
             
             InfoRestaurantBtn_Clicked(sender, e);
