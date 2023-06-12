@@ -80,9 +80,15 @@
                         <StackPanel Margin="100 60 10 5" VerticalAlignment="Top">
                             <TextBlock Name="TripNameTextBlock" Text="{Binding Trip.Name}" Foreground="#FFFFFF"
                                        FontSize="50" FontWeight="SemiBold">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect Color="Black" ShadowDepth="2" Opacity="0.8" BlurRadius="3"/>
+                                </TextBlock.Effect>
                             </TextBlock>
                             <TextBlock Name="PriceTextBlock" Text="{Binding  Trip.Price}" Foreground="#EBEAE5"
-                                       FontSize="33" Margin="0 5 0 0">
+                                       FontSize="33" Margin="0 5 0 0" FontWeight="SemiBold">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect Color="Black" ShadowDepth="2" Opacity="0.8" BlurRadius="3"/>
+                                </TextBlock.Effect>
                             </TextBlock>
                         </StackPanel>
 

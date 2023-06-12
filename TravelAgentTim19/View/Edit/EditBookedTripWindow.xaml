@@ -3,18 +3,117 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:wpf="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:TravelAgentTim19.View.Edit"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-        Title="Rezervacija" Height="600" Width="1100">
-    
+        Title="Rezervacija" Height="600" Width="1100">   
+        WindowStyle="None"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
     <Window.CommandBindings>
         <CommandBinding Command="ApplicationCommands.Close" Executed="CloseCommand_Executed" />
     </Window.CommandBindings>
     <Window.InputBindings>
         <KeyBinding Command="ApplicationCommands.Close" Key="W" Modifiers="Control" />
     </Window.InputBindings>
-    
+
     <Grid>
-        
+        <Image x:Name="Ximg" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+               Style="{StaticResource ImgClose}" />
+        <Border  CornerRadius="25 25 25 25" Margin="40 40 40 40">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                    <GradientStop Color="#3AA9AD" Offset="0" />
+                    <GradientStop Color="#3AB19B" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <ScrollViewer VerticalScrollBarVisibility="Hidden">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                
+                <Grid Grid.ColumnSpan="3" Grid.Row="0" Margin="70 40 10 5" VerticalAlignment="Top"
+                      HorizontalAlignment="Left">
+                    <TextBlock  Name="nameTextBlock" Text="{Binding  BookedTrip.TripName}" Foreground="#FFFFFF"
+                                FontSize="36" FontWeight="SemiBold">
+                    </TextBlock>
+                </Grid>
+                <Grid Grid.Row="0" Grid.Column="3" Margin="0 45 50 5">
+                    <TextBlock  Text="{Binding  BookedTrip.Price}" Foreground="#FFFFFF"
+                               FontSize="28" FontWeight="SemiBold" HorizontalAlignment="Right">
+                    </TextBlock>
+                </Grid>
+                <Separator Grid.Row="1" Grid.ColumnSpan="3" Height="0.9" Margin="70 0 50 10" Background="#FFFFFF" />
+                
+                <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="73,7,0,0">
+                    <wpf:FontAwesome Icon="MapPin" Margin="0,0,8,0" Foreground="#11172F" FontSize="23" />
+                    <TextBlock Name="addressTextBlock" Text="{Binding BookedTrip.Accomodation.Location.Address }" Foreground="#11172F" FontSize="23"/>
+                </StackPanel>
+                
+                <Grid Grid.Column="0" Grid.Row="3" Margin="70 30 10 5" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Od:" Foreground="#11172F" FontSize="20" FontWeight="SemiBold"/>
+                    <TextBlock Grid.Column="1" Text="{Binding BookedTrip.DatePeriod.StartDate  }" Foreground="#FFFFFF" FontSize="20" Margin="15 0 0 0" FontWeight="SemiBold" />
+                </Grid>
+                
+                <Grid Grid.Column="1" Grid.Row="3" Margin="70 30 10 5" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Do:" Foreground="#11172F" FontSize="20" FontWeight="SemiBold" />
+                    <TextBlock Grid.Column="1" Text="{Binding  BookedTrip.DatePeriod.EndDate}" Foreground="#FFFFFF" FontSize="20" Margin="15 0 0 0"  FontWeight="SemiBold"/>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="4" Margin="70 15 10 5" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Smestaj:" Foreground="#11172F" FontSize="20" FontWeight="SemiBold" />
+                    <TextBlock Grid.Column="1" Text="{Binding  BookedTrip.Accomodation.Name}" Foreground="#FFFFFF" FontSize="20" Margin="15 0 0 0" FontWeight="SemiBold" />
+                </Grid>
+                <Border Grid.Row="5" Grid.ColumnSpan="3" CornerRadius="20" Margin="73 30 30 10" Background="#FFFFFF">
+                    <Grid>
+                        <TextBlock Text="Atrakcije" Margin="25 15 0 5" Foreground="#11172F" FontSize="18" FontWeight="SemiBold"></TextBlock>
+                        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden" Margin="25 50 10 20">
+                            <ListBox Name="tripPeriodsItems" ItemsSource="{Binding BookedTrip.ChoosenAttractions}"
+                                     Background="Transparent" BorderBrush="Transparent" >
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding   }" Margin="0 10 0 0" FontSize="20"
+                                                   Foreground="Gray" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </ScrollViewer>
+                    </Grid>
+                    
+                </Border>
+
+                <Grid Grid.Row="6" Grid.ColumnSpan="3" VerticalAlignment="Bottom" HorizontalAlignment="Right" >
+                    <TextBlock Text="{Binding  BookedTrip.User}" Foreground="#FFFFFF" FontSize="20" FontWeight="SemiBold" Margin="10 10 40 20" />
+
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+        </Border>
+
+
     </Grid>
+    
 </Window>
