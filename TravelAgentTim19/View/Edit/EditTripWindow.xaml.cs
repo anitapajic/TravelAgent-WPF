@@ -424,6 +424,13 @@ public partial class EditTripWindow
     {
 
         string name = TxtName.Text;
+        
+        if (name.Length > 40)
+        {
+            MessageBox.Show("Naziv je predugačak");
+            return;
+        }
+
         string description = DescriptionBox.Text;
         string p = TxtPrice.Text;
         if (!double.TryParse(p, out double price))

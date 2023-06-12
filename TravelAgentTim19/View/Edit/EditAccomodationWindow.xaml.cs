@@ -100,6 +100,18 @@ public partial class EditAccomodationWindow
         string name = NameBox.Text;
         string address = LocationBox.Text;
         ItemCollection Images = ImageList.Items;
+        
+        if (name.Length > 40)
+        {
+            MessageBox.Show("Naziv je predugačak");
+            return;
+
+        }
+        if (address.Length > 40)
+        {
+            MessageBox.Show("Adresa je predugačka");
+            return;
+        }
 
         //double rating = slider.Value;
         //AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
