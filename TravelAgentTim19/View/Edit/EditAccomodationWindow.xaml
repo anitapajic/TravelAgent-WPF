@@ -203,19 +203,19 @@
                         <TextBlock Text="Oceni" Style="{StaticResource TextHint}" Margin="0 0 10 0"
                                    Foreground="#3AA9AD" FontWeight="SemiBold">
                         </TextBlock>
-                        <wpf:ImageAwesome x:Name="star1" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                        <wpf:ImageAwesome x:Name="star1" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
                                           MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
                                           MouseLeftButtonDown="Star_MouseLeftButtonDown" />
-                        <wpf:ImageAwesome x:Name="star2" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                        <wpf:ImageAwesome x:Name="star2" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
                                           MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
                                           MouseLeftButtonDown="Star_MouseLeftButtonDown" />
-                        <wpf:ImageAwesome x:Name="star3" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                        <wpf:ImageAwesome x:Name="star3" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
                                           MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
                                           MouseLeftButtonDown="Star_MouseLeftButtonDown" />
-                        <wpf:ImageAwesome x:Name="star4" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                        <wpf:ImageAwesome x:Name="star4" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
                                           MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
                                           MouseLeftButtonDown="Star_MouseLeftButtonDown" />
-                        <wpf:ImageAwesome x:Name="star5" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                        <wpf:ImageAwesome x:Name="star5" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
                                           MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
                                           MouseLeftButtonDown="Star_MouseLeftButtonDown" />
                     </StackPanel>

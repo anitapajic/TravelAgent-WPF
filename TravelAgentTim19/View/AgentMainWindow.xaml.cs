@@ -649,4 +649,10 @@ public partial class AgentMainWindow
             newRestaurantWindow.Closed += NewRestaurantWindow_Closed;
         }
     }
+
+    private void Help_Click(object sender, RoutedEventArgs e)
+    {
+        string helpKey = "index";
+        HelpProvider.ShowHelp(helpKey, this);
+    }
 }

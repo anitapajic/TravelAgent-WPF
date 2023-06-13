@@ -83,7 +83,7 @@
                                     <wpf:FontAwesome Icon="MapPin" Margin="0,0,8,0" Foreground="#11172F" FontSize="18" />
                                     <TextBlock Name="addressTextBlock" Text="{Binding Attraction.Location.Address}"
                                                Foreground="Gray" FontSize="18" />
-                                    <wpf:FontAwesome Icon="Star" Margin="80,0,10,0" Foreground="#F2B312" FontSize="25" />
+                                    <wpf:FontAwesome Icon="Dollar" Margin="80,0,10,0" Foreground="#F2B312" FontSize="25" />
                                     <TextBlock Name="priceTextBlock" Margin="0 0 0 0" Text="{Binding Attraction.Price}"
                                                Foreground="Gray"
                                                FontSize="20" FontWeight="DemiBold" />
