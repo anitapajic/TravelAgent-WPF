@@ -25,7 +25,9 @@
     </Window.InputBindings>
 
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
-        <Grid MouseDown="Grid_MouseDown">
+        <Grid>
+            <Image x:Name="Ximg" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
+                   Style="{StaticResource ImgClose}" />
             <Grid x:Name="InfoGrid" Margin="0">
             <!-- Row and Column Definitions -->
             <Grid.RowDefinitions>
@@ -42,8 +44,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Image x:Name="Ximg" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
-                   Style="{StaticResource ImgClose}" />
+           
             
             <Border Grid.ColumnSpan="3" Grid.Row="0" CornerRadius="0 0 45 45" Height="550" Margin="0 0 0 -20" Panel.ZIndex="999" Background="White">
                     <Grid>
@@ -105,8 +106,9 @@
                 </Grid>
             </Grid>
             
-            <Grid x:Name="EditGrid" Visibility="Hidden"  Margin="50">
+            <Grid x:Name="EditGrid" Visibility="Hidden"  Margin="50 30 50 0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -115,9 +117,6 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
         
-                
-                <Image x:Name="Ximg2" Grid.ColumnSpan="3" Source="/Images/close.png" Panel.ZIndex="99999" MouseUp="Image_MouseUp"
-                       Style="{StaticResource ImgClose}" Margin="0 0 -35 0" />
 
                 <!-- Title -->
                 <TextBlock Text="Izmena smestaja" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B"
@@ -200,27 +199,15 @@
                 <!-- Rating -->
                 <Grid Grid.Row="5" Grid.ColumnSpan="2" Margin="10,0,0,0">
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="Oceni" Style="{StaticResource TextHint}" Margin="0 0 10 0"
-                                   Foreground="#3AA9AD" FontWeight="SemiBold">
-                        </TextBlock>
-                        <wpf:ImageAwesome x:Name="star1" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
-                                          MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
-                                          MouseLeftButtonDown="Star_MouseLeftButtonDown" />
-                        <wpf:ImageAwesome x:Name="star2" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
-                                          MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
-                                          MouseLeftButtonDown="Star_MouseLeftButtonDown" />
-                        <wpf:ImageAwesome x:Name="star3" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
-                                          MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
-                                          MouseLeftButtonDown="Star_MouseLeftButtonDown" />
-                        <wpf:ImageAwesome x:Name="star4" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
-                                          MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
-                                          MouseLeftButtonDown="Star_MouseLeftButtonDown" />
-                        <wpf:ImageAwesome x:Name="star5" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
-                                          MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
-                                          MouseLeftButtonDown="Star_MouseLeftButtonDown" />
+                        <TextBlock Text="Oceni" Style="{StaticResource TextHint}" Margin="0 0 10 0" Foreground="#3AA9AD" FontWeight="SemiBold"></TextBlock>
+                        <wpf:ImageAwesome x:Name="star1" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25" MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave" MouseLeftButtonDown="Star_MouseLeftButtonDown"/>
+                        <wpf:ImageAwesome x:Name="star2" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25" MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave" MouseLeftButtonDown="Star_MouseLeftButtonDown"/>
+                        <wpf:ImageAwesome x:Name="star3" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25" MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave" MouseLeftButtonDown="Star_MouseLeftButtonDown"/>
+                        <wpf:ImageAwesome x:Name="star4" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25" MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave" MouseLeftButtonDown="Star_MouseLeftButtonDown"/>
+                        <wpf:ImageAwesome x:Name="star5" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25" MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave" MouseLeftButtonDown="Star_MouseLeftButtonDown"/>
                     </StackPanel>
-
-                    </Grid>
+                
+                </Grid>
                 
                 
                 <!-- Button -->
