@@ -149,9 +149,8 @@ public partial class EditAccomodationWindow
     {
         TextName.Visibility = Visibility.Collapsed;
         NameBox.Focus();
-    }
-        private bool isRatingLocked = false;
-
+    } 
+    private bool isRatingLocked = false;
 private void Star_MouseEnter(object sender, MouseEventArgs e)
 {
     isRatingLocked = false;
@@ -224,6 +223,7 @@ private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         isRatingLocked = true; // Lock the rating
     }
 }
+
     
     private void Border_DragEnter(object sender, DragEventArgs e)
     {

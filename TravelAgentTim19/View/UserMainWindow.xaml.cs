@@ -340,4 +340,9 @@ public partial class UserMainWindow
         helpKey = "indexUser"; // default key
         HelpProvider.ShowHelp(helpKey, this);
     }
+    private void Help_Click(object sender, RoutedEventArgs e)
+    {
+        string helpKey = "indexUser";
+        HelpProvider.ShowHelp(helpKey, this);
+    }
 }

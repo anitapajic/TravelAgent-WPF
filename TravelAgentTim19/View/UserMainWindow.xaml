@@ -87,7 +87,12 @@
                 </Button>
                 
                 </StackPanel>
-                
+                <Button Grid.Row="1" Style="{StaticResource ManuButton}" Click="Help_Click" Margin="0 0 0 80">
+                    <StackPanel Orientation="Horizontal">
+                        <wpf:FontAwesome Icon="Question" Style="{StaticResource ManuButtonIcon}" />
+                        <TextBlock Text="Pomoc" Style="{StaticResource ManuButtonText}" />
+                    </StackPanel>
+                </Button>
                 <Button Grid.Row="1" Style="{StaticResource ManuButton}"  Click="Logout_Click">
                     <StackPanel Orientation="Horizontal">
                         <wpf:FontAwesome Icon="PowerOff" Style="{StaticResource ManuButtonIcon}" />

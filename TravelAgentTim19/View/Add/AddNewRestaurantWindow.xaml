@@ -24,7 +24,7 @@
     </Window.InputBindings>
     <ScrollViewer VerticalScrollBarVisibility="Hidden">
 
-    <Grid HorizontalAlignment="Center">
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -40,7 +40,7 @@
                Style="{StaticResource ImgClose}" />
 
         
-        <TextBlock Text="Dodaj novi restoran" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="20" Margin="20 30" HorizontalAlignment="Stretch"  />
+        <TextBlock Text="Dodaj novi restoran" Grid.Row="0" Grid.ColumnSpan="2" Foreground="#3AB19B" Style="{StaticResource TitleText}" FontSize="30" Margin="20 30" HorizontalAlignment="Stretch"  />
 
         <Border Grid.Row="1"  BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5" Width="400">
             <Grid Margin="7 9">
@@ -67,6 +67,8 @@
                 <!--     <TextBlock x:Name="Images" MouseDown="textAddress_MouseDown" Text="Prevuci slike" Style="{StaticResource TextHint}" /> -->
                 <!-- -->
                 <!-- </Grid> -->
+                <TextBlock x:Name="Images" MouseDown="textAddress_MouseDown" Text="Prevuci slike" Style="{StaticResource TextHint}" />
+                
                 <Grid Margin="7 30 7 9">
                 <ListView BorderBrush="Transparent"
                           AllowDrop="True" DragEnter="Border_DragEnter" Drop="Border_Drop" 
@@ -83,24 +85,24 @@
             </Grid>
         </Border>
         <!-- Rating -->
-        <Grid Grid.Row="5"  Margin="70 7">
+        <Grid Grid.Row="5"  Margin="70 7" Width="400">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Oceni" Style="{StaticResource TextHint}" Margin="0 0 10 0"
                            >
                 </TextBlock>
-                <wpf:ImageAwesome x:Name="star1" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                <wpf:ImageAwesome x:Name="star1" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
                                   MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
                                   MouseLeftButtonDown="Star_MouseLeftButtonDown" />
-                <wpf:ImageAwesome x:Name="star2" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                <wpf:ImageAwesome x:Name="star2" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
                                   MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
                                   MouseLeftButtonDown="Star_MouseLeftButtonDown" />
-                <wpf:ImageAwesome x:Name="star3" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                <wpf:ImageAwesome x:Name="star3" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
                                   MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
                                   MouseLeftButtonDown="Star_MouseLeftButtonDown" />
-                <wpf:ImageAwesome x:Name="star4" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                <wpf:ImageAwesome x:Name="star4" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
                                   MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
                                   MouseLeftButtonDown="Star_MouseLeftButtonDown" />
-                <wpf:ImageAwesome x:Name="star5" Icon="StarOutline" Foreground="#F2B312" Width="25" Height="25"
+                <wpf:ImageAwesome x:Name="star5" Icon="StarOutline" Foreground="Yellow" Width="25" Height="25"
                                   MouseEnter="Star_MouseEnter" MouseLeave="Star_MouseLeave"
                                   MouseLeftButtonDown="Star_MouseLeftButtonDown" />
             </StackPanel>
