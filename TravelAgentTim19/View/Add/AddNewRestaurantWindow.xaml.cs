@@ -163,6 +163,17 @@ private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         location.City = TxtCity.Text;
         ItemCollection Images = ImageList.Items;
         
+        if (name.Length > 40)
+        {
+            MessageBox.Show("Naziv je predugačak");
+            return;
+        }
+        if (location.Address.Length > 40 || location.City.Length > 20)
+        {
+            MessageBox.Show("Adresa i naziv grada su predugački");
+            return;
+        }
+        
         if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(location.Address) || Images == null || Images.Count == 0 || string.IsNullOrEmpty(location.City))
         {
             MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar jednu sliku.");

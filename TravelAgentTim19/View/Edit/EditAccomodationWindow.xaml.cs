@@ -100,6 +100,18 @@ public partial class EditAccomodationWindow
         string name = NameBox.Text;
         string address = LocationBox.Text;
         ItemCollection Images = ImageList.Items;
+        
+        if (name.Length > 40)
+        {
+            MessageBox.Show("Naziv je predugačak");
+            return;
+
+        }
+        if (address.Length > 40)
+        {
+            MessageBox.Show("Adresa je predugačka");
+            return;
+        }
 
         //double rating = slider.Value;
         //AccomodationType type = (AccomodationType)accomodationComboBox.SelectedItem;
@@ -128,7 +140,7 @@ public partial class EditAccomodationWindow
             priceTextBlock.Text = Accomodation.Price.ToString();
             typeTextBlock.Text = Accomodation.AccomodationType.ToString();
             addressTextBlock.Text = Accomodation.Location.Address;
-            rating.Text = Accomodation.Rating.ToString();
+            ratingTextBlock.Text = Accomodation.Rating.ToString();
 
             InfoAccomodationBtn_Clicked(sender,e);
         }

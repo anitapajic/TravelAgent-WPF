@@ -79,7 +79,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Name="typeTextBlock" Text="Restoran" Foreground="#11172F" FontSize="30" FontWeight="SemiBold"/>
                                 <wpf:FontAwesome Icon="Star" Margin="80,9,10,0" Foreground="#F2B312" FontSize="25"/>
-                                <TextBlock Name="rating" Margin="0 5 0 0" Text="{Binding Restaurant.Rating}" Foreground="#11172F" FontSize="23" FontWeight="DemiBold"/>
+                                <TextBlock Name="ratingTextBlock" Margin="0 5 0 0" Text="{Binding Restaurant.Rating}" Foreground="#11172F" FontSize="23" FontWeight="DemiBold"/>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal" Margin="3,10,0,0">
                                 <wpf:FontAwesome Icon="MapPin" Margin="0,0,8,0" Foreground="#11172F" FontSize="18" />

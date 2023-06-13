@@ -178,6 +178,18 @@ private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
     {
         string name = TxtName.Text;
         string address = TxtLocation.Text;
+        
+        
+        if (name.Length > 40)
+        {
+            MessageBox.Show("Naziv je predugačak");
+            return;
+        }
+        if (address.Length > 40)
+        {
+            MessageBox.Show("Adresa je predugačka");
+            return;
+        }
         ItemCollection Images = ImageList.Items;
         
         // Validate inputs
@@ -202,7 +214,7 @@ private void Star_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
             nameTextBlock.Text = Restaurant.Name;
             //RatingTextBlock.Text = Restaurant.Rating.ToString();
             addressTextBlock.Text = Restaurant.Location.Address;
-            rating.Text = Restaurant.Rating.ToString();
+            ratingTextBlock.Text = Restaurant.Rating.ToString();
             
             
             InfoRestaurantBtn_Clicked(sender, e);

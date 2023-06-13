@@ -571,7 +571,7 @@
 
                 <!-- Button -->
                 <Button x:Name="EditButton" Content="Sacuvaj"
-                        Grid.Row="11" Grid.ColumnSpan="2" Click="EditTripBtn_Clicked" Style="{StaticResource MainButton}"
+                        Grid.Row="11" Grid.ColumnSpan="2" Click="SaveTripBtn_Clicked" Style="{StaticResource MainButton}"
                         Margin="40" />
 
                 <!--

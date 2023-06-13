@@ -252,75 +252,73 @@ public partial class AddNewTripWindow
     {
         string name = TxtName.Text;
         string description = DescriptionBox.Text;
-
+       
+        if (TxtName.Text.Length > 40)
+        {
+            MessageBox.Show("Naziv je predugačak");
+            return;
+        }
+        
         double price;
         if (!double.TryParse(TxtPrice.Text, out price))
-        {   
-            try
-            {
-                string p = TxtPrice.Text;
-                price = Double.Parse(p);
-            }
-            catch
-            {
-                price = -1;
-                MessageBox.Show("Unesite cenu. Mora biti numericka vrednost.");
-                return;
-            }
-
-
-            ItemCollection attractions = ChosenAccommodationsListBox.Items;
-            ItemCollection accommodations = ChosenAccommodationsListBox.Items;
-            ItemCollection restaurants = ChosenAccommodationsListBox.Items;
-            ItemCollection dataPeriods = DateListBox.Items;
-            ItemCollection Images = ImageList.Items;
-
-            if (attractions == null || accommodations == null || restaurants == null || attractions.Count == 0 ||
-                accommodations.Count == 0 || restaurants.Count == 0 || Images == null || Images.Count == 0)
-            {
-                MessageBox.Show(
-                    "Izaberite atrakcije, smestaje i restorane za ovo putovanje i ubacite bar jednu sliku/");
-                return;
-            }
-
-            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) || price < 0)
-            {
-                MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar jednu sliku.");
-                return;
-            }
-
-            MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da dodate ovao putovanje?",
-                "Potvrda",
-                MessageBoxButton.YesNo);
-            if (result == MessageBoxResult.Yes)
-            {
-                Trip trip = new Trip();
-                Random rand = new Random();
-                trip.Id = rand.Next(10000);
-                trip.Name = name;
-                trip.Price = price;
-                trip.Description = description;
-                trip.Accomodations = accommodations.OfType<Accomodation>().ToList();
-                trip.Attractions = attractions.OfType<Attraction>().ToList();
-                trip.Restaurants = restaurants.OfType<Restaurant>().ToList();
-                trip.DatePeriods = dataPeriods.OfType<DatePeriods>().ToList();
-
-
-                Image image = (Image)Images[0]; // Assuming there is only one image in the list
-                string imagePath = ((BitmapImage)image.Source).UriSource.AbsolutePath;
-                string imageFilename = Path.GetFileName(imagePath);
-                trip.ImgPath = "/Images/Trips/" + imageFilename;
-
-
-                foreach (DatePeriods dp in trip.DatePeriods)
-                {
-                    MainRepository.DatePeriodRepository.AddDatePeriod(dp);
-                }
-
-                MainRepository.TripRepository.AddTrip(trip);
-                Close();
-            }
+        {
+            MessageBox.Show("Unesite cenu. Mora biti numericka vrednost.");
+            return;
         }
+        price = Double.Parse(TxtPrice.Text);
+        
+        ItemCollection attractions = ChosenAccommodationsListBox.Items;
+        ItemCollection accommodations = ChosenAccommodationsListBox.Items;
+        ItemCollection restaurants = ChosenAccommodationsListBox.Items;
+        ItemCollection dataPeriods = DateListBox.Items;
+        ItemCollection Images = ImageList.Items;
+    
+        if (attractions == null || accommodations == null || restaurants == null || attractions.Count == 0 ||
+            accommodations.Count == 0 || restaurants.Count == 0 || Images == null || Images.Count == 0)
+        {
+            MessageBox.Show(
+                "Izaberite atrakcije, smestaje i restorane za ovo putovanje i ubacite bar jednu sliku/");
+            return;
+        }
+
+        if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(description) || price < 0)
+        {
+            MessageBox.Show("Molimo Vas popunite sva polja i ubacite bar jednu sliku.");
+            return;
+        }
+
+        MessageBoxResult result = MessageBox.Show("Da li ste sigurni da zelite da dodate ovao putovanje?",
+            "Potvrda",
+            MessageBoxButton.YesNo);
+        if (result == MessageBoxResult.Yes)
+        {
+            Trip trip = new Trip();
+            Random rand = new Random();
+            trip.Id = rand.Next(10000);
+            trip.Name = name;
+            trip.Price = price;
+            trip.Description = description;
+            trip.Accomodations = accommodations.OfType<Accomodation>().ToList();
+            trip.Attractions = attractions.OfType<Attraction>().ToList();
+            trip.Restaurants = restaurants.OfType<Restaurant>().ToList();
+            trip.DatePeriods = dataPeriods.OfType<DatePeriods>().ToList();
+
+
+            Image image = (Image)Images[0]; // Assuming there is only one image in the list
+            string imagePath = ((BitmapImage)image.Source).UriSource.AbsolutePath;
+            string imageFilename = Path.GetFileName(imagePath);
+            trip.ImgPath = "/Images/Trips/" + imageFilename;
+
+
+            foreach (DatePeriods dp in trip.DatePeriods)
+            {
+                MainRepository.DatePeriodRepository.AddDatePeriod(dp);
+            }
+
+            MainRepository.TripRepository.AddTrip(trip);
+            Close();
+        }
+       
 
     }
 
